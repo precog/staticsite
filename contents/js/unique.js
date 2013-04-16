@@ -489,12 +489,6 @@ $(document).ready(function(){
                   var userNewPassword = $("#new-password-confirm").val();
                   
                   if (userPassword == userNewPassword) {
-                        console.log(userEmail);
-                        console.log(userName);
-                        console.log(userCompany);
-                        console.log(userTitle);
-                        console.log(userPassword);
-                        console.log(userNewPassword);
                         
                         $.getScript("/js/precog.js", function(){
                               findAccount(userEmail,
@@ -504,20 +498,19 @@ $(document).ready(function(){
                                                 $("#precog-form-create-account").append("<div id='form-error'><p class='error-font'>We found a previous account under your e-mail address. Please attempt to login or reset your password.</p></div>").find("#form-error").delay(2000).fadeOut(500);
                                           }
                                     }, function(){
+                                          Precog.$.Config.analyticsService = "https://beta.precog.com/";
                                           //CREATE NEW ACCOUNT
                                           Precog.createAccount(userEmail, userPassword, function(data){
                                                 var accountDetail = data;
-                                                console.log(accountDetail);
                                                 
                                                 Precog.describeAccount(userEmail, userPassword, accountDetail.accountId, function(data){
                                                       var additionalAccountDetails = data;
-                                                      var serviceUrl = "https://beta.precog.com/"
                                                       
                                                       sessionStorage.setItem('PrecogAccount_Email', userEmail);
                                                       sessionStorage.setItem('PrecogAccount_Name', userName);
                                                       sessionStorage.setItem('PrecogAccount_Company', userCompany);
                                                       sessionStorage.setItem('PrecogAccount_ApiKey', additionalAccountDetails.apiKey);
-                                                      sessionStorage.setItem('PrecogAccount_AnalyticsService', serviceUrl);
+                                                      sessionStorage.setItem('PrecogAccount_AnalyticsService', Precog.$.Config.analyticsService);
                                                       sessionStorage.setItem('PrecogAccount_BasePath', additionalAccountDetails.rootPath);
                                                       sessionStorage.setItem('PrecogAccount_Login', 'Logged In');
                                                       
@@ -526,10 +519,10 @@ $(document).ready(function(){
                                           }, function(e){
                                                 console.log(e);
                                           }, {
-                                          "profile" : {
-                                                name : userName,
-                                                title : userTitle,
-                                                company : userCompany
+                                                "profile" : {
+                                                      name : userName,
+                                                      title : userTitle,
+                                                      company : userCompany
                                                 }
                                           });
                                     }
