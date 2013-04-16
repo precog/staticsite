@@ -22,6 +22,7 @@ $(document).ready(function(){
             sessionStorage.removeItem('PrecogAccount_Login');
             
             window.location = "http://www.precog.com";
+            $(this).html("Login").attr("href", "/account/login/").removeClass("log-out-link");
             
       });
       
@@ -403,6 +404,7 @@ $(document).ready(function(){
       
             function findAccount(userEmail, successForAnalyticsService, failure){
                   var AnalyticsServices = [
+                        "https://beta-b.precog.com/",
                         "https://nebula.precog.com/",
                         "https://beta.precog.com/"
                   ];
@@ -431,6 +433,8 @@ $(document).ready(function(){
             }
       
             $("#precog-form-login").submit(function(e){
+                  $("#form-error").remove();
+                  
                   var userEmail = $("#login-email").val();
                   var userPassword = $("#login-password").val();
                   
@@ -475,6 +479,8 @@ $(document).ready(function(){
             });
             
             $("#precog-form-create-account").submit(function(e){
+                  $("#form-error").remove();
+                  
                   var userEmail = $("#user-email").val();
                   var userName = $("#login-name").val();
                   var userCompany = $("#login-company").val();
@@ -619,6 +625,7 @@ $(document).ready(function(){
                               contentType : "application/json",
                               data: JSON.stringify(data),
                               success: success,
+                              dataType: "text"
                         });
                       
                   } else {
