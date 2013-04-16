@@ -1,0 +1,81 @@
+extends layout-alt
+
+block prepend title
+  | #{ page.title } - 
+
+block content
+
+  .holder
+    h1.page-title= page.title
+    .two-columns
+      include author
+      //- underscore helps us filter and sort our articles
+      - var articles = _.chain(contents.blog._.directories).map(function(item) {
+      -   // map articles to index pages of subdirectories of 'articles'
+      -   return item.index
+      - }).compact().sortBy(function(item) { // compact removes any directories w/o an index
+      -   // sort them by date
+      -   return -item.date
+      - }).first(5).value() // and finally take the first 5
+      each article in articles
+        article.blog-item
+          header
+            h2= article.title
+              // a(href=article.url)= article.title
+            h3
+              mixin author(article.metadata.author)
+          section.content!= article.intro
+          if article.hasMore
+            p.read-more
+              a(href=article.url) read more
+    .two-columns-end
+      #search-box
+        script
+            (function() {
+            var cx = '003680236759071960566:ndkabiha72u';
+            var gcse = document.createElement('script');
+            gcse.type = 'text/javascript';
+            gcse.async = true;
+            gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+            '//www.google.com/cse/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(gcse, s);
+            })();
+        gcse:search
+      .dark-background
+        h2 Recent Posts
+          include author
+          - var articles = _.chain(contents.blog._.directories).map(function(item) {
+          -   return item.index
+          - }).compact().sortBy(function(item) { // compact removes any directories w/o an index
+          -   return -item.date
+          - }).first(5).value() // and finally take the first 5
+        each article in articles
+          article.blog-short-item
+            a(href=article.url)= article.title
+        h2 Blog Archive
+        != page.html
+        - var archive = _.chain(contents.blog._.directories).map(function(item) {
+        -   return item.index
+        - }).compact().sortBy(function(item) {
+        -   return -item.date
+        - }).groupBy(function(item) {
+        -   return item.date.getFullYear()
+        - }).value()
+        - var map = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+      
+        section.archive
+          ul
+            each year in _.chain(archive).keys().reverse().value()
+              li.year= year
+              - var months = _.groupBy(archive[year], function(item) { return map[item.date.getMonth()] })
+              ul
+                each articles, month in months
+                  li
+                    strong= month
+                    each article in articles
+                      br
+                      a(href=article.url)= article.title
+
+
+    .clear-left

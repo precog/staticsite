@@ -1,0 +1,9 @@
+{
+  "locals": {
+    "url": "http://localhost:8080",
+    "name": "Precog",
+    "owner": "ReportGrid Inc",
+    "description": "Precog Big Data Analytics",
+    "index_articles": 3
+  }
+}

@@ -1,0 +1,559 @@
+body {
+        background-color: #fff;
+}
+
+* {
+        position: relative;
+        padding: 0px;
+        margin: 0px;
+        font-family: helvetica, sans-serif;
+        text-decoration: none;
+}
+
+.holder {
+    width: 1000px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.clear-left {
+        clear: left;
+}
+
+.margin-zero {
+     margin-right: 0% !important;
+}
+
+a {
+        color: #9B0067;
+}
+
+/*HEADER SECTION*/
+#background-header {
+    background-color: #fff;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+#background-header {
+    height: 40px;
+}
+
+#background-header #logo {
+    position: absolute;
+    top: -14px;
+    left: -18px;
+    width: 158px;
+    height: 62px;
+    background: url("../images/graphic-logo-mini.svg") no-repeat center left;
+}
+
+/*HEADER MENU*/
+#background-header #menu {
+    position: absolute;
+    top: 6px;
+    right: 0px;
+}
+
+#background-header #menu ul {
+    list-style-type: none;
+}
+
+#background-header #menu li{
+    float:left;
+    margin-left: 12px;
+}
+
+#background-header #menu li a {
+    color: #990066;
+    font-size:8pt;
+    font-family: arial, sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 30px;
+    padding: 8px;
+    border-radius: 3px;
+}
+
+#background-header #menu li:last-child a {
+    color: #FFFFFF;
+    background-color: #990066;
+}
+
+#background-header #menu li a:hover {
+    color: #666666;
+    -webkit-box-shadow: inset 0px 0px 2px 2px #CCCCCC;
+    box-shadow: inset 0px 0px 2px 2px #CCCCCC;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ffffff 0%, #e0e0e0 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e0e0e0)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#e0e0e0 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#e0e0e0 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#e0e0e0 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #ffffff 0%,#e0e0e0 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e0e0e0',GradientType=0 ); /* IE6-9 */   
+}
+
+/*LOGIN MENU*/
+#background-header #login-menu {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+#background-header #login-menu ul {
+    list-style-type: none;
+}
+
+#background-header #login-menu li a {
+    background-color: #e6e6e6;
+    padding: 3px 10px 6px 10px;
+}
+
+/*CALLOUT*/
+#header-callout {
+    position: absolute;
+    top: 24px;
+    right: 54px;
+    background-color: #f2f2f2;
+    width: 200px;
+    height: 40px;
+    padding: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border: 1px solid #000;
+}
+
+/*BODY SECTION*/
+#background-body {
+    background-color: #f2f2f2;
+    height: 820px;
+    border-bottom: 1px solid #000;
+}
+
+#info-bubble {
+        position: absolute;
+        right: -50px;
+        top: 30px;
+        padding: 10px;
+        width: 150px;
+        border-radius: 10px;
+        cursor: pointer;
+        background: rgba(255, 255, 255, 1.0);
+        z-index: 1;
+}
+
+#info-bubble p {
+        display: block;
+        font-size: 7pt;
+        text-align: center;
+        width: 100%;
+}
+
+#info-bubble a {
+        display: block;
+        font-size: 11pt;
+        text-align: center;
+        width: 100%;
+        padding-top: 10px;
+}
+
+#background-body #body-menu {
+    position: absolute;
+    top: 140px;
+    left: 0px;
+    width: 1000px;
+    z-index: 1;
+}
+
+#background-body #body-menu ul {
+    list-style-type: none;
+}
+
+#background-body #body-menu ul li{
+    float:left;
+    width: 333px;
+    height: 60px;
+    text-align: center;
+}
+
+#background-body #body-menu ul li a {
+    display: block;
+    color: #3B0301;
+    font-size: 16pt;
+    font-family: arial, sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 60px;
+    width: 100%;
+    height: 100%;
+    background-color: #980A0F;
+    text-shadow: 0px 2px 0px #B80E0C;
+}
+
+#background-body #body-menu ul li .active {
+    background-color: #cd0c13;
+    color: #f2f2f2;
+    text-shadow: none;
+}
+
+
+#background-body #body-menu ul li:nth-child(1) a {
+    border-bottom-left-radius: 3px;
+}
+
+#background-body #body-menu ul li:nth-child(3) a {
+    border-bottom-right-radius: 3px;
+}
+
+#background-body #body-menu ul li a:hover {
+    background-color: #B30604;
+}
+
+/*SLIDER ARROWS*/
+#body-slide-left {
+        cursor: pointer;
+        position: absolute;
+        top: 140px;
+        left: -200px;
+        width: 200px;
+        height: 680px;
+        background-color: rgba(242, 242, 242, 1.0);
+}
+
+.left-arrow-activated {
+        background-image: url("../images/graphic-arrow-left.png");
+        background-repeat: no-repeat;
+        background-position: right 335px;
+}
+
+#body-slide-right {
+        cursor: pointer;
+        position: absolute;
+        top: 140px;
+        right: -200px;
+        width: 200px;
+        height: 680px;
+        background-color: rgba(242, 242, 242, 1.0);
+}
+
+.right-arrow-activated {
+        background-image: url("../images/graphic-arrow-right.png");
+        background-repeat: no-repeat;
+        background-position: left 335px;
+}
+
+/*SLIDER*/
+#slider-header {
+        height: 100px;
+}
+
+#background-body #client-logo-holder{
+        position: absolute;
+        width: 100%;
+        height: 140px;
+        top: 0px;
+        left: 0px;
+        box-shadow: inset 0 0 30px 0 rgba(0, 0, 0, .5);
+        background-color: #980A0F;
+        background-image: -moz-radial-gradient(top center, ellipse farthest-side, #E5272D, rgba(229, 39, 45, 0));
+        background-image: -ms-radial-gradient(top center, ellipse farthest-side, #E5272D, rgba(229, 39, 45, 0));
+        background-image: -o-radial-gradient(top center, ellipse farthest-side, #E5272D, rgba(229, 39, 45, 0));
+        background-image: -webkit-radial-gradient(top center, ellipse farthest-side, #E5272D, rgba(229, 39, 45, 0));
+        background-image: radial-gradient(top center, ellipse farthest-side, #E5272D, rgba(229, 39, 45, 0));
+}
+
+#background-body #client-logo{
+        top: 34px;
+        width: 287px;
+        height: 68px;
+        display: block;
+        background-image: url("http://fullcontact-static.s3.amazonaws.com/images/website/fc-logo-white.svg");
+        background-repeat: no-repeat;
+        left: 356px;
+}
+#holder-window {
+        display: block;
+        width: 1000px;
+        overflow: hidden;
+        height: 1000px;
+}
+
+#holder-slider {
+        display: block;
+        margin-top: 140px;
+        width: 3000px;
+        left: -1000px;
+}
+
+#holder-slider .slider-pane {
+        float: left;
+        width: 1000px;
+        margin-bottom: 60px;
+}
+
+
+#holder-slider .slider-pane:nth-child(3) h3{
+        top: 42px;
+        font-size: 18px;
+        position: absolute;
+        letter-spacing: 1px;
+        color: #666666;
+        left: 750px;
+}
+
+/*METRICS*/
+#background-body #key-metrics {
+        list-style-type: none;
+        padding-bottom: 60px;
+        height: 120px;
+}
+
+#background-body #key-metrics li {
+        float: left;
+        width: 20%;
+        height: 104px;
+        margin-bottom: 35px;
+        text-align: center;
+        background-position: center;
+        background-repeat: no-repeat;
+}
+
+#background-body #key-metrics li.first-panel {
+        width: 333px !important;
+}
+
+#background-body #key-metrics h4 {
+        color: #666;
+        font-size: 10pt;
+}
+
+#background-body #key-metrics p {
+        font-family: arial;
+        font-size: 40pt;
+        font-weight: 300;
+        letter-spacing: 2px;
+        color: #5FA5C9;
+        height: 80px;
+        line-height: 80px;
+}
+
+#background-body #key-metrics #totalTweets h4, #background-body #key-metrics #totalRetweets h4, #background-body #key-metrics #recentSentiment h4 {
+        line-height: 14px !important;
+}
+
+#background-body #key-metrics #totalTweets, #background-body #key-metrics #totalRetweets, #background-body #key-metrics #recentSentiment {
+        font-family: arial;
+        font-size: 40pt;
+        font-weight: 300;
+        letter-spacing: 2px;
+        color: #5FA5C9;
+        height: 80px;
+        line-height: 80px;
+}
+
+#background-body #key-metrics #busiestDay p {
+        font-size: 12pt;
+}
+
+p.small-text {
+        font-size: 13pt !important;
+}
+
+
+#background-body #key-metrics p.mini {
+        font-size: 8pt !important;
+        color: #666 !important;
+        line-height: 14pt !important;
+        letter-spacing: 0px !important;
+}
+#background-body #key-metrics #trending p.mini {
+        top: 80px;
+}
+
+.positive {
+        background-image: url("../images/graphic-p.png");
+}
+
+.massively-positive {
+        background-image: url("../images/graphic-mp.png");
+}
+
+.negative {
+        background-image: url("../images/graphic-mn.png");
+}
+
+.massively-negative {
+        background-image: url("../images/graphic-n.png");
+}
+
+.insufficient {
+        background-image: url("../images/graphic-ii.png");
+}
+
+/*CHARTS*/
+
+.spinner {
+        background-image: url("../images/ajax-loader.gif");
+        background-repeat: no-repeat;
+        background-position: center;  
+}
+
+.charts {
+        cursor: pointer;
+}
+
+#background-body h3{
+        top: -34px;
+        font-size: 18px;
+        position: absolute;
+        letter-spacing: 1px;
+        
+}
+
+#background-body #chart1 h3{
+       left: 35%;
+}
+#background-body #chart2 h3{
+       left: 35%;
+}
+#background-body #chart3 h3{
+       left: 30%;
+}
+#background-body #chart4 h3{
+        left: 35%;
+}
+#background-body #chart5 h3{
+        left: 200px;
+        top: -48px;
+}
+
+#background-body #chart1 {
+        top: 200px;
+        position: absolute;
+}
+#background-body #chart2 {
+        top: 200px;
+        left: 525px;
+        position: absolute;
+}
+
+#background-body #chart3 {
+        left: 0px;
+        top: 200px;
+        position: absolute;
+}
+
+.rg .label text.outline {
+    stroke: none !important;
+
+}
+
+#background-body  #chart4 {
+        top: 200px;
+        position: absolute;
+        left: 375px;
+}
+
+#chart3.rg .label text{
+        font-size: 135%;        
+}
+
+
+#background-body  #chart5 {
+        left: 0px;
+        top: 90px;
+        width: 700px;
+        height: 400px;
+        position: absolute;
+         
+        
+}
+#background-body  #chart6 {
+        left: 750px;
+        top: 90px;
+        width: 200px;
+        position: absolute;
+        
+}
+
+/*HEADLINE*/
+#body-headline {
+    height: 320px;
+}
+
+#body-headline .headline-left {
+    float: left;
+    width: 70%;
+    padding-right: 5%;
+}
+
+#body-headline .headline-right {
+    float: left;
+    width: 25%;
+}
+
+/*FOOTER SECTION*/
+#background-footer {
+    border-top: 4px solid #BC00BC;
+    padding-bottom: 40px;
+}
+
+#background-footer #menu {
+    padding-top: 20px;
+}
+
+#background-footer #menu ul {
+    list-style-type: none;
+}
+
+#background-footer #menu ul li {
+    margin-bottom: 6px;
+}
+
+#background-footer #menu ul li a {
+    color: #636363;
+    text-transform: uppercase;
+    font-size: 10px;
+}
+
+#background-footer #menu ul li a:hover {
+    color: #990066;
+}
+
+#background-footer #info {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        padding-top: 20px;
+        text-align: right;
+}
+
+#background-footer #info ul{
+        list-style-type: none;
+}
+
+#background-footer #info ul li {
+        margin-left: 15px;
+        font-size: 11px;
+        color: #636363;
+        margin-bottom: 6px;
+        padding: 4px 0px 4px 0px;
+}
+
+#background-footer #info ul li:nth-child(4) {
+        width: 55px;
+        float: right;
+        padding: 4px 24px 4px 0px;
+        background: url("../images/twitter.png") no-repeat center right;
+}
+
+#background-footer #info ul li:nth-child(5) {
+        width: 100px;
+        float: right;
+        padding: 4px 24px 4px 0px;
+        background: url("../images/facebook.png") no-repeat center right;
+}
+
+
+

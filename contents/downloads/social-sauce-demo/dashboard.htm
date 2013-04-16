@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="utf-8">
+        <title>SocialSauce</title>
+        <link rel="stylesheet" type="text/css" href="css/dashboard.css">
+		<link rel="stylesheet" type="text/css" href="http://api.reportgrid.com/css/rg-charts.css">
+        <link rel="stylesheet" type="text/css" href="http://api.reportgrid.com/css/colors/rg-colors-pubu-7-seqr.css">
+		<script src="http://api.reportgrid.com/js/reportgrid-charts.js?authCode=r59uh0XNfjFqI1M%2ByxJK33KGZ0Mm82UqEme9ShK7g12KlIHBhCZK1rFV7KdOHgZ7GAePArW%2FT4EuOgzCPCbZB%2BAGlqH7I8OeRMwxKJA5lSRO1GTNp5IkXcrS4rKVj0KT3jnc%2Fkc6gJBjzZPBwwX10Xgdg2%2B%2FKI1QnoOCVhDJ8Hg%3D"></script>
+		<script src="https://api.reportgrid.com/js/precog.js?apiKey=9F23DEE0-0DB3-47DB-90FD-CBD2D421C8C0&analyticsService=http://nebula.precog.com/&basePath=/0000000069/"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script src="http://d3js.org/d3.v2.js"></script>
+		<script src="js/d3/d3.layout.cloud.js"></script>
+        <script type="text/javascript" src="js/default.js"></script>
+</head>
+    <body>
+        <div id="background-header">
+            <div class="holder">
+                <div id="logo">
+                    
+                </div>
+                <div id="menu">
+                    <ul>
+                        <li><a href="index.htm">how it works</a></li>
+			<li><a href="index.htm">services</a></li>
+                        <li><a href="index.htm">about</a></li>
+			<li><a href="index.htm">log out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="background-body">
+				<div id=client-logo-holder></div>
+				<div class="holder">
+					<div id="info-bubble">
+						<p>Demo analytics dashboard for:<a href="http://www.fullcontact.com" target="_blank" >@FullContactAPI</a></p>
+					</div>
+					<div id="slider-header">
+						<div id="client-logo"></div>
+						<div id="body-menu">
+							<ul>
+							<li id="link-pane-1"><a href="#">twitter analysis</a></li>
+							<li id="link-pane-2"><a class="active" href="#">at a glance</a></li>
+							<li id="link-pane-3"><a href="#">twitter activity</a></li>
+							</ul>
+						</div>
+					</div>
+					<div id="holder-window">
+						<div id="holder-slider">
+							<div class="slider-pane">
+								<ul id="key-metrics">
+									<li class="first-panel" id="totalSentiment"></li>
+									<li class="first-panel" id="recentSentiment"></li>
+									<li class="first-panel" id="trending"></li>
+								</ul>
+								<div id="chart3" class="charts"><h3>Tweet Categories</h3></div>
+								<div id="chart4" class="charts"><h3>Tweet Concepts</h3></div>
+							</div>
+							<div class="slider-pane">
+								<ul id="key-metrics">
+								
+									<li id="lastMention"></li>
+									<li id="lastOutgoing"></li>
+									<li id="totalTweets"></li>
+									<li id="totalRetweets"></li>
+									<li id="busiestDay"></li>
+									
+								</ul>
+								<div id="chart1" class="charts spinner" ><h3>Mentions by Hour</h3></div>
+								<div id="chart2" class="charts spinner"><h3>Tweets by Day</h3></div>
+							</div>
+							<div class="slider-pane">
+								<h3>Frequent Words</h3>
+								<div id="chart5" class="charts"><h3>Twitter Activity</h3></div>
+								<div id="chart6" class="charts"></div>
+							</div>
+							<div class="clear-left">
+							</div>
+						</div>
+					</div>
+					<div id="body-slide-left" class="left-arrow-activated"></div>
+					<div id="body-slide-right" class="right-arrow-activated"></div>
+				</div>
+        </div>
+          <div id="background-footer">
+            <div class="holder">
+                <div = "image-footer">
+                    
+                </div>
+                <div id="menu">
+                    <ul>
+                        <li><a href="index.htm">how it works</a></li>
+                        <li><a href="index.htm">Services</a></li>
+                        <li><a href="index.htm">about</a></li>
+                    </ul>
+                </div>
+                <div id="info">
+                        <ul>
+                                <li>
+                                        Disclaimer: SocialSauce is not a real company. 
+                                </li>
+								<li>
+									<a href="http://www.fullcontact.com/developer/" target="_blank">FullContact</a>, however is an awesome contact management API company.
+								</li>
+                                 <li>
+                                        socialsauce@willnotreply.com
+                                </li>
+                                <li>
+                                        twitter
+                                </li>
+                                <li>
+                                        facebook
+                                </li>
+                        </ul>
+                </div>
+            </div>
+        </div>
+	<script type="text/javascript">
+		piAId = '18892';
+		piCId = '4031';
+		
+		(function() {
+			function async_load(){
+				var s = document.createElement('script'); s.type = 'text/javascript';
+				s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+				var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+			}
+			if(window.attachEvent) { window.attachEvent('onload', async_load); }
+			else { window.addEventListener('load', async_load, false); }
+		})();
+	</script>
+        <script type="text/javascript">
+
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-33659709-1']);
+                _gaq.push(['_trackPageview']);
+              
+                (function() {
+                  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                })();
+              
+        </script>
+    </body>
+</html>
