@@ -1544,6 +1544,11 @@ g .node .label:last-child {
 /*ACCOUNT PAGE*/
 #precog-account-details #account-name h3, #precog-account-details #account-email h3, #precog-account-details #account-company h3 {
     font-size: 10pt;
+    color: #5AA4CC;
+}
+#precog-account-details #products-links {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 a.product-link-labcoat-account {
