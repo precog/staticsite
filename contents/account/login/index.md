@@ -12,10 +12,10 @@ template: page.jade
             </dt>
                 <dd>
                     <input type="email" id="login-email" name="email">
-                    <a href="#">forgot?</a>
                 </dd>
             <dt>
                 <label for="login-password">Your Password</label>
+                <a id="reset-password" href="#">forgot?</a>
             </dt>
                 <dd>
                     <input type="password" id="login-password" name="password">

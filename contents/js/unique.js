@@ -2,6 +2,26 @@ var currentLocation = window.location.pathname;
 var currentGenLocation = window.location.pathname.substr(0,10);
 
 $(document).ready(function(){
+      var userLoggedIn = sessionStorage.getItem('PrecogAccount_Login');
+      
+      if (userLoggedIn) {
+            $("#login-link").html("Log Out").attr("href", "#").addClass("log-out-link");
+      }
+      
+      $(".log-out-link").click(function(){
+            $(this).html("Login").attr("href", "/account/login/").removeClass("log-out-link");
+            
+            sessionStorage.removeItem('PrecogAccount_Email');
+            sessionStorage.removeItem('PrecogAccount_Name');
+            sessionStorage.removeItem('PrecogAccount_Company');
+            sessionStorage.removeItem('PrecogAccount_ApiKey');
+            sessionStorage.removeItem('PrecogAccount_AnalyticsService');
+            sessionStorage.removeItem('PrecogAccount_BasePath');
+            sessionStorage.removeItem('PrecogAccount_Login');
+            
+            window.location = "http://www.precog.com";
+            
+      });
       
       //PRODUCT PAGES
       if (currentLocation == "/products/precog/" || currentLocation == "/products/reportgrid/" || currentLocation == "/products/labcoat/") {
@@ -372,22 +392,41 @@ $(document).ready(function(){
       
       //LOGIN
       if (currentLocation == "/account/login/") {
-            /*function GetURLParameter(sParam){
-                  var sPageURL = window.location.search.substring(1);
-                  var sURLVariables = sPageURL.split('&');
-                  for (var i = 0; i < sURLVariables.length; i++) 
-                  {
-                        var sParameterName = sURLVariables[i].split('=');
-                        if (sParameterName[0] == sParam) 
-                        {
-                              return sParameterName[1];
+            
+            var userLoggedIn = sessionStorage.getItem('PrecogAccount_Login');
+            
+            if (userLoggedIn) {
+                  window.location = "/account/";
+            }
+      
+            function findAccount(userEmail, successForAnalyticsService, failure){
+                  var AnalyticsServices = [
+                        "https://nebula.precog.com/",
+                        "https://beta.precog.com/"
+                  ];
+                  
+                  var currentAttempt = 0;
+                  
+                  function tryNextAnalyticsService() {
+                        if (currentAttempt < AnalyticsServices.length) {
+                              var analyticsService = AnalyticsServices[currentAttempt];
+                              
+                              currentAttempt = currentAttempt + 1;
+                              
+                              var successCallback = successForAnalyticsService(analyticsService);
+                              
+                              Precog.findAccount(userEmail, successCallback, function(code, details){
+                                    tryNextAnalyticsService();
+                              }, {
+                                    analyticsService : analyticsService
+                              });
+                        } else {
+                              failure();
                         }
                   }
+                  
+                  tryNextAnalyticsService();
             }
-            
-            var precogService = GetURLParameter('service');
-            var precogAccountId = GetURLParameter('accountId');
-            var precogToken = GetURLParameter('token');*/
       
             $("#precog-form-login").submit(function(e){
                   var userEmail = $("#login-email").val();
@@ -396,26 +435,38 @@ $(document).ready(function(){
                   console.log(userEmail);
                   console.log(userPassword);
                   
-                  /*$.getScript("https://github.com/precog/client-libraries/blob/master/precog/js/src/precog.js", function(){
-                        Precog.findAccount(userEmail, function(data){
-                              var accountId = (data);
-                              
-                              Precog.describeAccount(userEmail, userPassword, accountId, function(data){
-                              }, function(){
-                                    console.log(data);
+                  $.getScript("/js/precog.js", function(){
+                        findAccount(userEmail,
+                              function(serviceUrl) {
                                     
-                                    $.cookie('PrecogAccount_Email', userEmail);
-                                    $.cookie('PrecogAccount_ApiKey', userApiKey);
-                                    $.cookie('PrecogAccount_WebService', userWebService);
-                                    $.cookie('PrecogAccount_RootPath', userRootPath);
-                              }, function(){
-                                    alert(e);
-                              });
-                              
-                        }, function(){
-                        
-                        });
-                  });*/
+                                    return function(accountId){
+                                          console.log(serviceUrl);
+                                          Precog.describeAccount(userEmail, userPassword, accountId, function(data){
+                                                console.log(data);
+                                                
+                                                sessionStorage.setItem('PrecogAccount_Email', userEmail);
+                                                sessionStorage.setItem('PrecogAccount_ApiKey', data.apiKey);
+                                                sessionStorage.setItem('PrecogAccount_AnalyticsService', serviceUrl);
+                                                sessionStorage.setItem('PrecogAccount_BasePath', data.rootPath);
+                                                sessionStorage.setItem('PrecogAccount_Login', 'Logged In');
+                                                      
+                                                window.location = "/account/";
+                                                
+                                          }, function(){
+                                                console.log(e);
+                                                $("#precog-form-login").append("<div id='form-error'><p class='error-font'>The password you entered is incorrect. Please retype your password and try again.</p></div>").find("#form-error").delay(2000).fadeOut(500);
+                                                // USER PASSWORD IS WRONG!!! ASK USER TO CORRECT!!!!
+                                          }, {
+                                                analyticsService: serviceUrl
+                                          });
+                                    }
+                              },
+                              function() {
+                                    $("#precog-form-login").append("<div id='form-error'><p class='error-font'>We were unable to find your account, please double check your enter email address.</p></div>").find("#form-error").delay(2000).fadeOut(500);
+                                    // USER HAS NO ACCOUNT ANYWHERE!!! MAYBE EMAIL IS WRONG???
+                              }
+                        );
+                  });
                   
                   e.preventDefault();
                   return false;
@@ -429,7 +480,7 @@ $(document).ready(function(){
                   var userPassword = $("#new-password").val();
                   var userNewPassword = $("#new-password-confirm").val();
                   
-                  /*if (userPassword == userNewPassword) {
+                  if (userPassword == userNewPassword) {
                         console.log(userEmail);
                         console.log(userName);
                         console.log(userCompany);
@@ -437,47 +488,95 @@ $(document).ready(function(){
                         console.log(userPassword);
                         console.log(userNewPassword);
                         
-                        Precog.createAccount(userEmail, userPassword, function(data){
-                              var accountDetail = (data);
-                              
-                              Precog.describeAccount(userEmail, userPassword, accountDetails.id, function(data){
-                                    var additionalAccountDetails = (data);
-                                    
-                                    $.cookie('PrecogAccount_Email', userEmail);
-                                    $.cookie('PrecogAccount_ApiKey', userApiKey);
-                                    $.cookie('PrecogAccount_WebService', userWebService);
-                                    $.cookie('PrecogAccount_RootPath', userRootPath);
-                              });
-                        }, function(e){
-                              alert(e);
+                        $.getScript("/js/precog.js", function(){
+                              findAccount(userEmail,
+                                    function(serviceUrl) {
+                                          return function(accountId){
+                                                //RESET YOUR PASSWORD OR LOGIN
+                                                $("#precog-form-create-account").append("<div id='form-error'><p class='error-font'>We found a previous account under your e-mail address. Please attempt to login or reset your password.</p></div>").find("#form-error").delay(2000).fadeOut(500);
+                                          }
+                                    }, function(){
+                                          //CREATE NEW ACCOUNT
+                                          Precog.createAccount(userEmail, userPassword, function(data){
+                                                var accountDetail = data;
+                                                console.log(accountDetail);
+                                                
+                                                Precog.describeAccount(userEmail, userPassword, accountDetail.accountId, function(data){
+                                                      var additionalAccountDetails = data;
+                                                      var serviceUrl = "https://beta.precog.com/"
+                                                      
+                                                      sessionStorage.setItem('PrecogAccount_Email', userEmail);
+                                                      sessionStorage.setItem('PrecogAccount_Name', userName);
+                                                      sessionStorage.setItem('PrecogAccount_Company', userCompany);
+                                                      sessionStorage.setItem('PrecogAccount_ApiKey', additionalAccountDetails.apiKey);
+                                                      sessionStorage.setItem('PrecogAccount_AnalyticsService', serviceUrl);
+                                                      sessionStorage.setItem('PrecogAccount_BasePath', additionalAccountDetails.rootPath);
+                                                      sessionStorage.setItem('PrecogAccount_Login', 'Logged In');
+                                                      
+                                                      window.location = "/account/"
+                                                });
+                                          }, function(e){
+                                                console.log(e);
+                                          }, {
+                                          "profile" : {
+                                                name : userName,
+                                                title : userTitle,
+                                                company : userCompany
+                                                }
+                                          });
+                                    }
+                              );
                         });
                       
                   } else {
-                        $(".precog-account-form").append("<div id='form-error'><p class='error-font'>The passwords you have entered do not match. Please check your entry and try again.</p></div>").find("#form-error").delay(5000).fadeOut(1000);
-                  }*/
+                        $("#precog-form-create-account").append("<div id='form-error'><p class='error-font'>The passwords you have entered do not match. Please check your entry and try again.</p></div>").find("#form-error").delay(2000).fadeOut(500);
+                  }
                   
                   e.preventDefault();
                   return false;
             });
       
+            $("#reset-password").click(function(e){
+                  e.preventDefault();
+                  
+                  var userEmail = $("#login-email").val();
+                  
+                  if (userEmail) {
+                        $.getScript("/js/precog.js", function(){
+                              Precog.requestResetPassword(userEmail, function(){
+                                    $("#precog-form-login").append("<div id='form-success'><p class='success-font'>A reset link has been sent to your e-mail.</p></div>").find("#form-success").delay(2000).fadeOut(500);
+                              }, function(){
+                                    $("#precog-form-login").append("<div id='form-error'><p class='error-font'>The email address you have entered is not valid. Please try again.</p></div>").find("#form-error").delay(2000).fadeOut(500);
+                              });
+                        });
+                        console.log(userEmail);
+                  } else {
+                        $("#precog-form-login").append("<div id='form-error'><p class='error-font'>Please enter an email address.</p></div>").find("#form-error").delay(2000).fadeOut(500);
+                  }
+            });
       }
       
       /*ACCOUNT-PAGE*/
-      if (currentLocation == "/account/home/") {
-            var userEmail = $.cookie('PrecogAccount_Email');
-            var userApiKey = $.cookie('PrecogAccount_ApiKey');
-            var userWebService = $.cookie('PrecogAccount_WebService');
-            var userRootPath = $.cookie('PrecogAccount_RootPath');
+      if (currentLocation == "/account/") {
+            var userEmail = sessionStorage.getItem('PrecogAccount_Email');
+            var userName = sessionStorage.getItem('PrecogAccount_Name');
+            var userCompany = sessionStorage.getItem('PrecogAccount_Company');
+            var userApiKey = sessionStorage.getItem('PrecogAccount_ApiKey');
+            var userAnalyticsService = sessionStorage.getItem('PrecogAccount_AnalyticsService');
+            var userBasePath = sessionStorage.getItem('PrecogAccount_BasePath');
+            var userLoggedIn = sessionStorage.getItem('PrecogAccount_Login');
             
-            $("#account-email").html(userEmail);
-            $("#account-apikey").html(userApiKey);
-            $("#account-webservice").html(userWebService);
-            $("#account-rootpath").html(userRootPath);
+            if (userLoggedIn) {
+                  $("#account-email h3").html(userEmail);
+                  $("#account-name h3").html(userName);
+                  $("#account-company h3").html(userCompany);
+                  $("#account-apikey").html(userApiKey);
+                  $("#account-analyticsservice").html(userAnalyticsService);
+                  $("#account-basepath").html(userBasePath);      
+            } else {
+                  window.location = "/account/login/";
+            }
             
-            $.removeCookie(userEmail);
-            $.removeCookie(userApiKey);
-            $.removeCookie(userWebService);
-            $.removeCookie(userRootPath);
       }
       
       //RESET PASSWORD
@@ -507,10 +606,8 @@ $(document).ready(function(){
                         var path = "https://" + precogService + "/accounts/v1/accounts/" + precogAccountId + "/password/reset/" + precogToken;
                         var data = {"password": newPassword };
                         
-                        console.log(precogService);
-                        
-                        function success(r){
-                              window.location = "https://labcoat.precog.com/?analyticsService=" + encodeURIComponent("https://" + precogService + "/");
+                        function success(){
+                              window.location = "/account/login/";
                         }
                         
                         $.ajax({
@@ -523,7 +620,7 @@ $(document).ready(function(){
                         });
                       
                   } else {
-                        $(".precog-account-form").append("<div id='form-error'><p class='error-font'>The passwords you have entered do not match. Please check your entry and try again.</p></div>").find("#form-error").delay(5000).fadeOut(1000);
+                        $(".precog-account-form").append("<div id='form-error'><p class='error-font'>The passwords you have entered do not match. Please check your entry and try again.</p></div>").find("#form-error").delay(2000).fadeOut(500);
                   }
                   
                   e.preventDefault();

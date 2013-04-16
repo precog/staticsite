@@ -26,4 +26,5 @@ template: page.jade
 </div>
 <div class="two-columns-end">
 </div>
-<div class="clear-left"></div>
+<div class="clear-left">
+</div>

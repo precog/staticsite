@@ -433,6 +433,16 @@ html {
     width: 46%;
 }
 
+.success-font {
+    color: #5AA4CC !important;
+    font-size: 10pt !important;
+    padding: 2% !important;
+    background-color: #000 !important;
+    border-radius: 6px;
+    margin-top: 20px;
+    width: 46%;
+}
+
 .quote-font {
     font-size: 11pt !important;
     font-style: italic !important;

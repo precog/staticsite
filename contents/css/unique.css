@@ -1535,3 +1535,47 @@ g .node .label:last-child {
     padding-top: 2px;
     padding-bottom: 2px;
 }
+
+/*LOGIN PAGE*/
+#reset-password {
+    font-size: 10pt;
+}
+
+/*ACCOUNT PAGE*/
+#precog-account-details #account-name h3, #precog-account-details #account-email h3, #precog-account-details #account-company h3 {
+    font-size: 10pt;
+}
+
+a.product-link-labcoat-account {
+    width: 100% !important;
+    margin-right: 0% !important;
+    display: block;
+    border: 1px solid #E4A847;
+    border-radius: 6px;
+    outline: none;
+    box-shadow: #000 2px 2px 5px;
+    -webkit-box-shadow: #000 2px 2px 5px;
+    -moz-box-shadow: #000 2px 2px 5px;
+    background-repeat: no-repeat;
+    background: url("/images/logo-dark-labcoat.png") no-repeat center, #ea7c24;
+    background: url("/images/logo-dark-labcoat.png") no-repeat center, -moz-linear-gradient(top,  #ea7c24 0%, #D64327 100%);
+    background: url("/images/logo-dark-labcoat.png") no-repeat center, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ea7c24), color-stop(100%,#D64327));
+    background: url("/images/logo-dark-labcoat.png") no-repeat center, -webkit-linear-gradient(top,  #ea7c24 0%,#D64327 100%);
+    background: url("/images/logo-dark-labcoat.png") no-repeat center, -o-linear-gradient(top,  #ea7c24 0%,#D64327 100%);
+    background: url("/images/logo-dark-labcoat.png") no-repeat center, -ms-linear-gradient(top,  #ea7c24 0%,#D64327 100%);
+    background: url("/images/logo-dark-labcoat.png") no-repeat center, linear-gradient(to bottom,  #ea7c24 0%,#D64327 100%);
+}
+
+a.product-link-labcoat-account:hover {
+    border: 1px solid #FCC068;
+    box-shadow: #000 2px 2px 5px, inset 0 0 30px #000;
+    -webkit-box-shadow: #000 2px 2px 5px, inset 0 0 30px #000;
+    -moz-box-shadow: #000 2px 2px 5px, inset 0 0 30px #000;
+    background: url("/images/logo-dark-labcoat.png") no-repeat center,  #D64327; /* Old browsers */
+    background: url("/images/logo-dark-labcoat.png") no-repeat center,  -moz-linear-gradient(top,  #D17127 0%, #C53C22 100%); /* FF3.6+ */
+    background: url("/images/logo-dark-labcoat.png") no-repeat center,  -webkit-gradient(linear, left top, left bottom, color-stop(0%,#D17127), color-stop(100%,#C53C22)); /* Chrome,Safari4+ */
+    background: url("/images/logo-dark-labcoat.png") no-repeat center,  -webkit-linear-gradient(top,  #D17127 0%,#C53C22 100%); /* Chrome10+,Safari5.1+ */
+    background: url("/images/logo-dark-labcoat.png") no-repeat center,  -o-linear-gradient(top,  #D17127 0%,#C53C22 100%); /* Opera 11.10+ */
+    background: url("/images/logo-dark-labcoat.png") no-repeat center,  -ms-linear-gradient(top,  #D17127 0%,#C53C22 100%); /* IE10+ */
+    background: url("/images/logo-dark-labcoat.png") no-repeat center,  linear-gradient(to bottom,  #D17127 0%,#C53C22 100%); /* W3C */
+}
