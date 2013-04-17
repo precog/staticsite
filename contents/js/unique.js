@@ -3,9 +3,6 @@ var currentGenLocation = window.location.pathname.substr(0,10);
 
 $(document).ready(function(){
       var userLoggedIn = sessionStorage.getItem('PrecogAccount_Login');
-      var userAnalyticsService = sessionStorage.getItem('PrecogAccount_AnalyticsService');
-      
-      Precog.$.Config.analyticsService = userAnalyticsService;
       
       if (userLoggedIn) {
             $("#login-link").html("Log Out").attr("href", "#").addClass("log-out-link");
