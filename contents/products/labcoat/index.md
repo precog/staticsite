@@ -75,7 +75,7 @@ template: page-products.jade
                 </li>
                 <li>
                     <h2>How much does it cost?</h2>
-                    <p>You can try Labcoat Cloud for free in seconds by <a href="http://labcoat.precog.com">signing up here</a>. While in beta, Labcoat Desktop is available for the promotional rate of $99 annually.</p>
+                    <p>You can try Labcoat Cloud for free in seconds by <a href="/account/login/">signing up here</a>. While in beta, Labcoat Desktop is available for the promotional rate of $99 annually.</p>
                 </li>
             </ul>
         </div>
@@ -127,7 +127,7 @@ template: page-products.jade
             </div>
 	</div>
 	<div class="two-columns-end">
-            <a class="red-background medium-button" href="http://labcoat.precog.com">TRY LABCOAT CLOUD FREE!</a>
+            <a class="red-background medium-button" href="/account/login/">TRY LABCOAT CLOUD FREE!</a>
             <div id="body-side-resources">
                 <h2>Editions</h2>
                 <div id="editions">

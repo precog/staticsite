@@ -59,7 +59,7 @@ template: page.jade
     </div>
 </div>
 <div id="dynamic-editions-pricing-buttons">
-    <a class="red-background" href="http://labcoat.precog.com">SIGN UP FREE!</a>
+    <a class="red-background" href="/account/login/">SIGN UP FREE!</a>
     <a class="red-background pop-up-form" href="#">CONTACT US</a>
     <a class="red-background pop-up-form" href="#">CONTACT US</a>
     <a class="red-background pop-up-form" href="#">CONTACT US</a>

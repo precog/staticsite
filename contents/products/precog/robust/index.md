@@ -43,7 +43,7 @@ template: page.jade
         </li>
         <li>
             <h3>Fanatical support.</h3>
-            <p>Have a question about our reliability, our backups, our system architecture, or the software, tools, and languages we use to build and deploy our software? We're here to <a href="/contact/">answer</a> all your questions!</p>
+            <p>Have a question about our reliability, our backups, our system architecture, or the software, tools, and languages we use to build and deploy our software? We're here to <a href="/about/contact-us/">answer</a> all your questions!</p>
         </li>
     </ul>
 <div class="clear-left">

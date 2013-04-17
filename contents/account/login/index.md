@@ -15,10 +15,10 @@ template: page.jade
                 </dd>
             <dt>
                 <label for="login-password">Your Password</label>
-                <a id="reset-password" href="#">forgot?</a>
             </dt>
                 <dd>
                     <input type="password" id="login-password" name="password">
+                    <a id="reset-password" href="#">forgot?</a>
                 </dd>
         </dl>
         <input class="button small-button red-background" type="submit" value="Login">

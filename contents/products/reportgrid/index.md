@@ -112,7 +112,7 @@ template: page-products.jade
             </div>
 	</div>
 	<div class="two-columns-end">
-            <a class="red-background medium-button" href="http://labcoat.precog.com">TRY REPORTGRID CLOUD FREE!</a>
+            <a class="red-background medium-button" href="/account/login/">TRY REPORTGRID CLOUD FREE!</a>
             <div id="body-side-resources">
                 <h2>Editions</h2>
                 <div id="editions">

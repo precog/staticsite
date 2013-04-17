@@ -86,7 +86,7 @@ template: page.jade
             <p>Learn more about ReportGrid, the data visualization application that makes it easy to visualize data.</p>
         </div>
         <div class="four-columns">
-            <a class="medium-button red-background" href="/create/" target="_blank">SIGN UP</a>
+            <a class="medium-button red-background" href="/account/login/" target="_blank">SIGN UP</a>
             <p>Get started right now by signing up for a free Precog account!</p>
         </div>
     </div>

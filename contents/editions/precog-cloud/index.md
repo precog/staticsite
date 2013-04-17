@@ -21,7 +21,7 @@ template: page.jade
         <h2>Other Editions</h2>
         <div id="editions">
             <a class="active" href="/editions/precog-cloud/">Precog Cloud</a>
-            <a href="/editions/precog-on-premise/">Precog On-Premise</a>
+            <a href="/editions/precog-enterprise/">Precog Enterprise</a>
             <a href="/editions/precog-for-mongodb/">Precog for MongoDB</a>
             <a href="/editions/precog-for-postgresql/">Precog for PostgreSQL</a>
         </div>
@@ -97,7 +97,7 @@ template: page.jade
     </div>
 </div>
 <div id="dynamic-editions-pricing-buttons">
-    <a class="red-background" href="http://labcoat.precog.com">SIGN UP FREE!</a>
+    <a class="red-background" href="/account/login/">SIGN UP FREE!</a>
     <a class="red-background pop-up-form" href="#">CONTACT US</a>
     <a class="red-background pop-up-form" href="#">CONTACT US</a>
     <a class="red-background pop-up-form" href="#">CONTACT US</a>
