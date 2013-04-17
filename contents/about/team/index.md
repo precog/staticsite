@@ -52,8 +52,8 @@ template: page.jade
         <p>Jeff Carr COO Jeff has been passionate about great technology for over 25 years while developing expertise in Business Development, market assessment, strategy and operations. For the past 11 years he has focused exclusively on early stage companies in markets including network security (Vericept,CipherTrust), VOIP (Borderware SIPassure), and Big Data (Precog). The energy and entrepreneurial spirit of startups is what drives him. In his role COO he focuses on go to market strategy and execution, operations and helping build a culture of success.</p>
         <p>Jeff's other passions are making great wines and building the community better through technology education.</p>
         <ul>
-            <li>In 2000 he founded the award winning and critically acclaimed <a href="/www.garfieldestates.com">Garfield Estates Vineyard &amp; Winery</a> located in Palisade, CO.</li>
-            <li>In 2009 he joined the Board of <a href="/www.kidstek.org">KidsTek</a>, a highly successful non-profit providing technology education to underprivileged kids in the public school systems.</li>
+            <li>In 2000 he founded the award winning and critically acclaimed <a href="http://www.garfieldestates.com">Garfield Estates Vineyard &amp; Winery</a> located in Palisade, CO.</li>
+            <li>In 2009 he joined the Board of <a href="http://www.kidstek.org">KidsTek</a>, a highly successful non-profit providing technology education to underprivileged kids in the public school systems.</li>
         </ul>
     </div>
     <div class="bio-right">
