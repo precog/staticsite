@@ -419,7 +419,6 @@ $(document).ready(function(){
       
             function findAccount(userEmail, successForAnalyticsService, failure){
                   var AnalyticsServices = [
-                        "https://beta-b.precog.com/",
                         "https://nebula.precog.com/",
                         "https://beta.precog.com/"
                   ];
