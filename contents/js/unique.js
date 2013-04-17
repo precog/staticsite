@@ -488,7 +488,7 @@ $(document).ready(function(){
                               $("#precog-form-create-account").append("<div id='form-error'><p class='error-font'>Your name must be at least 4 characters. Please re-enter your name.</p></div>").find("#form-error").delay(2000).fadeOut(500);
                         } else if (userCompany.length < 3) {
                               $("#precog-form-create-account").append("<div id='form-error'><p class='error-font'>Your company must be at least 4 characters. Please re-enter your company.</p></div>").find("#form-error").delay(2000).fadeOut(500);
-                        } else if (userTitle.length < 1) {
+                        } else if (userTitle == "") {
                               $("#precog-form-create-account").append("<div id='form-error'><p class='error-font'>The title field is empty. Please re-enter your title.</p></div>").find("#form-error").delay(2000).fadeOut(500);
                         } else if (userPassword.length < 6 ) {
                               $("#precog-form-create-account").append("<div id='form-error'><p class='error-font'></p>Your password must be at least 6 characters. Please re-enter your password.</div>").find("#form-error").delay(2000).fadeOut(500);
