@@ -599,6 +599,9 @@ $(document).ready(function(){
                   window.location = "/account/login/";
             }
             
+            var labcoatLink = ("https://labcoat.precog.com/?apiKey=" + userApiKey + "&basePath=/" + userBasePath + "/&analyticsService=" + userAnalyticsService);
+            
+            $(".product-link-labcoat").attr("href", labcoatLink);
       }
       
       //RESET PASSWORD
