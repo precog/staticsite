@@ -34,8 +34,8 @@ $(document).ready(function(){
             });
             
             $("#menu-dropdown").mouseenter(function(){
-            $("#head-usecase-menu li a").css({
-                  display: 'block'
+                  $("#head-usecase-menu li a").css({
+                        display: 'block'
                   });
             });
             

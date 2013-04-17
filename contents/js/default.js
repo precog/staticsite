@@ -3,40 +3,6 @@ var currentLocation = window.location.pathname;
 jQuery(document).ready(function(){
       //HOME JQUERY
       /*ANIMATION FUNCTIONS FOR PANELS*/
-      var currentPanel = 1
-      var continueAnim = 0
-      
-      function animatePanels(){
-            
-            var numItems = jQuery(".sliding-panel").length;
-            
-            if (currentPanel == 1) {
-                  jQuery(".active").removeClass("active").next(".sliding-panel").addClass("active")
-                  currentPanel++
-            } else if (currentPanel == numItems) {
-                  jQuery(".active").removeClass("active").prev(".sliding-panel").addClass("active")
-                  currentPanel--
-            }
-      }
-
-      window.setInterval(function(){
-            if (continueAnim == 0) {
-                  animatePanels();      
-            }
-      }, 20000);
-      
-      jQuery("#data-science .panel-image").mouseenter(function(){
-            continueAnim++
-            
-            }).mouseleave(function(){
-                  jQuery("#chart-text .text-rocket").css({
-                        color: "#808080"
-                  });
-                  jQuery("#content-usecases .tool-tip").animate({
-                        opacity: 0.0
-                  }, { queue: false, duration: 1 });
-      });
-      
       jQuery("#section-usecase-menu a").mouseenter(function(){
             var linkVal = jQuery(this).html();
             var activePanel = linkVal.replace(/\s+/g, '-').toLowerCase();
@@ -44,7 +10,6 @@ jQuery(document).ready(function(){
             jQuery(".sliding-panel").removeClass("active");
             jQuery("#" + activePanel).addClass("active");
             
-            continueAnim++
       });
       
       
