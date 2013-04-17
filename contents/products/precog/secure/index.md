@@ -35,7 +35,7 @@ template: page.jade
         </li>
         <li>
             <h3>Fanatical support.</h3>
-            <p>Have a question about our encryption techniques, our backups, our security model, our system architecture, or the software, tools, and languages we use to build and deploy our software? We're here to all <a href="/contact-us/">answer</a> your questions!</p>
+            <p>Have a question about our encryption techniques, our backups, our security model, our system architecture, or the software, tools, and languages we use to build and deploy our software? We're here to all <a href="/about/contact-us/">answer</a> your questions!</p>
         </li>
     </ul>
 <div class="clear-left">

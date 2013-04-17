@@ -73,7 +73,7 @@ template: page-products.jade
                 </li>
                 <li>
                     <h2>How much does it cost?</h2>
-                    <p>Precog Cloud has a free plan you can sign up for in <a href="http://labcoat.precog.com">30 seconds</a>. If you want to deploy an app on Precog while were in our beta, please <a href="/about/contact-us/">contact us</a> for special pricing.</p>
+                    <p>Precog Cloud has a free plan you can sign up for in <a href="/account/login/">30 seconds</a>. If you want to deploy an app on Precog while were in our beta, please <a href="/about/contact-us/">contact us</a> for special pricing.</p>
                 </li>
             </ul>
         </div>
@@ -220,7 +220,7 @@ template: page-products.jade
             </div>
         </div>
         <div class="two-columns-end">
-            <a class="red-background medium-button" href="http://labcoat.precog.com">TRY PRECOG CLOUD FREE!</a>
+            <a class="red-background medium-button" href="/account/login/">TRY PRECOG CLOUD FREE!</a>
             <div id="body-side-resources">
                 <h2>Editions</h2>
                 <div id="editions">

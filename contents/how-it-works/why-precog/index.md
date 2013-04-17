@@ -16,7 +16,7 @@ template: page.jade
     <p>Precog's customers include FlixMaster, SnapEngage, ThinkNear, and many others.</p>
     <h2>Why choose Precog?</h2>
     <p>Precog gives you a tremendous edge in building data driven products and creating value from your data assets. You get all the power you need to make intelligent, insightful apps, without having to pay the cost in blood, sweat, and tears - and you get it for a fraction of the time and money it would take you to build in-house.</p>
-    <p>Our platform is 100% free to try, we don't have any long-term commitments, and you can migrate your data off our platform at any time for no charge. So why not <a href="/create/>give Precog a try today?</a></p>
+    <p>Our platform is 100% free to try, we don't have any long-term commitments, and you can migrate your data off our platform at any time for no charge. So why not <a href="/account/login/">give Precog a try today?</a></p>
 </div>
 <div class="two-columns-end">
     <div class="dark-background">

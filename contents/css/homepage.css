@@ -597,6 +597,7 @@ p a, a:visited {
     border-radius: 30px;
     background-color: #282E33;
     border: 1px solid #282E33;
+    list-style-type: none;
 }
 
 #section-comparison ul li:hover {
