@@ -13,16 +13,8 @@ template: page.jade
             </div>
         </div>
         <h2>General Account Information</h2>
-        <h3>Name</h3>
-        <div id="account-name" class="dark-background">
-            <h3></h3>
-        </div>
         <h3>Email</h3>
         <div id="account-email" class="dark-background">
-            <h3></h3>
-        </div>
-        <h3>Company</h3>
-        <div id="account-company" class="dark-background">
             <h3></h3>
         </div>
         <h2>api key</h2>
