@@ -206,8 +206,8 @@ template: page-products.jade
                     </li>
                 </ul>
                 <p>These limitations will be lifted when Precog emerges from beta.</p>
-                <h3>Does Precog provide an on-premise solution?</h3>
-                <p>Precog is still in beta, but please contact us if you are interested in an on-premise solution.</p>
+                <h3>Does Precog provide an on-premises solution?</h3>
+                <p>Precog is still in beta, but please contact us if you are interested in an on-premises solution.</p>
                 <h3>How do ReportGrid and Labcoat relate to Precog?</h3>
                 <p>ReportGrid is an HTML5 visualization engine that connects to Precog. ReportGrid can be used to interactively or programmatically build charts and reports. Many customers use ReportGrid and Precog to deploy self-service reporting inside their applications.</p>
                 <p>Labcoat is an HTML5 app built on the Precog API that makes it easy to integrate and analyze data. Labcoat has built-in help, syntax highlighting, and data management. Many developers use Labcoat to analyze data, then export the analysis as code that runs inside their applications.</p>

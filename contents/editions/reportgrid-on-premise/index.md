@@ -1,4 +1,4 @@
-title: ReportGrid On-Premise
+title: ReportGrid On-Premises
 author: Matthew De Goes
 date: 2013-03-26 12:20
 template: page.jade
@@ -8,9 +8,9 @@ template: page.jade
 </div>
 <div class="two-columns">
     <h2>ReportGrid in your own backyard.</h2>
-    <p>Love the awesome power of ReportGrid, but need to deploy it on-premise, either in your own company, or in the companies of some of your customers? Don't worry, we can bundle ReportGrid into an on-premise edition you can deploy anywhere. Just fill out the form below!</p>
+    <p>Love the awesome power of ReportGrid, but need to deploy it on-premises, either in your own company, or in the companies of some of your customers? Don't worry, we can bundle ReportGrid into an on-premise edition you can deploy anywhere. Just fill out the form below!</p>
     <h1>LEARN MORE</h1>
-    <p>Want ReportGrid On-Premise? Contact us and we'll send you more details.</p>
+    <p>Want ReportGrid On-Premises? Contact us and we'll send you more details.</p>
     <div class="form-iframe-half">
         <iframe src="http://www2.precog.com/l/17892/2013-02-21/715n2"></iframe>
     </div>
@@ -21,7 +21,7 @@ template: page.jade
         <h2>Other Editions</h2>
         <div id="editions">
             <a href="/editions/reportgrid-cloud/">ReportGrid Cloud</a>
-            <a class="active" href="/editions/reportgrid-on-premise/">ReportGrid On-Premise</a>
+            <a class="active" href="/editions/reportgrid-on-premise/">ReportGrid On-Premises</a>
             <a href="/editions/reportgrid-api/">ReportGrid API</a>
         </div>
     </div>

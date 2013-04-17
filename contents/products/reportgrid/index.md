@@ -73,7 +73,7 @@ template: page-products.jade
             <div id="advanced-editions-box">
                 <a id="1" href="/editions/reportgrid-cloud/" class="edition-box cloud-edition"></a>
                 <a id="2" href="/editions/reportgrid-api/" class="edition-box api-edition"></a>
-                <a id="3" href="/editions/reportgrid-on-premise/" class="edition-box onpremise-edition active"></a>
+                <a id="3" href="/editions/reportgrid-on-premises/" class="edition-box onpremise-edition active"></a>
                 <div class="box-text 1">
                     <p>ReportGrid Cloud lets you have the full power of ReportGrid without having to install or maintain your own infrastructure.</p>
                 </div>
@@ -81,7 +81,7 @@ template: page-products.jade
                     <p>ReportGrid API is a feature-packed, easy-to-use JavaScript API for building stunning charts and interactive reporting dashboards.</p>
                 </div>
                 <div class="box-text 3">
-                    <p>ReportGrid On-Premise lets you package up ReportGrid and ReportGrid API into on-premise deployments.</p>
+                    <p>ReportGrid On-Premises lets you package up ReportGrid and ReportGrid API into on-premises deployments.</p>
                 </div>
             </div>
             <div class="clear-left">
@@ -117,7 +117,7 @@ template: page-products.jade
                 <h2>Editions</h2>
                 <div id="editions">
                     <a href="/editions/reportgrid-cloud/">ReportGrid Cloud</a>
-                    <a href="/editions/reportgrid-on-premise/">ReportGrid On-Premise</a>
+                    <a href="/editions/reportgrid-on-premise/">ReportGrid On-Premises</a>
                     <a href="/editions/reportgrid-api/">ReportGrid API</a>
                 </div>
                 <h2>Contact Us!</h2>
