@@ -396,11 +396,26 @@ $(document).ready(function(){
       //LOGIN
       if (currentLocation == "/account/login/") {
             
+            //REDIRECT IF LOGGED IN
             var userLoggedIn = sessionStorage.getItem('PrecogAccount_Login');
             
             if (userLoggedIn) {
                   window.location = "/account/";
             }
+            
+            //TEXT-TYPING TRANSFER
+            $("#login-email").keyup(function(){
+                  var emailValue = $(this).val();
+                  
+                  $("#user-email").val(emailValue);
+            });
+            
+            $("#login-password").keyup(function(){
+                  var passwordValue = $(this).val();
+                  
+                  $("#new-password").val(passwordValue);
+                  $("#new-password-confirm").val(passwordValue);
+            });
       
             function findAccount(userEmail, successForAnalyticsService, failure){
                   var AnalyticsServices = [
