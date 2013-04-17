@@ -478,7 +478,7 @@ $(document).ready(function(){
                   var userEmail = $("#user-email").val();
                   var userName = $("#login-name").val();
                   var userCompany = $("#login-company").val();
-                  var userTitle = $("#login-title").val();
+                  var userTitle = $("#create-title").val();
                   var userPassword = $("#new-password").val();
                   var userNewPassword = $("#new-password-confirm").val();
                   
