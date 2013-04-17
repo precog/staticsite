@@ -563,9 +563,8 @@ $(document).ready(function(){
                   
                   if (userEmail) {
                         $.getScript("/js/precog.js", function(){
+                              Precog.$.Config.analyticsService = "https://beta.precog.com/";
                               
-                              Precog.$.Config.analyticsService = "http://beta.precog.com/";
-                                    
                               Precog.requestResetPassword(userEmail, function(){
                                     $("#precog-form-login").append("<div id='form-success'><p class='success-font'>A reset link has been sent to your e-mail.</p></div>").find("#form-success").delay(2000).fadeOut(500);
                               }, function(){
