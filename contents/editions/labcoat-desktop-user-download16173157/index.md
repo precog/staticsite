@@ -12,23 +12,21 @@ template: page.jade
     <h2>Windows</h2>
     <img class="align-center download-system-logo" src="/images/logo-windows.png" alt="windows-download" />
     <h3>64bit Download</h3>
-    <a class="medium-button red-background" href="/downloads/labcoat-desktop-user-download16173157/PrecogLabcoat_windows-x64_1_0_JRE.exe">DOWNLOAD NOW!</a>
+    <a class="medium-button red-background" href="/downloads/labcoat-desktop-user-download16173157/PrecogLabcoat_windows-x64_1_1_0_with_jre.exe">DOWNLOAD NOW!</a>
     <h3>32bit Download</h3>
-    <a class="medium-button red-background" href="/downloads/labcoat-desktop-user-download16173157/PrecogLabcoat_windows-x32_1_0_JRE.exe">DOWNLOAD NOW!</a>
+    <a class="medium-button red-background" href="/downloads/labcoat-desktop-user-download16173157/PrecogLabcoat_windows_1_1_0_with_jre.exe">DOWNLOAD NOW!</a>
 </div>
 <div class="three-columns">
     <h2>Mac</h2>
     <img class="align-center download-system-logo" src="/images/logo-mac.png" alt="windows-download" />
     <h3>No JRE</h3>
-    <a class="medium-button red-background" href="/downloads/labcoat-desktop-user-download16173157/Precog-OSX-app.tgz">DOWNLOAD NOW!</a>
+    <a class="medium-button red-background" href="/downloads/labcoat-desktop-user-download16173157/PrecogLabcoat_macos_1_1_0.tgz">DOWNLOAD NOW!</a>
 </div>
 <div class="three-columns-end">
     <h2>Linus</h2>
     <img class="align-center download-system-logo" src="/images/logo-linux.png" alt="windows-download" />
-    <h3>RPM</h3>
-    <a class="medium-button red-background" href="/downloads/labcoat-desktop-user-download16173157/PrecogLabcoat_linux_1_0_.rpm">DOWNLOAD NOW!</a>
-    <h3>DEB</h3>
-    <a class="medium-button red-background" href="/downloads/labcoat-desktop-user-download16173157/PrecogLabcoat_linux_1_0_.deb">DOWNLOAD NOW!</a>
+    <h3>JRE 7 Required</h3>
+    <a class="medium-button red-background" href="/downloads/labcoat-desktop-user-download16173157/PrecogLabcoat_unix_1_1_0.sh">DOWNLOAD NOW!</a>
 </div>
 <div class="clear-left">
 </div>
