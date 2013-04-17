@@ -562,12 +562,15 @@ $(document).ready(function(){
                   var userEmail = $("#login-email").val();
                   
                   if (userEmail) {
-                        Precog.$.Config.analyticsService = "http://beta.precog.com/";
+                        $.getScript("/js/precog.js", function(){
                               
-                        Precog.requestResetPassword(userEmail, function(){
-                              $("#precog-form-login").append("<div id='form-success'><p class='success-font'>A reset link has been sent to your e-mail.</p></div>").find("#form-success").delay(2000).fadeOut(500);
-                        }, function(){
-                              $("#precog-form-login").append("<div id='form-error'><p class='error-font'>The email address you have entered is not valid. Please try again.</p></div>").find("#form-error").delay(2000).fadeOut(500);
+                              Precog.$.Config.analyticsService = "http://beta.precog.com/";
+                                    
+                              Precog.requestResetPassword(userEmail, function(){
+                                    $("#precog-form-login").append("<div id='form-success'><p class='success-font'>A reset link has been sent to your e-mail.</p></div>").find("#form-success").delay(2000).fadeOut(500);
+                              }, function(){
+                                    $("#precog-form-login").append("<div id='form-error'><p class='error-font'>The email address you have entered is not valid. Please try again.</p></div>").find("#form-error").delay(2000).fadeOut(500);
+                              });
                         });
                   } else {
                         $("#precog-form-login").append("<div id='form-error'><p class='error-font'>Please enter an email address.</p></div>").find("#form-error").delay(2000).fadeOut(500);
