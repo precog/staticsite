@@ -21,7 +21,7 @@ template: page.jade
         <h2>Other Editions</h2>
         <div id="editions">
             <a class="active" href="/editions/precog-cloud/">Precog Cloud</a>
-            <a href="/editions/precog-on-premise/">Precog On-Premise</a>
+            <a href="/editions/precog-enterprise/">Precog Enterprise</a>
             <a href="/editions/precog-for-mongodb/">Precog for MongoDB</a>
             <a href="/editions/precog-for-postgresql/">Precog for PostgreSQL</a>
         </div>

@@ -94,14 +94,14 @@ template: page-products.jade
             <h2>Precog Editions</h2>
             <div id="advanced-editions-box">
                 <a id="1" href="/editions/precog-cloud/" class="edition-box cloud-edition"></a>
-                <a id="2" href="/editions/precog-on-premise/" class="edition-box onpremise-edition"></a>
+                <a id="2" href="/editions/precog-enterprise/" class="edition-box onpremise-edition"></a>
                 <a id="3" href="/editions/precog-for-postgresql/" class="edition-box postgresql-edition"></a>
                 <a id="4" href="/editions/precog-for-mongodb/" class="edition-box mongodb-edition active"></a>
                 <div class="box-text 1">
                     <p>Precog Cloud lets you have the full power of Precog without having to install or maintain your own infrastructure.</p>
                 </div>        
                 <div class="box-text 2">
-                    <p>Precog On-Premise lets deploy Precog behind your corporate firewall. Perfect when your data just cant leave the building.</p>
+                    <p>Precog Enterprise lets deploy Precog behind your corporate firewall. Perfect when your data just cant leave the building.</p>
                 </div>
                 <div class="box-text 3">
                     <p>Precog for PostgreSQL is a free edition that snaps onto your PostgreSQL database. Easily analyze JSON / KV data!</p>
@@ -225,7 +225,7 @@ template: page-products.jade
                 <h2>Editions</h2>
                 <div id="editions">
                     <a href="/editions/precog-cloud/">Precog Cloud</a>
-                    <a href="/editions/precog-on-premise/">Precog On-Premise</a>
+                    <a href="/editions/precog-enterprise/">Precog Enterprise</a>
                     <a href="/editions/precog-for-mongodb/">Precog for MongoDB</a>
                     <a href="/editions/precog-for-postgresql/">Precog for PostgreSQL</a>
                 </div>
