@@ -438,17 +438,12 @@ $(document).ready(function(){
                   var userEmail = $("#login-email").val();
                   var userPassword = $("#login-password").val();
                   
-                  console.log(userEmail);
-                  console.log(userPassword);
-                  
                   $.getScript("/js/precog.js", function(){
                         findAccount(userEmail,
                               function(serviceUrl) {
                                     
                                     return function(accountId){
-                                          console.log(serviceUrl);
                                           Precog.describeAccount(userEmail, userPassword, accountId, function(data){
-                                                console.log(data);
                                                 
                                                 sessionStorage.setItem('PrecogAccount_Email', userEmail);
                                                 sessionStorage.setItem('PrecogAccount_ApiKey', data.apiKey);
@@ -459,7 +454,6 @@ $(document).ready(function(){
                                                 window.location = "/account/";
                                                 
                                           }, function(){
-                                                console.log(e);
                                                 $("#precog-form-login").append("<div id='form-error'><p class='error-font'>The password you entered is incorrect. Please retype your password and try again.</p></div>").find("#form-error").delay(2000).fadeOut(500);
                                                 // USER PASSWORD IS WRONG!!! ASK USER TO CORRECT!!!!
                                           }, {
@@ -490,44 +484,55 @@ $(document).ready(function(){
                   
                   if (userPassword == userNewPassword) {
                         
-                        $.getScript("/js/precog.js", function(){
-                              findAccount(userEmail,
-                                    function(serviceUrl) {
-                                          return function(accountId){
-                                                //RESET YOUR PASSWORD OR LOGIN
-                                                $("#precog-form-create-account").append("<div id='form-error'><p class='error-font'>We found a previous account under your e-mail address. Please attempt to login or reset your password.</p></div>").find("#form-error").delay(2000).fadeOut(500);
-                                          }
-                                    }, function(){
-                                          Precog.$.Config.analyticsService = "https://beta.precog.com/";
-                                          //CREATE NEW ACCOUNT
-                                          Precog.createAccount(userEmail, userPassword, function(data){
-                                                var accountDetail = data;
-                                                
-                                                Precog.describeAccount(userEmail, userPassword, accountDetail.accountId, function(data){
-                                                      var additionalAccountDetails = data;
-                                                      
-                                                      sessionStorage.setItem('PrecogAccount_Email', userEmail);
-                                                      sessionStorage.setItem('PrecogAccount_Name', userName);
-                                                      sessionStorage.setItem('PrecogAccount_Company', userCompany);
-                                                      sessionStorage.setItem('PrecogAccount_ApiKey', additionalAccountDetails.apiKey);
-                                                      sessionStorage.setItem('PrecogAccount_AnalyticsService', Precog.$.Config.analyticsService);
-                                                      sessionStorage.setItem('PrecogAccount_BasePath', additionalAccountDetails.rootPath);
-                                                      sessionStorage.setItem('PrecogAccount_Login', 'Logged In');
-                                                      
-                                                      window.location = "/account/"
-                                                });
-                                          }, function(e){
-                                                console.log(e);
-                                          }, {
-                                                "profile" : {
-                                                      name : userName,
-                                                      title : userTitle,
-                                                      company : userCompany
+                        if (userName.length < 4) {
+                              $("#precog-form-create-account").append("<div id='form-error'><p class='error-font'>Your name must be at least 4 characters. Please re-enter your name.</p></div>").find("#form-error").delay(2000).fadeOut(500);
+                        } else if (userCompany.length < 3) {
+                              $("#precog-form-create-account").append("<div id='form-error'><p class='error-font'>Your company must be at least 4 characters. Please re-enter your company.</p></div>").find("#form-error").delay(2000).fadeOut(500);
+                        } else if (userTitle.length < 1) {
+                              $("#precog-form-create-account").append("<div id='form-error'><p class='error-font'>The title field is empty. Please re-enter your title.</p></div>").find("#form-error").delay(2000).fadeOut(500);
+                        } else if (userPassword.length < 6 ) {
+                              $("#precog-form-create-account").append("<div id='form-error'><p class='error-font'></p>Your password must be at least 6 characters. Please re-enter your password.</div>").find("#form-error").delay(2000).fadeOut(500);
+                        } else {
+                        
+                              $.getScript("/js/precog.js", function(){
+                                    findAccount(userEmail,
+                                          function(serviceUrl) {
+                                                return function(accountId){
+                                                      //RESET YOUR PASSWORD OR LOGIN
+                                                      $("#precog-form-create-account").append("<div id='form-error'><p class='error-font'>We found a previous account under your e-mail address. Please attempt to login or reset your password.</p></div>").find("#form-error").delay(2000).fadeOut(500);
                                                 }
-                                          });
-                                    }
-                              );
-                        });
+                                          }, function(){
+                                                Precog.$.Config.analyticsService = "https://beta.precog.com/";
+                                                //CREATE NEW ACCOUNT
+                                                Precog.createAccount(userEmail, userPassword, function(data){
+                                                      var accountDetail = data;
+                                                      
+                                                      Precog.describeAccount(userEmail, userPassword, accountDetail.accountId, function(data){
+                                                            var additionalAccountDetails = data;
+                                                            
+                                                            sessionStorage.setItem('PrecogAccount_Email', userEmail);
+                                                            sessionStorage.setItem('PrecogAccount_Name', userName);
+                                                            sessionStorage.setItem('PrecogAccount_Company', userCompany);
+                                                            sessionStorage.setItem('PrecogAccount_ApiKey', additionalAccountDetails.apiKey);
+                                                            sessionStorage.setItem('PrecogAccount_AnalyticsService', Precog.$.Config.analyticsService);
+                                                            sessionStorage.setItem('PrecogAccount_BasePath', additionalAccountDetails.rootPath);
+                                                            sessionStorage.setItem('PrecogAccount_Login', 'Logged In');
+                                                            
+                                                            window.location = "/account/"
+                                                      });
+                                                }, function(e){
+                                                      //ERROR IF COULD NOT CREATE PRECOG ACCOUNT
+                                                }, {
+                                                      "profile" : {
+                                                            name : userName,
+                                                            title : userTitle,
+                                                            company : userCompany
+                                                      }
+                                                });
+                                          }
+                                    );
+                              });
+                        }
                       
                   } else {
                         $("#precog-form-create-account").append("<div id='form-error'><p class='error-font'>The passwords you have entered do not match. Please check your entry and try again.</p></div>").find("#form-error").delay(2000).fadeOut(500);
@@ -552,7 +557,6 @@ $(document).ready(function(){
                                     $("#precog-form-login").append("<div id='form-error'><p class='error-font'>The email address you have entered is not valid. Please try again.</p></div>").find("#form-error").delay(2000).fadeOut(500);
                               });
                         });
-                        console.log(userEmail);
                   } else {
                         $("#precog-form-login").append("<div id='form-error'><p class='error-font'>Please enter an email address.</p></div>").find("#form-error").delay(2000).fadeOut(500);
                   }

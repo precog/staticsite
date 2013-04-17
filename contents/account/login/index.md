@@ -47,16 +47,16 @@ template: page.jade
                     <input type="text" id="login-company" name="company">
                 </dd>
             <dt>
-                <label for="login-title">Title</label>
+                <label for="create-title">Title</label>
             </dt>
                 <dd>
-                    <input type="text" id="login-title" name="title">
+                    <input type="text" id="create-title" name="create-title">
                 </dd>
             <dt>
                 <label for="new-password">Password</label>
             </dt>
                 <dd>
-                    <input type="password" id="new-password" name="password">
+                    <input type="password" id="new-password" name="new-password">
                 </dd>
             <dt>
                 <label for="new-password-confirm">Confirm Password</label>
