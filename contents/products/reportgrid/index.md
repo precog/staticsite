@@ -117,7 +117,7 @@ template: page-products.jade
                 <h2>Editions</h2>
                 <div id="editions">
                     <a href="/editions/reportgrid-cloud/">ReportGrid Cloud</a>
-                    <a href="/editions/reportgrid-on-premise/">ReportGrid On-Premises</a>
+                    <a href="/editions/reportgrid-on-premises/">ReportGrid On-Premises</a>
                     <a href="/editions/reportgrid-api/">ReportGrid API</a>
                 </div>
                 <h2>Contact Us!</h2>

@@ -45,7 +45,7 @@ template: page.jade
         </li>
         <li>
             <h3>Free and paid editions.</h3>
-            <p>Precog comes in free editions for common NoSQL data stores, and in Cloud or On-Premise editions for the maximum in performance. Choose whatever meets your needs today, and have confidence you can scale as your needs become more sophisticated.</p>
+            <p>Precog comes in free editions for common NoSQL data stores, and in Cloud or Enterprise editions for the maximum in performance. Choose whatever meets your needs today, and have confidence you can scale as your needs become more sophisticated.</p>
         </li>
     </ul>
     <div class="clear-left">

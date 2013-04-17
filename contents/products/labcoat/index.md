@@ -83,7 +83,7 @@ template: page-products.jade
 </div>
 <div id="section-body-products">
     <div class="holder">
-        <a id="launch-demo-sticker" target="_blank" href="http://labcoat.precog.com">LAUNCH DEMO NOW!</a>
+        <a id="launch-demo-sticker" target="_blank" href="https://labcoat.precog.com">LAUNCH DEMO NOW!</a>
         <div class="two-columns">
             <div id="body-links">
             </div>
@@ -139,7 +139,7 @@ template: page-products.jade
                     <iframe src="http://www2.precog.com/l/17892/2013-02-20/6zlg2"></iframe>
                 </div>
                 <h2>Other Resources</h2>
-                <a href="http://labcoat.precog.com">Launch Labcoat</a>
+                <a href="https://labcoat.precog.com">Launch Labcoat</a>
                 <p>Start analyzing Data with Labcoat</p>
                 <a href="http://www2.precog.com/learn-quirrel-level-1">Quirrel Game</a>
                 <p>Learn Quirrel with our fun an interactive game series!</p>

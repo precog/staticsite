@@ -16,7 +16,7 @@ template: page.jade
         <h2>Other Editions</h2>
         <div id="editions">
             <a class="active" href="/editions/reportgrid-cloud/">ReportGrid Cloud</a>
-            <a href="/editions/reportgrid-on-premise/">ReportGrid On-Premises</a>
+            <a href="/editions/reportgrid-on-premises/">ReportGrid On-Premises</a>
             <a href="/editions/reportgrid-api/">ReportGrid API</a>
         </div>
     </div>

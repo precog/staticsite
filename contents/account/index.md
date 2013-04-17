@@ -7,7 +7,7 @@ template: page.jade
     <div id="precog-account-details">
         <h2>Precog Apps</h2>
         <div id="products-links">
-            <a class="product-link-labcoat"  href="http://labcoat.precog.com" target="_blank"><span>launch</span></a>
+            <a class="product-link-labcoat"  href="https://labcoat.precog.com" target="_blank"><span>launch</span></a>
             <a class="product-link-reportgrid"  href="http://builder.reportgrid.com" target="_blank"><span>launch</span></a>
             <div class="clear-left">
             </div>
