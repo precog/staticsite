@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sita Demo Clusters</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/easeljs-0.6.0.min.js"></script>
+<script src="js/tweenjs-0.4.0.min.js"></script>
+<script src="http://api.reportgrid.com/js/precog.js?apiKey=9120C30A-DDDD-4E93-BA08-97C942645E7C&useJsonp=false&basePath=%2F0000000068&analyticsService=http%3A%2F%2Fnebula.precog.com%2F"></script>
+<script>
+
+$(function() {
+    var size = 1050,
+        bounds = {
+          x1 : 15,
+          x2 : 743,
+          y1 : 42,
+          y2 : 783
+        },
+        delay = 1000,
+        poolSize = 1000,
+        alpha = 0.75;
+
+
+  function normalize(coord, value) {
+    return (value - bounds[coord+"1"]) / (bounds[coord+"2"] - bounds[coord+"1"])
+  }
+
+  function project(coords) {
+    var t = coords[1];
+    coords[1] = size * (1 - coords[0]);
+    coords[0] = size * t;
+    return coords;
+  }
+
+  function normalizeAndProject(item) {
+    var coords = project([normalize("x", item.x), normalize("y", item.y)]);
+    item.px = coords[0];
+    item.py = coords[1];
+    return item;
+  }
+
+  function forEachField(o, handler) {
+    for(var key in o) {
+      if(!o.hasOwnProperty(key)) continue;
+      handler.call(o, key, o[key]);
+    }
+  }
+
+  function randomColor() {
+    return createjs.Graphics.getHSL(Math.random()*360, 50, 50);
+  }
+
+  function createStage(id, width, height) {
+    $("#"+id).append('<canvas id="'+id+'-bgcanvas" width="'+width+'" height="'+height+'">');
+    $("#"+id).append('<canvas id="'+id+'-canvas" width="'+width+'" height="'+height+'">');
+    var stage = new createjs.Stage(id+"-canvas"),
+        stagebg = new createjs.Stage(id+"-bgcanvas");
+    return {
+      foreground : stage,
+      background : stagebg,
+      devices : {}
+    }
+  }
+
+  function createBackground(img){
+    var bg = new createjs.Bitmap(img);
+    bg.alpha = 0.1;
+    bg.x = size/800 * 455;
+    bg.y = size/800 * 385;
+    bg.regX = 545;
+    bg.regY = 374;
+    bg.scaleX = bg.scaleY = size/800*0.8;
+    bg.rotation = 22;
+    return bg;
+  }
+
+  // stage creation
+  var stages = [createStage("chart0", size, size)];
+
+  // draw background image
+  function onImageLoad(img) {
+    stages.map(function(stage) {
+      stage.foreground.addChild(createBackground(img));
+      stage.foreground.update();
+    });
+  }
+
+  // load image
+  (function(callback) {
+    var img = new Image();
+    img.onload = function() { callback(img); };
+    img.src = "images/airport.png";
+  })(onImageLoad);
+  
+  // draw polygons or not
+  function drawPolygons(path, stage){
+    $.get(path).then(function(polygons){
+      if("string" === typeof polygons){
+        polygons = JSON.parse(polygons);
+      }
+      polygons = polygons.map(function(item) {
+        return item.points.split(";").map(function(pair){ return pair.split(",").map(parseFloat); });
+      });
+      polygons.forEach(function(poly) {
+        poly.forEach(function(point) {
+          point[0] = normalize("x", point[0]);
+          point[1] = normalize("y", point[1]);
+          project(point);
+        });
+      });
+
+      polygons.forEach(function(poly) {        var shape = new createjs.Shape(),
+            g = shape.graphics;
+        g.setStrokeStyle(1);
+        g.beginStroke(createjs.Graphics.getRGB(0,0,0));
+        g.beginFill(createjs.Graphics.getRGB(0,100,0));
+        var first = poly.shift();
+        g.moveTo(first[0], first[1]);
+        poly.forEach(function(point) {
+          g.lineTo(point[0], point[1]);
+        });
+        g.lineTo(first[0], first[1]);
+        g.endFill();
+        shape.alpha = 0.2;
+       
+        stage.addChild(shape);
+      });
+
+      stage.update();
+    });
+  }
+  //drawPolygons("data/dutyfreeonly.json", stages[0].background);
+    function scaleDot(area){
+        return (Math.sqrt(area / 3.141) * 2)*80;
+    }
+   function clearDate(date) {
+    return date.split(".").shift();
+  }
+  
+  function setDates(data) {
+    var temp = {},
+        dates = [];
+    data.forEach(function(item) {
+      item.date = clearDate(item.date);
+      temp[item.date] = true;
+    });
+    for(var key in temp) {
+      dates.push(key);
+    }
+    dates.sort();
+    console.log(JSON.stringify(dates.length));
+    return dates;
+  }
+
+  // data loaders
+  function loadData(filename, callback) {
+    $.get(filename).then(callback);
+  }
+
+  function loadPrecog(callback) {
+    console.log("loading data from precog ...");
+   Precog.asyncQueryResults("395d296770fc48bf9995ee7705a4394d", callback, function(error) { console.log(error); } );
+   //import std::time::* locations := //devicelocations/2012/11/02/novCluster/15/binnedTest/countCluster distinct({ id: locations.cluster.clusterId, count: locations.count, date: locations.date, x: locations.cluster.clusterCenter.x, y: locations.cluster.clusterCenter.y }) //395d296770fc48bf9995ee7705a4394d
+   
+  }
+
+  function createFilter(data) {
+    var filtered = {},
+        filterWorker = new Worker("js/work-filter.js");
+
+    filterWorker.postMessage({ filter : (function(item, where) {
+      return item.date === where.date && item.floor === where.floor;
+    }).toString() })
+
+    filterWorker.postMessage({ data : data });
+
+    function getId(o) {
+      return JSON.stringify(o);
+    }
+
+    function handler(e) {
+      var id = getId(e.data.where),
+          data = e.data.data.map(normalizeAndProject);
+      while(filtered[id].queue.length) {
+        filtered[id].queue.shift()(data);
+      }
+      filtered[id] = data;
+    }
+
+    filterWorker.addEventListener("message", handler);
+
+    return {
+      filter : function(o, callback) {
+        var id = getId(o);
+        if(!filtered[id]) {
+          filterWorker.postMessage({ where : o });
+          filtered[id] = { queue : [] };
+          filtered[id].queue.push(callback);
+        } else if(filtered[id].queue) {
+          filtered[id].queue.push(callback);
+        } else {
+          callback(filtered[id]);
+        }
+      },
+      preload : function(items) {
+        var self = this;
+        function loop() {
+          if(items.length === 0) return;
+          self.filter(items.shift(), loop);  
+        }
+        loop();
+      }
+    };
+  }
+
+  var symbols = (function(poolSize) {
+    var pool = [],
+        poolSize = 1000;
+
+    function create() {
+      var symbol = new createjs.Shape();
+      symbol.graphics
+        .beginFill(randomColor())
+        .drawCircle(0, 0, 0.5);
+      symbol.alpha = 0;
+      return symbol;
+    }
+
+    for(var i = 0; i < poolSize; i++) {
+      pool.push(create());
+    }
+
+    return {
+      get : function(stage) {
+        var symbol = (pool.length) ? pool.pop() : create();
+        stage.addChild(symbol);
+      //  stage1.addChild(symbol);
+        createjs.Tween.get(symbol).to({ alpha : alpha }, delay*1.1)
+        return symbol;
+      },
+      free : function(stage, symbol) {
+        createjs.Tween.get(symbol).to({ alpha : 0.0 }, delay).call(function(){
+          stage.removeChild(symbol);
+          symbol.alpha = 0;
+          pool.push(symbol);
+        });
+      }
+    };
+  })(poolSize);
+
+  var looper = (function(d) {
+    var timer,
+        gototimer,
+        delay = d,
+        counter = 0,
+        wrapper = {
+          start : function() {
+            if(!this.paused) return;
+            this.paused = !this.paused;
+            loop();
+          },
+          pause : function() {
+            if(this.paused) return;
+            this.paused = !this.paused;
+          },
+          toggle : function() {
+            if(this.paused)
+              this.start();
+            else
+              this.pause();
+          },
+          setDelay : function(d) {
+            delay = d;
+          },
+          goTo : function(index) {
+            counter = index;
+            clearTimeout(gototimer);
+            gototimer = setTimeout(loop, 200);
+          },
+          paused : true
+        };
+
+    function loop() {
+      clearTimeout(timer);
+      $(wrapper).trigger("loop", counter);
+      if(wrapper.paused) return;
+      counter++;
+      timer = setTimeout(loop, delay);
+    }
+
+    return wrapper;
+  })(delay);
+
+  loadPrecog( function(data) {
+    data = data.data;
+    if("string" === typeof data){
+      data = JSON.parse(data);
+    }
+    var max = 1;
+    data.forEach(function(item) {
+          max = Math.max(item.count, max);
+        });
+    $("#labeldelay").html(delay + "ms");
+    $("#delay")
+      .val(delay)
+      .attr("disabled", false)
+      .change(function() {
+        delay = $(this).val();
+        looper.setDelay(delay);
+        $("#labeldelay").html(delay + "ms");
+      });
+    $("#pause").click(toggle).attr("disabled", false);        
+
+    // set dates
+    var dates = setDates(data);
+    $("#time")
+      .attr("min", 0)
+      .attr("max", dates.length-1)
+      .attr("step", 1)
+      .attr("disabled", false)
+      .change(function() {
+        pause();
+        looper.goTo($(this).val());
+      });
+
+
+    var filter = createFilter(data);
+    var queries = [];
+    for(var i = 0; i < dates.length; i++) {
+      for(var j = 0; j < 2; j++) {
+        queries.push({ date : dates[i], floor : j });
+      }
+    }
+//    filter.preload(queries);
+    
+    function update(stage, where) {
+      var symbol,
+          devices = stage.devices;
+
+      forEachField(stage.devices, function(id, o) {
+        o.rendered = false;
+      });
+      filter.filter(where, function(data) {
+        data.forEach(function(item){  
+          if(devices[item.id]) {
+            symbol = devices[item.id].shape;
+            devices[item.id].rendered = true;
+
+            createjs.Tween.get(symbol).to({
+              scaleX: scaleDot(item.count/max) ,
+              scaleY: scaleDot(item.count/max) 
+            }, delay, createjs.Ease.linear)
+
+          } else {
+            symbol = symbols.get(stage.foreground);
+            devices[item.id] = { shape : symbol, rendered : true }
+
+            symbol.x = item.px;
+            symbol.y = item.py;
+            symbol.scaleX = symbol.scaleY = scaleDot(item.count/max) 
+          }  
+        });
+
+        var removed = [];
+        forEachField(devices, function(id, o) {
+          if(!o.rendered) {
+            symbols.free(stage.foreground, o.shape);
+            removed.push(id);
+          }
+        });
+        removed.forEach(function(id) {
+          delete devices[id];
+        });
+      });
+    }
+
+    stages.map(function(stage, index) {
+      $(looper).on("loop", function(_, i) {
+        i = i % dates.length;
+        update(stage, { date : dates[i] /*, floor : index */ });
+      });
+    });
+
+    $(looper).on("loop", function(_, i) {
+      i = i % dates.length;
+      $("#date").html(dates[i]);
+      $("#time").val(i);
+    });
+
+    looper.start();
+    startRender();
+
+  });
+
+  // load data
+    // update position loop
+  
+  // render loop
+
+  function render() {
+    stages.map(function(stage) { stage.foreground.update(); });
+  }
+
+  createjs.Ticker.setFPS(20);
+  function startRender() {
+    createjs.Ticker.removeEventListener("tick", render);
+    createjs.Ticker.addEventListener("tick", render);
+  }
+
+  function pauseRender() {
+    createjs.Ticker.removeEventListener("tick", render);
+  }
+
+  function pause() {
+    looper.pause();
+    refreshPauseButton();
+  }
+
+  function toggle() {
+    looper.toggle();
+    refreshPauseButton();
+  }
+
+  function refreshPauseButton() {
+    $("#pause").html(looper.paused ? "run" : "pause");
+  }
+
+/*
+  setTimeout(function() {
+    startRender();
+    loop();
+  }, 500);
+*/
+});
+</script>
+<style>
+.container {
+  width: 1200px;
+}
+#chart0, #chart1 {
+/*  position: relative; */
+  background-color: #fff;
+  width: 1100px;
+  height: 1100px;
+}
+.chart canvas {
+  position: absolute;
+}
+.container .row, .container .span12 {
+  background-color: #fff;
+}
+.header {
+  text-align: center;
+}
+#pause {
+  width: 200px;
+  margin-top: 5px;
+}
+.span5.btn {
+  width: 354px;
+  min-height: 40px;
+}
+.span-chart {
+  width: 1150px;
+}
+body {
+  background-color: #eee;
+}
+
+</style>
+</head>
+<body>
+  <div class="container header">
+    <div class="row">
+      <h1>SITA - Device Clusters</h1>
+    </div>
+    <div id="controls" class="row">
+      <div class="span5 btn">
+        time: <span id="date"></span>
+        <br>
+        <input id="time" type="range" disabled>
+      </div>
+      <div class="span5 btn">
+        delay: <span id="labeldelay"></span>
+        <br>
+        <input id="delay" type="range" min="100" max="5000" step="100" value="1000" disabled>
+      </div>
+      <div class="span5 btn">
+        <button id="pause" class="btn btn-inverse" disabled>pause</button>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="span-chart">
+        <div id="chart0" class="chart"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

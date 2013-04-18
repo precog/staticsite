@@ -1,0 +1,147 @@
+body {
+	background-color: #fff;
+}
+
+* {
+	position: relative;
+	padding: 0px;
+	margin: 0px;
+	font-family: helvetica, sans-serif;
+	text-decoration: none;
+}
+
+
+ul li a, ul li a:visited, ul li a:active {
+	text-decoration: none;
+}
+
+.clear-left {
+	clear: left;
+}
+
+.margin-zero {
+     margin-right: 0% !important;
+}
+
+#site-holder {
+	width: 1050px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+/*HEADER SECTION*/
+#header {
+	height: 120px;
+	margin-bottom: 30px;
+	padding-bottom: 20px;
+}
+
+#header #logo {
+	background-image: url("../images/site-logo.png");
+	background-repeat: no-repeat;
+	background-position: left 16px;
+	border-bottom: solid #000 4px;
+	height: 110px;
+	background-color: #f6f6f6;	
+}
+
+#header #menu {
+	position: absolute;
+	bottom: 0px;
+}
+
+#header #menu ul {
+	list-style-type: none;
+}
+
+#header #menu li{
+	float:left;
+	margin-right: 15px;
+	margin-left: 5px;
+}
+
+#header #menu li a {
+	color: #666666;
+	font-size:13pt;
+	font-family: helvetica, sans-serif;
+	letter-spacing: 1px;
+}
+
+#header #menu li a:hover {
+	color: #000;
+	border-bottom: solid #000 1px;
+}
+
+/*BODY SECTION*/
+
+#body {
+	margin-bottom: 100px;
+	
+}
+
+#body h2{
+	text-align: center;
+	font-size: 15pt;
+	margin-bottom: 20px;
+	height: 50px;
+	
+	
+}
+.chartDescription{
+    width: 30%;
+    margin-right: 5%;
+    margin-bottom: 30px;
+    float: left;
+}
+
+p {
+    font-size: 9pt;
+    color: #000;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.chartExample {
+	width: 30%;
+	height: 210px;
+	margin-right: 5%;
+	float:left;
+}
+
+/*FOOTER SECTION*/
+#footer {
+	background-color: #f6f6f6;
+	height: 100px;
+}
+
+#footer img{
+	position: absolute;
+	right: 20px;
+	top: 30px;
+}
+
+#footer #menu {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+}
+#footer #menu  ul{
+	list-style-type: none;
+
+}
+
+#footer #menu li a{
+	color: #666666;
+	font-size:10pt;
+	font-family: helvetica, sans-serif;
+	letter-spacing: 1px;
+	line-height: 1.4;
+}
+
+
+#footer #menu li a:hover {
+	color: #000;
+	border-bottom: solid #000 1px;
+}
