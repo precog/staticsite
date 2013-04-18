@@ -92,17 +92,17 @@ def optimize():
             filebase, extension = get_file_base_and_extension(file)
             path = os.path.join(base, filebase)
 
-            if extension in interesting_extensions:
+            if extension in interesting_extensions and filebase[-4:] != '.min':
                 files_set.add((path, extension))
 
     # Optimize each file in the list
-    def optimize_file(original_path, minified_path, file_type, minify_exec, overwrites):
+    def optimize_file(original_path, file_type, minify_exec, overwrites):
         try:
             if overwrites:
                 local(minify_exec % original_path)
             else:
-                local(minify_exec % { 'source': original_path, 'target': minified_path })
-                os.rename(minified_path, original_path)
+                local(minify_exec % { 'source': original_path, 'target': 'minimized_file.tmp' })
+                os.rename('minimized_file.tmp', original_path)
 
         except OSError:
             abort(red('>>> File %s is not a %s file.' % (original_path, file_type)))
@@ -113,18 +113,17 @@ def optimize():
     for index, (file_basename, file_extension) in enumerate(files_set):
         puts(green("%.1f%% done (%d/%d)" % ((index+1.)*100./files_no, index+1, files_no)))
         original_path = '%s%s' % (file_basename, file_extension)
-        minified_path = '%s.min%s' % (file_basename, file_extension)
         original_size = os.path.getsize(original_path)
         original_total += original_size
 
         if file_extension in png_extensions:
-            optimize_file(original_path, minified_path, 'PNG', png_exec, png_overwrites)
+            optimize_file(original_path, 'PNG', png_exec, png_overwrites)
 
         if file_extension in jpg_extensions:
-            optimize_file(original_path, minified_path, 'JPG', jpg_exec, jpg_overwrites)
+            optimize_file(original_path, 'JPG', jpg_exec, jpg_overwrites)
 
         if file_extension in cssjs_extensions:
-            optimize_file(original_path, minified_path, 'CSS or JS', cssjs_exec, cssjs_overwrites)
+            optimize_file(original_path, 'CSS or JS', cssjs_exec, cssjs_overwrites)
 
         compressed_size = os.path.getsize(original_path)
         compressed_total += compressed_size
