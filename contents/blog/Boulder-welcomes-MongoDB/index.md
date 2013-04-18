@@ -1,0 +1,8 @@
+title: Boulder welcomes MongoDB!
+author: Tasha Kelly
+date: 2013-01-16 00:00
+template: post.jade
+
+<p>Next week, the 10gen team will be in our neck of the woods for the <a href="http://www.10gen.com/events/mongodb-boulder-2013">MongoDB Boulder Conference</a>. We&#8217;re thrilled to have them here and also honored to be speaking at the conference. If you&#8217;re in the area or want to take a trip to the Rocky Mountains, <a href="http://www.10gen.com/events/mongodb-boulder-2013">join us</a> on Thursday, January 24.</p>
+<p>Our Founder, John De Goes, will talk at 12:15 on <strong>Analyzing Big Data with Quirrel on MongoDB</strong>. This session will cover the basics of Quirrel, the &#8220;R for big data&#8221; language. All participants will be provided with an online learning environment where they can follow along and learn the core syntax and features of the Quirrel analysis language. By the end of the workshop, participants will be able to load, filter, correlate, group, and aggregate data using Quirrel.</p>
+<p>If you haven&#8217;t already download the free <a href="http://www.precog.com/editions/precog-for-mongodb">Precog for MongoDB file</a>, give it a try! Follow the <a href="https://twitter.com/search/realtime/%23mongodbdays">#MongoDBDays</a> hashtag for news around this event. Hope to see you next week and if you see us around (wearing black Precog shirts with zombies) ask us for a free shirt and demo of Precog.</p>

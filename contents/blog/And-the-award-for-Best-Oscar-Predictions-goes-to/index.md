@@ -1,0 +1,19 @@
+title: And the award for Best Oscar Predictions goes to...
+author: Tasha Kelly
+date: 2013-02-20 18:07
+template: post.jade
+
+<p>The red carpet is rolling out this Sunday night at the <a href="http://oscar.go.com/">85th Academy Awards</a>. If you're like me, you've been watching the <a href="http://oscar.go.com/nominees">nominated movies</a> to make predictions on who will win.  Well, just sit back and enjoy the films and let us do the heavy work on analyzing the data to predict who will be going home with awards!</p>
+<p><a href="http://www2.precog.com/2013-oscars"><img class="alignnone  wp-image-404" alt="oscar_banner" src="/blog/images/oscar_banner-1024x196.png" width="625" height="119" /></a></p>
+<p>We've put together <a href="http://www2.precog.com/2013-oscars">Oscars Predictions</a> using our <a href="http://www.precog.com/products/precog">Precog technology</a> to run the analysis and create interactive graphs and charts. In these predictions we're analyzing thousands of Twitter mentions with <a href="https://twitter.com/search?q=%23oscars">#Oscars</a> (the official hashtag). <a href="http://www2.precog.com/2013-oscars">Visit our page</a> to see the dynamic charts! Here are the predictions we're making:<b><b><br />
+</b></b></p>
+<ul>
+<li dir="ltr"><strong>Best Picture:</strong> Using the <a href="http://www.precog.com/products/reportgrid">ReportGrid Bar Graph</a> you'll see which films we predict will win based on positive mentions and reviews. <em>Argo</em> is in the lead right now with <em>Lincoln</em> in a close second!</li>
+<li dir="ltr"><strong>Most Popular Actors/Actresses:</strong> This chart shows who is most popular and talked about on Twitter, using our <a href="http://www.precog.com/products/reportgrid">ReportGrid Leaderboard</a>. Jennifer Lawrence from <em>Silver Linings Playbook</em> seems to be the most popular at the moment.</li>
+<li dir="ltr"><strong>Most Social State:</strong> Which US state is tweeting about the Oscars? Find out in the <a href="http://www.precog.com/products/reportgrid">ReportGrid Geo Chart.</a> We're not surprised that California has the most buzz!</li>
+<li dir="ltr"><strong>Most Positive Time to Tweet:</strong> This <a href="http://www.precog.com/products/reportgrid">ReportGrid Line Graph</a> shows the average sentiment score (using Sentiment Analysis API) by time of day that people are mentioning #Oscars on Twitter.</li>
+</ul>
+<p><a href="http://www2.precog.com/2013-oscars"><img class="alignnone size-large wp-image-405" alt="Screen Shot 2013-02-20 at 9.53.52 AM" src="/blog/images/Screen-Shot-2013-02-20-at-9.53.52-AM-1024x568.png" width="625" height="346" /></a></p>
+<p>We teamed up with our friends at <a href="http://www.alchemyapi.com/">AlchemyAPI</a> to use their <a href="http://www.alchemyapi.com/api/sentiment/">Sentiment Analysis API</a> to look at positive and negative tweets to predict which movie will win Best Picture. We also used their API to pull all sentiment scores and show when people are tweeting throughout the day.</p>
+<p>These charts are in real-time and please check back on the <a href="http://www2.precog.com/2013-oscars">Oscar Predictions page</a> to see how the movies and data is changing! Good luck with your ballots and hope your picks win. Anyone can easily create charts like these! Simply <a href="http://www.precog.com/registration">sign up for a free Precog account</a> to get started with your data analysis and visualization.</p>
+<p>Enjoy watching the Oscars this Sunday night and don't forget to see how <a href="http://www2.precog.com/2013-oscars">our predictions</a> line up with the actual results.</p>

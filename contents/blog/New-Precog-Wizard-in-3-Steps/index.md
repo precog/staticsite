@@ -1,0 +1,9 @@
+title: New Precog Wizard- in 3 Steps!
+author: Nathan Lubchenco
+date: 2013-01-23 00:00
+template: post.jade
+
+<p>We make it easy to create a <strong>Precog account</strong> (by the way, it's free!). It's just <a href="http://www.precog.com/account/login/">one simple form</a> to complete and then you'll need to confirm it by clicking on a link in your email. Now, it's even easier to add your data and start analyzing with our new <a href="https://www.precog.com/getting-started-wizard">Getting Started Wizard</a>! Watch the 60 second video below to see how it works:</p>
+<p><iframe title="YouTube video player" src="http://www.youtube.com/embed/gw47wy6XSCc?wmode=transparent" height="315" width="560" allowfullscreen="" frameborder="0"></iframe></p>
+<p>It's incredibly simple. The <a style="line-height: 1.714285714; font-size: 1rem;" href="https://www.precog.com/getting-started-wizard">3 steps</a> in the wizard are <strong style="line-height: 1.714285714; font-size: 1rem;">Upload Data, Analyze Data, and Visualize Data</strong>. Just have your data ready to upload (CSV, JSON, Client Libraries, Relational Data) and by the end of the Wizard you'll see visualizations. Create a <a style="line-height: 1.714285714; font-size: 1rem;" href="http://www.precog.com/account/login/">new account</a> or <a style="line-height: 1.714285714; font-size: 1rem;" href="http://precog.com/account-login">login</a> now to use our fun, new Wizard!</p>
+<p><a href="/blog/images/Screen-Shot-2013-01-22-at-11.44.52-AM.png"><img class="alignnone size-medium wp-image-338" alt="Screen Shot 2013-01-22 at 11.44.52 AM" src="/blog/images/Screen-Shot-2013-01-22-at-11.44.52-AM-300x187.png" width="300" height="187" /></a></p>

@@ -1,0 +1,8 @@
+title: Vote for Precog in the DeveloperWeek Awards
+author: Tasha Kelly
+date: 2012-12-4 00:00
+template: post.jade
+
+<p><a href="http://blog.precog.com/?attachment_id=86" rel="attachment wp-att-86"><img class="alignnone size-full wp-image-86" alt="34" src="/blog/images/34.png" width="378" height="79" /></a></p>
+<p>The <a href="http://www.developerweek.com/">DeveloperWeek Conference</a> (same folks who put on DataWeek) is on the calendar for next February 2-7, 2013. We were proud to be nominated for three categories in their Top Innovator Awards: <strong>Analytics-as-a-Service</strong>, <strong>App Analytics Tools</strong>, and <strong>Big Data Technologies</strong>. The public voting is now open and <a href="http://www.developerweek.com/index/companydetails/companyid/34">here&#8217;s your chance</a> to help Precog win an award. <a href="http://www.developerweek.com/index/companydetails/companyid/34">Please go to this page</a> to cast your vote today! Crowd voting is open until January 7, 2013.</p>
+<p>In addition to the Top Innovator Awards, we are also speaking in the Big Data Track at the conference. <a href="http://www.developerweek.com/index/profile/userid/118">John A. De Goes</a>, our CEO/Founder will talk on Wednesday, February 6th about <a href="http://www.developerweek.com/index/allschedule/dateid/1360130400/weekday/1">Quirrel and R for Dummies</a> and on a panel called <a href="http://www.developerweek.com/index/conferenceschedule/event/13">Developing with Big Analytics and Visualization Tools</a>. They are planning a lot of events and excellent sessions for Developers so be sure to <a href="http://www.developerweek.com/index/registration">register for a pass</a>! We hope to see you in San Francisco in February.</p>

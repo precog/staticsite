@@ -1,0 +1,8 @@
+title: Community Spotlight- Translating MongoDB Queries into Quirrel
+author: Nathan Lubchenco
+date: 2013-03-28 00:00
+template: post.jade
+
+<p>We recently came across a blog post from one of our users: <a href="http://www.bobbriody.com/blog/2013/03/27/example-analytics-with-precog-labcoat-mongodb/">Example analytics with Precog Labcoat &amp; MongoDB</a> that provides some examples of how to translate some MongoDB queries into Quirrel using Precog for MongoDB.  MongoDB hosts a version of the <a href="http://media.mongodb.org/zips.json">sample data</a> and here are the MongoDB versions of the queries:  <a href="http://docs.mongodb.org/manual/tutorial/aggregation-examples/#states-with-populations-over-10-million">states with populations over 10 million</a> and <a href="http://docs.mongodb.org/manual/tutorial/aggregation-examples/#average-city-population-by-state">average population by state</a>. For the details, make sure to check out the <a href="http://www.bobbriody.com/blog/2013/03/27/example-analytics-with-precog-labcoat-mongodb/">blog post</a>.</p>
+<a href="http://www.bobbriody.com/blog/2013/03/27/example-analytics-with-precog-labcoat-mongodb/"><img alt="Screen Shot 2013-03-28 at 4.14.01 PM" src="/blog/images/Screen-Shot-2013-03-28-at-4.14.01-PM-285x300.png" width="285" height="300" /></a>
+<p>It's great to see community members using Precog for MongoDB and sharing their knowledge with the rest of the community.  You can also get started with Precog for MongoDB by getting the <a href="http://www.precog.com/editions/precog-for-mongodb">free download</a>.</p>

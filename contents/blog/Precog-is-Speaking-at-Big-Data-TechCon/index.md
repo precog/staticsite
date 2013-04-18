@@ -1,0 +1,14 @@
+title: Precog is Speaking at Big Data TechCon
+author: Tasha Kelly
+date: 2013-04-3 00:00
+template: post.jade
+
+<img class="body-image-right" align="right" alt="BigDataLogo_medium" src="http://blog.precog.com/wp-content/uploads/2013/04/BigDataLogo_medium1.jpg" width="200" height="77" />
+<p>Next week, the Precog team will be traveling to Boston for <a href="http://www.bigdatatechcon.com/boston2013/">Big Data TechCon</a>. Our CEO/Founder <a href="http://www.bigdatatechcon.com/boston2013/speakers.html">John De Goes</a> was asked to speak in <a href="http://www.bigdatatechcon.com/boston2013/classes.html">two sessions</a> on April 9. If you&#8217;re already planning to attend, we hope to see you in these technical sessions. Otherwise, go <a href="http://www.bigdatatechcon.com/boston2013/conferencepricing.html">here</a> to register for a Conference Pass. Follow the conference on Twitter: <a href="https://twitter.com/search?q=%23BigDataTechCon&amp;src=hash">#bigdatatechcon</a></p>
+<p><strong>In-Database Predictive Analytics</strong></p>
+<p>Predictive analytics have long lived in the domain of statistical tools like R. Increasingly, however, as companies struggle to deal with exploding volumes of data not easily analyzed by small data tools, they are looking at ways of doing predictive analytics directly inside the primary data store. This approach, called in-database predictive analytics, eliminates the need to sample data and perform a separate ETL process into a statistical tool, which can decrease total cost, improve the quality of predictive models, and dramatically shorten development time. In this class, you will learn the pros and cons of doing in-database predictive analytics, highlights of its limitations, and survey the tools and technologies necessary to head down the path.</p>
+<p><strong>Analytics Maturity Model</strong></p>
+<p>Every company is at a different stage in leveraging analytics to improve their operational efficiency and product offerings. In this class, you will learn an eight-stage analytics maturity model that companies can use to determine how far they are from the most analytical companies.</p>
+<p><em><a href="http://www.bigdatatechcon.com/boston2013/"> Big Data TechCon</a> is the HOW-TO conference for IT professionals working to implement Big Data systems within their companies or for their clients. Attend Big Data TechCon and choose from dozens of technical classes and tutorials and learn from real-world experts. Be inspired by top keynotes, meet with the leading vendors in the Expo Hall, and improve your skills in this fast-growing field. Big Data TechCon is the most important conference you&#8217;ll attend in 2013.</em></p>
+<p><em><strong>Big Data TechCon</strong></em></p>
+<p><em> April 8-10, 2013</em></p>

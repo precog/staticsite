@@ -1,0 +1,17 @@
+title: APIs- The Next Big Thing That Is Already Here
+author: Nathan Lubchenco
+date: 2012-10-23 00:00
+template: post.jade
+
+<p>APIs (<a href="http://en.wikipedia.org/wiki/Application_programming_interface">Application programming interfaces</a>) are changing the way that application development occurs. They provide an easy way for developers to mash up services together in <a href="http://en.wikipedia.org/wiki/Mashup_(web_application_hybrid)">innovative combinations</a>. One such example is Precog&#8217;s recently launched<a href="elections2012"> Real-time Twitter Election Analysis</a>. Here is an <a href="http://www.slideshare.net/jmusser/pw-glue-conmay2010">overview of the growth of APIs </a>from John Musser of Programmableweb.</p>
+<p>Sam Ramji of Apigee contends that APIs are a game changer that will allow companies the opportunity to flourish in an increasingly competitive environment. He <a href="http://blog.apigee.com/detail/full_talk_and_slides_darwins_finches_20th_century_business_and_apis_evolve/">makes an evolutionary comparison </a>that an API is a like a gene that will spread everywhere your API is used.</p>
+<p>That's a lot of buzz.</p>
+<p>Is it warranted? Absolutely. Let's look at an example that compares the old way of doing things with the API-driven approach.</p>
+<p>The old way of collecting data about political elections is to conduct expensive phone polling.  You hire a group of trained survey callers and have them call tens of thousands of people. Sample sizes in poll results are much smaller than this, but response rates tend to be <a href="http://www.huffingtonpost.com/2012/05/15/poll-response-rates_n_1518501.html">quite low and are getting lower</a>. Additionally, polling data like this can often be fraught with <a href="http://www.ropercenter.uconn.edu/education/polling_fundamentals_error.html#.UHWf3Rhy7oo">measurement error</a>, such as order effects or forced choices.</p>
+<p>The new API-driven approach is to combine several APIs to provide interesting insight into the 2012 election with limited effort and expense.</p>
+<p>For example, a minor change to the <a href="elections2012">real-time chart</a> allows us to query data during the last Presidential debate:</p>
+<p><a href="http://blog.precog.com/?attachment_id=62" rel="attachment wp-att-62"><img class="alignnone size-full wp-image-62" alt="elections2012" src="http://blog.precog.com/wp-content/uploads/2012/12/elections2012.png" width="400" height="221" /></a></p>
+<p>It would not be surprising if some selection bias occurs in the data.  According to <a href="http://www.pewinternet.org/Reports/2012/Social-networking-and-politics/Main-findings/Social-networking-sites-and-politics.aspx">this survey</a>, internet users who identify as liberal are more likely to use social networking sites than internet users who identify as conservative.  The likely selection bias in the population of Twitter users is problematic so there is still room for improvement.</p>
+<p>However, the potential methodological advantages of huge samples in an organic setting instead of an artificial context for a fraction of the cost are significant.  Additional work also remains in understanding exactly what these numbers mean and determining if they have any predictive power.</p>
+<p>While new approaches may not completely replace old methods, providing people with the resources to be creative is a powerful recipe for innovation.</p>
+<p>For more information on Precog&#8217;s API, check out the <a href="developers">developer center</a>.</p>

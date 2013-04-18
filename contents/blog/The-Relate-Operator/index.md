@@ -1,0 +1,9 @@
+title: The Relate Operator
+author: Nathan Lubchenco
+date: 2012-12-10 00:00
+template: post.jade
+
+<p><a id="internal-source-marker_0.8613732042407144" href="http://www.precog.com/">Precog</a> supports <a href="http://quirrel-lang.org/">Quirrel</a> a statistically-oriented query language to analyze data.  Quirrel is well suited for ad-hoc analysis.  Check out this <a href="http://www.precog.com/quirrel/resources">reference guide</a>for the current library of built in functions.  The <a href="http://www.precog.com/products/labcoat/learn">tutorial video</a> below provides some background on Quirrel's set-based nature and illustrates how to use therelate operator in this context.</p>
+<p>Data in Precog is stored in different paths for a variety of reasons.  One reason is to capture and store different kinds of events in different places.  For example, you may have a path that ends in /clicks and another that ends in /impressions.  When you want to do mathematical operations on both of these paths, you'll often need to use the relate operator.</p>
+<p>Mathematical operations in Quirrel cannot be performed on unrelated sets.  Mathematical operations in Quirrel are done with pair-wise matching and if the sets aren't related, Quirrel cannot match them up appropriately.  The relate operator allows you to relate sets and perform operations on unrelated sets.  For more information on this powerful operator, check out the tutorial video below:</p>
+<p><iframe title="YouTube video player" src="http://www.youtube.com/embed/7Yyh3mwA2tY?wmode=transparent" height="300" width="400" allowfullscreen="" frameborder="0"></iframe></p>

@@ -1,0 +1,12 @@
+title: The Race is On! Watch our Real-Time Election Analysis
+author: Tasha Danko
+date: 2012-10-22 00:00
+template: post.jade
+
+<p>Anyone who has braved the Twitterverse during a presidential debate knows that the sheer volume of candidate-related tweets makes any kind of conversation analysis really hard.</p>
+<p>So &#8212; what are people saying about the candidates on Twitter, and more importantly, what does it mean?</p>
+<p>Precog and Alchemy API have partnered up to launch a Real-Time Twitter Sentiment Analysis. Gathering tweets in real-time, then scoring tweets for Romney &amp; Obama on a +1 (positive) to -1 (negative) scale, the analysis shows a state-by-state breakdown of Twitter sentiment.</p>
+<p><a href="http://blog.precog.com/?attachment_id=59" rel="attachment wp-att-59"><img class="alignnone size-full wp-image-59" alt="Screen Shot 2012-10-22 at 4.12.49 PM" src="/blog/images/Screen-Shot-2012-10-22-at-4.12.49-PM.png" width="600" height="500" /></a></p>
+<p>How do people in different states tweet about candidates? Are they positive on Romney? Neutral on Obama? Is Texas such a red state when viewed through the lens of Twitter? Are California tweets as staunchly blue as the state's electorate? Are certain days better for the candidates than others? You can get the answers to these questions here (rollover a state to see the real-time sentiment score).</p>
+<p>So, how was this developed? First, we can see what people organically think about the candidates by searching for tweets using Twitter's API. Then we can analyze the sentiment of these tweets using Alchemy API's Sentiment Analysis API. This data can be easily stored using Precog's API. Precog's interactive development environment, Labcoat, can be used to analyze this data. The resulting query can be exported into an application, which in this case is a data visualization app that uses the ReportGrid visualization library. Visit www.precog.com/elections2012 to learn more and feel free to also grab the code to embed this Geo Chart on your website!</p>
+<p>You can tune in during the debate tonight to see the latest, and we'll be running our analysis through election day on November 6. Enjoy watching the the live action!</p>

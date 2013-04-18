@@ -1,0 +1,10 @@
+title: Escape from Zombies and Learn Quirrel at the same time!
+author: Nathan Lubchenco
+date: 2013-01-30 18:07
+template: post.jade
+
+<p>Today, we're adding a <a href="http://www2.precog.com/learn-quirrel-level-1">fun, interactive game</a> to our supply of training resources called the Quirrel Tutorial Game.  While our existing resources (<a href="http://www.precog.com/products/labcoat/learn">tutorial videos</a>,<a href="http://www.precog.com/how-tos/common-queries"> how to guides</a> and<a href="http://quirrel-lang.org/tutorial.html"> documentation</a>) are helpful, an interactive exercise allows you to experiment and learn at your own speed. Plus, since we've designed it as a <a href="http://www2.precog.com/learn-quirrel-level-1">game,</a> so you can have fun along the way!</p>
+<p>In <a href="http://www2.precog.com/learn-quirrel-level-1">Level 1: Data and Operators</a>, you'll learn about the Quirrel data model and a bunch of useful operators that can be used to manipulate data.  You will also need to fuel up your ship before the hordes of zombies arrive. Subsequent levels will dive into more advanced functionality and will be forthcoming soon. After you complete the<a href="http://www2.precog.com/learn-quirrel-level-1"> first level</a> in the Beginner Game, you can Tweet your final score and sign up to be notified of future releases.</p>
+<p>The <a href="http://www2.precog.com/learn-quirrel-level-1">Quirrel Tutorial Game</a> is a fun and easy way to get started with <a href="http://www.precog.com/products/labcoat/quirrel">Quirrel</a> or to brush up on your query skills and learn some new features. Brag about your score with your friends on Twitter and Facebook and invite them to play too! Check it out today and <a href="mailto:support@precog.com">let us know</a> what you think.</p>
+<p>&nbsp;<br />
+<a href="http://www2.precog.com/learn-quirrel-level-1"><img alt="" src="https://lh3.googleusercontent.com/B3yvbRCbmCSBIn3QZMQBsudTQEcPy_i6NHLHszfhYvzbULLRoFFjc1LpPhJx54szi1iE9hQPg4nuKfJ6v_gcLDg0zKNZGkX2AnWLJ7p-yO3TzGEs5p9aYztz1g" width="522px;" height="335px;" /></a></p>

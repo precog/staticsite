@@ -10,7 +10,7 @@ template: page.jade
     </a>
 </div>
 <div class="four-columns">
-    <a  href="/solutions/no-sql-analytics/"class="dark-background">
+    <a  href="/solutions/nosql-analytics/"class="dark-background">
         <h2>No SQL Analytics</h2>
         <p>NoSQL data stores are being rapidly adopted by developers around the world because they support non-relational data like JSON.</p>
     </a>
