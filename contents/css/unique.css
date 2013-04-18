@@ -1284,7 +1284,7 @@ g .node .label:last-child {
     opacity: 0.0;
     border-radius: 6px;
     background-color: #14171A;
-    z-index: 100;
+    z-index: 10000;
 }
 
 .icon-close-frame {
