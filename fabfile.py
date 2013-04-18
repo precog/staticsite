@@ -9,11 +9,26 @@ from fabric.utils import abort,warn,puts
 from fabric.contrib.project import upload_project
 
 import os
+import time
 
 # Configure user, private key, etc. for SFTP deployment
 env.user = 'ubuntu'
 env.hosts = ['web4.precog.com']
 env.optimize_images = True
+env.colors = True
+env.release = time.strftime('%Y%m%d%H%M%S')
+env.path = '/var/www/precogsite'
+
+@task(display=None)
+@hosts('localhost')
+def production():
+    """
+        Execute the other actions on production environment
+    """
+
+    puts(green('Running on Production!'))
+    env.hosts = ['web2.precog.com']
+
 
 @task
 @hosts('localhost')
@@ -23,6 +38,7 @@ def build():
     """
 
     local('wintersmith build')
+
 
 @task
 @hosts('localhost')
@@ -41,7 +57,7 @@ def optimize():
     if execExists('yui-compressor'):
         interesting_extensions.update(cssjs_extensions)
         cssjs_overwrites = False
-        cssjs_exec = 'yui-compressor -v -o "%(target)s" "%(source)s"'
+        cssjs_exec = 'yui-compressor -o "%(target)s" "%(source)s"'
     else:
         warn(yellow('Unable to optimize css/js files: yui-compressor not found!'))
 
@@ -141,26 +157,15 @@ def pack():
     optimize()
     tarball()
 
+
 @task
 def deploy():
     """
         Deploys static site on web4
     """
 
-    put('build.tgz', '/tmp/build.tgz')
-
-    # now we're on the remote host from here on out!
-    run('rm -fr /tmp/staticsite')
-    run('mkdir /tmp/staticsite')
-    with cd('/tmp/staticsite'):
-        run('tar xzf /tmp/build.tgz')
-
-    sudo('chown -R www-data:www-data /tmp/staticsite')
-    sudo('touch /var/www/staticsite')
-    sudo('mv /var/www/staticsite /tmp/oldsite')
-    sudo('mv /tmp/staticsite /var/www/staticsite')
-    sudo('rm -rf /tmp/oldsite')
-    local('rm -f build.tgz')
+    upload_current_release()
+    symlink_current_release()
 
 
 def execExists(name):
@@ -171,4 +176,19 @@ def execExists(name):
     with settings(hide('everything'), warn_only=True):
         return local('which %s' % name, capture=True)
 
+def upload_current_release():
+    sudo('rm -f /tmp/build.tgz')
+    put('build.tgz', '/tmp/build.tgz')
+    with cd('%s/releases' % env.path):
+        run('mkdir %(release)s' % env)
+        with cd(env.release):
+            run('tar xzf /tmp/build.tgz')
+        sudo('chown -R ubuntu:www-data %(release)s' % env)
+
+def symlink_current_release():
+    print(yellow('>>> updating current to point at %(path)s/releases/%(release)s' % env))
+    with cd(env.path):
+        with settings(warn_only=True):
+            run('mv current releases/%(release)s/rollback' % env)
+        run('ln -s releases/%(release)s current' % env)
 

@@ -43,12 +43,19 @@ See `wintersmith help` for more information.
 Deploying the Site
 ==================
 
-Site deploy is done through fabric, though only deploy to `web4`,
-a staging environment, is configured at the moment. The following
-command will build the site (as above), generate a tarball and
-move it to `web4`:
+Site deploy is done through fabric, deploying by default to `web4`,
+a staging environment. The following command will build the site (as above),
+generate a tarball and move it to `web4`:
 
     fab pack deploy
+
+To deploy to production, do this:
+
+    fab production pack deploy
+
+or, if no changes were made since you last ran `pack`, this:
+
+    fab production deploy
 
 See `fab --list` for more information.
 
