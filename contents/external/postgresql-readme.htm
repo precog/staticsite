@@ -1,0 +1,148 @@
+<h1>Precog for PostgreSQL </h1>
+
+<p>Precog for PostgreSQL is a free release that swaps out Precog's native data
+store for PostgreSQL, effectively using PostgreSQL as a disk drive from which 
+data is loaded. The data is translated on-the-fly into a format that Precog
+can work with.</p>
+
+<p>Precog for PostgreSQL gives you the ability to analyze all the data in
+your PostgreSQL database, without forcing you to export data into another
+tool or write any custom code.</p>
+
+<p>The following sections contain a short guide for getting started with Precog 
+for PostgreSQL. You'll be up and running in minutes!</p>
+
+<h2>Step 1: Unpack the Download</h2>
+
+<p>The download is a ZIP file that contains the following files:</p>
+
+<ul>
+<li>precog.jar</li>
+<li>config.cfg</li>
+<li>precog.sh</li>
+<li>precog.bat</li>
+</ul>
+
+<p>The file <strong>precog.jar</strong> is the Java JAR that bundles all of the Precog
+dependencies into a single (really big!) file. The files <strong>precog.sh</strong> and
+<strong>precog.bat</strong> are scripts that launch <strong>precog.jar</strong>.</p>
+
+<p>The file <strong>config.cfg</strong> contains configuration information.</p>
+
+<h2>Step 2: Configure Precog</h2>
+
+<p>All the configuration settings for Precog are stored in the file
+<strong>config.cfg</strong>, with reasonable defaults.</p>
+
+<p>There are two things you need to do at a minimum before you can launch
+Precog:</p>
+
+<ol>
+<li><p>Tell Precog the location of your database(s)</p></li>
+<li><p>Tell Precog what the master account is.</p></li>
+</ol>
+
+<p>To tell Precog the location of the database(s), simply edit the
+databases section under queryExecutor:</p>
+
+<pre><code>queryExecutor { 
+    databases { 
+        local = "jdbc:postgresql://localhost/test" 
+    } 
+}
+</code></pre>
+
+<p>The format of each line is</p>
+
+<pre><code>&lt;database name&gt; = &lt;JDBC PostgreSQL URL&gt;
+</code></pre>
+
+<p>Where <database name> is whatever you want the database to be named
+<em>within Quirrel</em>, and the URL is of the form
+<code>jdbc:postgresql://&lt;host&gt;/&lt;postgresql database name&gt;</code> (see <a href="http://jdbc.postgresql.org/documentation/91/connect.html">the
+PostgreSQL JDBC
+reference</a>
+for more details on the syntax).</p>
+
+<p>For optimal performance, you should
+launch Precog on the same machine that is running the PostgreSQL server.</p>
+
+<p>To tell Precog what the master account is, edit <strong>config.cfg</strong> and edit
+the following settings under the masterAccount section:</p>
+
+<pre><code>security { 
+    masterAccount { 
+        apiKey = "12345678-1234-1234-1234-123456789abc"
+    }
+}
+</code></pre>
+
+<p>The API key for the master account can be anything you like, but you
+should treat it securely because whoever has it has full access to
+your database.</p>
+
+<p>You may also want to tweak the ports that Precog uses for the web
+server that exposes the Precog REST API and to serve labcoat:</p>
+
+<pre><code>server { 
+    port = 8888 
+} 
+...  
+labcoat { 
+    port = 8000 
+}
+</code></pre>
+
+<h2>Step 3: Launch Precog</h2>
+
+<p>To run <strong>precog.jar</strong>, you will need to install JRE 6 or later (many
+systems already have Java installed). If you’re on an OS X or Linux
+machine, just run the <strong>precog.sh</strong> script, which automatically
+launches Java. If you’re on a Windows machine, you can launch Precog
+with the <strong>precog.bat</strong> script.</p>
+
+<p>Once Precog has been launched, it will start a web server that exposes
+the Analytics REST API as well as labcoat.</p>
+
+<h2>Step 4: Try the API</h2>
+
+<p>Once Precog is running, you have full access to the Precog Analytics REST
+API. However, you will need to load data into PostgreSQL using standard SQL 
+insertion outside of Precog.  That is, you cannot use the Precog Ingest API to
+load data into PostgreSQL because Precog for PostgreSQL does not bundle the 
+auth, accounts or ingest services. To obtain access to the rest of the Precog 
+REST API you will need to sign-up for an account and use the cloud-based 
+service. You can find a large number of open source client libraries available 
+on Github, and the Precog developers site contains documentation and tutorials 
+for interacting with the API.</p>
+
+<h2>Step 5: Try Labcoat</h2>
+
+<p>Labcoat is an HTML5 application that comes bundled in the
+download. You don’t have to use Labcoat, of course, since Precog has a
+REST API, but Labcoat is the best way to interactively explore your
+data and develop Quirrel queries.</p>
+
+<p>The precog.jar comes with a bundled web server for labcoat, so once
+it’s running just point your browser at http://localhost:8000/ (or
+whatever port you’ve configured it for) and you’ll have a new labcoat
+IDE pointing at your local Precog REST API.</p>
+
+<h2>Step 6: Analyze Data!</h2>
+
+<p>Once you’ve got Labcoat running, you’re all set! You should see your
+PostgreSQL databases and tables in the file system explorer, and you can query
+data from the tables, develop queries to analyze the data, and
+export queries as code that run against your Precog server.</p>
+
+<p>Precog is a beta product, and <em>Precog for PostgreSQL</em> is hot off the
+press. You may encounter a few rough corners, and if so, we’d love to
+hear about them (just send an email to support@precog.com).</p>
+
+<p>Due to technical limitations, we only recommend the product for exploratory 
+data analysis. For developers interested in high-performance analytics on their 
+PostgreSQL data, we recommend our cloud-based analytics solution and the 
+PostgreSQL data importer, which can nicely complement existing PostgreSQL 
+installations for analytic-intensive workloads.</p>
+
+<p>Have fun analyzing!</p>

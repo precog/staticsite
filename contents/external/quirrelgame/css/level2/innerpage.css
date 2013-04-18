@@ -1,0 +1,167 @@
+/*GAME*/
+#background-header {
+    width: 100%;
+    height: 292px;
+    overflow: hidden;
+    background: rgb(20,23,26); /* Old browsers */
+    background: -moz-linear-gradient(top, #333333 20%, #666666 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(20%,#333333), color-stop(100%,#666666)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #333333 20%,#666666 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #333333 20%,#666666 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #333333 20%,#666666 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #333333 20%,#666666 100%); /* W3C */
+}
+
+#animated-meteors {
+    height: 100%;
+    background-image: url("../../images/level2/graphic-background-repeatable.png");
+    background-repeat: repeat;
+    background-position: 0px 110px;
+    animation: slide 16s infinite linear;
+    -moz-animation: slide 16s infinite linear;
+    -webkit-animation: slide 16s infinite linear;
+    -o-animation: slide 16s infinite linear;
+}
+
+@keyframes slide
+{
+from {background-position: 0px 0px;}
+to {background-position: 953px 953px;}
+}
+
+@-moz-keyframes slide /* Firefox */
+{
+from {background-position: 0px 0px;}
+to {background-position: 953px 953px;}
+}
+
+@-webkit-keyframes slide /* Safari and Chrome */
+{
+from {background-position: 0px 0px;}
+to {background-position: 953px 953px;}
+}
+
+@-o-keyframes slide /* Opera */
+{
+from {background-position: 0px 0px;}
+to {background-position: 953px 953px;}
+}
+
+#game {
+    padding-top: 30px;
+}
+
+#game-background {
+    width: 100%;
+    height: 100%;
+    background-image: url("../../images/level2/graphic-background-element.png");
+    background-position: bottom;
+    background-repeat: repeat-x;
+}
+
+#game-progress {
+    position: absolute;
+    top: 60px;
+    left: 20px;
+}
+
+#game-progress p {
+    font-size: 8pt;
+    color: #fff;
+}
+
+#progress-shields {
+    width: 160px;
+    height: 12px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    border-left: 1px solid #3e718c;
+    background: #3e718c; /* Old browsers */
+    background: -moz-linear-gradient(left,  #3e718c 0%, #61b1dc 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#3e718c), color-stop(100%,#61b1dc)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  #3e718c 0%,#61b1dc 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  #3e718c 0%,#61b1dc 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  #3e718c 0%,#61b1dc 100%); /* IE10+ */
+    background: linear-gradient(to right,  #3e718c 0%,#61b1dc 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3e718c', endColorstr='#61b1dc',GradientType=1 ); /* IE6-9 */
+}
+
+#progress-engine {
+    width: 0px;
+    height: 12px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    border-left: 1px solid #7eaa39;
+    background: #7eaa39; /* Old browsers */
+    background: -moz-linear-gradient(left,  #7eaa39 0%, #8cc63f 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#7eaa39), color-stop(100%,#8cc63f)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  #7eaa39 0%,#8cc63f 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  #7eaa39 0%,#8cc63f 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  #7eaa39 0%,#8cc63f 100%); /* IE10+ */
+    background: linear-gradient(to right,  #7eaa39 0%,#8cc63f 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7eaa39', endColorstr='#8cc63f',GradientType=1 ); /* IE6-9 */
+}
+
+#meteor {
+    position: absolute;
+    left: -500px;
+    top: 20px;
+    height: 30px;
+    width: 95px;
+    background: url("../../images/level2/graphic-individual-meteor.png"), no-repeat center;
+}
+
+#rocket-shield {
+    position: absolute;
+    left: 347px;
+    top: 56px;
+    height: 236px;
+    width: 105px;
+    background: url("../../images/level2/graphic-rocket-shield.png"), no-repeat center;
+    opacity: 0.1;
+}
+
+#rocket {
+    position: absolute;
+    left: 354px;
+    top: 74px;
+    height: 218px;
+    width: 92px;
+    background: url("../../images/level2/graphic-precog-rocket.png"), no-repeat center;
+}
+
+#hero {
+    position: absolute;
+    left: 454px;
+    top: 242px;
+    height: 50px;
+    width: 32px;
+    background: url("../../images/level2/graphic-hero.png"), no-repeat center;
+}
+
+#hero-arm {
+    position: absolute;
+    left: 432px;
+    top: 242px;
+    height: 66px;
+    width: 66px;
+    background: url("../../images/level2/graphic-hero-arm.png"), no-repeat center;
+}
+
+#censored-flag h4 {
+    position: absolute;
+    top: 180px;
+    width: 200px;
+    padding: 20px;
+    background-color: #000000;
+    font-size: 16pt;
+    text-align: center;
+    color: #fff;
+    z-index: 1;
+    transform:rotate(-7deg);
+    -ms-transform:rotate(-7deg); /* IE 9 */
+    -moz-transform:rotate(-7deg); /* Firefox */
+    -webkit-transform:rotate(-7deg); /* Safari and Chrome */
+    -o-transform:rotate(-7deg); /* Opera */
+    display: none;
+}

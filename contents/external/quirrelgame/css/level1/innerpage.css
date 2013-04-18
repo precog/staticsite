@@ -1,0 +1,177 @@
+/*GAME*/
+#background-header {
+    width: 100%;
+    height: 292px;
+    overflow: hidden;
+    background: rgb(20,23,26); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(20,23,26,1) 20%, rgba(60,69,77,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(20%,rgba(20,23,26,1)), color-stop(100%,rgba(60,69,77,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(20,23,26,1) 20%,rgba(60,69,77,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(20,23,26,1) 20%,rgba(60,69,77,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(20,23,26,1) 20%,rgba(60,69,77,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(20,23,26,1) 20%,rgba(60,69,77,1) 100%); /* W3C */
+}
+
+#game {
+    padding-top: 30px;
+}
+
+#animated-clouds {
+    height: 100%;
+    background-image: url("../../images/level1/graphic-repeatable-clouds.png");
+    background-repeat: repeat-x;
+    background-position: 0px 110px;
+    animation: slide 90s infinite linear;
+    -moz-animation: slide 90s infinite linear;
+    -webkit-animation: slide 90s infinite linear;
+    -o-animation: slide 90s infinite linear;
+}
+
+@keyframes slide
+{
+from {background-position: 0px 0px;}
+to {background-position: 962px 0px;}
+}
+
+@-moz-keyframes slide /* Firefox */
+{
+from {background-position: 0px 0px;}
+to {background-position: 962px 0px;}
+}
+
+@-webkit-keyframes slide /* Safari and Chrome */
+{
+from {background-position: 0px 0px;}
+to {background-position: 962px 0px;}
+}
+
+@-o-keyframes slide /* Opera */
+{
+from {background-position: 0px 0px;}
+to {background-position: 962px 0px;}
+}
+
+#game-background {
+    width: 100%;
+    height: 100%;
+    background-image: url("../../images/level1/graphic-repeatable-background.png");
+    background-position: bottom;
+    background-repeat: repeat-x;
+}
+
+#censored-flag h4 {
+    position: absolute;
+    top: 180px;
+    width: 200px;
+    padding: 20px;
+    background-color: #000000;
+    font-size: 16pt;
+    text-align: center;
+    color: #fff;
+    z-index: 1;
+    transform:rotate(-7deg);
+    -ms-transform:rotate(-7deg); /* IE 9 */
+    -moz-transform:rotate(-7deg); /* Firefox */
+    -webkit-transform:rotate(-7deg); /* Safari and Chrome */
+    -o-transform:rotate(-7deg); /* Opera */
+    display: none;
+}
+
+/*ROCKET*/
+#rocket {
+    position: absolute;
+    left: 0px;
+    top: 118px;
+    width: 76px;
+    height: 174px;
+    background-image: url("../../images/level1/graphic-precog-rocket.png");
+    background-repeat: no-repeat;
+}
+
+#hero {
+    position: absolute;
+    left: -60px;
+    top: 234px;
+    width: 40px;
+    height: 58px;
+    background-image: url("../../images/level1/graphic-hero.png");
+    background-repeat: no-repeat;
+}
+
+/*FUEL TANK*/
+#fuel-tank {
+    position: absolute;
+    top: 210px;
+    left: 72px;
+    width: 116px;
+    height: 84px;
+    background-image: url("../../images/level1/graphic-fuel-tank.png");
+    background-repeat: no-repeat;
+}
+
+#fuel {
+    position: absolute;
+    top: 247px;
+    left: 130px;
+    width: 40px;
+    height: 80px;
+    background-color: #1E2226;
+}
+
+#liquid {
+    position: absolute;
+    top: 30px;
+    width: 40px;
+    height: 40px;
+    background-color: #FF4D2A;
+    background-image: url("../../images/level1/graphic-fuel.png");
+    background-repeat: repeat-x;
+    animation: slideAlt 4s infinite linear;
+    -moz-animation: slideAlt 4s infinite linear;
+    -webkit-animation: slideAlt 4s infinite linear;
+    -o-animation: slideAlt 4s infinite linear;
+}
+
+@keyframes slideAlt
+{
+from {background-position: 0px 0px;}
+to {background-position: 40px 0px;}
+}
+
+@-moz-keyframes slideAlt /* Firefox */
+{
+from {background-position: 0px 0px;}
+to {background-position: 40px 0px;}
+}
+
+@-webkit-keyframes slideAlt /* Safari and Chrome */
+{
+from {background-position: 0px 0px;}
+to {background-position: 40px 0px;}
+}
+
+@-o-keyframes slideAlt /* Opera */
+{
+from {background-position: 0px 0px;}
+to {background-position: 40px 0px;}
+}
+
+
+/*ZOMBIE*/
+#zombie {
+    position: absolute;
+    top: 242px;
+    left: 762px;
+    width: 238px;
+    height: 52px;
+    background-image: url("../../images/level1/graphic-repeatable-zombies.png");
+    background-repeat: no-repeat;
+}
+
+#zombie p {
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    display: none;
+    color: #8CC63F;
+}

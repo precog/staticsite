@@ -1,0 +1,167 @@
+/*GAME*/
+#background-header {
+    width: 100%;
+    height: 292px;
+    overflow: hidden;
+    background: #c13707; /* Old browsers */
+    background: -moz-linear-gradient(top,  #c13707 0%, #ea7f1e 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c13707), color-stop(100%,#ea7f1e)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #c13707 0%,#ea7f1e 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #c13707 0%,#ea7f1e 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #c13707 0%,#ea7f1e 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #c13707 0%,#ea7f1e 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c13707', endColorstr='#ea7f1e',GradientType=0 ); /* IE6-9 */
+}
+
+#animated-clouds {
+    height: 100%;
+    background-image: url("../../images/level3/graphic-clouds-repeatable.png");
+    background-repeat: repeat-x;
+    background-position: 0px 50px;
+    animation: slide 50s infinite linear;
+    -moz-animation: slide 50s infinite linear;
+    -webkit-animation: slide 50s infinite linear;
+    -o-animation: slide 50s infinite linear;
+}
+
+@keyframes slide
+{
+from {background-position: 0px 0px;}
+to {background-position: 1024px 0px;}
+}
+
+@-moz-keyframes slide /* Firefox */
+{
+from {background-position: 0px 0px;}
+to {background-position: 1024px 0px;}
+}
+
+@-webkit-keyframes slide /* Safari and Chrome */
+{
+from {background-position: 0px 0px;}
+to {background-position: 1024px 0px;}
+}
+
+@-o-keyframes slide /* Opera */
+{
+from {background-position: 0px 0px;}
+to {background-position: 1024px 0px;}
+}
+
+#game {
+    padding-top: 30px;
+}
+
+#rocket {
+    position: absolute;
+    left: 372px;
+    top: 68px;
+    height: 128px;
+    width: 56px;
+    background: url("../../images/level3/graphic-rocket.png"), no-repeat center;
+}
+
+#hero {
+    position: absolute;
+    left: 762px;
+    top: 235px;
+    height: 58px;
+    width: 38px;
+}
+
+#mountain-lava {
+    position: absolute;
+    top: 288px;
+    left: 340px;
+    width: 130px;
+    height: 80px;
+    background: url("../../images/level3/graphic-fire-repeatable.png") repeat-x, #ff0000; /* Old browsers */
+    background: url("../../images/level3/graphic-fire-repeatable.png") repeat-x, -moz-linear-gradient(top,  #ff0000 0%, #b30000 100%); /* FF3.6+ */
+    background: url("../../images/level3/graphic-fire-repeatable.png") repeat-x, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff0000), color-stop(100%,#b30000)); /* Chrome,Safari4+ */
+    background: url("../../images/level3/graphic-fire-repeatable.png") repeat-x, -webkit-linear-gradient(top,  #ff0000 0%,#b30000 100%); /* Chrome10+,Safari5.1+ */
+    background: url("../../images/level3/graphic-fire-repeatable.png") repeat-x, -o-linear-gradient(top,  #ff0000 0%,#b30000 100%); /* Opera 11.10+ */
+    background: url("../../images/level3/graphic-fire-repeatable.png") repeat-x, -ms-linear-gradient(top,  #ff0000 0%,#b30000 100%); /* IE10+ */
+    background: url("../../images/level3/graphic-fire-repeatable.png") repeat-x, linear-gradient(to bottom,  #ff0000 0%,#b30000 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0000', endColorstr='#b30000',GradientType=0 ); /* IE6-9 */
+    animation: slideAlt 4s infinite linear;
+    -moz-animation: slideAlt 4s infinite linear;
+    -webkit-animation: slideAlt 4s infinite linear;
+    -o-animation: slideAlt 4s infinite linear;
+}
+
+#mountain-background {
+    left: 288px;
+    top: 200px;
+    position: absolute;
+    width: 224px;
+    height: 92px;
+    background-image: url("../../images/level3/graphic-volcano-background.png");
+}
+
+@keyframes slideAlt
+{
+from {background-position: 0px 50px;}
+to {background-position: 61px 50px;}
+}
+
+@-moz-keyframes slideAlt /* Firefox */
+{
+from {background-position: 0px 50px;}
+to {background-position: 61px 50px;}
+}
+
+@-webkit-keyframes slideAlt /* Safari and Chrome */
+{
+from {background-position: 0px 50px;}
+to {background-position: 61px 50px;}
+}
+
+@-o-keyframes slideAlt /* Opera */
+{
+from {background-position: 0px 50px;}
+to {background-position: 61px 50px;}
+}
+
+#ash {
+    height: 100%;
+    width: 100%;
+    background-image: url("../../images/level3/graphic-falling-ash.png");
+    background-position: 0px 0px;
+    animation: fallingAsh 4s infinite linear;
+    -moz-animation: fallingAsh 4s infinite linear;
+    -webkit-animation: fallingAsh 4s infinite linear;
+    -o-animation: fallingAsh 4s infinite linear;
+}
+
+@keyframes fallingAsh
+{
+from {background-position: 0px 0px;}
+to {background-position: 0px 231px;}
+}
+
+@-moz-keyframes fallingAsh /* Firefox */
+{
+from {background-position: 0px 0px;}
+to {background-position: 0px 231px;}
+}
+
+@-webkit-keyframes fallingAsh /* Safari and Chrome */
+{
+from {background-position: 0px 0px;}
+to {background-position: 0px 231px;}
+}
+
+@-o-keyframes fallingAsh /* Opera */
+{
+from {background-position: 0px 0px;}
+to {background-position: 0px 231px;}
+}
+
+#mountain {
+    position: absolute;
+    left: 0px;
+    top: 194px;
+    height: 98px;
+    width: 800px;
+    background: url("../../images/level3/graphic-mountain.png"), no-repeat center;
+}

@@ -20,7 +20,7 @@ template: page-products.jade
                     <a href="/solutions/data-productization/" target="_blank">Data Productization</a>
                 </li>
                 <li>
-                    <a href="/solutions/no-sql-analytics/" target="_blank">NoSQL Analytics</a>
+                    <a href="/solutions/nosql-analytics/" target="_blank">NoSQL Analytics</a>
                 </li>
             </ul>
             <a id="get-account-sticker" href="/account/login/"></a>
@@ -248,7 +248,7 @@ template: page-products.jade
                 <div id="use-cases">
                     <a href="/solutions/data-science/">Data Science</a>
                     <a href="/solutions/embedded-reporting/">Embedded Reporting</a>
-                    <a href="/solutions/no-sql-analytics/">NoSQL Analytics</a>
+                    <a href="/solutions/nosql-analytics/">NoSQL Analytics</a>
                     <a href="/solutions/data-productization/">Data Productization</a>
                 </div>
             </div>

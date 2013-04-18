@@ -1,0 +1,20 @@
+<h1>Precog for PostgreSQL ChangeLog</h1>
+
+<h2>Version 1.1.0</h2>
+
+<ul>
+<li>Added support for hstore and json columns</li>
+<li>Numerous bug fixes</li>
+</ul>
+
+<p><em>Note:</em> While json and hstore columns are supported for read,
+ PostgreSQL doesn't currently support key/property level queries
+ against them. Because of that, any queries that utilize hstore or
+ json columns will read all contained column data before filtering
+ down to only the required columns.</p>
+
+<h2>Version 1.0.0</h2>
+
+<ul>
+<li>Initial release</li>
+</ul>

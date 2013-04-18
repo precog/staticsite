@@ -1,0 +1,3 @@
+^/mongodb$ http://www.precog.com/editions/precog-for-mongodb/
+^/postgresql$ http://www.precog.com/editions/precog-for-postgresql/
+^/precog-blog$ http://www.precog.com/blog/

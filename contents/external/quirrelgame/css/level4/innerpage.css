@@ -1,0 +1,243 @@
+/*GAME*/
+#background-header {
+    width: 100%;
+    height: 292px;
+    overflow: hidden;
+    background: rgb(20,23,26); /* Old browsers */
+    background: -moz-linear-gradient(top, #333333 20%, #666666 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(20%,#333333), color-stop(100%,#666666)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #333333 20%,#666666 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #333333 20%,#666666 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #333333 20%,#666666 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #333333 20%,#666666 100%); /* W3C */
+}
+
+#animated-cows {
+    height: 100%;
+    background-image: url("../../images/level4/graphic-background-repeatable.png");
+    background-repeat: repeat-x;
+    background-position: 0px 0px;
+    animation: slide 20s infinite linear;
+    -moz-animation: slide 20s infinite linear;
+    -webkit-animation: slide 20s infinite linear;
+    -o-animation: slide 20s infinite linear;
+}
+
+@keyframes slide
+{
+from {background-position: 0px 60px;}
+to {background-position: 867px 60px;}
+}
+
+@-moz-keyframes slide /* Firefox */
+{
+from {background-position: 0px 60px;}
+to {background-position: 867px 60px;}
+}
+
+@-webkit-keyframes slide /* Safari and Chrome */
+{
+from {background-position: 0px 60px;}
+to {background-position: 867px 60px;}
+}
+
+@-o-keyframes slide /* Opera */
+{
+from {background-position: 0px 60px;}
+to {background-position: 867px 60px;}
+}
+
+#game {
+    padding-top: 30px;
+}
+
+#game-background {
+    width: 100%;
+    height: 100%;
+    background-image: url("../../images/level4/graphic-land-repeatable.png");
+    background-position: bottom;
+    background-repeat: repeat-x;
+}
+
+#game-lasers {
+    width: 100%;
+    height: 100%;
+    background-image: url("../../images/level4/graphic-background-lasers.png");
+    background-position: bottom;
+    background-repeat: repeat-x;animation: slide 20s infinite linear;
+    -moz-animation: slideLasers 7s infinite linear;
+    -webkit-animation: slideLasers 7s infinite linear;
+    -o-animation: slideLasers 7s infinite linear;
+}
+
+@keyframes slideLasers
+{
+from {background-position: 0px 60px;}
+to {background-position: 981px 60px;}
+}
+
+@-moz-keyframes slideLasers /* Firefox */
+{
+from {background-position: 0px 60px;}
+to {background-position: 981px 60px;}
+}
+
+@-webkit-keyframes slideLasers /* Safari and Chrome */
+{
+from {background-position: 0px 60px;}
+to {background-position: 981px 60px;}
+}
+
+@-o-keyframes slideLasers /* Opera */
+{
+from {background-position: 0px 60px;}
+to {background-position: 981px 60px;}
+}
+
+#game-progress {
+    position: absolute;
+    top: 60px;
+    left: 20px;
+}
+
+#game-progress p {
+    font-size: 8pt;
+    color: #fff;
+}
+
+#progress-shields {
+    width: 160px;
+    height: 12px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    border-left: 1px solid #3e718c;
+    background: #3e718c; /* Old browsers */
+    background: -moz-linear-gradient(left,  #3e718c 0%, #61b1dc 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#3e718c), color-stop(100%,#61b1dc)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  #3e718c 0%,#61b1dc 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  #3e718c 0%,#61b1dc 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  #3e718c 0%,#61b1dc 100%); /* IE10+ */
+    background: linear-gradient(to right,  #3e718c 0%,#61b1dc 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3e718c', endColorstr='#61b1dc',GradientType=1 ); /* IE6-9 */
+}
+
+#progress-invasion {
+    width: 160px;
+    height: 12px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    border-left: 1px solid #B30000;
+    background: #B30000; /* Old browsers */
+    background: -moz-linear-gradient(left,  #B30000 0%, #FF0000 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#B30000), color-stop(100%,#FF0000)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  #B30000 0%,#FF0000 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  #B30000 0%,#FF0000 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  #B30000 0%,#FF0000 100%); /* IE10+ */
+    background: linear-gradient(to right,  #B30000 0%,#FF0000 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#B30000', endColorstr='#FF0000',GradientType=1 ); /* IE6-9 */
+}
+
+#attack-cow {
+    position: absolute;
+    left: -500px;
+    top: 88px;
+    height: 88px;
+    width: 140px;
+    background: url("../../images/level4/graphic-attack-cow.png"), no-repeat center;
+    z-index: 1;
+}
+
+#attack-laser {
+    position: absolute;
+    left: 0px;
+    top: 138px;
+    height: 9px;
+    width: 66px;
+    background: url("../../images/level4/graphic-cow-blast.png"), no-repeat center;
+    opacity: 0.0;
+}
+
+#rocket-shield {
+    position: absolute;
+    left: 460px;
+    top: 56px;
+    height: 236px;
+    width: 107px;
+    background: url("../../images/level4/graphic-rocket-shield.png"), no-repeat center;
+    opacity: 0.1;
+}
+
+#rocket {
+    position: absolute;
+    left: 466px;
+    top: 74px;
+    height: 218px;
+    width: 95px;
+    background: url("../../images/level4/graphic-precog-rocket.png"), no-repeat center;
+}
+
+#hero {
+    position: absolute;
+    left: 374px;
+    top: 242px;
+    height: 50px;
+    width: 32px;
+    background: url("../../images/level4/graphic-hero.png"), no-repeat center;
+}
+
+#hero-gun {
+    position: absolute;
+    left: 350px;
+    top: 238px;
+    height: 66px;
+    width: 66px;
+    background: url("../../images/level4/graphic-hero-gun.png"), no-repeat center;
+}
+
+#gun-blast {
+    position: absolute;
+    right: 443px;
+    top: 245px;
+    height: 11px;
+    width: 47px;
+    background: url("../../images/level4/graphic-gun-blast.png"), no-repeat center;
+    transform: rotate(20deg);
+    -ms-transform: rotate(20deg);
+    -webkit-transform: rotate(20deg);
+    -o-transform: rotate(20deg);
+    -moz-transform: rotate(20deg);
+    display: none;
+}
+
+#gun-beam {
+    position: absolute;
+    right: 448px;
+    top: 126px;
+    height: 3px;
+    width: 700px;
+    border-bottom: 2px solid #FFFF00;
+    transform: rotate(20deg);
+    -ms-transform: rotate(20deg);
+    -webkit-transform: rotate(20deg);
+    -o-transform: rotate(20deg);
+    -moz-transform: rotate(20deg);
+    display: none;
+}
+
+#censored-flag h4 {
+    position: absolute;
+    top: 180px;
+    width: 200px;
+    padding: 20px;
+    background-color: #000000;
+    font-size: 16pt;
+    text-align: center;
+    color: #fff;
+    z-index: 1;
+    transform:rotate(-7deg);
+    -ms-transform:rotate(-7deg); /* IE 9 */
+    -moz-transform:rotate(-7deg); /* Firefox */
+    -webkit-transform:rotate(-7deg); /* Safari and Chrome */
+    -o-transform:rotate(-7deg); /* Opera */
+    display: none;
+}

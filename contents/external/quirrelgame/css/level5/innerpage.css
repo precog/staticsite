@@ -1,0 +1,161 @@
+/*GAME*/
+#background-header {
+    width: 100%;
+    height: 292px;
+    overflow: hidden;
+    background: #c13707; /* Old browsers */
+    background: -moz-linear-gradient(top,  #c13707 0%, #ea7f1e 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c13707), color-stop(100%,#ea7f1e)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #c13707 0%,#ea7f1e 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #c13707 0%,#ea7f1e 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #c13707 0%,#ea7f1e 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #c13707 0%,#ea7f1e 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c13707', endColorstr='#ea7f1e',GradientType=0 ); /* IE6-9 */
+}
+
+#animated-stars {
+    height: 100%;
+    background-image: url("../../images/level5/graphic-background-stars.png");
+    background-repeat: repeat;
+    background-position: 0px 50px;
+    animation: slide 50s infinite linear;
+    -moz-animation: slide 50s infinite linear;
+    -webkit-animation: slide 50s infinite linear;
+    -o-animation: slide 50s infinite linear;
+}
+
+@keyframes slide
+{
+from {background-position: 0px 0px;}
+to {background-position: 988px 988px;}
+}
+
+@-moz-keyframes slide /* Firefox */
+{
+from {background-position: 0px 0px;}
+to {background-position: 988px 988px;}
+}
+
+@-webkit-keyframes slide /* Safari and Chrome */
+{
+from {background-position: 0px 0px;}
+to {background-position: 988px 988px;}
+}
+
+@-o-keyframes slide /* Opera */
+{
+from {background-position: 0px 0px;}
+to {background-position: 988px 988px;}
+}
+
+#game {
+    padding-top: 30px;
+}
+
+#game-background {
+    width: 100%;
+    height: 100%;
+    background-image: url("../../images/level5/graphic-background-repeatable.png");
+    background-position: bottom;
+    background-repeat: repeat-x;
+}
+
+#rocket {
+    position: absolute;
+    left: 0px;
+    top: 72px;
+    height: 220px;
+    width: 94px;
+    background: url("../../images/level5/graphic-precog-rocket.png"), no-repeat center;
+}
+
+#hero {
+    position: absolute;
+    left: 120px;
+    top: 235px;
+    height: 58px;
+    width: 39px;
+    background: url("../../images/level5/graphic-hero.png"), no-repeat center;
+}
+
+#rope {
+    position: absolute;
+    left: 158px;
+    top: 275px;
+    height: 4px;
+    width: 230px;
+    background: url("../../images/level5/graphic-repeatable-rope.png"), repeat-x center;
+    animation: slideRope 3s infinite linear;
+    -moz-animation: slideRope 3s infinite linear;
+    -webkit-animation: slideRope 3s infinite linear;
+    -o-animation: slideRope 3s infinite linear;
+}
+
+@keyframes slideRope
+{
+from {background-position: 0px 0px;}
+to {background-position: -49px 0px;}
+}
+
+@-moz-keyframes slideRope /* Firefox */
+{
+from {background-position: 0px 0px;}
+to {background-position: -49px 0px;}
+}
+
+@-webkit-keyframes slideRope /* Safari and Chrome */
+{
+from {background-position: 0px 0px;}
+to {background-position: -49px 0px;}
+}
+
+@-o-keyframes slideRope /* Opera */
+{
+from {background-position: 0px 0px;}
+to {background-position: -49px 0px;}
+}
+
+#heroine {
+    position: absolute;
+    left: 392px;
+    top: 238px;
+    height: 52px;
+    width: 31px;
+    background: url("../../images/level5/graphic-heroine.png"), repeat-x center;
+}
+
+#heroine .win {
+    position: absolute;
+    top: -56px;
+    left: 20px;
+    color: #ffff00;
+    transform:rotate(-45deg);
+    -ms-transform:rotate(-45deg); /* IE 9 */
+    -moz-transform:rotate(-45deg); /* Firefox */
+    -webkit-transform:rotate(-45deg); /* Safari and Chrome */
+    -o-transform:rotate(-45deg); /* Opera */
+    display: none;
+}
+
+#heroine .lose {
+    position: absolute;
+    width: 60px;
+    top: -40px;
+    left: 20px;
+    color: #ffff00;
+    transform:rotate(-45deg);
+    -ms-transform:rotate(-45deg); /* IE 9 */
+    -moz-transform:rotate(-45deg); /* Firefox */
+    -webkit-transform:rotate(-45deg); /* Safari and Chrome */
+    -o-transform:rotate(-45deg); /* Opera */
+    display: none;
+}
+
+#robot {
+    position: absolute;
+    left: 386px;
+    top: 209px;
+    height: 83px;
+    width: 154px;
+    background: url("../../images/level5/graphic-kidknap-robot.png"), repeat-x center;
+}
