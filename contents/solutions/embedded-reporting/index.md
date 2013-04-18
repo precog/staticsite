@@ -76,7 +76,7 @@ template: page.jade
     <div class="dark-background">
         <h2>See Also</h2>
         <div class="resource-items">
-            <a class="medium-button red-background" href="http://www2.precog.com/socialsaucedashboard" target="_blank">Social Sauce Demo</a>
+            <a class="medium-button red-background" href="https://go.pardot.com/socialsaucedashboard" target="_blank">Social Sauce Demo</a>
             <p>Take a look at our social media analytics dashboard.</p>
             <p><a href="/developers/">Embed Reporting In Your App For Your Customers</a> An easy guide for developers that shows them how to use Precog to embed self-service reporting into any app.</p>
             <p><a href="/developers/">Developer Center</a> A center just for developers that contains full information on our APIs and client libraries, with code snippets and how-to guides.</p>
@@ -84,7 +84,7 @@ template: page.jade
         </div>
         <h2>Contact Us!</h2>
         <div class="form-iframe">
-            <iframe src="http://www2.precog.com/l/17892/2012-12-05/66x2"></iframe>
+            <iframe src="https://go.pardot.com/l/17892/2012-12-05/66x2"></iframe>
         </div>
     </div>
 </div>

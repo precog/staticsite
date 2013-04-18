@@ -21,7 +21,7 @@ template: page.jade
     <h1>Download Precog for MongoDB</h1>
     <p>Please fill out the form below, after which you can start your download.</p>
     <div class="form-iframe-half">
-        <iframe src="http://www2.precog.com/l/17892/2012-11-30/54jd"></iframe>
+        <iframe src="https://go.pardot.com/l/17892/2012-11-30/54jd"></iframe>
     </div>
 </div>
 <div class="two-columns-end">

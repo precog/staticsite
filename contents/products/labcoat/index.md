@@ -123,7 +123,7 @@ template: page-products.jade
             <h1>Further Resources</h1>
             <p>Contact us for more information.</p>
             <div class="form-iframe-half">
-                <iframe src="http://www2.precog.com/l/17892/2013-02-20/6zlg2"></iframe>
+                <iframe src="https://go.pardot.com/l/17892/2013-02-20/6zlg2"></iframe>
             </div>
 	</div>
 	<div class="two-columns-end">
@@ -136,12 +136,12 @@ template: page-products.jade
                 </div>
                 <h2>Contact Us!</h2>
                 <div id="form-iframe">
-                    <iframe src="http://www2.precog.com/l/17892/2013-02-20/6zlg2"></iframe>
+                    <iframe src="https://go.pardot.com/l/17892/2013-02-20/6zlg2"></iframe>
                 </div>
                 <h2>Other Resources</h2>
                 <a href="https://labcoat.precog.com">Launch Labcoat</a>
                 <p>Start analyzing Data with Labcoat</p>
-                <a href="http://www2.precog.com/learn-quirrel-level-1">Quirrel Game</a>
+                <a href="https://go.pardot.com/learn-quirrel-level-1">Quirrel Game</a>
                 <p>Learn Quirrel with our fun an interactive game series!</p>
                 <a href="/developers/">Developer Center</a>
                 <p>Click here for our developer center, jam-packed with documentation and code snippets.</p>
