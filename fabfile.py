@@ -178,7 +178,10 @@ def rollback():
         run('mv current/rollback rollback')
         run('mv current undeployed')
         run('mv rollback current')
-        run('rm -fr $(readlink undeployed)')
+        version = run('readlink current')
+        previous = run('readlink undeployed')
+        print(green('>>> Rolled back from %(previous)s to %(version)s' % { 'previous': previous, 'version': version }))
+        run('rm -fr %s' % previous)
         run('rm undeployed')
 
 
@@ -200,7 +203,7 @@ def upload_current_release():
         sudo('chown -R ubuntu:www-data %(release)s' % env)
 
 def symlink_current_release():
-    print(yellow('>>> updating current to point at %(path)s/releases/%(release)s' % env))
+    print(green('>>> updating current to point at %(path)s/releases/%(release)s' % env))
     with cd(env.path):
         with settings(warn_only=True):
             run('mv current releases/%(release)s/rollback' % env)
