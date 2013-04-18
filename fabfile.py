@@ -168,6 +168,20 @@ def deploy():
     symlink_current_release()
 
 
+@task
+def rollback():
+    """
+        Rolls back currently deployed version to its predecessor
+    """
+
+    with cd(env.path):
+        run('mv current/rollback rollback')
+        run('mv current undeployed')
+        run('mv rollback current')
+        run('rm -fr $(readlink undeployed)')
+        run('rm undeployed')
+
+
 def execExists(name):
     """
         Check whether an executable binary can be found with that name
