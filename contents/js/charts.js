@@ -447,7 +447,7 @@ jQuery(document).ready(function(){
 	      if(window.location.href.substr(0, 17) == 'http://localhost/' || (/^http:\/\/:\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\//).test(window.location.href))
 		API.samplesService = "/rg/charts/service/index.php";
 	      else
-		API.samplesService = "http://api.reportgrid.com/services/viz/samples/index.php";
+		API.samplesService = "https://api.reportgrid.com/services/viz/samples/index.php";
 	      API.PageConfig = Util.getPageConfiguration();
 	      API.Config = Util.getConfiguration();
 	    

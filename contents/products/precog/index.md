@@ -121,7 +121,7 @@ template: page-products.jade
             <p>You can use our <a href="/developers/">REST API</a> to capture data programmatically, you can upload data from your desktop using <a href="/products/labcoat/">Labcoat</a>, or you can use one of our database synchronizers to import data from another data source.</p>
             <h2>How do I analyze or visualize my data?</h2>
             <p>You can analyze your data using <a href="/products/labcoat/">Labcoat</a>, and visualize your data using <a href="/products/reportgrid/">ReportGrid</a>. Any analysis or visualizations you build using these tools can be seamlessly embedded inside your application to power analytical features or customer-facing reporting.</p>
-            <iframe width="683" height="400" src="http://www.youtube.com/embed/AzBsLNlF0Bk?rel=0" frameborder="0" allowfullscreen></iframe>
+            <iframe width="683" height="400" src="https://www.youtube.com/embed/AzBsLNlF0Bk?rel=0" frameborder="0" allowfullscreen></iframe>
             <div id="faq-section">
                 <h1>Precog FAQ</h1>
                 <h3>What is Precog?</h3>
@@ -216,7 +216,7 @@ template: page-products.jade
             <h1>Further Resources</h1>
             <p>Contact us for more information.</p>
             <div class="form-iframe-half">
-                <iframe src="http://www2.precog.com/l/17892/2013-02-20/6zlfq"></iframe>
+                <iframe src="http://go.pardot.com/l/17892/2013-02-20/6zlfq"></iframe>
             </div>
         </div>
         <div class="two-columns-end">
@@ -231,7 +231,7 @@ template: page-products.jade
                 </div>
                 <h2>Contact Us!</h2>
                 <div id="form-iframe">
-                    <iframe src="http://www2.precog.com/l/17892/2013-02-20/6zlfq"></iframe>
+                    <iframe src="http://go.pardot.com/l/17892/2013-02-20/6zlfq"></iframe>
                 </div>
                 <h2>Other Resources</h2>
                 <a href="/how-tos/optimize-performance/">Optimize Performance</a>

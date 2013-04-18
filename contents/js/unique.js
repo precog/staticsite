@@ -21,7 +21,7 @@ $(document).ready(function(){
             sessionStorage.removeItem('PrecogAccount_BasePath');
             sessionStorage.removeItem('PrecogAccount_Login');
             
-            window.location = "http://www.precog.com";
+            window.location = "https://www.precog.com";
             $(this).html("Login").attr("href", "/account/login/").removeClass("log-out-link");
             
       });
@@ -380,7 +380,7 @@ $(document).ready(function(){
             });
             
             if (currentLocation == "/editions/reportgrid-api/") {
-                  $.getScript("http://api.reportgrid.com/js/reportgrid-charts.js?authCode=r59uh0XNfjFqI1M%2ByxJK33KGZ0Mm82UqEme9ShK7g12KlIHBhCZK1rFV7KdOHgZ7GAePArW%2FT4EuOgzCPCbZB%2BAGlqH7I8OeRMwxKJA5lSRO1GTNp5IkXcrS4rKVj0KT3jnc%2Fkc6gJBjzZPBwwX10Xgdg2%2B%2FKI1QnoOCVhDJ8Hg%3D", function(){
+                  $.getScript("https://api.reportgrid.com/js/reportgrid-charts.js?authCode=r59uh0XNfjFqI1M%2ByxJK33KGZ0Mm82UqEme9ShK7g12KlIHBhCZK1rFV7KdOHgZ7GAePArW%2FT4EuOgzCPCbZB%2BAGlqH7I8OeRMwxKJA5lSRO1GTNp5IkXcrS4rKVj0KT3jnc%2Fkc6gJBjzZPBwwX10Xgdg2%2B%2FKI1QnoOCVhDJ8Hg%3D", function(){
                         $('head').append('<link rel="stylesheet" href="https://api.reportgrid.com/css/rg-charts.css">');
                         $('head').append('<link rel="stylesheet" href="https://api.reportgrid.com/css/colors/rg-colors-spectral-4-divr.css">');
                   });   

@@ -11,4 +11,4 @@ template: page.jade
 </div>
 <div class="clear-left">
 </div>
-<script type='text/javascript' src="http://evbdn.eventbrite.com/s3-s3/static/js/platform/Eventbrite.jquery.js"></script>
+<script type='text/javascript' src="https://evbdn.eventbrite.com/s3-s3/static/js/platform/Eventbrite.jquery.js"></script>
