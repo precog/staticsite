@@ -6,7 +6,7 @@ from fabric.context_managers import cd,lcd,settings
 from fabric.decorators import task
 from fabric.operations import local,put,run,sudo
 from fabric.utils import abort,warn,puts
-from fabric.contrib.project import upload_project
+from fabric.contrib.files import sed
 
 import os
 import time
@@ -26,7 +26,7 @@ def production():
         Execute the other actions on production environment
     """
 
-    puts(green('Running on Production!'))
+    puts(green('>>> Running on Production!'))
     env.hosts = ['web2.precog.com']
 
 
@@ -59,7 +59,7 @@ def optimize():
         cssjs_overwrites = False
         cssjs_exec = 'yui-compressor -o "%(target)s" "%(source)s"'
     else:
-        warn(yellow('Unable to optimize css/js files: yui-compressor not found!'))
+        warn(yellow('>>> Unable to optimize css/js files: yui-compressor not found!'))
 
     if env.optimize_images:
         if execExists('optipng'):
@@ -67,7 +67,7 @@ def optimize():
             png_overwrites = True
             png_exec = 'optipng -quiet -preserve -- "%s"'
         else:
-            warn(yellow('Unable to optimize png images: optipng not found!'))
+            warn(yellow('>>> Unable to optimize png images: optipng not found!'))
             
 
         if execExists('jpegoptim'):
@@ -75,7 +75,7 @@ def optimize():
             jpg_overwrites = True
             jpg_exec = 'jpegoptim --totals --strip-all  -- "%s"'
         else:
-            warn(yellow('Unable to optimize jpeg images: jpegoptim not found!'))
+            warn(yellow('>>> Unable to optimize jpeg images: jpegoptim not found!'))
 
 
     # Builds a list of files to be optimized
@@ -105,7 +105,7 @@ def optimize():
                 os.rename(minified_path, original_path)
 
         except OSError:
-            abort(red('File %s is not a %s file.' % (original_path, file_type)))
+            abort(red('>>> File %s is not a %s file.' % (original_path, file_type)))
 
     files_no = len(files_set)
     compressed_total = 0
@@ -132,7 +132,7 @@ def optimize():
         if compressed_size < original_size:
             puts(cyan('\tcompressed %d => %d => %d%%' % (original_size, compressed_size, (compressed_size * 100 / original_size))))
 
-    puts(cyan('Reduced from %d to %d bytes (%d%% of the original size)' % (original_total, compressed_total, (compressed_total * 100 / original_total))))
+    puts(cyan('>>> Reduced from %d to %d bytes (%d%% of the original size)' % (original_total, compressed_total, (compressed_total * 100 / original_total))))
 
 
 @task
@@ -165,7 +165,9 @@ def deploy():
     """
 
     upload_current_release()
+    create_redirects()
     symlink_current_release()
+    sudo('service nginx reload')
 
 
 @task
@@ -180,9 +182,10 @@ def rollback():
         run('mv rollback current')
         version = run('readlink current')
         previous = run('readlink undeployed')
-        print(green('>>> Rolled back from %(previous)s to %(version)s' % { 'previous': previous, 'version': version }))
+        puts(green('>>> Rolled back from %(previous)s to %(version)s' % { 'previous': previous, 'version': version }))
         run('rm -fr %s' % previous)
         run('rm undeployed')
+        sudo('service nginx reload')
 
 
 def execExists(name):
@@ -203,9 +206,21 @@ def upload_current_release():
         sudo('chown -R ubuntu:www-data %(release)s' % env)
 
 def symlink_current_release():
-    print(green('>>> updating current to point at %(path)s/releases/%(release)s' % env))
+    puts(green('>>> updating current to point at %(path)s/releases/%(release)s' % env))
     with cd(env.path):
         with settings(warn_only=True):
             run('mv current releases/%(release)s/rollback' % env)
         run('ln -s releases/%(release)s current' % env)
+
+def create_redirects():
+    remote = '%(path)s/releases/%(release)s/redirects.conf' % env
+
+    if os.access("redirects.txt", os.R_OK):
+        put("redirects.txt", remote)
+        sed(remote, '(.*)', 'rewrite \\1 redirect;')
+
+    else:
+        warn(yellow(">>> File redirects.txt not found -- removing all redirections"))
+        run('touch %s' % remote)
+
 

@@ -4,7 +4,7 @@ staticsite
 The wintersmith source for the static website
 
 Pre-requisites
-==============
+--------------
 
 To build this site one needs `wintersmith`, which is a nodejs
 module. Install `nodejs` (do not install `node`, which is a radio
@@ -24,7 +24,7 @@ quite old and `pip` install is preferred, the script does work (at the
 moment) with older fabric versions.
 
 Testing and Building the Static Site
-====================================
+------------------------------------
 
 Typing the following command will build the static site from the
 markdown files, and start a local web server on port 8080, localhost,
@@ -41,7 +41,7 @@ serving static pages:
 See `wintersmith help` for more information.
 
 Deploying the Site
-==================
+------------------
 
 Site deploy is done through fabric, deploying by default to `web4`,
 a staging environment. The following command will build the site (as above),
@@ -58,4 +58,22 @@ or, if no changes were made since you last ran `pack`, this:
     fab production deploy
 
 See `fab --list` for more information.
+
+Writing Redirects
+-----------------
+
+The deploy process makes it possible to create temporary redirects. To do
+so, write a file called `redirects.txt` in this directory, containing the
+regular expression of the path to be redirected followed by the path or
+URL the client should be redirected to. For example:
+
+    ^/developers(.*)$ http://developers.precog.com$1
+
+This will redirect any access to /developers -- followed by anything else --
+to the site `developers.precog.com`, preserving whatever follows `/developers`.
+This can have unintended consequences if, for instance, there's a
+`/developers-review`.
+
+The exact rules are based on Nginx, which is the server that will process them,
+and can be found [here](http://wiki.nginx.org/HttpRewriteModule#rewrite).
 
