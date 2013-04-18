@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Total Tweets</title>
+  <link rel="stylesheet" type="text/css" href="http://api.reportgrid.com/css/rg-charts.css">
+
+  <script src="https://api.reportgrid.com/js/reportgrid-charts.js?authCode=r59uh0XNfjFqI1M%2ByxJK33KGZ0Mm82UqEme9ShK7g12KlIHBhCZK1rFV7KdOHgZ7GAePArW%2FT4EuOgzCPCbZB%2BAGlqH7I8OeRMwxKJA5lSRO1GTNp5IkXcrS4rKVj0KT3jnc%2Fkc6gJBjzZPBwwX10Xgdg2%2B%2FKI1QnoOCVhDJ8Hg%3D"></script>
+   <script src="http://api.reportgrid.com/js/precog.js?apiKey=A1C62105-691B-4D77-9372-36A693E5D905&analyticsService=https://beta.precog.com/&basePath=/0000000024/"></script>
+<style type="text/css">
+.chartExample {
+  width: 1020px;
+  height: 180px;
+}
+
+.rg .fill-0 {
+  fill: #245D99;
+}
+
+.rg .fill-1 {
+  fill: #B30000;
+}
+
+h1 {
+  font-family: abel, sans-serif;
+  font-size: 12pt;
+  color: #3E718C;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: normal;
+}
+
+</style>
+
+
+<script>
+
+function init() {
+
+  function leftPad(subject, length, padChar ){
+  subject = ""+subject;
+  while(subject.length < length) subject = padChar + subject;
+  return subject;
+  }
+
+  function formatDate(date){
+    return leftPad(date.getUTCMonth()+1, 2, "0")+"-"+leftPad(date.getUTCDate(), 2, "0")+"/"+leftPad(date.getUTCHours(), 2, "0");
+  }
+
+  var date = formatDate(new Date(+new Date()-3600000));
+
+  Precog.cache.disable();
+
+  var query1 = "import std::time::* data := //nathan/politicalsentiment/twitter/all/rawtweets data' := data where data.score != null solve 'day, 'candidate chart := data' where monthDay(data'.timeStamp) = 'day & data'.candidate = 'candidate {date: 'day, candidate: 'candidate, tweets: count(chart)}"
+
+  var query2 = 'load("//nathan/politicalsentiment/twitter/barChart/oct18")'
+
+  var query3 = 'load("//nathan/politicalsentiment/twitter/barChart/'+date+'")'
+  
+
+/*
+  function sortedData(handler){
+
+    Precog.query(query2,
+      handler,
+        null,
+          { sortOn : ["date", "candidate"], sortOrder : "asc" }
+    );
+  }
+*/
+  ReportGrid.barChart("#chart", {
+    axes : [{type:"date", values: ["10-12","10-13","10-14","10-15","10-16","10-17","10-18","10-19","10-20","10-21","10-22","10-23","10-24","10-25","10-26","10-27","10-28","10-29","10-30","10-31","11-01","11-02","11-03","11-04","11-05","11-06"]}, "tweets"],
+   //load: sortedData,
+   load: ReportGrid.query.precog(query3, { sortOn : ["date", "candidate"], sortOrder : "asc" }),
+    options : {
+   //   segment:{on:"candidate",values:["Romney", "Obama"]},
+      segment:{on:"candidate",values:["Obama", "Romney"]},
+      stacked: false,
+      barpadding: 12,
+      label : {
+          datapointover : function(dp) {
+          return ReportGrid.format(dp.candidate)+":\n"+ReportGrid.format(dp.tweets);
+        }  
+      }
+    },
+   
+  });
+}
+
+
+</script>
+</head>
+<body onload="init()">
+  <div id="site-holder">
+  <div id="header">
+  
+        </div>
+  </div>
+  <div id="body"> 
+     <h1>total tweets with sentiment, by candidate and day</h1>
+    <div id="chart" class="chartExample"></div>
+    <div class="clear-left"> </div>
+  </div>
+  <div id="footer">
+  
+  </div>
+    </div>
+</div>
+</body>
+</html>

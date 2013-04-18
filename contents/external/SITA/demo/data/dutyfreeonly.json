@@ -1,0 +1,10 @@
+[
+	{ "id" : 26, "tags" : "PierB-inbound-duty-free,retail,airside,all", "points" : "395,308;378,337;454,371;497,368;486,333;415,304;398,305", "floor" : 0, "name" : "Pier B Inbound duty free" },
+	{ "id" : 18, "tags" : "Forum,retail,airside,all", "points" : "325,418;334,425;336,425;334,423;337,425;337,425;401,411;477,401;515,397;522,411;538,415;565,389;565,379;556,379;556,371;544,350;495,365;480,347;463,351;424,358;404,361;377,387;364,390;363,392", "floor" : 1, "name" : "Forum" },
+	{ "id" : 29, "tags" : "PierC-inbound-duty-free,retail,airside,all", "points" : "240,520;261,518;281,588;252,591;237,525", "floor" : 0, "name" : "Pier C Inbound Duty Free" },
+	{ "id" : 55, "tags" : "depart-dutyfree1,depart-dutyfreeall,airside", "points" : "371,370;375,373;379,367;380,367;387,360;391,364;395,355;404,349;411,346;419,326;403,323;391,321;371,369", "floor" : 1, "name" : "depart-dutyfree1", "comment" : "Dutyfree - perfume area" },
+	{ "id" : 56, "tags" : "depart-dutyfreeall,depart-dutyfree2,airside,all", "points" : "389,319;419,326;431,291;416,286;411,294;398,290;401,283;395,280;389,295;393,298;392,301;395,302;393,304;396,305;390,319", "floor" : 1, "name" : "depart-dutyfree2", "comment" : "duty free - alcohol etc" },
+	{ "id" : 57, "tags" : "depart-dutyfreeall,airside,all,depart-dutyfree3", "points" : "419,325;456,354;465,351;466,337;456,333;443,298;442,297;440,294;437,294;431,293;419,323", "floor" : 1, "name" : "depart-dutyfree3" },
+	{ "id" : 58, "tags" : "depart-dutyfreeall,all,airside,depart-dutyfree4", "points" : "411,345;416,351;420,359;456,354;419,325;411,344", "floor" : 1, "name" : "depart-dutyfree4" },
+	{ "id" : 91, "tags" : "depart-dutyfree-all,all,airside", "points" : "370,371;398,306;392,304;394,298;389,296;394,283;401,286;399,290;412,295;416,286;438,294;441,299;443,301;445,303;448,309;455,333;461,336;464,335;466,335;467,339;466,344;465,348;462,352;458,353;427,356;420,359;419,355;417,352;412,345;396,354;395,354;392,361;390,363;388,360;380,367;379,366;375,373;370,371", "floor" : 1, "name" : "depart-dutyfree-all" }
+]

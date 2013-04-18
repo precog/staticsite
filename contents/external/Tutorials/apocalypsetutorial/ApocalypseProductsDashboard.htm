@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Apocalypse Products Dashboard</title>
+	<link rel="stylesheet" type="text/css" href="http://api.reportgrid.com/css/rg-charts.css">
+	<link rel="stylesheet" type="text/css" href="css/sample.css">
+	<script src="http://api.reportgrid.com/js/reportgrid-charts.js?authCode=r59uh0XNfjFqI1M%2ByxJK33KGZ0Mm82UqEme9ShK7g12KlIHBhCZK1rFV7KdOHgZ7GAePArW%2FT4EuOgzCPCbZB%2BAGlqH7I8OeRMwxKJA5lSRO1GTNp5IkXcrS4rKVj0KT3jnc%2Fkc6gJBjzZPBwwX10Xgdg2%2B%2FKI1QnoOCVhDJ8Hg%3D"></script>
+	<script src="http://api.reportgrid.com/js/precog.js?apiKey=ACA34385-B8F7-493A-835D-C8C310C45A16&analyticsService=http://beta.precog.com/&basePath=/0000000289/"></script>
+	<script>
+
+function init() {
+
+var leaderBoardQuery= "data := //tutorial/transactions salesByProduct := solve 'product {product: 'product, sales: sum(data.total where data.ApocalypseProducts = 'product)} rank := std::stats::rank(neg salesByProduct.sales) salesByProduct where rank <= 5"
+
+var lineChartQuery= "import std::time::* data := //tutorial/transactions today := 233 dataWithMonthAndYearAndDay := data with { month: monthOfYear(data.timeStamp), year: year(data.timeStamp), day: dayOfYear(data.timeStamp) } quantityByMonth := solve 'month monthData := dataWithMonthAndYearAndDay where dataWithMonthAndYearAndDay.month = 'month { month: 'month, quantity: sum(monthData.quantity), year: monthData.year, day: monthData.day } distinct({ quantity: quantityByMonth.quantity, month: quantityByMonth.month } where quantityByMonth.year = 2012 & quantityByMonth.day < today)"
+
+var barChartQuery= "data := //tutorial/transactions dataWithHour := data with {hour: std::time::hourOfDay(data.timeStamp)} aveSalesByHour :=solve 'source, 'hour data' := dataWithHour where dataWithHour.source = 'source & dataWithHour.hour = 'hour {source : 'source, averageSales: sum(data'.total), hour : 'hour} aveSalesByHour where aveSalesByHour.hour = 13"
+
+
+ReportGrid.leaderBoard("#chart1",{
+       axes: ["product","sales"],
+       load: ReportGrid.query.precog(leaderBoardQuery).sortValue("sales").reverse()
+
+   });
+
+ReportGrid.lineChart("#chart2",{
+       axes: ["month","quantity"],
+       load: ReportGrid.query.precog(lineChartQuery).sortValue("month"),
+       options: {displayrulemajor:true}
+   });
+
+ReportGrid.barChart("#chart3",{
+		axes: ["source", "averageSales"],
+		load: ReportGrid.query.precog(barChartQuery),
+		options: {
+       		displayrulemajor:true,
+       		labelorientation : "aligned"
+       }
+   });
+
+}
+</script>
+
+</head>
+<body onload="init()">
+  <div id="site-holder">
+	<div id="header">
+	      <div id="logo">
+	      </div>
+	      <div id="menu">
+		<ul>
+		  <li><a href="#">home</a></li>
+		  <li><a href="#">products</a></li>
+		  <li><a href="#">about zombies</a></li>
+		</ul>
+	      </div>
+	</div>
+	<div id="body">	
+	  <div class = "chartDescription"> 
+	    <h2> Highest Grossing Apocalypse Products</h2>
+	    <p>Fusce condimentum rhoncus est, id rhoncus felis semper vitae. Curabitur tellus nibh, accumsan eget porttitor vel, congue sed nunc. Cras ac dui sit amet nisl scelerisque bibendum. Pellentesque sem turpis, iaculis non molestie eu, commodo eu ante. Proin sit amet nisl lacus, quis pulvinar augue. Phasellus id dolor vel justo facilisis aliquet nec in eros.
+	  </p>
+	</div>
+	 
+	  <div class = "chartDescription">
+	    <h2>Year to Date Monthly Sales (all products)</h2>	
+	    <p> Proin non purus vel sapien blandit pretium. Duis a risus eget velit venenatis accumsan. Aliquam suscipit odio in magna semper a faucibus tellus suscipit. Phasellus nec facilisis metus. In molestie vulputate sem, eget semper mi tempus nec. Ut tempor massa eget ante gravida feugiat. Aenean risus augue, molestie non fermentum non, tempor interdum nibh. 
+	  </p> 
+	</div>
+	
+	  <div class = "chartDescription margin-zero">
+		<h2>Source of Sales Breakdown</h2>	
+	    <p> Curabitur bibendum, sapien non accumsan volutpat, tellus mi bibendum elit, eget pharetra purus ante consequat dui. Fusce ultricies congue nulla, fringilla consectetur felis tincidunt eu. Vivamus pretium dolor ante. Donec vel eleifend eros. Duis enim nulla, lobortis sed auctor eu, sodales vitae justo. Cras id nulla tortor. Fusce at risus sed massa scelerisque posuere eu porttitor eros. 
+	  </p>
+	</div>
+	  <div id="chart1" class="chartExample"></div>
+	      <div id="chart2" class="chartExample"></div>
+	      <div id="chart3" class="chartExample margin-zero"></div>
+	  <div class="clear-left"> </div>
+	</div>
+	<div id="footer">
+	  <div id="menu">
+	  <ul>
+	    <li><a href="#">home</a></li>
+	    <li><a href="#">products</a></li>
+	    <li><a href="#">about zombies</a></li>
+	  </ul>
+	</div>
+	  <img src="images/graphic-powered-precog.png"></img>
+    </div>
+</div>
+</body>
+</html>
