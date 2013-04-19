@@ -67,12 +67,13 @@ so, write a file called `redirects.txt` in this directory, containing the
 regular expression of the path to be redirected followed by the path or
 URL the client should be redirected to. For example:
 
-    ^/developers(.*)$ http://developers.precog.com$1
+    ^/developers(.*)$ $scheme://developers.precog.com$1
 
 This will redirect any access to /developers -- followed by anything else --
-to the site `developers.precog.com`, preserving whatever follows `/developers`.
-This can have unintended consequences if, for instance, there's a
-`/developers-review`.
+to the site `developers.precog.com`, preserving whatever follows
+`/developers`, and using the same protocol (http or https), which is stored
+on the $scheme variable.  This can have unintended consequences if, for
+instance, there's a `/developers-review`.
 
 The exact rules are based on Nginx, which is the server that will process them,
 and can be found [here](http://wiki.nginx.org/HttpRewriteModule#rewrite).

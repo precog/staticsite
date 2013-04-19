@@ -1,5 +1,7 @@
-^/mongodb$ http://www.precog.com/editions/precog-for-mongodb/
-^/postgresql$ http://www.precog.com/editions/precog-for-postgresql/
-^/precog-blog$ http://www.precog.com/blog/
-^/registration$ http://www.precog.com/account/login/
-^/developers/$ http://www.precog.com/developers/getting-started/sign-up/
+^/mongodb$ $scheme://www.precog.com/editions/precog-for-mongodb/
+^/postgresql$ $scheme://www.precog.com/editions/precog-for-postgresql/
+^/precog-blog$ $scheme://www.precog.com/blog/
+^/registration$ $scheme://www.precog.com/account/login/
+^/developers/$ $scheme://www.precog.com/developers/getting-started/sign-up/
+^/developers$ $scheme://www.precog.com/developers/getting-started/sign-up/
+^/developers(.*)$ $scheme://developers.precog.com$1
