@@ -521,6 +521,22 @@ $(document).ready(function(){
                                                 Precog.createAccount(userEmail, userPassword, function(data){
                                                       var accountDetail = data;
                                                       
+                                                      $.getScript("/js/iframesubmit.js", function(){
+                                                            $.getScript("/js/pardot.js", function(){
+                                                                  pardot.submit_form(
+                                                                    "http://www2.precog.com/l/17892/2012-12-10/76rq ",
+                                                                    {
+                                                                      "jform[email1]" : userEmail,
+                                                                      "jform[name]" : userName,
+                                                                      "jform[profile][company]" : userCompany,
+                                                                      "jform[username]" : userEmail,
+                                                                      "jform[profile][jobtitle]" : userTitle
+                                                                    },
+                                                                    callback
+                                                                  );
+                                                            });
+                                                      });
+                                                      
                                                       Precog.describeAccount(userEmail, userPassword, accountDetail.accountId, function(data){
                                                             var additionalAccountDetails = data;
                                                             
@@ -532,7 +548,7 @@ $(document).ready(function(){
                                                             sessionStorage.setItem('PrecogAccount_BasePath', additionalAccountDetails.rootPath);
                                                             sessionStorage.setItem('PrecogAccount_Login', 'Logged In');
                                                             
-                                                            window.location = "/account/"
+                                                            //window.location = "/account/"
                                                       });
                                                 }, function(e){
                                                       //ERROR IF COULD NOT CREATE PRECOG ACCOUNT
