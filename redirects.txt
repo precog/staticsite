@@ -6,4 +6,3 @@
 ^/registration$ $scheme://www.precog.com/account/login/
 ^/developers/$ $scheme://www.precog.com/developers/getting-started/sign-up/
 ^/developers$ $scheme://www.precog.com/developers/getting-started/sign-up/
-^/developers(.*)$ $scheme://developers.precog.com$1
