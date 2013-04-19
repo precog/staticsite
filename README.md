@@ -78,3 +78,19 @@ instance, there's a `/developers-review`.
 The exact rules are based on Nginx, which is the server that will process them,
 and can be found [here](http://wiki.nginx.org/HttpRewriteModule#rewrite).
 
+Blog Redirects
+--------------
+
+The above mentioned redirects cannot redirect based on query parameters. To
+handle redirects from our old blog site, which was based on wordpress and,
+therefore, used the query parameter `p` to indicate which page to render,
+a different redirection schema was devised. This redirect is configured
+through the file `blogredirects.txt`, and consists of the value of `p`
+followed by the rediretion URL. An additional entry `default` is used for
+any page not found in the file. For example:
+
+    152     https://www.precog.com/blog/Introducing-Labcoat-by-Precog/;
+
+This will redirect `http://blog.precog.com/?p=152` to the above URL, and
+`https://blog.precog.com/?p=152` as well.
+

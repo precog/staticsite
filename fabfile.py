@@ -213,13 +213,16 @@ def symlink_current_release():
 
 def create_redirects():
     remote = '%(path)s/releases/%(release)s/redirects.conf' % env
+    remoteblog = '%(path)s/releases/%(release)s/blogredirects.conf' % env
 
     if os.access("redirects.txt", os.R_OK):
         put("redirects.txt", remote)
-        sed(remote, '(.*)', 'rewrite \\1 redirect;')
+        sed(remote, '^(.*[^;]);?$', 'rewrite \\1 redirect;')
 
     else:
         warn(yellow(">>> File redirects.txt not found -- removing all redirections"))
         run('touch %s' % remote)
 
+    put("blogredirects.txt", remoteblog)
+    sed(remoteblog, '^(.*[^;]);?$', '\\1;')
 
