@@ -1,6 +1,8 @@
 ^/mongodb$ $scheme://www.precog.com/editions/precog-for-mongodb/
 ^/postgresql$ $scheme://www.precog.com/editions/precog-for-postgresql/
+^/marchwebinars$ $scheme://www.precog.com/webinars/march/
 ^/precog-blog$ $scheme://www.precog.com/blog/
+^/blog-precog$ $scheme://www.precog.com/blog/
 ^/registration$ $scheme://www.precog.com/account/login/
 ^/developers/$ $scheme://www.precog.com/developers/getting-started/sign-up/
 ^/developers$ $scheme://www.precog.com/developers/getting-started/sign-up/
