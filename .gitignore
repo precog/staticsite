@@ -1,36 +1,10 @@
-
+# For Mac users
 .DS_Store
 
-contents/.DS_Store
+# For vim users
+*~
 
-contents/about/.DS_Store
-
-contents/about/.DS_Store
-
-contents/products/.DS_Store
-
-.gitignore
-
-contents/editions/.DS_Store
-
-contents/products/precog/.DS_Store
-
-templates/.DS_Store
-
-contents/account/.DS_Store
-
-contents/editions/reportgrid-on-premise/.DS_Store
-
-contents/solutions/.DS_Store
-
-contents/about/news/.DS_Store
-
-contents/about/news/.DS_Store
-
-contents/how-it-works/.DS_Store
-
-contents/how-it-works/.DS_Store
-
-contents/downloads/.DS_Store
-
-contents/blog/.DS_Store
+# Artifacts left by fabric deployer
+build.tgz
+build/
+*.pyc
