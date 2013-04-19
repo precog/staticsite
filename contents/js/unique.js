@@ -523,6 +523,7 @@ $(document).ready(function(){
                                                       
                                                       $.getScript("/js/iframesubmit.js", function(){
                                                             $.getScript("/js/pardot.js", function(){
+                                                                  console.log("Running Pardot Script.")
                                                                   pardot.submit_form(
                                                                     "http://www2.precog.com/l/17892/2012-12-10/76rq ",
                                                                     {
