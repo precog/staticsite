@@ -24,7 +24,8 @@ Suppose we had some demographic data and wanted to do customer segmentation.  A 
 	solve 'cluster
 	  {
 	  cluster: 'cluster,
-	  mean : mean(conversions'.product.price where conversions'.cluster.model1.clusterId = 'cluster)
+	  mean : mean(conversions'.product.price where 
+	  		 conversions'.cluster.model1.clusterId = 'cluster)
 	  }  
 
 <a href="https://labcoat.precog.com/?q=import+std%3A%3Astats%3A%3A*%0Aconversions+%3A%3D+%2F%2Fconversions%0A%0Ainput+%3A%3D+{+age+%3A+conversions.customer.age+}%0Amodel+%3A%3D+kMedians%28+input%2C+7+%29%0A%0Aconversions%27+%3A%3D+conversions+with+{cluster+%3A+assignClusters%28input%2C+model%29+}%0A%0Asolve+%27cluster%0A++{%0A++cluster%3A+%27cluster%2C%0A++mean+%3A+mean%28conversions%27.product.price+where+conversions%27.cluster.model1.clusterId+%3D+%27cluster%29%0A++}&apiKey=5CDA81E8-9817-438A-A340-F34E578E86F8&analyticsService=https%3A%2F%2Flabcoat.precog.com%2F">Check out this query in Labcoat.</a>
@@ -109,7 +110,8 @@ We might also be interested in attempting to predict demographic data from other
 	import std::stats::*
 	
 	conversions := //conversions
-	conversions' := conversions with {female : if conversions.customer.gender = "female" then 1 else 0 }
+	conversions' := conversions with {female : 
+					if conversions.customer.gender = "female" then 1 else 0 }
 	
 	indVars :=
 	 {
