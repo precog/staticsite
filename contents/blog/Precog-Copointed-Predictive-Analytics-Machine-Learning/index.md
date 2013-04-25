@@ -1,10 +1,7 @@
-title: Precog-Copointed: Predictive Analytics and Machine Learning in Quirrel
+title: Precog Copointed Predictive Analytics and Machine Learning in Quirrel
 author: Nathan Lubchenco
 date: 2012-04-25 10:00
 template: post.jade
-
-Precog.Copointed: Predictive Analytics and Machine Learning in Quirrel
-==========================
 
 One feature that sets Precog apart from many embedded reporting solutions is the possibility to perform advanced analytics.  This includes the ability to perform predictive analytics.  Among other things, predictions can be used to create personalizations, recommendations or other sales optimizations.
 
