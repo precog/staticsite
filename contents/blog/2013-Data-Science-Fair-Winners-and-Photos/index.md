@@ -6,7 +6,6 @@ template: post.jade
 <p>On Monday night, the Precog team attended the <a href="http://bigdataweek.com/2013/03/17/big-data-science-fair/">Data Science Fair</a> as part of <a href="http://bigdataweek.com/colorado/">Big Data Week</a> here in Colorado. The room was packed with Data Scientists, Graduate Students, &amp; Data Nerds and tables were covered with data visualizations and interesting projects showing how big data is solving problems in the world.</p>
 <img height="293" src="images/image01.jpg" width="520">
 <p>Attendees walked around (after filling up on pizza and beer) the room talking to each presenter and then voted via text message. Franco and Nathan from the Precog team were the judges for the Judges Choice award. <a href="http://www.precog.com">Precog</a> and <a href="http://www.gnip.com">GNIP</a> sponsored the event and the new <a href="http://boulderriverside.com">Boulder Riverside</a> donated the space. Watch the <a href="http://www.youtube.com/watch?v=0v5JfmZFsCc">timelapse video</a> below to see how the custom-made trophies were built!</p>
-<iframe width="450" height="253" src="http://www.youtube.com/embed/0v5JfmZFsCc?rel=0" </iframe>
 <p>Here are the presentations from the <a href="http://fur.ly/0/BigDataStudents">students</a> and from the <a href="http://fur.ly/0/BigDataTechCompanies">tech companies</a></p>
 <p>Congratulations to the winners of the Big Data Science Fair!</p>
 <ol>
