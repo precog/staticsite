@@ -41,15 +41,15 @@ Linear Regression
 
 A regression equation is of the form:
 
-	y = x0 + ẞ1x1 + ẞ2x2 + ... 
+	y = x0 + ẞ<sub>1</sub>x1 + ẞ<sub>2</sub>x<sub>2</sub> + ... 
 
-where y is the dependent variable being predicted, x0 is a constant y-intercept, x1 through xn are dependent variables and ẞ1 through ẞn are the coefficients.  The interpretation of a regression is that for each 1 unit increase in x1 there will on average be associated a ẞ1 change in y.  
+where y is the dependent variable being predicted, x<sub>0</sub> is a constant y-intercept, x<sub>1</sub> through x<sub>n</sub> are dependent variables and ẞ<sub>1</sub> through ẞ<sub>n</sub> are the coefficients.  The interpretation of a regression is that for each 1 unit increase in x<sub>1</sub> there will on average be associated a ẞ<sub>1</sub> change in y.  
 
 A common example from economics is to look at the relationship between years of education and annual income.  In this example, years of education will be an independent variable and we are attempting to determine its relationship to annual income which will be the dependent variable :
 
-	annual income in dollars = some constant + ẞ1 * years of education + .... 
+	annual income in dollars = some constant + ẞ<sub>1</sub> * years of education + .... 
 
-The ... is important here.  These represent control variables that attempt to narrow the comparison as much as possible.  In this example, they might be things like race, gender, region and industry.  This helps isolate specifically the relationship that years of education has with annual income. Suppose that ẞ1 is 3,000.  Then, on average, a 1 year increase in years of education is associated with a $3,000 increase in annual earnings.
+The ... is important here.  These represent control variables that attempt to narrow the comparison as much as possible.  In this example, they might be things like race, gender, region and industry.  This helps isolate specifically the relationship that years of education has with annual income. Suppose that ẞ<sub>1</sub> is 3,000.  Then, on average, a 1 year increase in years of education is associated with a $3,000 increase in annual earnings.
 
 Part of what is so nice about linear regression is that it has such a clean and useful explanatory capability.  For raw predictive power, random forest will typically outperform linear regression, but linear regression still has a place in understanding specific relationships and their magnitude.  
 
