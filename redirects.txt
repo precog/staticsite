@@ -6,3 +6,5 @@
 ^/registration$ $scheme://www.precog.com/account/login/
 ^/developers/$ $scheme://www.precog.com/developers/getting-started/sign-up/
 ^/developers$ $scheme://www.precog.com/developers/getting-started/sign-up/
+^/getting-started/sign-up/$ $scheme://www.precog.com/developers/getting-started/sign-up/
+^/getting-started/sign-up$ $scheme://www.precog.com/developers/getting-started/sign-up/
