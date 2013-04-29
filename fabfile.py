@@ -10,6 +10,7 @@ from fabric.contrib.files import sed
 
 import os
 import time
+from shutil import copyfile
 
 # Configure user, private key, etc. for SFTP deployment
 env.user = 'ubuntu'
@@ -32,12 +33,43 @@ def production():
 
 @task
 @hosts('localhost')
+def clean_local():
+    """
+        Clean local build directory
+    """
+    local('rm -fr build')
+    local('mkdir -p build')
+    
+    
+@task
+@hosts('localhost')
 def build():
     """
         Builds static site for deployment with wintersmith
     """
-
     local('wintersmith build')
+
+
+@task
+@hosts('localhost')
+def copy_json():
+    """ 
+        Copy json files under external
+    """
+    sourcePath = 'contents/external/'
+    targetPath = 'build/external/'
+    for base,subdirs,files in os.walk(sourcePath):
+        for file in files:
+            orig = os.path.join(base, file)
+            if os.path.isfile(orig) and file[-5:] == '.json':
+                targetBase = os.path.join(targetPath, base[len(sourcePath):])
+                dest = os.path.join(targetBase, file)
+                print "Checking diretory %s" % targetBase
+                if not os.path.exists(targetBase):
+                    print "Not found! Creating..."
+                    os.makedirs(targetBase)
+                print "Copying from %s to %s" % (orig, dest)
+                copyfile(orig, dest)
 
 
 @task
@@ -152,7 +184,9 @@ def pack():
         Builds the static site, optimize files for size, and prepares for transfer
     """
 
+    clean_local()
     build()
+    copy_json()
     optimize()
     tarball()
 
