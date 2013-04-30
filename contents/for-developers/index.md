@@ -380,13 +380,13 @@ Precog<span style='color:#d2cd86; '>.</span>execute<span style='color:#d2cd86; '
         </form>
         <h2><span>2</span>Get a client library in your favorite programming language.</h2>
         <ul>
-            <li class="dark-background"><a href="https://github.com/precog/precog_js_client">JavaScript</a></li>
-            <li class="dark-background"><a href="https://github.com/precog/precog_java_client">Java</a></li>
-            <li class="dark-background"><a href="https://github.com/precog/precog_python_client">Python</a></li>
-            <li class="dark-background"><a href="https://github.com/precog/precog_php_client">PHP</a></li>
-            <li class="dark-background"><a href="https://github.com/precog/precog_ruby_client">Ruby</a></li>
-            <li class="dark-background"><a href="https://github.com/precog/precog_js_client">NodeJS</a></li>
-            <li class="dark-background"><a href="https://github.com/precog/precog_dotnet_client">C#</a></li>
+            <li class="dark-background"><a href="https://github.com/precog/precog_js_client" target="_blank">JavaScript</a></li>
+            <li class="dark-background"><a href="https://github.com/precog/precog_java_client" target="_blank">Java</a></li>
+            <li class="dark-background"><a href="https://github.com/precog/precog_python_client" target="_blank">Python</a></li>
+            <li class="dark-background"><a href="https://github.com/precog/precog_php_client" target="_blank">PHP</a></li>
+            <li class="dark-background"><a href="https://github.com/precog/precog_ruby_client" target="_blank">Ruby</a></li>
+            <li class="dark-background"><a href="https://github.com/precog/precog_js_client" target="_blank">NodeJS</a></li>
+            <li class="dark-background"><a href="https://github.com/precog/precog_dotnet_client" target="_blank">C#</a></li>
         </ul>
         <div class="clear-left"></div>
         <h2><span>3</span>Write a couple lines of code to upload or stream data into Precog.</h2>
@@ -464,9 +464,9 @@ Precog<span style='color:#d2cd86; '>.</span>uploadFile<span style='color:#d2cd86
             </ul>
         </div>
         <h2><span>4</span>Launch Labcoat, the visual query builder, to build queries and export them as code.</h2>
-        <a href="http://labcoat.precog.com" class="red-background mini-button">Launch Labcoat</a>
+        <a href="http://labcoat.precog.com" class="red-background mini-button" target="_blank">Launch Labcoat</a>
         <h2><span>5</span>Check out our developer center when you need to do something more advanced.</h2>
-        <a href="/developers/" class="blue-background mini-button">Developer Center</a>
+        <a href="/developers/" class="blue-background mini-button" target="_blank">Developer Center</a>
     </div>
 </div>
 <div class="section-divider">
