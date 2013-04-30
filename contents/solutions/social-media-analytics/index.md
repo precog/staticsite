@@ -49,11 +49,11 @@ template: page-flexible.jade
                 </li>
                 <li class="dark-background">
                     <h3>Secure, Enterprise-grade collaboration.</h3>
-                    <p>Security for analytics and reports can be controlled by IT, and Precog’s fine-grained security mechanism allows different stakeholders to have different levels of access to the analytics.</p>
+                    <p>Security for analytics and reports can be controlled by IT, and Precog's fine-grained security mechanism allows different stakeholders to have different levels of access to the analytics.</p>
                 </li>
                 <li class="dark-background">
                     <h3>From zero to insight in a week.</h3>
-                    <p>With our premium deployment package, Precog will install Social InsightsTM  into your company and train your employees in a single week. You don’t have to wait weeks or months to get the actionable insight you need.</p>
+                    <p>With our premium deployment package, Precog will install Social InsightsTM  into your company and train your employees in a single week. You don't have to wait weeks or months to get the actionable insight you need.</p>
                 </li>
             </ul>
             <div class="clear-left"></div>
@@ -133,7 +133,7 @@ template: page-flexible.jade
                 </script>
         </div>
         <div class="three-columns">
-            <h2>Questions? Contact us!</h2>
+            <h2>Contact Us</h2>
             <h4>Sales</h4>
             <a class="sales-link" href="mailto:sales@precog.com">sales@precog.com</a>
             <h4>Support</h4>

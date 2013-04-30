@@ -137,7 +137,7 @@ template: page-flexible.jade
                 </script>
         </div>
         <div class="three-columns">
-            <h2>Questions? Contact us!</h2>
+            <h2>Contact Us</h2>
             <h4>Sales</h4>
             <a class="sales-link" href="mailto:sales@precog.com">sales@precog.com</a>
             <h4>Support</h4>
