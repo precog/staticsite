@@ -1,23 +1,44 @@
-title: Labcoat Cloud
-author: Matthew De Goes
-date: 2013-03-26 12:20
+title: Data Analysis
+author: Matthew De Goes 
+date: 2013-03-26 12:20 
 template: page-devcntr.jade
 
-<div id="body">
-    <span class="page-title">Developer Center</span>
-    <h1>GETTING STARTED</h1>
-    <h2>DATA ANALYSIS</h2>
-    <p>There are three primary ways you can analyze data using Precog:</p>
-    <ul>
-      <li><strong>REST API</strong> - Precog exposes all of its functionality through a REST API. You can use the REST API directly, either using command-line tools like Curl or by using HTTP libraries.</li>
-      <li><strong>Client Libraries</strong> - Precog develops and maintains a growing roster of client libraries for common programming languages. These libraries make it easier to use the REST API.</li>
-      <li><strong>Labcoat</strong> - Precog supports an interactive development environment called <a href="http://www.Precog.com/products/labcoat">Labcoat</a> that provides a friendly graphical interface to analyze data.</li>
-    </ul>
-    <h3>CURL IN TERMINAL</h3>
-    <p>You can access the Precog REST API directly through the terminal using <a href="#curl">curl</a>.</p>
-    <h3>CLIENT LIBRARIES</h3>
-    <p>Precog currently supports client libraries in JavaScript and PHP. These libraries allow you to programmatically interact with the Precog platform, ingesting data, running queries, or granting permissions to users of your application.</p>The client libraries are open source and are available in the <a href="https://github.com/reportgrid/client-libraries/tree/master/precog">public Github repository</a>. Other languages will be supported in the future.
-    <h3>LABCOAT</h3>
-    <p><a href="http://www.Precog.com/products/labcoat">Labcoat</a> is an interactive development environment that allows you to analyze data using a simple, yet powerful query language called Quirrel.</p>
-    <p>Labcoat is also a great way to interactively develop queries that can run on the Precog platform. For additional information on Labcoat, see these resources: <a href="http://Precog.com/products/labcoat">Labcoat Landing Page</a> or <a href="http://Precog.com/products/labcoat/learn">Learn Page</a>.</p>
-</div>
+Developer Center
+
+# GETTING STARTED
+
+## DATA ANALYSIS
+
+There are three primary ways you can analyze data using Precog:
+
+  * **REST API** - Precog exposes all of its functionality through a REST API. You can use the REST API directly, either using command-line tools like Curl or by using HTTP libraries.
+  * **Client Libraries** - Precog develops and maintains a growing roster of client libraries for common programming languages. These libraries make it easier to use the REST API.
+  * **Labcoat** - Precog supports an interactive development environment called [Labcoat](http://www.Precog.com/products/labcoat) that provides a friendly graphical interface to analyze data.
+
+### CURL IN TERMINAL
+
+You can access the Precog REST API directly through the terminal using curl.
+
+### CLIENT LIBRARIES
+
+Precog currently supports client libraries in JavaScript and PHP. These
+libraries allow you to programmatically interact with the Precog platform,
+ingesting data, running queries, or granting permissions to users of your
+application.
+
+The client libraries are open source and are available in the [public Github
+repository](https://github.com/reportgrid/client-
+libraries/tree/master/precog). Other languages will be supported in the
+future.
+
+### LABCOAT
+
+[Labcoat](http://www.Precog.com/products/labcoat) is an interactive
+development environment that allows you to analyze data using a simple, yet
+powerful query language called Quirrel.
+
+Labcoat is also a great way to interactively develop queries that can run on
+the Precog platform. For additional information on Labcoat, see these
+resources: [Labcoat Landing Page](http://Precog.com/products/labcoat) or
+[Learn Page](http://Precog.com/products/labcoat/learn).
+
