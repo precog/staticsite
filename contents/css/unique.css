@@ -1,4 +1,4 @@
-#body-splash, #body-solutions, #body-features, #body-getting-started, #body-pricing, #body-contactus {
+#body-splash, #body-solutions, #body-features, #body-getting-started, #body-pricing, #body-contactus, #body-overview {
     padding-top: 40px;
     padding-bottom: 40px;
 }
@@ -528,6 +528,10 @@
 
 #section-body .blog-item .author {
     font-size: 9pt !important;
+}
+
+#section-body .blog-item header {
+    background-color: transparent !important;
 }
 
 #section-body .blog-item p {
