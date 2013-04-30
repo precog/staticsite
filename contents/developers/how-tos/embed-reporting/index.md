@@ -1,4 +1,4 @@
-title: Labcoat Cloud
+title: How to Embed Reporting in your App for your Customers
 author: Matthew De Goes
 date: 2013-03-26 12:20
 template: page-devcntr.jade

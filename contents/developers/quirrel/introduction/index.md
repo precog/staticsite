@@ -1,79 +1,97 @@
-title: Labcoat Cloud
-author: Matthew De Goes
-date: 2013-03-26 12:20
+title: Labcoat Cloud 
+author: Matthew De Goes 
+date: 2013-03-26 12:20 
 template: page-devcntr.jade
 
-<div id="body">
-    <span class="page-title">Developer Center</span>
-    <h1>QUIRREL</h1>
-    <h2>introduction</h2>
+Developer Center
 
-    <p>Queries need to begin with loading some data using the double slash <span>//</span> command. The next step is create a variable and assign the data to it using the <span>:=</span> assignment operator. Assigning the data into a variable will allow the data to be more easily referenced (not having to call the load command of the entire file path repeatedly).<br />
-    <br />
-    Just loading the data then looks something like:</p>
-    <pre>
-//<span class="tool-tip-path">[path]</span>/to/data
-</pre>
+# QUIRREL
 
-    <p>And assigning it to a variable:</p>
-    <pre>
-data:= //<span class="tool-tip-path">[path]</span>/to/data
-</pre>
+## introduction
 
-    <p>Note that this query would result in an error. You haven't told Quirrel to query anything, all you've done is assign data into a variable. You have not called the variable. So, to see all of the data, you would then call:</p>
-    <pre>
-data
-</pre>
+Queries need to begin with loading some data using the double slash //
+command. The next step is create a variable and assign the data to it using
+the := assignment operator. Assigning the data into a variable will allow the
+data to be more easily referenced (not having to call the load command of the
+entire file path repeatedly).
 
-    <p>Paths can contain the following list of characters:</p>
+Just loading the data then looks something like:
+    
+    //[path]/to/data    
 
-    <ul>
-        <li>a-z A-Z _ - 0-9 . ~ : / ? # @ ! $ &amp; ' * + =</li>
-    </ul>
+And assigning it to a variable:
 
-    <p>One basic operation is filtered descent with the <span>.</span> dot operator. Rather than accessing all of the data, you can query a particular subset of the data, which looks like:</p>
-    <pre class="execute-code">
-<a class="button-launch-labcoat" href="#">labcoat</a>data := //tutorial/transactions
-data.total
-</pre>
+    data:= //[path]/to/data
+    
+Note that this query would result in an error. You haven't told Quirrel to
+query anything, all you've done is assign data into a variable. You have not
+called the variable. So, to see all of the data, you would then call:
 
-    <p>To filter data use the <span>where</span> operator. This allows you to get the results of a query limited to situations where some other condition is true. In this case, the filter is for the source to be equal to "ad1".</p>
-    <pre class="execute-code">
-<a class="button-launch-labcoat" href="#">labcoat</a>data := //tutorial/transactions
-data.total where data.source = "ad1"
-</pre>
+    data
 
-    <p>Filtering returns a more narrow subset of the data; in contrast, it is possible to expand a dataset using the <span>with</span> operator. On the left of the <span>with</span> operator is the original data set and on the right is an object that defines the new variable(s) to include. You also typically want to store this in a new variable. The example below creates an augmented dataset called <span>dataWithHour</span> that contains an <span>hour</span> variable formed using a built-in time function: <span>std::time::hourOfDay</span>. This new <span>hour</span> variable is then used as a filter in a <span>where</span> statement.</p>
-    <pre class="execute-code">
-<a class="button-launch-labcoat" href="#">labcoat</a>data := //tutorial/transactions
-dataWithHour := data with {hour: std::time::hourOfDay(data.timeStamp)}
-dataWithHour.total where dataWithHour.hour &gt; 17
-</pre>
+Paths can contain the following list of characters:
 
-    <p>There are also a whole host of functions built into the standard library that can be accessed using functionName(argumentsToBePassedToTheFunction). For example, if you wanted to average the totals in the //tutorial/transaction dataset:</p>
-    <pre class="execute-code">
-<a class="button-launch-labcoat" href="#">labcoat</a>data := //tutorial/transactions
-mean(data.total)
-</pre>
+  * a-z A-Z _ - 0-9 . ~ : / ? # @ ! $ &amp; ' * + =
 
-    <p>You can use solve statements to call some function on all of the possible values of a parameter for some set. In practice, this allows you to get the results by each member of some set. For example, you might want to know the sum of all sales by each source.</p>
-    <pre class="execute-code">
-<a class="button-launch-labcoat" href="#">labcoat</a>data := //tutorial/transactions
-solve 'source
-{source: 'source, averageSales: mean(data.total where data.source = 'source)}
-</pre>
+One basic operation is filtered descent with the . dot operator. Rather than
+accessing all of the data, you can query a particular subset of the data,
+which looks like:
+    
+    labcoatdata := //tutorial/transactions
+    data.total    
 
-    <p>A solve statement always starts with solve and then some tic variable that will be fed into into the object enclosed by curly braces "{}". Each comma within the curly braces separates a new set that is named by what is on the left of the colon ":" and defined by what is on the right on the colon.<br />
-    <br />
-    This concludes a brief introduction to Quirrel. For additional information, please see the resources below.</p>
+To filter data use the where operator. This allows you to get the results of a
+query limited to situations where some other condition is true. In this case,
+the filter is for the source to be equal to "ad1".
+    
+    labcoatdata := //tutorial/transactions
+    data.total where data.source = "ad1"
+    
+Filtering returns a more narrow subset of the data; in contrast, it is
+possible to expand a dataset using the with operator. On the left of the with
+operator is the original data set and on the right is an object that defines
+the new variable(s) to include. You also typically want to store this in a new
+variable. The example below creates an augmented dataset called dataWithHour
+that contains an hour variable formed using a built-in time function:
+std::time::hourOfDay. This new hour variable is then used as a filter in a
+where statement.
+    
+    labcoatdata := //tutorial/transactions
+    dataWithHour := data with {hour: std::time::hourOfDay(data.timeStamp)}
+    dataWithHour.total where dataWithHour.hour &gt; 17
 
-    <h3>quirrel website</h3>
+There are also a whole host of functions built into the standard library that
+can be accessed using functionName(argumentsToBePassedToTheFunction). For
+example, if you wanted to average the totals in the //tutorial/transaction
+dataset:
+    
+    labcoatdata := //tutorial/transactions
+    mean(data.total)    
 
-    <p><a href="http://quirrel-lang.org/tutorial.html" target="_blank">Quirrel Tutorial</a></p>
+You can use solve statements to call some function on all of the possible
+values of a parameter for some set. In practice, this allows you to get the
+results by each member of some set. For example, you might want to know the
+sum of all sales by each source.    
 
-    <p><a href="http://quirrel-lang.org/reference.html" target="_blank">Quirrel Reference</a></p>
+    labcoatdata := //tutorial/transactions
+    solve 'source
+    {source: 'source, averageSales: mean(data.total where data.source = 'source)}
 
-    <h3>tutorials</h3>
+A solve statement always starts with solve and then some tic variable that
+will be fed into into the object enclosed by curly braces "{}". Each comma
+within the curly braces separates a new set that is named by what is on the
+left of the colon ":" and defined by what is on the right on the colon.
 
-    <p><a href="http://www.Precog.com/products/labcoat/learn">Quirrel Tutorial Videos</a></p>
-</div>
+This concludes a brief introduction to Quirrel. For additional information,
+please see the resources below.
+
+### quirrel website
+
+[Quirrel Tutorial](http://quirrel-lang.org/tutorial.html)
+
+[Quirrel Reference](http://quirrel-lang.org/reference.html)
+
+### tutorials
+
+[Quirrel Tutorial Videos](http://www.Precog.com/products/labcoat/learn)
+
