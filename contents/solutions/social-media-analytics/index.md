@@ -12,17 +12,19 @@ template: page-flexible.jade
         <div class="image-panel for-social-media-image">
         </div>
         <div class="text-panel">
-            <p class="medium">The Precog Social InsightsTM solution allows organizations to do ad hoc analysis on any kind of social media data. Our unique solution works natively on the data and does not require any data manipulation. Precog allows you to go far beyond simple counts and activity metrics, and ask deep questions across social data and internal data.</p>
+            <p class="medium">The Precog Social Insights&trade; solution allows organizations to do ad hoc analysis on any kind of social media data. Our unique solution works natively on the data and does not require any data manipulation. Precog allows you to go far beyond simple counts and activity metrics, and ask deep questions across social data and internal data.</p>
         </div>
         <div class="clear-left">
         </div>
     </div>
 </div>
+<div class="section-divider">
+    <h2>Features</h2>
+</div>
 <div id="body-features">
     <div class="holder">
         <div class="two-columns">
             <ul>
-                <h2>Features</h2>
                 <li class="dark-background">
                     <h3>Intelligence far beyond simple counts.</h3>
                     <p>Understand customer sentiment toward high-level concepts. Graph trends in awareness and purchase intent. Learn what customers think of your company and products in comparison to the competition.</p>
@@ -41,11 +43,11 @@ template: page-flexible.jade
                 </li>
                 <li class="dark-background">
                     <h3>Beautiful, intuitive reporting.</h3>
-                    <p>With stunning reports, ranging from virality and influence diagrams, to topic popularity charts, and competitive benchmarking stream graphs, Precog Social InsightsTM is packed with visualizations that make insights pop out.</p>
+                    <p>With stunning reports, ranging from virality and influence diagrams, to topic popularity charts, and competitive benchmarking stream graphs, Precog Social Insights&trade; is packed with visualizations that make insights pop out.</p>
                 </li>
                 <li class="dark-background">
                     <h3>Customizable, interactive dashboards.</h3>
-                    <p>Precog Social InsightsTM ships with common reports baked in, but analysts inside your company can create unlimited views of the data and share them with key internal or external stakeholders.</p>
+                    <p>Precog Social Insights&trade; ships with common reports baked in, but analysts inside your company can create unlimited views of the data and share them with key internal or external stakeholders.</p>
                 </li>
                 <li class="dark-background">
                     <h3>Secure, Enterprise-grade collaboration.</h3>
@@ -53,7 +55,7 @@ template: page-flexible.jade
                 </li>
                 <li class="dark-background">
                     <h3>From zero to insight in a week.</h3>
-                    <p>With our premium deployment package, Precog will install Social InsightsTM  into your company and train your employees in a single week. You don't have to wait weeks or months to get the actionable insight you need.</p>
+                    <p>With our premium deployment package, Precog will install Social Insights&trade;  into your company and train your employees in a single week. You don't have to wait weeks or months to get the actionable insight you need.</p>
                 </li>
             </ul>
             <div class="clear-left"></div>
@@ -145,6 +147,7 @@ template: page-flexible.jade
             <h2>Social Connections</h2>
             <a href="https://twitter.com/Precog"><i class="icon-twitter-sign"></i></a>
             <a href="https://www.facebook.com/precogplatform"><i class="icon-facebook-sign"></i></a>
+            <a href="http://www.linkedin.com/company/precog"><i class="icon-linkedin-sign"></i></a>
         </div>
         <div class="clear-left">
         </div>
@@ -300,9 +303,9 @@ template: page-flexible.jade
             <ul class="cost">
                 <li></li>
                 <li>$5000</li>
-                <li>$15000</li>
-                <li>$30000</li>
-                <li>$60000</li>
+                <li>$10000</li>
+                <li>$20000</li>
+                <li>$40000</li>
                 <li>Contact Us</li>
             </ul>
             <ul class="buy">

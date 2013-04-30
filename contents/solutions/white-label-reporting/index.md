@@ -12,24 +12,26 @@ template: page-flexible.jade
         <div class="image-panel for-web-analytics">
         </div>
         <div class="text-panel">
-            <p class="medium">Your customers rely on your application power their businesses. With the Precog Embedded IntelligenceTM solution, you can easily deploy seamless, interactive reporting in your application that helps your customers unlock the value of their data. Empower your customers to make data-driven decisions with the industry-leading solution for embedded reporting.</p>
+            <p class="medium">Your customers rely on your application power their businesses. With the Precog Embedded Intelligence&trade; solution, you can easily deploy seamless, interactive reporting in your application that helps your customers unlock the value of their data. Empower your customers to make data-driven decisions with the industry-leading solution for embedded reporting.</p>
         </div>
         <div class="clear-left">
         </div>
     </div>
 </div>
+<div class="section-divider">
+    <h2>Features</h2>
+</div>
 <div id="body-features">
     <div class="holder">
         <div class="two-columns">
             <ul>
-                <h2>Features</h2>
                 <li class="dark-background">
                     <h3>Give your users insight.</h3>
                     <p>Without insight into all the activity that's happening in your application, your customers are powerless to optimize their business processes. Give them the insight they need to make the best possible decisions for their business.</p>
                 </li>
                 <li class="dark-background">
                     <h3>No schema, no problem.</h3>
-                    <p>Precog Embedded IntelligenceTM is the only solution on the market that has the capability to perform analytics and reporting on schema-less, multi-structured data like JSON.</p>
+                    <p>Precog Embedded Intelligence&trade; is the only solution on the market that has the capability to perform analytics and reporting on schema-less, multi-structured data like JSON.</p>
                 </li>
                 <li class="dark-background">
                     <h3>Simple, flexible security model.</h3>
@@ -149,6 +151,7 @@ template: page-flexible.jade
             <h2>Social Connections</h2>
             <a href="https://twitter.com/Precog"><i class="icon-twitter-sign"></i></a>
             <a href="https://www.facebook.com/precogplatform"><i class="icon-facebook-sign"></i></a>
+            <a href="http://www.linkedin.com/company/precog"><i class="icon-linkedin-sign"></i></a>
         </div>
         <div class="clear-left">
         </div>
@@ -304,9 +307,9 @@ template: page-flexible.jade
             <ul class="cost">
                 <li></li>
                 <li>$5000</li>
-                <li>$15000</li>
-                <li>$30000</li>
-                <li>$60000</li>
+                <li>$10000</li>
+                <li>$20000</li>
+                <li>$40000</li>
                 <li>Contact Us</li>
             </ul>
             <ul class="buy">

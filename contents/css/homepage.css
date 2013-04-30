@@ -337,6 +337,12 @@ header #header-logo {
     border-bottom: 1px solid #505d66;
 }
 
+#impression-menu .holder {
+    width: 100%;
+    min-width: 1050px;
+    max-width: 1250px;
+}
+
 #impression-menu a:first-child i {
     padding-right: 20px;
     line-height: 20px;

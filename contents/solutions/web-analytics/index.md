@@ -13,19 +13,21 @@ template: page-flexible.jade
         <div class="image-panel for-whitelabel-reporting">
         </div>
         <div class="text-panel">
-            <p class="medium">Tired of web analytics packages that tell you how many people visited each page? Introducing Precog Web InsightsTM, the next-generation of web analytics. Go beyond understanding what your users have done in the past. Anticipate and influence what they will do in the future.</p>
+            <p class="medium">Tired of web analytics packages that tell you how many people visited each page? Introducing Precog Web Insights&trade;, the next-generation of web analytics. Go beyond understanding what your users have done in the past. Anticipate and influence what they will do in the future.</p>
         </div>
         <div class="clear-left">
         </div>
     </div>
 </div>
+<div class="section-divider">
+    <h2>Overview</h2>
+</div>
 <div id="body-overview">
     <div class="holder">
         <div class="two-columns">
-            <h2>Overview</h2>
-            <p>Precog Web InsightsTM automatically captures all user interaction data (including product and content engagement), lets you easily enrich the data with your own and third-party data, and provides you with comprehensive, 360 degree views of past and future behavior - per segment, per cohort, or person, just the way you like it.</p>
+            <p>Precog Web Insights&trade; automatically captures all user interaction data (including product and content engagement), lets you easily enrich the data with your own and third-party data, and provides you with comprehensive, 360 degree views of past and future behavior - per segment, per cohort, or person, just the way you like it.</p>
             <p>Easily answer questions like, "Which kinds of users are likely to convert?", "Which users are likely to churn?", "What distinct segments of users are interested in my products?", "What kinds of behavior predict conversion?", and "What content is engaging users and what content is pushing them away?"</p>
-            <p>Create your own future with Precog Web InsightsTM, the next-generation of web analytics.</p>
+            <p>Create your own future with Precog Web Insights&trade;, the next-generation of web analytics.</p>
         </div>
         <div class="two-columns-end">
         </div>
@@ -33,30 +35,32 @@ template: page-flexible.jade
         </div>
     </div>
 </div>
+<div class="section-divider">
+    <h2>Features</h2>
+</div>
 <div id="body-features">
     <div class="holder">
         <div class="two-columns">
             <ul>
-                <h2>Features</h2>
                 <li class="dark-background">
                     <h3>Comprehensive behavioral analytics.</h3>
-                    <p>Unlike analytics technologies based on web logs, Precog Web InsightsTM keeps track of all user behaviors, even the behavior of merely looking at products or pieces of content without clicking on them.</p>
+                    <p>Unlike analytics technologies based on web logs, Precog Web Insights&trade; keeps track of all user behaviors, even the behavior of merely looking at products or pieces of content without clicking on them.</p>
                 </li>
                 <li class="dark-background">
                     <h3>Zero coding required.</h3>
-                    <p>Precog Web InsightsTM integrates the open source analytics library Scribe Analytics, which is capable of comprehensively tracking all user behavior without any explicit instrumentation. Other solutions require developers to insert code into the web app to track specific user behaviors.</p>
+                    <p>Precog Web Insights&trade; integrates the open source analytics library Scribe Analytics, which is capable of comprehensively tracking all user behavior without any explicit instrumentation. Other solutions require developers to insert code into the web app to track specific user behaviors.</p>
                 </li>
                 <li class="dark-background">
                     <h3>Ad hoc, advanced analytics.</h3>
-                    <p>Precog Web InsightsTM has the ability to do completely generalized, ad hoc analytics across all behavioral data. Segmentation, cohort analysis, churn prediction, purchase intent prediction, and any other complex analytics can be done natively using Precog's technology.</p>
+                    <p>Precog Web Insights&trade; has the ability to do completely generalized, ad hoc analytics across all behavioral data. Segmentation, cohort analysis, churn prediction, purchase intent prediction, and any other complex analytics can be done natively using Precog's technology.</p>
                 </li>
                 <li class="dark-background">
                     <h3>Integrate with your own and third-party data.</h3>
-                    <p>Precog Web InsightsTM can be hooked up to your internal company data, or third-party data (such as demographics or social enrichment), to provide a comprehensive, 360 view of customer behavior.</p>
+                    <p>Precog Web Insights&trade; can be hooked up to your internal company data, or third-party data (such as demographics or social enrichment), to provide a comprehensive, 360 view of customer behavior.</p>
                 </li>
                 <li class="dark-background">
                     <h3>Customizable, interactive dashboards.</h3>
-                    <p>Precog Web InsightsTM ships with common reports baked in, but Precog's data scientists or analysts inside your company can create unlimited views of the data and share them with key internal or external stakeholders.</p>
+                    <p>Precog Web Insights&trade; ships with common reports baked in, but Precog's data scientists or analysts inside your company can create unlimited views of the data and share them with key internal or external stakeholders.</p>
                 </li>
                 <li class="dark-background">
                     <h3>Secure, Enterprise-grade collaboration.</h3>
@@ -64,7 +68,7 @@ template: page-flexible.jade
                 </li>
                 <li class="dark-background">
                     <h3>From zero to insight in a week.</h3>
-                    <p>With our premium deployment package, Precog will install Web InsightsTM  into your company and train your employees in a single week. You don't have to wait weeks or months to get the actionable insight you need.</p>
+                    <p>With our premium deployment package, Precog will install Web Insights&trade;  into your company and train your employees in a single week. You don't have to wait weeks or months to get the actionable insight you need.</p>
                 </li>
             </ul>
             <div class="clear-left"></div>
@@ -156,6 +160,7 @@ template: page-flexible.jade
             <h2>Social Connections</h2>
             <a href="https://twitter.com/Precog"><i class="icon-twitter-sign"></i></a>
             <a href="https://www.facebook.com/precogplatform"><i class="icon-facebook-sign"></i></a>
+            <a href="http://www.linkedin.com/company/precog"><i class="icon-linkedin-sign"></i></a>
         </div>
         <div class="clear-left">
         </div>
@@ -311,9 +316,9 @@ template: page-flexible.jade
             <ul class="cost">
                 <li></li>
                 <li>$5000</li>
-                <li>$15000</li>
-                <li>$30000</li>
-                <li>$60000</li>
+                <li>$10000</li>
+                <li>$20000</li>
+                <li>$40000</li>
                 <li>Contact Us</li>
             </ul>
             <ul class="buy">

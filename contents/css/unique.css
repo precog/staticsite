@@ -113,6 +113,10 @@
     border: 1px solid #3C454D;
 }
 
+.solutions-option:hover p {
+    color: #C0E1FF !important;
+}
+
 #body-solutions .solutions-option h1 {
     font-family: Montserrat, sans-serif;
     font-size: 12pt;
@@ -207,7 +211,8 @@
     border-top: none;
     background-color: #000;
     width: 1048px;
-    height: 189px;
+    height: 210px;
+    margin-bottom: 40px;
 }
 
 #howitworks-panel ul li i {
@@ -234,39 +239,58 @@
     display: block !important;
 }
 
-.panel ul.first, #simple-code-box .first {
+.panel ul.first, #simple-code-box .first, .panel ul.first-alt {
     position: absolute;
-    top: 0px;
-    right: 0px;
+    bottom: 0px;
+    left: 0px;
     border-bottom-left-radius: 6px;
+    width: 100%;
+    overflow: hidden;
 }
 
 .panel ul.first li, #simple-code-box .first li {
     background-color: #1E2226;
-    width: 90px;
     list-style: none;
     font-family: Montserrat, sans-serif;
     text-align: right;
-    padding: 6px;
     margin-left: 0px !important;
     cursor: pointer;
-    float: none !important;
+    float: left;
+    width: 14.28%;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+}
+
+.panel ul.first-alt li {
+    background-color: #1E2226;
+    list-style: none;
+    font-family: Montserrat, sans-serif;
+    text-align: right;
+    margin-left: 0px !important;
+    cursor: pointer;
+    float: left;
+    width: 95px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 8pt !important;
 }
 
 #simple-code-box pre {
-    padding: 10px 10px 10px 20px;
+    padding: 10px 10px 0px 20px;
     border: none;
     font-size: 8pt;
 }
 
-.panel ul.first li:hover, #simple-code-box .first li:hover {
+.panel ul.first li:hover, .panel ul.first-alt li:hover, #simple-code-box .first li:hover {
     background-color: #9AB4CC;
     color: #1E2226 !important;
 }
 
 #howitworks-panel .panel-content {
     position: absolute;
-    width: 950px;
+    width: 1048px;
     display: none;
 }
 
@@ -287,7 +311,7 @@
     padding: 0px;
 }
 
-#body-features ul li:nth-child(even) {
+#body-features ul li:nth-child(odd) {
     float: left;
     width: 43%;
     padding: 2%;
@@ -295,7 +319,7 @@
     margin-bottom: 0px;
 }
 
-#body-features ul li:nth-child(odd) {
+#body-features ul li:nth-child(even) {
     float: left;
     width: 43%;
     padding: 2%;
@@ -819,11 +843,16 @@ a.product-link-labcoat-account:hover {
     color: #CC3E22;
 }
 
+#body-contactus #SignUp .small-button {
+    margin-left: 104px;
+}
+
 #body-contactus .three-columns-end a {
     font-size: 60pt;
     text-decoration: none;
     color: #505D66;
     padding-right: 10px;
+    display: inline;
 }
 
 #body-contactus .three-columns-end a:hover {
@@ -838,7 +867,7 @@ a.product-link-labcoat-account:hover {
 /*SIMPLE CODE BOX*/
 #simple-code-box {
     width: 700px;
-    height: 218px;
+    height: 160px;
     background-color: #000;
     border: 1px solid #617280;
 }

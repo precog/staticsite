@@ -391,6 +391,13 @@ $(document).ready(function(){
             $(this).parent(".first").siblings("." + currentItem + "-content").show();
       });
       
+      $("#howitworks-panel .panel .first-alt li").click(function(){
+            var currentItem = $(this).attr("class");
+            
+            $(".panel-content").hide().removeClass("active-content");
+            $(this).parent(".first-alt").siblings("." + currentItem + "-content").show();
+      });
+      
       $("#simple-code-box .first li").click(function(){
             var currentItem = $(this).attr("class");
             

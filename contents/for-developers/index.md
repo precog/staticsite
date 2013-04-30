@@ -241,45 +241,128 @@ client<span style='color:#d2cd86; '>.</span>Query<span style='color:#d2cd86; '>&
                 </ul>
             </div>
             <div id="visualize" class="panel">
-                <div class="active-content panel-content javascript-content">
-                    <p>JavaScript</p>
+                <div class="active-content panel-content barchart-content">
+                    <pre style='color:#d1d1d1;background:#000000;'>
+ReportGrid<span style='color:#d2cd86; '>.</span>barChart<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>#chart</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span> <span style='color:#b060b0; '>{</span>
+  axes <span style='color:#b060b0; '>:</span> <span style='color:#d2cd86; '>[</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>country</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>count</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>,</span>
+  datapoints <span style='color:#b060b0; '>:</span> data<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>,</span>
+  options <span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span>
+    displayrules <span style='color:#b060b0; '>:</span> <span style='color:#0f4d75; '>true</span>
+  <span style='color:#b060b0; '>}</span>
+<span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span></pre>
                 </div>
-                <div class="panel-content java-content">
-                    <p>Java</p>
+                <div class="panel-content funnelchart-content">
+                    <pre style='color:#d1d1d1;background:#000000;'>
+ReportGrid<span style='color:#d2cd86; '>.</span>funnelChart<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>#chart</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span> <span style='color:#b060b0; '>{</span>
+  axes <span style='color:#b060b0; '>:</span> <span style='color:#d2cd86; '>[</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>event</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>count</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>,</span>
+  datapoints <span style='color:#b060b0; '>:</span> data<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span>
+<span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span></pre>
                 </div>
-                <div class="panel-content python-content">
-                    <p>Python</p>
+                <div class="panel-content geo-content">
+                    <pre style='color:#d1d1d1;background:#000000;'>
+ReportGrid<span style='color:#d2cd86; '>.</span>geo<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>#chart</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span> <span style='color:#b060b0; '>{</span>
+  axes <span style='color:#b060b0; '>:</span> <span style='color:#d2cd86; '>[</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>code</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>summerGold</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>,</span>
+  datapoints <span style='color:#b060b0; '>:</span> data<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>,</span>
+  options <span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span>
+    map <span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span>
+      template <span style='color:#b060b0; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>world</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span>
+      property <span style='color:#b060b0; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>code</span><span style='color:#02d045; '>"</span>
+    <span style='color:#b060b0; '>}</span>
+  <span style='color:#b060b0; '>}</span>
+<span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span></pre>
                 </div>
-                <div class="panel-content php-content">
-                    <p>PHP</p>
+                <div class="panel-content heatgrid-content">
+                    <pre style='color:#d1d1d1;background:#000000;'>
+ReportGrid<span style='color:#d2cd86; '>.</span>heatGrid<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>#chart</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span> <span style='color:#b060b0; '>{</span>
+  axes <span style='color:#b060b0; '>:</span> <span style='color:#d2cd86; '>[</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>race</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>year</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>deathRate</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>,</span>
+  datapoints <span style='color:#b060b0; '>:</span> data<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>,</span>
+  options <span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span>
+    color <span style='color:#b060b0; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>i:#00f,#0ff,#0f0,#ff0,#f00</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span>
+    <span style='color:#b060b0; '>}</span>
+  <span style='color:#b060b0; '>}</span>
+<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span></pre>
                 </div>
-                <div class="panel-content ruby-content">
-                    <p>Ruby</p>
+                <div class="panel-content leaderboard-content">
+                    <pre style='color:#d1d1d1;background:#000000;'>
+ReportGrid<span style='color:#d2cd86; '>.</span>leaderBoard<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>#chart</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span> <span style='color:#b060b0; '>{</span>
+  axes <span style='color:#b060b0; '>:</span> <span style='color:#d2cd86; '>[</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>country</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>count</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>,</span>
+  data <span style='color:#b060b0; '>:</span> data<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span>
+<span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span></pre>
                 </div>
-                <div class="panel-content nodejs-content">
-                    <p>NodeJs</p>
+                <div class="panel-content linechart-content">
+                    <pre style='color:#d1d1d1;background:#000000;'>
+ReportGrid<span style='color:#d2cd86; '>.</span>lineChart<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>#chart</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span> <span style='color:#b060b0; '>{</span>
+  axes <span style='color:#b060b0; '>:</span> <span style='color:#d2cd86; '>[</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>year</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>population</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>,</span>
+  datapoints <span style='color:#b060b0; '>:</span> data<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>,</span>
+<span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span></pre>
                 </div>
-                <div class="panel-content csharp-content">
-                    <p>C#</p>
+                <div class="panel-content piechart-content">
+                    <pre style='color:#d1d1d1;background:#000000;'>
+ReportGrid<span style='color:#d2cd86; '>.</span>pieChart<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>#chart</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span> <span style='color:#b060b0; '>{</span>
+  axes <span style='color:#b060b0; '>:</span> <span style='color:#d2cd86; '>[</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>count</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>,</span>
+  datapoints <span style='color:#b060b0; '>:</span> data<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>,</span>
+  options <span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span>
+      datapoint <span style='color:#b060b0; '>:</span> <span style='color:#e66170; font-weight:bold; '>function</span><span style='color:#d2cd86; '>(</span>dp<span style='color:#d2cd86; '>)</span> <span style='color:#b060b0; '>{</span> <span style='color:#e66170; font-weight:bold; '>return</span> dp<span style='color:#d2cd86; '>.</span>country<span style='color:#b060b0; '>;</span> <span style='color:#b060b0; '>}</span>
+    <span style='color:#b060b0; '>}</span>
+  <span style='color:#b060b0; '>}</span>
+<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+                    </pre>
                 </div>
-                <ul class="first">
-                    <li class="javascript">JavaScript</li>
-                    <li class="java">Java</li>
-                    <li class="python">Python</li>
-                    <li class="php">PHP</li>
-                    <li class="ruby">Ruby</li>
-                    <li class="nodejs">NodeJS</li>
-                    <li class="csharp">C#</li>
+                <div class="panel-content pivottable-content">
+                    <pre style='color:#d1d1d1;background:#000000;'>
+ReportGrid<span style='color:#d2cd86; '>.</span>pivotTable<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>#chart</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span> <span style='color:#b060b0; '>{</span>
+  axes <span style='color:#b060b0; '>:</span> <span style='color:#d2cd86; '>[</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>model</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>quarter</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>market</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>value</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>,</span>
+  datapoints <span style='color:#b060b0; '>:</span> data<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span>
+<span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span></pre>
+                </div>
+                <div class="panel-content sankey-content">
+                    <pre style='color:#d1d1d1;background:#000000;'>
+ReportGrid<span style='color:#d2cd86; '>.</span>sankey<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>#chart</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span> <span style='color:#b060b0; '>{</span>
+  axes <span style='color:#b060b0; '>:</span> <span style='color:#d2cd86; '>[</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>billions</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>,</span>
+  datapoints <span style='color:#b060b0; '>:</span> data<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>,</span>
+  options <span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span>
+    layerwidth <span style='color:#b060b0; '>:</span> <span style='color:#008c00; '>130</span>
+  <span style='color:#b060b0; '>}</span>
+<span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span></pre>
+                </div>
+                <div class="panel-content scattergraph-content">
+                    <pre style='color:#d1d1d1;background:#000000;'>
+ReportGrid<span style='color:#d2cd86; '>.</span>scatterGraph<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>#chart</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span> <span style='color:#b060b0; '>{</span>
+  axes <span style='color:#b060b0; '>:</span> <span style='color:#d2cd86; '>[</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>year</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>deathRate</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>,</span>
+  datapoints <span style='color:#b060b0; '>:</span> data<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>,</span>
+<span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span></pre>
+                </div>
+                <div class="panel-content streamgraphc-content">
+                    <pre style='color:#d1d1d1;background:#000000;'>
+ReportGrid<span style='color:#d2cd86; '>.</span>streamGraph<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>#chart</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span> <span style='color:#b060b0; '>{</span>
+  axes <span style='color:#b060b0; '>:</span> <span style='color:#d2cd86; '>[</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>year</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>deathRate</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>,</span>
+  datapoints <span style='color:#b060b0; '>:</span> data<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>,</span>
+<span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span></pre>
+                </div>
+                <ul class="first-alt">
+                    <li class="barchart">Bar Chart</li>
+                    <li class="funnelchart">Funnel Chart</li>
+                    <li class="geo">Geo</li>
+                    <li class="heatgrid">HeatGrid</li>
+                    <li class="leaderboard">Leader Board</li>
+                    <li class="linechart">Line Chart</li>
+                    <li class="piechart">Pie Chart</li>
+                    <li class="pivottable">Pivot Table</li>
+                    <li class="sankey">Sankey</li>
+                    <li class="scattergraph">Scatter Graph</li>
+                    <li class="streamgraphc">Stream Graph</li>
                 </ul>
             </div>
         </div>
     </div>
 </div>
+<div class="section-divider">
+    <h2>Features</h2>
+</div>
 <div id="body-features">
     <div class="holder">
         <div class="two-columns">
             <ul>
-                <h2>Features</h2>
                 <li class="dark-background">
                     <h3>JSON Certified</h3>
                     <p>Precog can store any kind of JSON data, from primitive values, to records, to complex, large documents with lots of nested objects and arrays.</p>
@@ -574,6 +657,7 @@ client<span style='color:#d2cd86; '>.</span>UploadFile<span style='color:#d2cd86
             <h2>Social Connections</h2>
             <a href="https://twitter.com/Precog"><i class="icon-twitter-sign"></i></a>
             <a href="https://www.facebook.com/precogplatform"><i class="icon-facebook-sign"></i></a>
+            <a href="http://www.linkedin.com/company/precog"><i class="icon-linkedin-sign"></i></a>
         </div>
         <div class="clear-left">
         </div>
@@ -729,9 +813,9 @@ client<span style='color:#d2cd86; '>.</span>UploadFile<span style='color:#d2cd86
             <ul class="cost">
                 <li></li>
                 <li>$5000</li>
-                <li>$15000</li>
-                <li>$30000</li>
-                <li>$60000</li>
+                <li>$10000</li>
+                <li>$20000</li>
+                <li>$40000</li>
                 <li>Contact Us</li>
             </ul>
             <ul class="buy">

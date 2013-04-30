@@ -81,6 +81,7 @@ template: page.jade
         <h2>Social Connections</h2>
         <a href="https://twitter.com/Precog"><i class="icon-twitter-sign"></i></a>
         <a href="https://www.facebook.com/precogplatform"><i class="icon-facebook-sign"></i></a>
+        <a href="http://www.linkedin.com/company/precog"><i class="icon-linkedin-sign"></i></a>
     </div>
     <div class="clear-left">
     </div>
