@@ -9,8 +9,8 @@ template: page-devcntr.jade
     <h2>Embed Reporting in Your App for Your Customers</h2>
     <p>Check out a demo dashboard <a href="http://www2.precog.com/socialsaucedashboard">here</a>.</p>
     <h3>Overview</h3>
-    <p>If you&Otilde;re building a business application, then your customers probably want self-service reporting. Most business applications, from marketing tools to advertising platforms, have full-featured reporting built into them. Precog makes it easy to build this kind of functionality directly into your application, without spending a lot of time or money.</p>
-    <p>This document provides a step-by-step guide to embed analytics and charts into an online dashboard. Code is provided every step of the way. So, if you follow along, at the end of the tutorial you&Otilde;ll have a fully-functioning reporting dashboard that you can embed in your application, for your customers. You can also see what the <a href="http://www.precog.com/external/Tutorials/apocalypsetutorial/ApocalypseProductsDashboard.htm">final result</a> looks like.</p>
+    <p>If you're building a business application, then your customers probably want self-service reporting. Most business applications, from marketing tools to advertising platforms, have full-featured reporting built into them. Precog makes it easy to build this kind of functionality directly into your application, without spending a lot of time or money.</p>
+    <p>This document provides a step-by-step guide to embed analytics and charts into an online dashboard. Code is provided every step of the way. So, if you follow along, at the end of the tutorial you'll have a fully-functioning reporting dashboard that you can embed in your application, for your customers. You can also see what the <a href="http://www.precog.com/external/Tutorials/apocalypsetutorial/ApocalypseProductsDashboard.htm">final result</a> looks like.</p>
     <p>This tutorial follows two fictitious companies: NimbleSell and Apocalypse Products. NimbleSell is a platform that allows individual merchants to sign up for online storefronts.</p>
     <p>Apocalypse Products is one of the merchants using the NimbleSell platform to power its online storefront presence. Apocalypse Products wants a clean and efficient reporting dashboard that gives them insight into how to run their storefront better.</p>
     <ul>
@@ -21,19 +21,19 @@ template: page-devcntr.jade
         <li>Where customers are located</li>
         <li>Page hits and unique visitors</li>
     </ul>
-    <p>For the remainder of the tutorial, let&Otilde;s imagine that you&Otilde;re NimbleSell and that you&Otilde;re looking to provide all of the above features to your customers (the merchants who use your platform).</p>
+    <p>For the remainder of the tutorial, let's imagine that you're NimbleSell and that you're looking to provide all of the above features to your customers (the merchants who use your platform).</p>
     <p>To go from nothing to offering self-service reporting for your customers, you need to create a Precog account (to get an API key). You can use your master API key to create customized keys for every customer (including Apocalypse Products). You can then instrument your platform so data starts flowing to Precog, as well as back import historical data. After these steps have been completed, all that remains is to create insightful queries and pipe those queries into a reporting dashboard embedded in the NimbleSell platform.</p>
     <p>These steps will be covered in depth in the sections that follow.</p>
     <h3>Step 1: Create a Precog Account</h3>
-    <p>Sign up for a <a href="http://www.precog.com/account/login/">Precog account</a>. After you sign up, you&Otilde;ll be given an API key and an account Id number that serves as your root path. These provide you access to the Precog REST API.</p>
+    <p>Sign up for a <a href="http://www.precog.com/account/login/">Precog account</a>. After you sign up, you'll be given an API key and an account Id number that serves as your root path. These provide you access to the Precog REST API.</p>
     <p>An API key is essentially a secure combination of username and password, which gives you some permissions to use the API in various ways. For more information, visit the <a href="http://www.precog.com/developers">developer center</a>.</p>
     <p>A root path is the main directory where your Precog data is located. The root path is how you tell the Precog API where to look for your data. Your root path is your account Id number.</p>
-    <p>NimbleSell&Otilde;s root path might be:</p>
+    <p>NimbleSell's root path might be:</p>
     <p>/0000110734/</p>
-    <p>You can access your account information at the <a href="http://www.precog.com/account">account page</a>. In addition to your API key and root path there is a link to your personalized version of Precog&Otilde;s interactive analysis tool: Labcoat. You can also check out a <a href="https://labcoat.precog.com/">preview version of Labcoat</a> loaded with sample data, including the data used in this tutorial.</p>
+    <p>You can access your account information at the <a href="http://www.precog.com/account">account page</a>. In addition to your API key and root path there is a link to your personalized version of Precog's interactive analysis tool: Labcoat. You can also check out a <a href="https://labcoat.precog.com/">preview version of Labcoat</a> loaded with sample data, including the data used in this tutorial.</p>
     <h3>Step 2: Organize Your Data</h3>
-    <p>Before you start loading and analyzing data with Precog, it&Otilde;s best to figure out how to organize that data. This organizational structure can be as flexible as your company needs.</p>
-    <p>One common pattern, which would work well for NimbleSell, is to organize each of your customer&Otilde;s data into a separate directory. For example:</p>
+    <p>Before you start loading and analyzing data with Precog, it's best to figure out how to organize that data. This organizational structure can be as flexible as your company needs.</p>
+    <p>One common pattern, which would work well for NimbleSell, is to organize each of your customer's data into a separate directory. For example:</p>
     <pre>
 /0000110734/apocalypseproducts
 /0000110734/someothercustomer
@@ -57,20 +57,20 @@ POST https://beta.precog.com/security/v1/apikeys/?apiKey=[auth API key]
     <p>This API call also requires a request body that provides details about the grants the API key will possess. This call only grants read access to the data.</p>
     <pre>
 {
-  "name": &Eacute;
-  "description": &Eacute;
+  "name": ...
+  "description": ...
   "grants": [{
-   "name": &Eacute;
-   "description": &Eacute;
-   "parentIds": &Eacute;
-   "expirationDate": &Eacute;
+   "name": ...
+   "description": ...
+   "parentIds": ...
+   "expirationDate": ...
    "permissions" : [{
      "accessType": "read",
      "path": "/0000110734/apocalypseproducts/",
      "ownerAccountId": "0000110734"
-   }, &Eacute;
+   }, ...
    ]
-  }, &Eacute;
+  }, ...
   ]
 }
     </pre>
@@ -82,8 +82,8 @@ POST https://beta.precog.com/security/v1/apikeys/?apiKey=[auth API key]
     <p>You will later use this customer-specific API key to deploy a secure reporting dashboard for each of your customers (including Apocalypse Products). You could also give these API keys directly to your customers if you wanted to allow them to explore their data directly (through Labcoat or ReportGrid).</p>
     <p>For more information on the Accounts API and Client Libraries see the <a href="http://www.precog.com/developers">developer center</a>.</p>
     <h3>Step 4: Instrumenting Your Application</h3>
-    <p>Adding self-service reporting to your platform requires piping all the data flowing through your platform into Precog, where it can be analyzed and displayed in charts. This step is called instrumentation, and it&Otilde;s one of the most important steps to integrating Precog.</p>
-    <p>In addition to organizing data using the file system, it&Otilde;s important to figure out what data to store and how it should be represented. Usually, this data will be event-oriented in nature, capturing what users are doing. In your case, it will include information on what products customers are searching for, looking at, and buying, and where customers are coming from.</p>
+    <p>Adding self-service reporting to your platform requires piping all the data flowing through your platform into Precog, where it can be analyzed and displayed in charts. This step is called instrumentation, and it's one of the most important steps to integrating Precog.</p>
+    <p>In addition to organizing data using the file system, it's important to figure out what data to store and how it should be represented. Usually, this data will be event-oriented in nature, capturing what users are doing. In your case, it will include information on what products customers are searching for, looking at, and buying, and where customers are coming from.</p>
     <p>This section will include a brief overview of the Precog REST API and an explanation of how to hook your current data stream into Precog API. You can find a brief screencast tutorial about instrumenting your application <a href="http://www.youtube.com/watch?v=rXSrl0ozSH8">here on YouTube</a>. Importing historical data that you may already be storing in a different data system will be covered in Step 5.</p>
     <p>Here are a few activities that you may want to log to the Precog API:</p>
     <ul>
@@ -156,21 +156,21 @@ Precog.store("/path/to/store/data", dataToBeStored);
       <li>The <a href="http://www.precog.com/quirrel-introduction">Quirrel Introduction</a> section of the Developer Center.</li>
     </ul>
     <p>You can also follow along with the preloaded sample data in the preview version of <a href="https://labcoat.precog.com">Labcoat</a> in the /tutorial/transactions path.</p>
-    <p>Let&Otilde;s begin by considering a few questions Apocalypse Products might be interested in answering. We&Otilde;ll then develop Quirrel scripts to answer these questions.</p>
+    <p>Let's begin by considering a few questions Apocalypse Products might be interested in answering. We'll then develop Quirrel scripts to answer these questions.</p>
     <p>One thing they might be interested in is how much money is being generated by each product. To narrow the focus a bit, we might want to focus just on the top five products. So, our first query will rank all the products by sales and filter to return the top five results.</p>
     <p>They might also be interested how many products are being sold overall. Having a month-by-month breakdown might also be useful. The second query will sum the number of products sold per month. These results will be further filtered to include only year to date results.</p>
     <p>Finally, perhaps they want to know the proportion of sales that have been generated by a specific source (such as various ad campaigns, email blasts, or directly on the website). Furthermore, they want these totals during a specific hour of the day. This last query will determine the total sales generated by each source by hour of day and return the results for a specific hour (1:00 PM in this case).</p>
     <h4>Query 1: Top Five Products (By Total Sales)</h4>
-    <p>Here&Otilde;s a query to list the top five products by total sales:</p><script src="https://gist.github.com/4196104.js" type="text/javascript">
+    <p>Here's a query to list the top five products by total sales:</p><script src="https://gist.github.com/4196104.js" type="text/javascript">
     </script>
     <h4>Query 2: Year-to-Date Quantity of Product Sold by Month</h4>
     <p>The query below will return the total quantity of all products sold each month for this year up to today.</p><script src="https://gist.github.com/4196107.js" type="text/javascript">
     </script>
-    <h4>Query 3: Proportion of Sales Generated by Source at 1 o&Otilde;clock</h4>
-    <p>The last query we&Otilde;ll examine in this tutorial will return the total sales from each source during a specific hour of the day.</p><script src="https://gist.github.com/4196110.js" type="text/javascript">
+    <h4>Query 3: Proportion of Sales Generated by Source at 1 o'clock</h4>
+    <p>The last query we'll examine in this tutorial will return the total sales from each source during a specific hour of the day.</p><script src="https://gist.github.com/4196110.js" type="text/javascript">
     </script>
     <h3>Step 7: Create and Embed a Reporting Dashboard</h3>
-    <p>Queries generate useful information, but sometimes raw numbers aren&Otilde;t the best way to convey this information. Apocalypse Products does not want to sift through a bunch of spreadsheets to know if they are meeting sales goals. They want you to provide them with a real-time dashboard that conveys this information at a glance. Access to snazzy e-commerce analytics and reporting is part of why Apocalypse Products chose to use your platform to sell goods.</p>
+    <p>Queries generate useful information, but sometimes raw numbers aren't the best way to convey this information. Apocalypse Products does not want to sift through a bunch of spreadsheets to know if they are meeting sales goals. They want you to provide them with a real-time dashboard that conveys this information at a glance. Access to snazzy e-commerce analytics and reporting is part of why Apocalypse Products chose to use your platform to sell goods.</p>
     <p>In just a few minutes, you can take the Quirrel code you developed in Labcoat, combine it with ReportGrid, and deploy a beautiful, self-service reporting dashboard for Apocalypse Products.</p>
     <h4>Integrate Javascript Client Library and ReportGrid Visualization Library</h4>
     <p>Developing the reporting dashboard will require you include in your web pages both the JavaScript client library, and the ReportGrid visualization library.</p>
@@ -183,9 +183,9 @@ Precog.store("/path/to/store/data", dataToBeStored);
     </pre>
     <p>Remember, this example uses a read-only API key for a sample tutorial account. When integrating the JavaScript client library into your application, make sure to replace the appropriate sections with your API keys, and make sure you never expose your master API key since that could compromise the data in your account.</p>
     <h4>Visualizing and Embedding Queries</h4>
-    <p>Now you&Otilde;re not far from producing a working dashboard:</p><img src="images/dashboard.png" alt="" />
+    <p>Now you're not far from producing a working dashboard!</p>
     <p>As seen in the screenshot above, we package up the first query into a leaderboard, the second into a line graph, and the third into a bar chart.</p>
-    <p>We&Otilde;ll begin by introducing three functions from the ReportGrid visualization library:</p>
+    <p>We'll begin by introducing three functions from the ReportGrid visualization library:</p>
     <ul>
       <li><strong>ReportGrid.leaderBoard()</strong></li>
       <li><strong>ReportGrid.lineChart()</strong></li>
@@ -216,7 +216,7 @@ var barChartQuery= "data := //tutorial/transactions dataWithHour := data with {h
     </pre>
     <p>Notice that the first argument in the ReportGrid functions refers to a div Id (#chart 1 in the function, chart1 as the div Id). Also notice the load syntax, which takes as its argument the variables constructed above.</p>
     <p>To finish up, you can add a logo, navigation menu, a footer and some text boxes for sample descriptive text.</p>
-    <p>Now we&Otilde;ll also take a look at the local CSS stylesheet used along with this file to create the demo dashboard. For local testing, the HTML file needs to be included in the same directory as the Precog Client Library file. That directory should contain a folder called CSS that will contain the sample.css file as well as an images folder with the appropriate images.</p>
+    <p>Now we'll also take a look at the local CSS stylesheet used along with this file to create the demo dashboard. For local testing, the HTML file needs to be included in the same directory as the Precog Client Library file. That directory should contain a folder called CSS that will contain the sample.css file as well as an images folder with the appropriate images.</p>
     <p>Put the logo inside a div container that is nested in the header that is nested in the site holder.</p>
     <pre>
 &lt;div id="logo"&gt;&lt;/div&gt;  
@@ -251,7 +251,7 @@ float:left;
 }
     </pre>
     <p>The text boxes are formatted in a similar way. A wide variety of options are available through CSS styling: anything font-related, positioning, color schemes, etc.</p>
-    <p>To see a functional version of this dashboard (if you haven&Otilde;t been following along and creating it yourself), <a href="http://www.precog.com/external/Tutorials/apocalypsetutorial/ApocalypseProductsDashboard.htm">follow this link</a>. As an exercise, consider trying to modify the bar chart into a pie chart (hint: just use ReportGrid.pieChart in place of ReportGrid.barChart).</p>
+    <p>To see a functional version of this dashboard (if you haven't been following along and creating it yourself), <a href="http://www.precog.com/external/Tutorials/apocalypsetutorial/ApocalypseProductsDashboard.htm">follow this link</a>. As an exercise, consider trying to modify the bar chart into a pie chart (hint: just use ReportGrid.pieChart in place of ReportGrid.barChart).</p>
     <p>This concludes the tutorial on how to Embed Reporting in Your App for Your Customers.</p>
-    <p>Please give us some feedback and let us know how you are able to integrate these ideas into your applications. Please also let us know what other applications of the Precog platform you&Otilde;d like to see us cover in the How-To series.</p>
+    <p>Please give us some feedback and let us know how you are able to integrate these ideas into your applications. Please also let us know what other applications of the Precog platform you'd like to see us cover in the How-To series.</p>
 </div>

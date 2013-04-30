@@ -20,7 +20,7 @@ template: page-devcntr.jade
 data:= //<span class="tool-tip-path">[path]</span>/to/data
 </pre>
 
-    <p>Note that this query would result in an error. You haven&Otilde;t told Quirrel to query anything, all you&Otilde;ve done is assign data into a variable. You have not called the variable. So, to see all of the data, you would then call:</p>
+    <p>Note that this query would result in an error. You haven't told Quirrel to query anything, all you've done is assign data into a variable. You have not called the variable. So, to see all of the data, you would then call:</p>
     <pre>
 data
 </pre>

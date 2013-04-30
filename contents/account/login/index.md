@@ -18,8 +18,8 @@ template: page.jade
             </dt>
                 <dd>
                     <input type="password" id="login-password" name="password">
-                    <a id="reset-password" href="#">forgot?</a>
                 </dd>
+                <a id="reset-password" href="#">Forgot your password? Click to reset.</a>
         </dl>
         <input class="button small-button red-background" type="submit" value="Login">
     </form>

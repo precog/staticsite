@@ -172,7 +172,7 @@ Precog.<span>listKeys</span>(success, failure, options): Array
         <li>
             <p>This function does not require any arguments. It returns an array of API key objects:</p>
             <pre>
-[{"apiKey": "[API Key]"}, {"apiKey": "[API Key]"}, &Eacute;]
+[{"apiKey": "[API Key]"}, {"apiKey": "[API Key]"}, ...]
 </pre>
         </li>
         <li>

@@ -1,275 +1,35 @@
 extends layout
 
 block content
-  #section-header
+  #body-impression
     .holder
-        #header-logo
-          a(href='http://www.precog.com/')
-            img(src='images/logo-precog.png', alt='Precog')
-        #header-mini-menu
-          ul.menu
-            li
-              a#login-link(href='/account/login/') Login
-            li
-              a(href='/blog/') Blog
-            li
-              a(href='http://support.precog.com') Support
-            li
-              a(href='/about/contact-us/') Contact
-        #header-menu
-          ul.menu
-            li
-              a(href='/about/') About
-              ul
-                li
-                  a(href='/about/') Overview
-                li
-                  a(href='/about/team/') Team
-                li
-                  a(href='/about/news/') News
-                li
-                  a(href='/about/events/') Events
-                li
-                  a(href='/about/partners/') Partners
-                li
-                  a(href='/about/newsletter/') Newsletter
-                li
-                  a(href='/about/jobs/') Jobs
-                li
-                  a(href='/about/contact-us/') Contact
-                li
-                  a(href='/blog/') Blog
-          ul.menu
-            li
-              a(href='/developers/getting-started/sign-up/', target='_blank') Developers
-              ul
-                li
-                  a(href='/developers/getting-started/sign-up/') Overview
-                li
-                  a(href='http://status.precog.com') API Status
-                li
-                  a(href='http://support.precog.com') Support
-          ul.menu
-            li
-              a(href='/solutions/') Solutions
-              ul
-                li
-                  a(href='/solutions/') Overview
-                li
-                  a(href='/solutions/embedded-reporting/') Embedded Reporting
-                li
-                  a(href='/solutions/data-science/') Data Science
-                li
-                  a(href='/solutions/data-productization/') Data Productization
-                li
-                  a(href='/solutions/nosql-analytics/') NoSQL Analytics
-          ul.menu
-            li
-              a(href='/products/') Products
-              ul
-                li
-                  a(href='/products/') Overview
-                li
-                  a(href='/products/precog/') Precog
-                  ul
-                    li
-                      a(href='/products/precog/') Overview
-                    li
-                      a(href='/products/precog/success-stories/') Success Stories
-                    li
-                      a(href='/products/precog/marketplace/') Marketplace
-                    li
-                      a(href='/editions/precog-cloud/') Pricing
-                li
-                  a(href='/products/reportgrid/') ReportGrid
-                li
-                  a(href='/products/labcoat/') Labcoat
-                  ul
-                    li
-                      a(href='/products/labcoat/') Overview
-                    li
-                      a(href='/products/labcoat/learn/') Learn
-                    li
-                      a(href='/products/labcoat/quirrel/') Quirrel
-          ul.menu
-            li
-              a(href='/how-it-works/') How It Works
-              ul
-                li
-                  a(href='/how-it-works/') Overview
-                li
-                  a(href='/how-it-works/why-precog/') Why Precog
-    #header-content
-      .holder
-        #content-headline
-          p NEXT-GENERATION DATA SCIENCE PLATFORM
-        #content-usecases
-          #data-science.sliding-panel.active
-            .panel-image
-            .panel-text
-              p
-                | Precog is a powerful analytics platform for JSON data. Stream, upload, or synchronize data into Precog, and perform advanced analytics using
-                a(href='/products/labcoat/') Labcoat
-                | or our simple
-                a(href='/developers/getting-started/sign-up/') REST APIs.
-              a#solutions-button.red-background(href='http://www.precog.com/products/precog/') LEARN MORE
-              a#solutions-button-alt.blue-background(href='/account/login/') SIGN UP FREE
-          #embedded-reporting.sliding-panel
-            .panel-image
-            .panel-text
-              p
-                | Delight your customers with seamless analytics and reporting embedded into your app. Start today, and deploy tomorrow, with no upfront fees or costly infrastructure.
-              a#solutions-button.red-background(href='http://www.precog.com/products/precog/') LEARN MORE
-              a#solutions-button-alt.blue-background(href='/account/login/') SIGN UP FREE
-          #nosql-analytics.sliding-panel
-            .panel-image
-            .panel-text
-              p
-                | Precog is the leading analytics platform for NoSQL data. Got JSON, log files, or other semi-structured data? We got you covered.
-              a#solutions-button.red-background(href='http://www.precog.com/products/precog/') LEARN MORE
-              a#solutions-button-alt.blue-background(href='/account/login/') SIGN UP FREE
-  #section-usecase-menu
+      #impression-logo
+      h1 Advanced Analytics for Modern Data
+    ul
+      li
+        span Social Media
+      li
+        span Json
+      li
+        span Logs
+      li
+        span NoSQL
+      li
+        span Clickstream
+      li
+        span XML/HTML
+      .clear-left
+  #impression-menu
+    a(href='/for-businesses/')
+      i.icon-building
+      | For Businesses
+      span Unlock the value of all your data and take control of your analytics
+    a(href='/for-developers/')
+      i.icon-angle-left
+      i.icon-angle-right
+      | For Developers
+      span Store and analyze JSON data natively, no transformations required
+    .clear-left
+  #copyrights
     .holder
-      span
-        | Companies around the world rely on
-        img(src='images/graphic-precog-logo-sm-white.png', alt='Precog')
-        | for:
-      a(href='/solutions/data-science/', target='_blank') Data Science
-      a(href='/solutions/nosql-analytics/', target='_blank') NoSQL Analytics
-      a(href='/solutions/embedded-reporting/', target='_blank') Embedded Reporting
-  #section-comparison
-    .holder
-      p COMPARE FOR YOURSELF
-      ul
-        li
-          .check-box
-          h1 SIMPLE MONTHLY PRICING
-          p Say no to costly integration fees and long-term contacts
-        li
-          .check-box
-          h1 DEPLOY IN MINUTES
-          p Save yourself months of pain and frustration
-      ul
-        li
-          .check-box
-          h1 TRUE CLOUD TECHNOLOGY
-          p Nothing to install, nothing to maintain: We run 24x7
-        li
-          .check-box
-          h1 MIND-BENDING SUPPORT
-          p Large or small, we will stop at nothing to make you succeed
-  #section-body
-    #home-rocket
-      .holder
-        #rocket-body
-          #rocket-links
-            ul
-              li
-                a.marketplace-link(href='/products/precog/marketplace/')
-                  span Marketplace
-                  p Enrich your data with add-ons.
-              li
-                a.robust-link(href='/products/precog/robust/')
-                  span Robust
-                  p Deploy your app with confidence.
-              li
-                a.secure-link(href='/products/precog/secure/')
-                  span Secure
-                  p Sleep soundly knowing your data's safe.
-              li
-                a.second-links.pricing-link(href='/editions/precog-cloud/')
-                  span Pricing
-                  p Choose a monthly subscription.
-              li
-                a.howitworks-link(href='/how-it-works/')
-                  span How It Works
-                  p Take a peek under the hood of Precog.
-  #section-spotlight-menu
-    .holder
-      p SPOTLIGHT
-  #section-spotlight
-    .holder
-      .spotlight-panel
-        #spotlight-image
-          iframe(width='278', height='200', src='https://www.youtube.com/embed/AzBsLNlF0Bk?rel=0', frameborder='0', allowfullscreen='allowfullscreen')
-        #spotlight-text
-          h1 What is Precog...in 90 Seconds
-          p
-            | We've been thinking about how to tell our Precog story so that anyone (even granny who is baffled by technology) understands what we do, how we do it, and how it can help developers with their analytics and reporting. I think we've got the answer and luckily, it's jam-packed into a 90-second animated video. See for yourself!
-        a#spotlight-button.red-background(href='http://www.youtube.com/watch?v=AzBsLNlF0Bk', target='_blank') WATCH VIDEO
-    #bottom-left-cloud
-    #bottom-center-cloud
-    #bottom-right-cloud
-  #section-cred
-    #cred-background
-      #cred-inner-background
-        .holder
-          .cred-sec
-            h1
-              a(href='/about/news/') IN THE NEWS
-            #precog-news
-              .news-item
-                img(src='/images/mini-square-logos/decision_thumb.png', alt='', align='left')
-                a(href='http://jtonedm.com/2013/03/28/first-look-precog/') First Look: Precog
-              .news-item
-                img(src='/images/mini-square-logos/tiny-logo-venturebeat.png', alt='', align='left')
-                a(href='http://venturebeat.com/2013/02/22/big-data-is-dead-whats-next/') 'Big Data' is dead. What's next?
-              .news-item
-                img(src='/images/mini-square-logos/tiny-logo-venturebeat.png', alt='', align='left')
-                a(href='http://venturebeat.com/2013/02/18/top-10-boulder-startups/') 10 Boulder startups we're excited about
-          .cred-sec
-            h1
-              a(href='/blog/') BLOG
-            #latest-blog
-              a(href='/blog/') Community Spotlight: MongoDB
-              a(href='/blog/') Precog.Copointed: Insights into Church-Rosser
-              a(href='/blog/') New Webinar March Series
-              a(href='/blog/') Data Science on your Desktop
-              a(href='/blog/') Meetup: Analytics on NoSQL
-              a(href='/blog/') Precog.Copointed: Where TDD Fails
-              a(href='/blog/') Scholarship Winner: Foodvent App
-              a(href='/blog/') Oscar Winner Predictions by Precog
-              a(href='/blog/') New Quirrel Tutorial Game
-              a(href='/blog/') Copointed: Monad Transformers
-              a(href='/blog/') New! Precog for PostgreSQL
-              a(href='/blog/') How to: Compute Common Analytics
-              a(href='/blog/') New Precog Wizard - in 3 Steps
-              a(href='/blog/') What is Precog...in 90 Seconds
-              a(href='/blog/') See the Precog Platform in Action with SocialSauce
-          .cred-sec
-            h1
-              a(href='/webinars/march/') UPCOMING WEBINARS
-            .precog-events
-              ul
-                li
-                  span
-                    a(href='/webinars/march/') Analyze Data with Labcoat
-                    p.date April 10 (11:00 am)
-                li
-                  span
-                    a(href='/webinars/march/') Create Visualizations
-                    p.date April 17 (12:00 pm)
-                li
-                  span
-                    a(href='/webinars/march/') Embed Reporting Dashboard
-                    p.date April 23 (11:00 am)
-          #customers-partners
-            h1
-              a(href='/about/partners/') CUSTOMERS AND PARTNERS
-            #customers-partners-frame
-              img(src='images/companylogos/thinknear.png', alt='thinknear')
-              img(src='images/companylogos/snapengage.png', alt='snapengage')
-              img(src='images/companylogos/quickleft.png', alt='quickleft')
-              img(src='images/companylogos/flixmaster.png', alt='flixmaster')
-              img(src='images/companylogos/gridgain.png', alt='gridgain')
-          #customer-quotes
-            .quote
-              p
-                | "Precog custom designed a sankey for us, which has garnered nothing but praise and admiration. We consider Precog to be an invaluable partner for us, and a key component to our success."
-              span - FlixMaster
-            .quote.last-item
-              p
-                | "Thanks to Precog, SnapEngage's awesome analytics and reporting features were up and running in no time. Precog customer service is second to none; they are always eager to help. Thanks Precog!"
-              span - Snap Engage
-          #call-out-1
-          #call-out-2
+      p Copyright @ 2012-2013 ReportGrid, Inc. All Rights Reserved

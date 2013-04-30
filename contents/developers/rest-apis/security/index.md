@@ -37,7 +37,7 @@ template: page-devcntr.jade
 
         <dd>
             <pre>
-[{"apiKey": "[API Key]"}, {"apiKey": "[API Key]"}, &Eacute;]
+[{"apiKey": "[API Key]"}, {"apiKey": "[API Key]"}, ...]
 </pre>
         </dd>
     </dl>
@@ -63,19 +63,19 @@ template: page-devcntr.jade
             <pre>
 {
 
-"name": &Eacute;
+"name": ...
 
-"description": &Eacute;
+"description": ...
 
 "grants": [{
 
-"name": &Eacute;
+"name": ...
 
-"description": &Eacute;
+"description": ...
 
-"parentIds": &Eacute;
+"parentIds": ...
 
-"expirationDate": &Eacute;
+"expirationDate": ...
 
 "permissions" : [{
 
@@ -85,11 +85,11 @@ template: page-devcntr.jade
 
 "ownerAccountIds": "[Owner Account Id]"
 
-}, &Eacute;
+}, ...
 
 ]
 
-}, &Eacute;
+}, ...
 
 ]
 }
@@ -130,19 +130,19 @@ template: page-devcntr.jade
 
 "apiKey": "[API key]",
 
-"name": &Eacute;,
+"name": ...,
 
-"description": &Eacute;,
+"description": ...,
 
 "grants": [{
 
 "grantId": "[Grant ID]",
 
-"name": &Eacute;,
+"name": ...,
 
-"description": &Eacute;,
+"description": ...,
 
-"expirationDate": &Eacute;,
+"expirationDate": ...,
 
 "permissions": [{
 
@@ -152,11 +152,11 @@ template: page-devcntr.jade
 
 "ownerAccountIds": "[Owner Account Id]"
 
-}, &Eacute;
+}, ...
 
 ]
 
-}, &Eacute;
+}, ...
 
 ]
 }
@@ -203,11 +203,11 @@ template: page-devcntr.jade
 
 "grantId": "[Grant ID]",
 
-"name": &Eacute;,
+"name": ...,
 
-"description": &Eacute;,
+"description": ...,
 
-"expirationDate": &Eacute;,
+"expirationDate": ...,
 
 "permissions": [{
 
@@ -217,11 +217,11 @@ template: page-devcntr.jade
 
 "ownerAccountIds": "[Owner Account Id]"
 
-}, &Eacute;
+}, ...
 
 ]
 
-}, &Eacute;
+}, ...
 ]
    
 </pre>
@@ -289,13 +289,13 @@ template: page-devcntr.jade
             <pre>
 {
 
-"name": &Eacute;
+"name": ...
 
-"description": &Eacute;
+"description": ...
 
-"parentIds": &Eacute;
+"parentIds": ...
 
-"expirationDate": &Eacute;
+"expirationDate": ...
 
 "permissions" : [{
 
@@ -305,7 +305,7 @@ template: page-devcntr.jade
 
 "ownerAccountIds": "[Owner Account Id]"
 
-}, &Eacute;
+}, ...
 
 ]
 }
@@ -344,11 +344,11 @@ template: page-devcntr.jade
 
 "grantId": "[Grant ID]",
 
-"name": &Eacute;,
+"name": ...,
 
-"description": &Eacute;,
+"description": ...,
 
-"expirationDate": &Eacute;,
+"expirationDate": ...,
 
 "permissions": [{
 
@@ -358,7 +358,7 @@ template: page-devcntr.jade
 
 "ownerAccountIds": "[Owner Account Id]"
 
-}, &Eacute;
+}, ...
 
 ]
 }
@@ -405,11 +405,11 @@ template: page-devcntr.jade
 
 "grantId": "[Grant ID]",
 
-"name": &Eacute;,
+"name": ...,
 
-"description": &Eacute;,
+"description": ...,
 
-"expirationDate": &Eacute;,
+"expirationDate": ...,
 
 "permissions": [{
 
@@ -419,11 +419,11 @@ template: page-devcntr.jade
 
 "ownerAccountIds": "[Owner Account Id]"
 
-}, &Eacute;
+}, ...
 
 ]
 
-}, &Eacute;
+}, ...
 
 ]
 </pre>
@@ -453,13 +453,13 @@ template: page-devcntr.jade
             <pre>
 {
 
-"name": &Eacute;
+"name": ...
 
-"description": &Eacute;
+"description": ...
 
-"parentIds": &Eacute;
+"parentIds": ...
 
-"expirationDate": &Eacute;
+"expirationDate": ...
 
 "permissions" : [{
 
@@ -469,7 +469,7 @@ template: page-devcntr.jade
 
 "ownerAccountIds": "[Owner Account Id]"
 
-}, &Eacute;
+}, ...
 
 ]
 }

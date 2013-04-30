@@ -5,7 +5,6 @@ template: page.jade
 
 <div class="two-columns">
     <div id="precog-account-details">
-        <h2>Precog Apps</h2>
         <div id="products-links">
             <a class="product-link-labcoat"  href="https://labcoat.precog.com" target="_blank"><span>launch</span></a>
             <a class="product-link-reportgrid"  href="http://builder.reportgrid.com" target="_blank"><span>launch</span></a>
@@ -36,18 +35,12 @@ template: page.jade
         <h2>Get Started</h2>
         <a href="/developers/">Developer Center</a>
         <p>Click here for our developer center, jam-packed with documentation and code snippets.</p>
-        <a href="/developers/">Embed Reporting In Your App For Your Customers</a>
+        <a href="/developers/how-tos/embed-reporting/">Embed Reporting In Your App For Your Customers</a>
         <p>An easy guide for developers that shows them how to use Precog to embed self-service reporting into any app.</p>
-        <a href="/developers/">Client Libraries</a>
+        <a href="/developers/client-libraries/javascript/">Client Libraries</a>
         <p>Javascript, PHP and many more!</p>
-        <a href="/developers/">REST API</a>
+        <a href="/developers/rest-apis/accounts/">REST API</a>
         <p>The easy to use Precog Rest API!</p>
-        <a href="/products/precog/">Precog</a>
-        <p>Precog is a next-generation analytics platform capable of advanced analytics on semi-structured data. </p>
-        <a href="/products/reportgrid/">ReportGrid</a>
-        <p>Visualize your data!</p>
-        <a href="/products/labcoat/">Labcoat</a>
-        <p>Analyze your data!</p>
     </div>
 </div>
 <div class="clear-left"></div>

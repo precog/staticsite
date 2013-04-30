@@ -43,7 +43,7 @@ GET /accounts/v1/accounts/0001205271/
 
             <p>This is the only accounts API method that does not require HTTP Basic authentication.</p>
 
-            <p>Anyone can create an account on the Precog platform, which will be subscribed to the free plan by default and provisioned with a new account root directory (the path to which is the same as the newly created account ID) and API key providing grants to all available permissions for that directory. To retrieve the API key and other information, use the &Ocirc;describe&Otilde; call described below.</p>
+            <p>Anyone can create an account on the Precog platform, which will be subscribed to the free plan by default and provisioned with a new account root directory (the path to which is the same as the newly created account ID) and API key providing grants to all available permissions for that directory. To retrieve the API key and other information, use the &Ocirc;describe' call described below.</p>
         </dd>
 
         <dt class="r-title">request body</dt>
