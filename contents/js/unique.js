@@ -16,6 +16,7 @@ $(document).ready(function(){
             sessionStorage.removeItem('PrecogAccount_Email');
             sessionStorage.removeItem('PrecogAccount_Name');
             sessionStorage.removeItem('PrecogAccount_Company');
+            sessionStorage.removeItem('PrecogAccount_ID');
             sessionStorage.removeItem('PrecogAccount_ApiKey');
             sessionStorage.removeItem('PrecogAccount_AnalyticsService');
             sessionStorage.removeItem('PrecogAccount_BasePath');
@@ -132,6 +133,7 @@ $(document).ready(function(){
                                                 sessionStorage.setItem('PrecogAccount_AnalyticsService', serviceUrl);
                                                 sessionStorage.setItem('PrecogAccount_BasePath', data.rootPath);
                                                 sessionStorage.setItem('PrecogAccount_Login', 'Logged In');
+                                                sessionStorage.setItem('PrecogAccount_ID', accountId);
                                                       
                                                 window.location = "/account/";
                                                 
@@ -207,6 +209,7 @@ $(document).ready(function(){
                                                                               sessionStorage.setItem('PrecogAccount_Email', userEmail);
                                                                               sessionStorage.setItem('PrecogAccount_Name', userName);
                                                                               sessionStorage.setItem('PrecogAccount_Company', userCompany);
+                                                                              sessionStorage.setItem('PrecogAccount_ID', accountDetail.accountId);
                                                                               sessionStorage.setItem('PrecogAccount_ApiKey', additionalAccountDetails.apiKey);
                                                                               sessionStorage.setItem('PrecogAccount_AnalyticsService', Precog.$.Config.analyticsService);
                                                                               sessionStorage.setItem('PrecogAccount_BasePath', additionalAccountDetails.rootPath);
@@ -267,6 +270,7 @@ $(document).ready(function(){
             var userEmail = sessionStorage.getItem('PrecogAccount_Email');
             var userName = sessionStorage.getItem('PrecogAccount_Name');
             var userCompany = sessionStorage.getItem('PrecogAccount_Company');
+            var userAccountID = sessionStorage.getItem('PrecogAccount_ID');
             var userApiKey = sessionStorage.getItem('PrecogAccount_ApiKey');
             var userAnalyticsService = sessionStorage.getItem('PrecogAccount_AnalyticsService');
             var userBasePath = sessionStorage.getItem('PrecogAccount_BasePath');
@@ -278,7 +282,8 @@ $(document).ready(function(){
                   $("#account-company h3").html(userCompany);
                   $("#account-apikey").html(userApiKey);
                   $("#account-analyticsservice").html(userAnalyticsService);
-                  $("#account-basepath").html(userBasePath);      
+                  $("#account-basepath").html(userBasePath);
+                  $("#account-id").html(userAccountID);  
             } else {
                   window.location = "/account/login/";
             }

@@ -32,59 +32,60 @@ html(lang='en')
         #menu
           ul.menu
             li
-                a(href='/developers/getting-started/overview/') Getting Started
+                a(href='/developers/getting-started/overview/') GETTING STARTED
                 ul
-                  li
-                    a(href='/developers/getting-started/overview/') Overview
                   li
                     a(href='/developers/getting-started/faq/') FAQ
                   li
-                    a(href='/developers/getting-started/analytics/') Analytics
+                    a(href='/developers/getting-started/overview/') OVERVIEW
+                  li
+                    a(href='/developers/getting-started/analytics/') ANALYTICS
               li
-                a(href='/developers/how-tos/common-analytics/') How To Guides
+                a(href='/developers/how-tos/embed-reporting/') HOW TO'S
                 ul
                   li
-                    a(href='/developers/how-tos/common-analytics/') Common Analytics
+                    a(href='/developers/how-tos/common-analytics/') COMMON ANALYTICS
                   li
-                    a(href='/developers/how-tos/embed-reporting/') Embedded Reporting
+                    a(href='/developers/how-tos/embed-reporting/') EMBED REPORTING
                   li
-                    a(href='/developers/how-tos/optimize-performance/') Optimizing Performance
+                    a(href='/developers/how-tos/optimize-performance/') OPTIMIZE PERFORMANCE
               li
-                a(href='/developers/rest-apis/accounts/') REST APIs
+                a(href='/developers/rest-apis/accounts/') REST APIS
                 ul
                   li
-                    a(href='/developers/rest-apis/accounts/') Accounts
+                    a(href='/developers/rest-apis/accounts/') ACCOUNTS
                   li
-                    a(href='/developers/rest-apis/ingest/') Ingest
+                    a(href='/developers/rest-apis/ingest/') INGEST
                   li
-                    a(href='/developers/rest-apis/metadata/') Metadata
+                    a(href='/developers/rest-apis/metadata/') METADATA
                   li
-                    a(href='/developers/rest-apis/analytics/') Analytics
+                    a(href='/developers/rest-apis/analytics/') ANALYTICS
                   li
-                    a(href='/developers/rest-apis/security/') Security
+                    a(href='/developers/rest-apis/security/') SECURITY
+                  li.item-312
+                    a(href='/developers/rest-apis/curl/') CURL
               li
-                a(href='/developers/client-libraries/javascript/') Client Libraries
+                a(href='/developers/client-libraries/javascript/') CLIENT LIBRARIES
                 ul
                   li
-                    a(href='https://github.com/precog/precog_js_client') JavaScript
+                    a(href='/developers/client-libraries/javascript/') JAVASCRIPT
                   li
-                    a(href='https://github.com/precog/precog_java_client') Java
+                    a(href='/developers/client-libraries/php/') PHP
                   li
-                    a(href='https://github.com/precog/precog_python_client') Python
+                    a(href='/developers/client-libraries/ruby/') RUBY
                   li
-                    a(href='https://github.com/precog/precog_php_client') PHP
+                    a(href='/developers/client-libraries/python/') PYTHON
                   li
-                    a(href='https://github.com/precog/precog_ruby_client') Ruby
-                  li
-                    a(href='https://github.com/precog/precog_js_client') NodeJS
-                  li
-                    a(href='https://github.com/precog/precog_dotnet_client') C#
-
+                    a(href='/developers/client-libraries/java/') JAVA
               li
-                a(href='/developers/quirrel/introduction/') Quirrel
+                a(href='/developers/quirrel/introduction/') QUIRREL
                 ul
                   li
-                    a(href='/developers/quirrel/introduction/') Introduction
+                    a(href='/developers/quirrel/introduction/') INTRODUCTION
+              li
+                a(href='/editions/precog-for-mongodb/') PRECOG ON MONGODB
+              li
+                a(href='http://www.precog.com/external/social-sauce-demo/dashboard.htm', target='_blank') DEMO DASHBOARD
 
         #search-box
           form(method='get', action='http://www2.precog.com/s/17892/e1369a4926353556f972788c89f928c2')
@@ -98,37 +99,37 @@ html(lang='en')
             #tool-tip-path.tool-tip.tt-information
               h1 path
               p
-                | This is the path to your data. Replace 'path or [path] with the correct directory location.
+                | This is the path to your data. Replace 'path or [path], tic or brackets included with the correct directory location.
             #tool-tip-root-path.tool-tip.tt-information
               h1 root path
               p
-                | This your root path. Replace [root path] with your root path. Your root path can be found on
+                | This your root path. Replace [root path], brackets included with your root path. Your root path can be found on
                 a(href='/account') your account page
                 | .
             #tool-tip-account-id.tool-tip.tt-information
               h1 accountId
               p
-                | This is your accountId. Replace 'accountId with your accountId. Your accountId is the same as your root path and can be found on
+                | This is your accountId. Replace 'accountId, tic included with your accountId. Your accountId is the same as your root path and can be found on
                 a(href='/account') your account page
             #tool-tip-grant-id.tool-tip.tt-information
               h1 grantId
               p
-                | This is a grantId. Repalce 'grantId with the appropriate grantId. GrantId's can be generated and accessed using various Security API calls.
+                | This is a grantId. Repalce 'grantId, tic included with the appropriate grantId. GrantId's can be generated and accessed using various Security API calls.
             #tool-tip-apikey.tool-tip.tt-information
               h1 api key
               p
-                | This is an API Key. Replace 'apiKey or [auth API key] with the appropriate API Key. You are assigned an initial API Key upon creating your account that is accessible on
+                | This is an API Key. Replace 'apiKey or [auth API key], tic or brackets included with the appropriate API Key. You are assigned an initial API Key upon creating your account that is accessible on
                 a(href='/account') your account page
                 | . API Keys can also be created using the Security API.
             #tool-tip-auth-apikey.tool-tip.tt-information
               h1 auth api key
               p
-                | This is the authorizing API Key. Most likely it is your initial master Precog API Key. It can be found on
+                | This is the authorizing API Key. Most likely it is your initital master Precog API Key. It can be found on
                 a(href='/account') your account page
                 | . Replace [auth API Key], brackets included with your Precog API key.
             #tool-tip-query.tool-tip.tt-information
               h1 query
               p
-                | This is your custom Quirrel query. See documentation on the Quirrel language
+                | This is your custom Quirrel query. See documentation on the quirrel language
                 a(href='http://quirrel-lang.org/') here
                 | . Replace [...], brackets included, with a query that has proper syntax.

@@ -7,19 +7,14 @@ $(document).ready(function(){
         $(this).attr('id', h2Value);
       });
       
-      /*$(window).scroll(function(){
-          var currentActive = $("#pages-documentation #main-nav #menu .active-link");
-          console.log($(currentActive).closest(".first-level").children("ul"));
-          $(currentActive).closest(".first-level").children("ul").addClass("visible-link");
-          $(currentActive).closest(".first-level").siblings().children("ul").removeClass("visible-link");
+      $("section.content").prepend('<ul id="section-index"></ui>');
+      
+      $("#body").find("h2").each(function(){
+          var link = $(this).attr("id");
+          var title = $(this).html();
+          
+          $("#section-index").append('<li><a href="#'+ link +'">'+ title +'</a></li>');
       });
-  
-      $(window).scroll(function(){
-          var currentActive = $("#pages-documentation #main-nav #menu ul > li").children("a.active-link").not("ul li ul a");
-          console.log(currentActive);
-          $(currentActive).parent().siblings().find("li a").removeClass("visible-link");
-          $(currentActive).parent().find("li a").addClass("visible-link");
-      });});*/
           
       var windowHeight = $(window).height();
       $(window).resize(function(){
@@ -121,15 +116,6 @@ $(document).ready(function(){
               });
           });
       });*/
-      
-      $(this).find("h2").each(function(){
-          $(this).after('<ul id="section-index"></ui>');
-          $(this).parent().find("h3").each(function(){
-              var h3Value = $(this).html().replace(/ /g,'')
-              var h3ValueAlt = $(this).html();
-          $(this).parent().find("ul:first").append('<li><a href="#'+ h3Value +'">'+ h3ValueAlt +'</a></li>');
-          });
-      });
       
       $("a.button-launch-labcoat").click(function() {
         scriptRun = $(this).parent()[0].childNodes[1].nodeValue;

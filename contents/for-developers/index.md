@@ -407,7 +407,7 @@ ReportGrid<span style='color:#d2cd86; '>.</span>streamGraph<span style='color:#d
         <div class="two-columns-end">
             <div class="very-dark-background">
                 <h2>Other Resources</h2>
-                <a href="/developers/how-tos/common-queries/">Common Queries</a>
+                <a href="/developers/how-tos/common-analytics/">Common Analytics</a>
                 <p>This is a short guide that shows how to perform very common analytical queries using the Quirrel query language.</p>
                 <a href="/developers/how-tos/embed-reporting/">Embed Reporting</a>
                 <p>If you're building a business application, then your customers probably want self-service reporting.</p>
@@ -571,7 +571,7 @@ client<span style='color:#d2cd86; '>.</span>UploadFile<span style='color:#d2cd86
         <h2><span>4</span>Launch Labcoat, the visual query builder, to build queries and export them as code.</h2>
         <a href="http://labcoat.precog.com" class="red-background mini-button" target="_blank">Launch Labcoat</a>
         <h2><span>5</span>Check out our developer center when you need to do something more advanced.</h2>
-        <a href="/developers/" class="blue-background mini-button" target="_blank">Developer Center</a>
+        <a href="/developers/getting-started/overview/" class="blue-background mini-button" target="_blank">Developer Center</a>
     </div>
 </div>
 <div class="section-divider">
