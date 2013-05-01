@@ -5,40 +5,36 @@ template: page-devcntr.jade
 
 Developer Center
 
-# GETTING STARTED
+# Getting Started
 
-## DATA ANALYSIS
+## Analytics
 
 There are three primary ways you can analyze data using Precog:
 
   * **REST API** - Precog exposes all of its functionality through a REST API. You can use the REST API directly, either using command-line tools like Curl or by using HTTP libraries.
   * **Client Libraries** - Precog develops and maintains a growing roster of client libraries for common programming languages. These libraries make it easier to use the REST API.
-  * **Labcoat** - Precog supports an interactive development environment called [Labcoat](http://www.Precog.com/products/labcoat) that provides a friendly graphical interface to analyze data.
+  * **Labcoat** - Precog supports a visual query builder [Labcoat](http://www.Precog.com/products/labcoat) that provides a friendly graphical interface to analyze data.
 
-### CURL IN TERMINAL
+### REST API
 
-You can access the Precog REST API directly through the terminal using curl.
+You can access the Precog REST API directly through the terminal using *Curl*, which is a command-line program which can be used to perform HTTP requests.
 
-### CLIENT LIBRARIES
+### Client Libraries
 
-Precog currently supports client libraries in JavaScript and PHP. These
-libraries allow you to programmatically interact with the Precog platform,
-ingesting data, running queries, or granting permissions to users of your
-application.
+Precog currently supports the following client libraries:
 
-The client libraries are open source and are available in the [public Github
-repository](https://github.com/reportgrid/client-
-libraries/tree/master/precog). Other languages will be supported in the
-future.
+  * [JavaScript](https://github.com/precog/precog_js_client)
+  * [Java](https://github.com/precog/precog_java_client)
+  * [Python](https://github.com/precog/precog_python_client)
+  * [PHP](https://github.com/precog/precog_php_client)
+  * [Ruby](https://github.com/precog/precog_ruby_client)
+  * [NodeJS](https://github.com/precog/precog_js_client)
+  * [C#](https://github.com/precog/precog_dotnet_client)
 
-### LABCOAT
+### Labcoat
 
-[Labcoat](http://www.Precog.com/products/labcoat) is an interactive
-development environment that allows you to analyze data using a simple, yet
-powerful query language called Quirrel.
+[Labcoat](https://labcoat.precog.com) is a visual query builder that lets you
+interactively develop and run queries against your Precog account.
 
-Labcoat is also a great way to interactively develop queries that can run on
-the Precog platform. For additional information on Labcoat, see these
-resources: [Labcoat Landing Page](http://Precog.com/products/labcoat) or
-[Learn Page](http://Precog.com/products/labcoat/learn).
-
+Any query you build in Labcoat can be exported and run as production code
+inside your application.
