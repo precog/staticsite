@@ -69,5 +69,5 @@ computed rapidly.
 ### 5. When all else fails
 
 If you encounter a slow running query that you cannot optimize, [please let us
-know](https://precog.com/contact) and we'll look into it.
+know](/about/contact-us/) and we'll look into it.
 

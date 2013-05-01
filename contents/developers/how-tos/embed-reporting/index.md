@@ -106,19 +106,19 @@ POST https://beta.precog.com/security/v1/apikeys/?apiKey=[auth API key]
 <pre>
 Precog.store("/path/to/store/data", dataToBeStored);  
 </pre>
-<p>There are also 3 optional arguments. The third argument allows some function to be run if the <strong>Precog.store()</strong> function succeeds. The fourth argument allows some function to be run if the <strong>Precog.store()</strong> function fails. The final optional argument allows you to specify options for the call, such as whether the call should block or return immediately. Details about this and all other client library functions can be found in the <a href="http://www.precog.com/client-libraries-javascript">developer center</a>.</p>
+<p>There are also 3 optional arguments. The third argument allows some function to be run if the <strong>Precog.store()</strong> function succeeds. The fourth argument allows some function to be run if the <strong>Precog.store()</strong> function fails. The final optional argument allows you to specify options for the call, such as whether the call should block or return immediately. Details about this and all other client library functions can be found in the developer center.</p>
 <p>The example below illustrates how this function can be used with many of the options:</p><script src="https://gist.github.com/4196075.js" type="text/javascript">
 </script>
 <h4>Back-end Instrumentation</h4>
 <p>You probably also already have some code responsible for order processing. All that is needed is to add a few lines of code that will track order confirmation using the Precog API.</p><script src="https://gist.github.com/4196083.js" type="text/javascript">
 </script>
-<p>The first line loads the <a href="http://www.precog.com/client-libraries-php">PHP client library</a>. Lines 3-5 creates a new variable called <strong>$api</strong> that is an instance of the PrecogAPI. The arguments passed to the constructor are your API key and the Precog service URL. Lines 7-9 create an ISO8601 formatted timestamp. Lines 11-16 stores the event data in a variable, and the line 18 sends that data to Precog to be stored at the specified path.</p>
+<p>The first line loads the PHP client library. Lines 3-5 creates a new variable called <strong>$api</strong> that is an instance of the PrecogAPI. The arguments passed to the constructor are your API key and the Precog service URL. Lines 7-9 create an ISO8601 formatted timestamp. Lines 11-16 stores the event data in a variable, and the line 18 sends that data to Precog to be stored at the specified path.</p>
 <p>After this code is integrated into your platform, all future order confirmation events will be stored in Precog, and available for detailed analysis and reporting.</p>
 <h3>Step 5: Back Import Historical Data</h3>
 <p>You probably have some historical data that needs to be imported into Precog.</p>
 <p><a href="http://labcoat.precog.com">Labcoat</a> has an easy drag and drop interface for loading files in JSON, CSV, and zipped versions of those formats (Precog will be supporting more languages and formats in the future).</p>
 <p>However, you can also import your data programmatically using Precog API. You can use the REST API directly, or use one of the client libraries, such as PHP or JavaScript.</p>
-<p>For more details about the Precog REST API, please see the API reference in the <a href="http://www.precog.com/api-ingest">developer center</a>. The following two sections show how you to upload historical data using the PHP client library, both for data files you may have lying around, and for data stored in a SQL database.</p>
+<p>For more details about the Precog REST API, please see the API reference in the developer center. The following two sections show how you to upload historical data using the PHP client library, both for data files you may have lying around, and for data stored in a SQL database.</p>
 <h4>PHP Client Library and JSON objects</h4>
 <p>First, you need to download the <a href="https://github.com/reportgrid/client-libraries/tree/master/precog">PHP client library</a>. Then you need to put that file (/precog/php/src/Precog.php), along with a properly formatted data file in the same directory. For this example, properly formatted means one JSON value per line:</p>
 <pre>
@@ -150,8 +150,8 @@ Precog.store("/path/to/store/data", dataToBeStored);
   <li><a href="http://www.youtube.com/watch?v=lEPnAFUyf3o">A basic syntax screencast</a>.</li>
   <li><a href="http://www.youtube.com/watch?v=PCnXZNQOIKI">A filtering screencast</a>.</li>
   <li><a href="http://www.youtube.com/watch?v=bR9ppqpnLHo">A screencast on built-in functions</a></li>
-  <li><a href="httpL//www.youtube.com/watch?v=njuJ4P901-c">A screencast on solve statements</a></li>
-  <li>The <a href="http://www.precog.com/quirrel-introduction">Quirrel Introduction</a> section of the Developer Center.</li>
+  <li><a href="http://www.youtube.com/watch?v=njuJ4P901-c">A screencast on solve statements</a></li>
+  <li>The <a href="http://www.precog.com/developers/quirrel-introduction/">Quirrel Introduction</a> section of the Developer Center.</li>
 </ul>
 <p>You can also follow along with the preloaded sample data in the preview version of <a href="https://labcoat.precog.com">Labcoat</a> in the /tutorial/transactions path.</p>
 <p>Let's begin by considering a few questions Apocalypse Products might be interested in answering. We'll then develop Quirrel scripts to answer these questions.</p>
