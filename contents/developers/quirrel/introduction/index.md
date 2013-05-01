@@ -155,7 +155,12 @@ and merges the results together into a single set, which is the output of the qu
 
 ## Learning Quirrel
 
+  * [How to Perform Common Analytics on Precog](/developers/how-tos/common-analytics/)
   * [Quirrel Game](http://www2.precog.com/learn-quirrel-level-1)
   * [Quirrel Tutorial Videos](http://www.youtube.com/user/PrecogPlatform)
+  * [Quirrel IRC Channel](irc://irc.freenode.net:6667/quirrel)
+  * [Support Forum](https://support.precog.com)
+  * [support@precog.com](mailto:support@precog.com)
+
   
 
