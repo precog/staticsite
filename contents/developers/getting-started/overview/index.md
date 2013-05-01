@@ -5,22 +5,17 @@ template: page-devcntr.jade
 
 Developer Center
 
-# Getting Started
-
 ## Signup
 
 Please visit the [Signup Page](https://www.precog.com/account/login/) to sign
 up for a cloud-hosted account. When you signup, you'll be given an *account ID*, 
-an *API key*, and a *root path*. You can always find this information on your
-[account page](https://www.precog.com/account/) after logging in.
+an *API key*, and a *root path*. 
 
   * **Account ID** - Your account ID is globally unique and identifies your Precog account in a way that is stable, even if you decide to change your email address or API keys later.
   * **API Key** - Your API key allows you to interact with the Precog API. The API key can be thought of as a combination of a username and a password.
   * **Root Path** - Your root path is where all of your data lives inside the Precog file system. Your root path is just equal to */'accountId*, where *'accountID* is your account ID.
 
-Your API key is initially given permission to read, write, and delete data inside your 
-root path. Over time, other Precog users may give you additional permissions for other
-directories inside the Precog file system.
+You can always find this information on your [account page](https://www.precog.com/account/) after logging in.
 
 ## Precog File System
 

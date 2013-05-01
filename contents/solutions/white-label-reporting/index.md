@@ -12,7 +12,7 @@ template: page-flexible.jade
         <div class="image-panel for-web-analytics">
         </div>
         <div class="text-panel">
-            <p class="medium">Your customers rely on your application power their businesses. With the Precog Embedded Intelligence&trade; solution, you can easily deploy seamless, interactive reporting in your application that helps your customers unlock the value of their data. Empower your customers to make data-driven decisions with the industry-leading solution for embedded reporting.</p>
+            <p class="medium">Your customers rely on your application to power their businesses. With the Precog Embedded Intelligence&trade; solution, you can easily deploy seamless, interactive reporting in your application that helps your customers unlock the value of their data. Empower your customers to make data-driven decisions with the industry-leading solution for embedded reporting.</p>
         </div>
         <div class="clear-left">
         </div>

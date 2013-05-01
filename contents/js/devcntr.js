@@ -7,7 +7,7 @@ $(document).ready(function(){
         $(this).attr('id', h2Value);
       });
       
-      $("section.content").prepend('<ul id="section-index"></ui>');
+      $("section.content > h1").after('<ul id="section-index"></ui>');
       
       $("#body").find("h2, h3").each(function(){
           var link = $(this).attr("id");

@@ -3,8 +3,7 @@ author: Matthew De Goes
 date: 2013-03-26 12:20
 template: page-devcntr.jade
 
-<span class="page-title">Developer Center</span>
-<h1>How To</h1>
+<h1>How To Guides</h1>
 <h2>Embed Reporting in Your App for Your Customers</h2>
 <p>Check out a demo dashboard <a href="http://www2.precog.com/socialsaucedashboard">here</a>.</p>
 <h3>Overview</h3>
