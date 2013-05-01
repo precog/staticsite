@@ -794,10 +794,10 @@ client<span style='color:#d2cd86; '>.</span>UploadFile<span style='color:#d2cd86
             </ul>
             <ul>
                 <li>STORAGE LIMIT</li>
-                <li>100 GB</li>
-                <li>255 GB</li>
-                <li>500 GB</li>
                 <li>1 TB</li>
+                <li>2 TB</li>
+                <li>3 TB</li>
+                <li>4 TB</li>
                 <li>Any</li>
             </ul>
             <ul>
