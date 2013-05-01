@@ -4,9 +4,11 @@ date: 2013-03-26 12:20
 template: page.jade
 
 <div>
-<p>Precog is a platform for building intelligent, insightful applications. Through simple <a href="/developers/">REST APIs</a>, Precog enables application developers to capture large amounts of multi-structure data, enrich that data with add-ons from the <a href="/products/precog/marketplace/">marketplace</a>, and perform sophisticated analytics, statistics, and predictive modeling.</p>
-<p>Precog is the next-generation technology that spawned out of ReportGrid, a 2011 <a href="http://www.techstars.com/" target="_blank">TechStar's</a> company. Founded by veteran technologist and entrepreneur <a href="https://twitter.com/jdegoes" target="_blank">John A. De Goes</a>, Precog is tackling the big data analytics problem head-on through a combination of innovative technology and obsessive attention to developer usability.</p>
-<p>Precog is funded by Launch Capital, David Cohen, Doug Derwin, Walt Winshall, and other seasoned angels. Its board of directors includes SendGrid CEO Jim Franklin, and serial entrepreneur Ari Newman.</p>
+<p>Precog is an advanced analytics engine for multi-structured data, which helps companies answer deeper questions on today's diverse data sets.</p>
+
+<p>Precog is the next-generation technology that spawned out of ReportGrid, a 2011 <a href="http://www.techstars.com/" target="_blank">TechStars</a> company. Founded by veteran technologist and entrepreneur <a href="https://twitter.com/jdegoes" target="_blank">John A. De Goes</a>, Precog is making advanced analytics on today's non-relational data sources simple and intuitive, through a combination of disruptive technology and obsessive attention to usability.</p>
+
+<p>Precog is funded by RTP Ventures, Resonant Ventures, Launch Capital, David Cohen, Doug Derwin, Walt Winshall, and other seasoned angels. Its board of directors includes SendGrid CEO Jim Franklin and RTP Ventures Managing Directory Kirill Sheynkman.</p>
 </div>
 <h1>TEAM</h1>
 <div id="team-cards">
@@ -33,7 +35,7 @@ template: page.jade
 <div id="team-information">
     <div class="information-employee johndegoes">
         <div class="bio-left">
-            <h2>John De Goes</h2>
+            <h2>John A. De Goes</h2>
             <h3>Chief Executive Officer - Chief Technical Officer - Founder</h3>
             <p>John began his journey into computer science at the age of 8, when he taught himself to program BASIC on a Commodore 64. Eight years later, John was writing best-selling books in 3D graphics programming. After graduating Summa Cum Laude with a degree in mathematics, John launched his career as a research and development engineer, eventually turning his creativity toward entrepreneurship. John's latest company was acquired by LivingSocial for technology developed under his leadership as VP of Engineering. With more than a decade of experience in distributed and scientific computing, John is the vision and brains behind Precog, relentlessly pursuing his dream of powering the data-driven future.</p>
             <p>When not contributing to open source, speaking at conferences, or working at Precog, John enjoys spending time with his wife and two kids, hiking the Rocky Mountains, cooking fine food, and weight-training like a madman.</p>
@@ -52,11 +54,11 @@ template: page.jade
     <div class="information-employee jeffcarr">
         <div class="bio-left">
             <h2>Jeff Carr</h2>
-            <h3>Chief Operations Officer</h3>
+            <h3>Chief Operating Officer</h3>
             <p>Jeff Carr COO Jeff has been passionate about great technology for over 25 years while developing expertise in Business Development, market assessment, strategy and operations. For the past 11 years he has focused exclusively on early stage companies in markets including network security (Vericept,CipherTrust), VOIP (Borderware SIPassure), and Big Data (Precog). The energy and entrepreneurial spirit of startups is what drives him. In his role COO he focuses on go to market strategy and execution, operations and helping build a culture of success.</p>
             <p>Jeff's other passions are making great wines and building the community better through technology education.</p>
             <ul>
-                <li>In 2000 he founded the award winning and critically acclaimed <a href="http://www.garfieldestates.com">Garfield Estates Vineyard &amp; Winery</a> located in Palisade, CO.</li>
+                <li>In 2000 he founded the award-winning and critically acclaimed <a href="http://www.garfieldestates.com">Garfield Estates Vineyard &amp; Winery</a> located in Palisade, CO.</li>
                 <li>In 2009 he joined the Board of <a href="http://www.kidstek.org">KidsTek</a>, a highly successful non-profit providing technology education to underprivileged kids in the public school systems.</li>
             </ul>
         </div>
