@@ -1,5 +1,5 @@
 #body-splash, #body-solutions, #body-features, #body-getting-started, #body-pricing, #body-contactus, #body-overview {
-    padding-top: 40px;
+    padding-top: 30px;
     padding-bottom: 40px;
 }
 
@@ -56,6 +56,16 @@
     padding: 8px;
     margin-top: 0px;
     border: none;
+    transition: .5s;
+    -webkit-transition: .5s;
+}
+
+#body-splash .image-panel:hover pre {
+    color: #666666;
+}
+
+#body-splash .image-panel:hover pre .blue {
+    color: #70CDFF;
 }
 
 #body-splash .text-panel {
@@ -115,6 +125,10 @@
 
 .solutions-option:hover p {
     color: #C0E1FF !important;
+}
+
+.solutions-option:hover h1 {
+    color: #5AA4CC !important;
 }
 
 #body-solutions .solutions-option h1 {
@@ -251,7 +265,7 @@
 .panel ul.first li, #simple-code-box .first li {
     background-color: #1E2226;
     list-style: none;
-    font-family: Montserrat, sans-serif;
+    font-family: questrial, sans-serif;
     text-align: right;
     margin-left: 0px !important;
     cursor: pointer;
@@ -313,16 +327,16 @@
 
 #body-features ul li:nth-child(odd) {
     float: left;
-    width: 43%;
-    padding: 2%;
+    width: 47%;
+    padding: 10px 0px 20px 0px;
     margin-right: 6%;
     margin-bottom: 0px;
 }
 
 #body-features ul li:nth-child(even) {
     float: left;
-    width: 43%;
-    padding: 2%;
+    width: 47%;
+    padding: 10px 0px 20px 0px;
     margin-bottom: 0px;
 }
 
@@ -532,6 +546,10 @@
 
 #section-body .blog-item header {
     background-color: transparent !important;
+    position: relative !important;
+    min-width: 643px !important;
+    border: none !important;
+    margin-bottom: 10px !important;
 }
 
 #section-body .blog-item p {
@@ -870,7 +888,7 @@ a.product-link-labcoat-account:hover {
 
 /*SIMPLE CODE BOX*/
 #simple-code-box {
-    width: 700px;
+    width: 839px;
     height: 160px;
     background-color: #000;
     border: 1px solid #617280;

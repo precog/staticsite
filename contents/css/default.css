@@ -190,7 +190,7 @@ header #header-logo {
     position: fixed;
     top: 14px;
     width: 200px;
-    z-index: 1;
+    z-index: 2000;
 }
 
 /*HEADER MINI-MENU*/
@@ -874,7 +874,6 @@ footer {
 }
 
 /*NEWS LETTER ICONTACT*/
-
 #newsletter-signup-form {
     position: absolute;
     top: 40px;
@@ -915,4 +914,49 @@ footer {
     padding-left: 1%;
     margin-top: 2px;
     margin-bottom: 8px;
+}
+
+/*CONTACT FORM ICONTACT*/
+#contact-signup-form {
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #000;
+    color: #617280;
+}
+
+#contact-signup-form #SignUp {
+    padding-top: 6px;
+}
+
+#contact-signup-form h3 {
+    font-family: questrial, sans-serif;
+    font-size: 12pt;
+    padding-bottom: 4px !important;
+}
+
+#contact-signup-form #SignUp tr td {
+    text-align: left;
+    font-family: helvetica, sans-serif;
+    line-height: 26px;
+}
+
+#contact-signup-form #SignUp tr:nth-child(8) {
+    display: none;
+}
+
+#contact-signup-form #SignUp tr td input {
+    background-color: #000;
+    border: 1px solid #282e33;
+    color: #fff;
+    font-size: 10pt;
+    height: 26px;
+    width: 100%;
+    padding-left: 1%;
+    margin-top: 2px;
+    margin-bottom: 8px;
+}
+
+#contact-signup-form #SignUp .small-button {
+    margin-left: 93px;
+    width: 170px !important;
 }

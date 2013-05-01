@@ -66,29 +66,32 @@ precog.uploadFile("/foo/", csvFile, Formats.CSV)<span style='color:#d2cd86; '>;<
                 </div>
                 <div class="panel-content python-content">
                     <pre style='color:#d1d1d1;background:#000000;'>
-<span style='color:#9999a9; '># append json value (python object)</span>
+<span style='color:#9999a9; '>// Append a JSON value</span>
 client<span style='color:#d2cd86; '>.</span>append<span style='color:#d2cd86; '>(</span><span style='color:#00c4c4; '>"/foo/"</span><span style='color:#d2cd86; '>,</span> <span style='color:#b060b0; '>{</span><span style='color:#00c4c4; '>"hello"</span><span style='color:#d2cd86; '>:</span> <span style='color:#00c4c4; '>"world"</span><span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span>
 
-<span style='color:#9999a9; '># upload file</span>
+<span style='color:#9999a9; '>// Upload a file</span>
 client<span style='color:#d2cd86; '>.</span>upload_file<span style='color:#d2cd86; '>(</span><span style='color:#00c4c4; '>'/foo/'</span><span style='color:#d2cd86; '>,</span> Format<span style='color:#d2cd86; '>.</span>json<span style='color:#d2cd86; '>,</span> <span style='color:#00c4c4; '>"/path/to/data.json"</span><span style='color:#d2cd86; '>)</span>
 client<span style='color:#d2cd86; '>.</span>upload_file<span style='color:#d2cd86; '>(</span><span style='color:#00c4c4; '>'/foo/'</span><span style='color:#d2cd86; '>,</span> Format<span style='color:#d2cd86; '>.</span>csv<span style='color:#d2cd86; '>,</span> <span style='color:#e34adc; '>file</span><span style='color:#d2cd86; '>)</span>
                     </pre>
                 </div>
                 <div class="panel-content php-content">
-                <pre style='color:#d1d1d1;background:#000000;'>
+                    <pre style='color:#d1d1d1;background:#000000;'>
 <span style='color:#f6c1d0; background:#281800; '>&lt;?php</span><span style='color:#ffffff; background:#281800; '></span>
-<span style='color:#9999a9; background:#281800; '># run a query</span><span style='color:#ffffff; background:#281800; '></span>
-<span style='color:#ffffff; background:#281800; '>client</span><span style='color:#d2cd86; background:#281800; '>.</span><span style='color:#ffffff; background:#281800; '>query</span><span style='color:#d2cd86; background:#281800; '>(</span><span style='color:#00c4c4; background:#281800; '>'//foo with precog::enrichment(//foo, SentimentAnalysis)'</span><span style='color:#d2cd86; background:#281800; '>)</span><span style='color:#ffffff; background:#281800; '></span>
+<span style='color:#9999a9; '>// Append a JSON value</span>
+<span style='color:#ffffff; background:#281800; '>$api</span><span style='color:#d2cd86; background:#281800; '>-</span><span style='color:#d2cd86; background:#281800; '>></span><span style='color:#ffffff; background:#281800; '>store</span><span style='color:#d2cd86; background:#281800; '>(</span><span style='color:#00c4c4; background:#281800; '>'</span><span style='color:#02d045; background:#281800; '>/</span><span style='color:#00c4c4; background:#281800; '>foo</span><span style='color:#02d045; background:#281800; '>/</span><span style='color:#00c4c4; background:#281800; '>'</span><span style='color:#d2cd86; background:#281800; '>,</span><span style='color:#ffffff; background:#281800; '> </span><span style='color:#e66170; background:#281800; font-weight:bold; '>array</span><span style='color:#d2cd86; background:#281800; '>(</span><span style='color:#00c4c4; background:#281800; '>'hello'</span><span style='color:#ffffff; background:#281800; '> </span><span style='color:#d2cd86; background:#281800; '>=</span><span style='color:#d2cd86; background:#281800; '>></span><span style='color:#ffffff; background:#281800; '> </span><span style='color:#00c4c4; background:#281800; '>'world'</span><span style='color:#d2cd86; background:#281800; '>)</span><span style='color:#d2cd86; background:#281800; '>)</span><span style='color:#b060b0; background:#281800; '>;</span><span style='color:#ffffff; background:#281800; '></span>
+<span style='color:#ffffff; background:#281800; '>&#xa0;</span>
+<span style='color:#9999a9; '>// Upload a file</span>
+<span style='color:#ffffff; background:#281800; '>$api</span><span style='color:#d2cd86; background:#281800; '>-</span><span style='color:#d2cd86; background:#281800; '>></span><span style='color:#ffffff; background:#281800; '>ingest</span><span style='color:#d2cd86; background:#281800; '>(</span><span style='color:#00c4c4; background:#281800; '>'/foo/data.json'</span><span style='color:#d2cd86; background:#281800; '>,</span><span style='color:#ffffff; background:#281800; '> </span><span style='color:#ffffff; background:#281800; '>$fileContent</span><span style='color:#d2cd86; background:#281800; '>,</span><span style='color:#ffffff; background:#281800; '> </span><span style='color:#00c4c4; background:#281800; '>'text/csv'</span><span style='color:#d2cd86; background:#281800; '>)</span><span style='color:#b060b0; background:#281800; '>;</span><span style='color:#ffffff; background:#281800; '></span>
 <span style='color:#f6c1d0; background:#281800; '>?></span>
-                </pre>
+                    </pre>
                 </div>
                 <div class="panel-content ruby-content">
                     <pre style='color:#d1d1d1;background:#000000;'>
-<span style='color:#d2cd86; '>/</span><span style='color:#d2cd86; '>/</span> Append a JSON value
+<span style='color:#9999a9; '>// Append a JSON value</span>
 Precog<span style='color:#d2cd86; '>.</span>append<span style='color:#d2cd86; '>(</span><span style='color:#b060b0; '>{</span>path: <span style='color:#00c4c4; '>'/foo/'</span>, value: <span style='color:#b060b0; '>{</span><span style='color:#00c4c4; '>"hello"</span>: <span style='color:#00c4c4; '>"world"</span><span style='color:#b060b0; '>}</span><span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span>;
 precog<span style='color:#d2cd86; '>.</span>append<span style='color:#d2cd86; '>(</span><span style='color:#00c4c4; '>'/foo'</span>, <span style='color:#b060b0; '>{</span> :hello <span style='color:#d2cd86; '>=</span>> <span style='color:#00c4c4; '>'world'</span> <span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span>
 
-<span style='color:#d2cd86; '>/</span><span style='color:#d2cd86; '>/</span> Upload a file
+<span style='color:#9999a9; '>// Upload a file</span>
 Precog<span style='color:#d2cd86; '>.</span>uploadFile<span style='color:#d2cd86; '>(</span><span style='color:#b060b0; '>{</span>path: <span style='color:#00c4c4; '>'/foo/data.json'</span>, type: <span style='color:#00c4c4; '>'text/csv'</span>, contents: file<span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span>;
 precog<span style='color:#d2cd86; '>.</span>upload_file<span style='color:#d2cd86; '>(</span><span style='color:#00c4c4; '>'/foo/data.json'</span>, :csv, file<span style='color:#d2cd86; '>)</span>
                     </pre>
@@ -104,11 +107,11 @@ Precog<span style='color:#d2cd86; '>.</span>uploadFile<span style='color:#d2cd86
                 </div>
                 <div class="panel-content csharp-content">
                     <pre style='color:#d1d1d1;background:#000000;'>
-<span style='color:#9999a9; '>// This assumes a SomeSource that can generate SomeStuff instances</span>
+<span style='color:#9999a9; '>// Append a JSON value</span>
 SomeStuff myStuff <span style='color:#d2cd86; '>=</span> SomeSource<span style='color:#d2cd86; '>.</span>GetStuff<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>foo</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
 client<span style='color:#d2cd86; '>.</span>Append<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>/test</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span> myStuff<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
 
-<span style='color:#9999a9; '>// Uploading a file means we replace (e.g. delete) the existing data at that path</span>
+<span style='color:#9999a9; '>// Upload a file</span>
 client<span style='color:#d2cd86; '>.</span>UploadFile<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>/test</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span> Formats<span style='color:#d2cd86; '>.</span>CSV<span style='color:#d2cd86; '>,</span> @<span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>C:\somefile.csv</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
                     </pre>
                 </div>
@@ -125,49 +128,46 @@ client<span style='color:#d2cd86; '>.</span>UploadFile<span style='color:#d2cd86
             <div id="enrich" class="panel">
                 <div class="active-content panel-content javascript-content">
                     <pre style='color:#d1d1d1;background:#000000;'>
-<span style='color:#9999a9; '>// Execute a snippet</span>
+<span style='color:#9999a9; '>// Enrich a Data Set</span>
 Precog<span style='color:#d2cd86; '>.</span>execute<span style='color:#d2cd86; '>(</span><span style='color:#00c4c4; '>'//foo with precog::enrichment(//foo, SentimentAnalysis)'</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
                     </pre>
                 </div>
                 <div class="panel-content java-content">
                     <pre style='color:#d1d1d1;background:#000000;'>
-<span style='color:#9999a9; '>// Execute a snippet</span>
+<span style='color:#9999a9; '>// Enrich a Data Set</span>
 QueryResult result = precog.query("count(precog::enrichment(<span style='color:#9999a9; '>//foo, SentimentAnalysis))");</span>
 int count = result.get(0, Integer.class)<span style='color:#d2cd86; '>;</span>
                     </pre>
                 </div>
                 <div class="panel-content python-content">
                     <pre style='color:#d1d1d1;background:#000000;'>
-<span style='color:#9999a9; '># run a query</span>
+<span style='color:#9999a9; '>// Enrich a Data Set</span>
 client<span style='color:#d2cd86; '>.</span>query<span style='color:#d2cd86; '>(</span><span style='color:#00c4c4; '>'//foo with precog::enrichment(//foo, SentimentAnalysis)'</span><span style='color:#d2cd86; '>)</span>
                     </pre>
                 </div>
                 <div class="panel-content php-content">
                     <pre style='color:#d1d1d1;background:#000000;'>
 <span style='color:#f6c1d0; background:#281800; '>&lt;?php</span><span style='color:#ffffff; background:#281800; '></span>
-<span style='color:#9999a9; background:#281800; '>// Execute a snippet</span><span style='color:#ffffff; background:#281800; '></span>
-<span style='color:#ffffff; background:#281800; '>$api</span><span style='color:#d2cd86; background:#281800; '>-</span><span style='color:#d2cd86; background:#281800; '>></span><span style='color:#ffffff; background:#281800; '>query</span><span style='color:#d2cd86; background:#281800; '>(</span><span style='color:#00c4c4; background:#281800; '>'//foo with precog::enrichment(//foo, SentimentAnalysis)'</span><span style='color:#d2cd86; background:#281800; '>)</span><span style='color:#b060b0; background:#281800; '>;</span><span style='color:#ffffff; background:#281800; '></span>
+<span style='color:#9999a9; '>// Enrich a Data Set</span>
+<span style='color:#ffffff; background:#281800; '>client</span><span style='color:#d2cd86; background:#281800; '>.</span><span style='color:#ffffff; background:#281800; '>query</span><span style='color:#d2cd86; background:#281800; '>(</span><span style='color:#00c4c4; background:#281800; '>'//foo with precog::enrichment(//foo, SentimentAnalysis)'</span><span style='color:#d2cd86; background:#281800; '>)</span><span style='color:#ffffff; background:#281800; '></span>
 <span style='color:#f6c1d0; background:#281800; '>?></span>
                     </pre>
                 </div>
                 <div class="panel-content ruby-content">
                     <pre style='color:#d1d1d1;background:#000000;'>
-<span style='color:#d2cd86; '>/</span><span style='color:#d2cd86; '>/</span> Execute a snippet
-Precog<span style='color:#d2cd86; '>.</span>execute<span style='color:#d2cd86; '>(</span><span style='color:#00c4c4; '>'//foo with precog::enrichment(//foo, SentimentAnalysis)'</span><span style='color:#d2cd86; '>)</span>;
+<span style='color:#9999a9; '>// Enrich a Data Set</span>
 precog<span style='color:#d2cd86; '>.</span>query<span style='color:#d2cd86; '>(</span><span style='color:#00c4c4; '>''</span>, <span style='color:#00c4c4; '>'//foo with precog::enrichment(//foo, SentimentAnalysis)'</span><span style='color:#d2cd86; '>)</span>
                     </pre>
                 </div>
                 <div class="panel-content nodejs-content">
                     <pre style='color:#d1d1d1;background:#000000;'>
-<span style='color:#9999a9; '>// Execute a snippet</span>
+<span style='color:#9999a9; '>// Enrich a Data Set</span>
 Precog<span style='color:#d2cd86; '>.</span>execute<span style='color:#d2cd86; '>(</span><span style='color:#00c4c4; '>'//foo with precog::enrichment(//foo, SentimentAnalysis)'</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
                     </pre>
                 </div>
                 <div class="panel-content csharp-content">
                     <pre style='color:#d1d1d1;background:#000000;'>
-<span style='color:#9999a9; '>// A simple query to compute the mean count from our data. The result will be</span>
-<span style='color:#9999a9; '>// returned as a List&lt;int> in this case, with the first (and only) element containing</span>
-<span style='color:#9999a9; '>// the mean value.</span>
+<span style='color:#9999a9; '>// Enrich a Data Set</span>
 client<span style='color:#d2cd86; '>.</span>Query<span style='color:#d2cd86; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>int</span><span style='color:#d2cd86; '>></span><span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>/</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>//foo with precog::enrichment(//foo, SentimentAnalysis)</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>.</span>Data<span style='color:#d2cd86; '>[</span><span style='color:#008c00; '>0</span><span style='color:#d2cd86; '>]</span><span style='color:#b060b0; '>;</span>
                     </pre>
                 </div>
@@ -184,49 +184,47 @@ client<span style='color:#d2cd86; '>.</span>Query<span style='color:#d2cd86; '>&
             <div id="analyze" class="panel">
                 <div class="active-content panel-content javascript-content">
                     <pre style='color:#d1d1d1;background:#000000;'>
-<span style='color:#9999a9; '>// Execute a snippet</span>
+<span style='color:#9999a9; '>// Compute Some Analytics</span>
 Precog<span style='color:#d2cd86; '>.</span>execute<span style='color:#d2cd86; '>(</span><span style='color:#00c4c4; '>'count(//foo)'</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
                     </pre>
                 </div>
                 <div class="panel-content java-content">
                     <pre style='color:#d1d1d1;background:#000000;'>
-<span style='color:#9999a9; '>// Execute a snippet</span>
+<span style='color:#9999a9; '>// Compute Some Analytics</span>
 QueryResult result = precog.query("count(<span style='color:#9999a9; '>//foo)");</span>
 int count = result.get(0, Integer.class)<span style='color:#d2cd86; '>;</span>
                     </pre>
                 </div>
                 <div class="panel-content python-content">
                     <pre style='color:#d1d1d1;background:#000000;'>
-<span style='color:#9999a9; '># run a query</span>
+<span style='color:#9999a9; '>// Compute Some Analytics</span>
 client<span style='color:#d2cd86; '>.</span>query<span style='color:#d2cd86; '>(</span><span style='color:#00c4c4; '>'count(//foo)'</span><span style='color:#d2cd86; '>)</span>
                     </pre>
                 </div>
                 <div class="panel-content php-content">
                     <pre style='color:#d1d1d1;background:#000000;'>
 <span style='color:#f6c1d0; background:#281800; '>&lt;?php</span><span style='color:#ffffff; background:#281800; '></span>
-<span style='color:#9999a9; background:#281800; '>// Execute a snippet</span><span style='color:#ffffff; background:#281800; '></span>
+<span style='color:#9999a9; '>// Compute Some Analytics</span>
 <span style='color:#ffffff; background:#281800; '>$api</span><span style='color:#d2cd86; background:#281800; '>-</span><span style='color:#d2cd86; background:#281800; '>></span><span style='color:#ffffff; background:#281800; '>query</span><span style='color:#d2cd86; background:#281800; '>(</span><span style='color:#00c4c4; background:#281800; '>'count(//foo)'</span><span style='color:#d2cd86; background:#281800; '>)</span><span style='color:#b060b0; background:#281800; '>;</span><span style='color:#ffffff; background:#281800; '></span>
 <span style='color:#f6c1d0; background:#281800; '>?></span>
                     </pre>
                 </div>
                 <div class="panel-content ruby-content">
                     <pre style='color:#d1d1d1;background:#000000;'>
-<span style='color:#d2cd86; '>/</span><span style='color:#d2cd86; '>/</span> Execute a snippet
+<span style='color:#9999a9; '>// Compute Some Analytics</span>
 Precog<span style='color:#d2cd86; '>.</span>execute<span style='color:#d2cd86; '>(</span><span style='color:#00c4c4; '>'count(//foo)'</span><span style='color:#d2cd86; '>)</span>;
 precog<span style='color:#d2cd86; '>.</span>query<span style='color:#d2cd86; '>(</span><span style='color:#00c4c4; '>''</span>, <span style='color:#00c4c4; '>'count(//foo)'</span><span style='color:#d2cd86; '>)</span>
                     </pre>
                 </div>
                 <div class="panel-content nodejs-content">
                     <pre style='color:#d1d1d1;background:#000000;'>
-<span style='color:#9999a9; '>// Execute a snippet</span>
+<span style='color:#9999a9; '>// Compute Some Analytics</span>
 Precog<span style='color:#d2cd86; '>.</span>execute<span style='color:#d2cd86; '>(</span><span style='color:#00c4c4; '>'count(//foo)'</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
                     </pre>
                 </div>
                 <div class="panel-content csharp-content">
                     <pre style='color:#d1d1d1;background:#000000;'>
-<span style='color:#9999a9; '>// A simple query to compute the mean count from our data. The result will be</span>
-<span style='color:#9999a9; '>// returned as a List&lt;int> in this case, with the first (and only) element containing</span>
-<span style='color:#9999a9; '>// the mean value.</span>
+<span style='color:#9999a9; '>// Compute Some Analytics</span>
 client<span style='color:#d2cd86; '>.</span>Query<span style='color:#d2cd86; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>int</span><span style='color:#d2cd86; '>></span><span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>/</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>count(//foo)</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>.</span>Data<span style='color:#d2cd86; '>[</span><span style='color:#008c00; '>0</span><span style='color:#d2cd86; '>]</span><span style='color:#b060b0; '>;</span>
                     </pre>
                 </div>

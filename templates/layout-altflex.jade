@@ -1,0 +1,37 @@
+!!! 5
+html(lang='en')
+  head
+    block head
+      meta(charset='utf-8')
+      title
+        block title
+          = locals.name
+          
+      link(rel='stylesheet', href='/css/default.css')
+      link(rel='stylesheet', href='/css/unique.css')
+      link(rel='stylesheet', href='/css/font-awesome.min.css')
+      link(href='https://fonts.googleapis.com/css?family=Questrial|Abel|Montserrat:400,700|Cinzel:400,700,900', rel='stylesheet', type='text/css')
+      link(rel='icon', type='image/png', href='/images/favicon.png')
+      script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
+      script(src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js')
+      script(type='text/javascript', src='/js/default.js')
+      script(type='text/javascript', src='/js/unique.js')
+      script(type='text/javascript')
+        var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-33659709-1']);
+          _gaq.push(['_trackPageview']);
+          (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+          
+  body
+    header
+      include includes/header-inner
+      
+    #section-body
+      block content
+      
+    footer
+     include includes/footer

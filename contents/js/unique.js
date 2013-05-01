@@ -357,18 +357,15 @@ $(document).ready(function(){
       });
       
       //GET TITLES
-      $("#section-body h1, #section-body h2, #section-body h3").each(function(){
-            var link = $(this).html().replace(/ /g, '-').toLowerCase();
-            var titles = $(this).html();
-            $(this).attr('id', link);
-      });
-      
-      $("#section-body h2").each(function(){
-            var link = $(this).html().replace(/ /g, '-').toLowerCase();
-            var titles = $(this).html();
-            
-            $("#body-links").append("<a href='#" + link + "'>" + titles + "</a>");
-      });
+      if (currentLocation == "/solutions/white-label-reporting/" || currentLocation == "/solutions/social-media-analytics/" || currentLocation == "/solutions/web-analytics/") {
+            $("#section-body h2").each(function(){
+                  var link = $(this).attr("title");
+                  var titles = $(this).attr("title").replace('-', ' ');
+                  
+                  $(this).attr('id', link);
+                  $("#body-links").append("<a href='#" + link + "'>" + titles + "</a>");
+            });
+      }
       
       //NEWSLETTER      
       $("#newsletter-signup-form tr:last-child td:last-child input").addClass("small-button red-background");
