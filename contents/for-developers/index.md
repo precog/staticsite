@@ -32,7 +32,7 @@ template: page-flexible.jade
     <div id="hiw-menu">
         <div class="holder">
             <ul>
-                <li><i class="icon-download"></i> Store</li>
+                <li><i class="icon-download-alt"></i> Store</li>
                 <li><i class="icon-bolt"></i> Enrich</li>
                 <li><i class="icon-search"></i> Analyze</li>
                 <li><i class="icon-bar-chart"></i> Visualize</li>
@@ -475,13 +475,13 @@ ReportGrid<span style='color:#d2cd86; '>.</span>streamGraph<span style='color:#d
         </form>
         <h2><span>2</span>Get a client library in your favorite programming language.</h2>
         <ul>
-            <li class="dark-background"><a href="https://github.com/precog/precog_js_client" target="_blank">JavaScript</a></li>
-            <li class="dark-background"><a href="https://github.com/precog/precog_java_client" target="_blank">Java</a></li>
-            <li class="dark-background"><a href="https://github.com/precog/precog_python_client" target="_blank">Python</a></li>
-            <li class="dark-background"><a href="https://github.com/precog/precog_php_client" target="_blank">PHP</a></li>
-            <li class="dark-background"><a href="https://github.com/precog/precog_ruby_client" target="_blank">Ruby</a></li>
-            <li class="dark-background"><a href="https://github.com/precog/precog_js_client" target="_blank">NodeJS</a></li>
-            <li class="dark-background"><a href="https://github.com/precog/precog_dotnet_client" target="_blank">C#</a></li>
+            <li class="dark-background"><a href="https://web4.precog.com/developers/client-libraries/#JavaScript" target="_blank">JavaScript</a></li>
+            <li class="dark-background"><a href="https://web4.precog.com/developers/client-libraries/#Java" target="_blank">Java</a></li>
+            <li class="dark-background"><a href="https://web4.precog.com/developers/client-libraries/#Python" target="_blank">Python</a></li>
+            <li class="dark-background"><a href="https://web4.precog.com/developers/client-libraries/#PHP" target="_blank">PHP</a></li>
+            <li class="dark-background"><a href="https://web4.precog.com/developers/client-libraries/#Ruby" target="_blank">Ruby</a></li>
+            <li class="dark-background"><a href="https://web4.precog.com/developers/client-libraries/#NodeJS" target="_blank">NodeJS</a></li>
+            <li class="dark-background"><a href="https://web4.precog.com/developers/client-libraries/#C#/.NET" target="_blank">C#</a></li>
         </ul>
         <div class="clear-left"></div>
         <h2><span>3</span>Write a couple lines of code to upload or stream data into Precog.</h2>
@@ -680,8 +680,8 @@ client<span style='color:#d2cd86; '>.</span>UploadFile<span style='color:#d2cd86
                 <li>Large</li>
                 <li>Enterprise</li>
             </ul>
-            <ul class="threads">
-                <li>THREADS</li>
+            <ul class="cpu-cores">
+                <li>CPU CORES</li>
                 <li>1</li>
                 <li>4</li>
                 <li>8</li>

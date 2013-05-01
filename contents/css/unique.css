@@ -61,7 +61,7 @@
 }
 
 #body-splash .image-panel:hover pre {
-    color: #666666;
+    color: #878787;
 }
 
 #body-splash .image-panel:hover pre .blue {
@@ -171,6 +171,11 @@
     background: -ms-linear-gradient(top,  rgba(45,82,102,1) 0%,rgba(29,51,64,1) 100%); /* IE10+ */
     background: linear-gradient(to bottom,  rgba(45,82,102,1) 0%,rgba(29,51,64,1) 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2d5266', endColorstr='#1d3340',GradientType=0 ); /* IE6-9 */
+}
+
+#hiw-menu ul li i {
+    font-size: 20pt;
+    line-height: 13px;
 }
 
 #hiw-menu ul li {
@@ -286,7 +291,7 @@
     float: left;
     width: 95px;
     height: 20px;
-    line-height: 20px;
+    line-height: 20px !important;
     text-align: center;
     font-size: 8pt !important;
 }
@@ -371,6 +376,17 @@
     background: -ms-linear-gradient(top,  rgba(40,46,51,1) 0%,rgba(20,23,26,1) 100%); /* IE10+ */
     background: linear-gradient(to bottom,  rgba(40,46,51,1) 0%,rgba(20,23,26,1) 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#282e33', endColorstr='#14171a',GradientType=0 ); /* IE6-9 */
+}
+
+#pricing-options-menu li:hover {
+    background: rgb(60,69,77); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(60,69,77,1) 0%, rgba(30,34,38,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(60,69,77,1)), color-stop(100%,rgba(30,34,38,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(60,69,77,1) 0%,rgba(30,34,38,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(60,69,77,1) 0%,rgba(30,34,38,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(60,69,77,1) 0%,rgba(30,34,38,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(60,69,77,1) 0%,rgba(30,34,38,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3c454d', endColorstr='#1e2226',GradientType=0 ); /* IE6-9 */
 }
 
 #pricing-options-menu li.active {
