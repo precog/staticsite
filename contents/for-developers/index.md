@@ -399,10 +399,15 @@ ReportGrid<span style='color:#d2cd86; '>.</span>streamGraph<span style='color:#d
         <div class="two-columns-end">
             <div class="very-dark-background">
                 <h2>Other Resources</h2>
+                <a href="/developers/">Developer Center</a>
+                <p>The Developer Center is the launchpad for building applications using Precog. You'll find API docs, client libraries, and more.</p>
+                
                 <a href="/developers/how-tos/common-analytics/">Common Analytics</a>
                 <p>This is a short guide that shows how to perform very common analytical queries using the Quirrel query language.</p>
+                
                 <a href="/developers/how-tos/embed-reporting/">Embed Reporting</a>
                 <p>If you're building a business application, then your customers probably want self-service reporting.</p>
+                
                 <a href="/developers/how-tos/optimize-performance/">Optimize Performance</a>
                 <p>If you are deploying a production application that uses Precog, you may be interested in ways to optimize the runtime query performance.</p>
             </div>
