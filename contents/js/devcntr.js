@@ -9,7 +9,7 @@ $(document).ready(function(){
       
       $("section.content").prepend('<ul id="section-index"></ui>');
       
-      $("#body").find("h2").each(function(){
+      $("#body").find("h2, h3").each(function(){
           var link = $(this).attr("id");
           var title = $(this).html();
           
