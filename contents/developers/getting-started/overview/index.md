@@ -5,8 +5,6 @@ template: page-devcntr.jade
 
 Developer Center
 
-# Getting Started
-
 ## Signup
 
 Please visit the [Signup Page](https://www.precog.com/account/login/) to sign
