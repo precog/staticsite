@@ -9,11 +9,13 @@ Developer Center
 
 ## Analytics
 
-There are three primary ways you can analyze data using Precog:
+The query interface to Precog is [Quirrel](/developers/quirrel/introduction), a simple but powerful analytical query language capable of handling multi-structured data like JSON.
+
+There are three ways you can analyze data stored in Precog using Quirrel:
 
   * **REST API** - Precog exposes all of its functionality through a REST API. You can use the REST API directly, either using command-line tools like Curl or by using HTTP libraries.
   * **Client Libraries** - Precog develops and maintains a growing roster of client libraries for common programming languages. These libraries make it easier to use the REST API.
-  * **Labcoat** - Precog supports a visual query builder [Labcoat](http://www.Precog.com/products/labcoat) that provides a friendly graphical interface to analyze data.
+  * **Labcoat** - Precog supports a visual query builder called [Labcoat](https://labcoat.precog.com), which provides a friendly, graphical interface to analyze data.
 
 ### REST API
 

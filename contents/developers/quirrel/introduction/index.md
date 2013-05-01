@@ -5,9 +5,9 @@ template: page-devcntr.jade
 
 Developer Center
 
-# QUIRREL
+# Quirrel
 
-## introduction
+## Introduction
 
 Queries need to begin with loading some data using the double slash //
 command. The next step is create a variable and assign the data to it using
@@ -85,13 +85,14 @@ left of the colon ":" and defined by what is on the right on the colon.
 This concludes a brief introduction to Quirrel. For additional information,
 please see the resources below.
 
-### quirrel website
+## Quirrel Standard
 
-[Quirrel Tutorial](http://quirrel-lang.org/tutorial.html)
+  * [Quirrel Tutorial](http://quirrel-lang.org/tutorial.html)
+  * [Quirrel Reference](http://quirrel-lang.org/reference.html)
 
-[Quirrel Reference](http://quirrel-lang.org/reference.html)
+## Learning Quirrel
 
-### tutorials
-
-[Quirrel Tutorial Videos](http://www.Precog.com/products/labcoat/learn)
+  * [Quirrel Game](http://www2.precog.com/learn-quirrel-level-1)
+  * [Quirrel Tutorial Videos](http://www.youtube.com/user/PrecogPlatform)
+  
 
