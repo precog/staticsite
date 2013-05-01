@@ -147,7 +147,7 @@ template: page.jade
             <p>In the time not spent plotting ways to improve Quirrel as a language or streamline its vast underpinnings, Daniel enjoys hiking in the mountains, gaming, playing the piano, reading late-19th century British fiction and teaching himself statistics. He earnestly wishes the personal automobile would be abandoned by society in favor of bicycles and public transit.</p>
             <ul>
                 <li>Favorite harmonic: The 6th, as it is the implicative of the 4th.</li>
-                <li>Favorite mountain: K2, but only from a specific angle. Citlaltépetl from any angle.</li>
+                <li>Favorite mountain: K2, but only from a specific angle. Citlalt petl from any angle.</li>
             </ul>
         </div>
         <div class="bio-right">
