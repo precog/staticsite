@@ -5,6 +5,8 @@ template: page-devcntr.jade
 
 # Client Libraries
 
+## Introduction
+
 Client libraries allow you to access the Precog REST API using many common programming languages. Client libraries can be used to either ingest data, query data, issue grants, or interact with other parts of the Precog API.
 
 ## JavaScript

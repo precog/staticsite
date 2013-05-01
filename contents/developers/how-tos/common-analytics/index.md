@@ -5,7 +5,7 @@ template: page-devcntr.jade
 
 # How To Guides
 
-## Compute Common Analytics on Precog
+## How to Perform Common Analytics on Precog
 
 ### Introduction
 
@@ -16,8 +16,13 @@ Quirrel is a very powerful language that lets you perform much more advanced
 analytics and statistics than shown in this guide. For more information on how
 to write advanced Quirrel, please see the following resources:
 
-  * [Homepage for the Quirrel Language](http://quirrel-lang.org/)
-  * [The Quirrel IRC Channel](irc://irc.freenode.net:6667/quirrel)
+  * [Quirrel Tutorial](http://quirrel-lang.org/tutorial.html)
+  * [Quirrel Reference](http://quirrel-lang.org/reference.html)
+  * [How to Perform Common Analytics on Precog](/developers/how-tos/common-analytics/)
+  * [Quirrel Game](http://www2.precog.com/learn-quirrel-level-1)
+  * [Quirrel Tutorial Videos](http://www.youtube.com/user/PrecogPlatform)
+  * [Quirrel IRC Channel](irc://irc.freenode.net:6667/quirrel)
+  * [Support Forum](https://support.precog.com)
   * [support@precog.com](mailto:support@precog.com)
 
 All of these examples have been constructed so you can run them in the demo
