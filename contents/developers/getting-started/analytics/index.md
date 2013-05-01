@@ -23,7 +23,7 @@ You can access the Precog REST API directly through the terminal using *Curl*, w
 
 ### Client Libraries
 
-Precog currently supports the following client libraries:
+Precog currently supports the following [client libraries](/developers/client-libraries/):
 
   * [JavaScript](https://github.com/precog/precog_js_client)
   * [Java](https://github.com/precog/precog_java_client)
