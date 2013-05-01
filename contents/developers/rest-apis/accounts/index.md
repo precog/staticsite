@@ -5,23 +5,19 @@ template: page-devcntr.jade
 
 <span class="page-title">Developer Center</span>
 <h1>REST API</h1>
-
 <p>The API calls below are given relative to an analytics service. For example, create an account is documented as: POST /accounts/v1/accounts/. The full call will include the analytics service such as https://beta.precog.com:</p>
 <pre>
 POST https://beta.precog.com/accounts/v1/accounts/
 </pre>
-
 <p>Tic variables such as <span class="tool-tip-account-id">'accountId</span>, <span class="tool-tip-path">'path</span>, <span class="tool-tip-apikey tool-tip-apikey">'apiKey</span>, and <span class="tool-tip-grant-id">'grantId</span> are used to indicate a place where you should replace the tic variable with the relevant information. For example, to describe account 0001205271:</p>
 <pre>
 GET /accounts/v1/accounts/<span class="tool-tip-account-id">'accountId</span>/
 </pre>
-
 <p>becomes:</p>
 <pre>
 GET /accounts/v1/accounts/0001205271/
 </pre>
 <h2>Accounts API</h2>
-
 <p>The accounts API is responsible for account management on the Precog platform. Accounts are identified by an account number, which is tied to a unique email address. Each email address can be associated with only one account.</p>
 
 <p>All use of the accounts API must be encrypted using SSL/TLS. All API methods except creating a new account must be authenticated using HTTP basic authentication. Any attempt to use the accounts API without proper encryption and / or authentication will fail with an access denied error.</p>

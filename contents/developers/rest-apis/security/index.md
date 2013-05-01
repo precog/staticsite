@@ -4,19 +4,12 @@ date: 2013-03-26 12:20
 template: page-devcntr.jade
 
 <span class="page-title">Developer Center</span>
-
 <h1>REST API</h1>
-
 <h2>security api</h2>
-
 <p>The security API is responsible for managing permissions for all data stored in Precog. The API can be used to manage API keys and grants.</p>
-
 <p>An API key is required for interacting with all Precog data APIs. An API key may be associated with many different grants, each of which confers specific permissions with respect to some directory and data owner.</p>
-
 <p>The fields "name" and "description" are optional fields taking arbitrary strings that increase the human read-ability of the output. "parentIds" is an optional field that can take the Grant ID of the parent grant. If no expiration date is set, the grant will not expire. To set an expiration date, provide an ISO8601 formatted string.</p>
-
 <p>For more information on API keys and grants, see the Precog Security Model.</p>
-
 <h3>List API Keys</h3>
 
 <dl class="api-call-json">

@@ -3,7 +3,7 @@ author: Matthew De Goes
 date: 2013-03-26 12:20
 template: page-devcntr.jade
 
-<h1>How To Guides</h1>
+<div><h1>How To Guides</h1>
 <h2>How to Embed Reporting in Your App</h2>
 <p>Check out a demo dashboard <a href="http://www2.precog.com/socialsaucedashboard">here</a>.</p>
 <h3>Overview</h3>
@@ -252,3 +252,4 @@ float:left;
 <p>To see a functional version of this dashboard (if you haven't been following along and creating it yourself), <a href="http://www.precog.com/external/Tutorials/apocalypsetutorial/ApocalypseProductsDashboard.htm">follow this link</a>. As an exercise, consider trying to modify the bar chart into a pie chart (hint: just use ReportGrid.pieChart in place of ReportGrid.barChart).</p>
 <p>This concludes the tutorial on how to Embed Reporting in Your App for Your Customers.</p>
 <p>Please give us some feedback and let us know how you are able to integrate these ideas into your applications. Please also let us know what other applications of the Precog platform you'd like to see us cover in the How-To series.</p>
+</div>
