@@ -35,7 +35,7 @@ should always specify the columns you are interested in.
 
 For example, you might be interested in counting all the data from a set foo.
 
-If you write count(foo), Precog will have to load all the columns that make up
+If you write *count(foo)*, Precog will have to load all the columns that make up
 the values of foo. However, if you write, count(foo.bar), then Precog only has
 to load the bar column of the data, which will be tremendously faster.
 

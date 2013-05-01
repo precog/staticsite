@@ -22,7 +22,7 @@ template: page-flexible.jade
 });</pre>
         </div>
         <div class="text-panel">
-            <p>Precog is a next-generation analytics platform that lets you easily store and analyze JSON data, without having to manipulate or transform the data, impose a rigid schema, or flatten it into tables.</p>
+            <p>Precog is a next-generation analytics platform that lets you easily store and analyze JSON data, without having to manipulate or transform the data, impose a rigid schema, or flatten it into tables. You can do everything from simple analytics to advanced statistics and machine learning.</p>
         </div>
         <div class="clear-left">
         </div>
@@ -76,13 +76,11 @@ client<span style='color:#d2cd86; '>.</span>upload_file<span style='color:#d2cd8
                 </div>
                 <div class="panel-content php-content">
                     <pre style='color:#d1d1d1;background:#000000;'>
-<span style='color:#f6c1d0; background:#281800; '>&lt;?php</span><span style='color:#ffffff; background:#281800; '></span>
 <span style='color:#9999a9; '>// Append a JSON value</span>
 <span style='color:#ffffff; background:#281800; '>$api</span><span style='color:#d2cd86; background:#281800; '>-</span><span style='color:#d2cd86; background:#281800; '>></span><span style='color:#ffffff; background:#281800; '>store</span><span style='color:#d2cd86; background:#281800; '>(</span><span style='color:#00c4c4; background:#281800; '>'</span><span style='color:#02d045; background:#281800; '>/</span><span style='color:#00c4c4; background:#281800; '>foo</span><span style='color:#02d045; background:#281800; '>/</span><span style='color:#00c4c4; background:#281800; '>'</span><span style='color:#d2cd86; background:#281800; '>,</span><span style='color:#ffffff; background:#281800; '> </span><span style='color:#e66170; background:#281800; font-weight:bold; '>array</span><span style='color:#d2cd86; background:#281800; '>(</span><span style='color:#00c4c4; background:#281800; '>'hello'</span><span style='color:#ffffff; background:#281800; '> </span><span style='color:#d2cd86; background:#281800; '>=</span><span style='color:#d2cd86; background:#281800; '>></span><span style='color:#ffffff; background:#281800; '> </span><span style='color:#00c4c4; background:#281800; '>'world'</span><span style='color:#d2cd86; background:#281800; '>)</span><span style='color:#d2cd86; background:#281800; '>)</span><span style='color:#b060b0; background:#281800; '>;</span><span style='color:#ffffff; background:#281800; '></span>
 <span style='color:#ffffff; background:#281800; '>&#xa0;</span>
 <span style='color:#9999a9; '>// Upload a file</span>
 <span style='color:#ffffff; background:#281800; '>$api</span><span style='color:#d2cd86; background:#281800; '>-</span><span style='color:#d2cd86; background:#281800; '>></span><span style='color:#ffffff; background:#281800; '>ingest</span><span style='color:#d2cd86; background:#281800; '>(</span><span style='color:#00c4c4; background:#281800; '>'/foo/data.json'</span><span style='color:#d2cd86; background:#281800; '>,</span><span style='color:#ffffff; background:#281800; '> </span><span style='color:#ffffff; background:#281800; '>$fileContent</span><span style='color:#d2cd86; background:#281800; '>,</span><span style='color:#ffffff; background:#281800; '> </span><span style='color:#00c4c4; background:#281800; '>'text/csv'</span><span style='color:#d2cd86; background:#281800; '>)</span><span style='color:#b060b0; background:#281800; '>;</span><span style='color:#ffffff; background:#281800; '></span>
-<span style='color:#f6c1d0; background:#281800; '>?></span>
                     </pre>
                 </div>
                 <div class="panel-content ruby-content">
@@ -135,8 +133,7 @@ Precog<span style='color:#d2cd86; '>.</span>execute<span style='color:#d2cd86; '
                 <div class="panel-content java-content">
                     <pre style='color:#d1d1d1;background:#000000;'>
 <span style='color:#9999a9; '>// Enrich a Data Set</span>
-QueryResult result = precog.query("count(precog::enrichment(<span style='color:#9999a9; '>//foo, SentimentAnalysis))");</span>
-int count = result.get(0, Integer.class)<span style='color:#d2cd86; '>;</span>
+precog.query(<span style='color:#9999a9; '>"precog::enrichment(//foo, SentimentAnalysis)"</span>);
                     </pre>
                 </div>
                 <div class="panel-content python-content">
@@ -147,10 +144,8 @@ client<span style='color:#d2cd86; '>.</span>query<span style='color:#d2cd86; '>(
                 </div>
                 <div class="panel-content php-content">
                     <pre style='color:#d1d1d1;background:#000000;'>
-<span style='color:#f6c1d0; background:#281800; '>&lt;?php</span><span style='color:#ffffff; background:#281800; '></span>
 <span style='color:#9999a9; '>// Enrich a Data Set</span>
 <span style='color:#ffffff; background:#281800; '>client</span><span style='color:#d2cd86; background:#281800; '>.</span><span style='color:#ffffff; background:#281800; '>query</span><span style='color:#d2cd86; background:#281800; '>(</span><span style='color:#00c4c4; background:#281800; '>'//foo with precog::enrichment(//foo, SentimentAnalysis)'</span><span style='color:#d2cd86; background:#281800; '>)</span><span style='color:#ffffff; background:#281800; '></span>
-<span style='color:#f6c1d0; background:#281800; '>?></span>
                     </pre>
                 </div>
                 <div class="panel-content ruby-content">
@@ -168,7 +163,7 @@ Precog<span style='color:#d2cd86; '>.</span>execute<span style='color:#d2cd86; '
                 <div class="panel-content csharp-content">
                     <pre style='color:#d1d1d1;background:#000000;'>
 <span style='color:#9999a9; '>// Enrich a Data Set</span>
-client<span style='color:#d2cd86; '>.</span>Query<span style='color:#d2cd86; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>int</span><span style='color:#d2cd86; '>></span><span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>/</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>//foo with precog::enrichment(//foo, SentimentAnalysis)</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>.</span>Data<span style='color:#d2cd86; '>[</span><span style='color:#008c00; '>0</span><span style='color:#d2cd86; '>]</span><span style='color:#b060b0; '>;</span>
+client<span style='color:#d2cd86; '>.</span>Query<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>/</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>//foo with precog::enrichment(//foo, SentimentAnalysis)</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
                     </pre>
                 </div>
                 <ul class="first">
@@ -191,8 +186,7 @@ Precog<span style='color:#d2cd86; '>.</span>execute<span style='color:#d2cd86; '
                 <div class="panel-content java-content">
                     <pre style='color:#d1d1d1;background:#000000;'>
 <span style='color:#9999a9; '>// Compute Some Analytics</span>
-QueryResult result = precog.query("count(<span style='color:#9999a9; '>//foo)");</span>
-int count = result.get(0, Integer.class)<span style='color:#d2cd86; '>;</span>
+precog.query(<span style='color:#9999a9; '>"count(//foo)"</span>);
                     </pre>
                 </div>
                 <div class="panel-content python-content">
@@ -203,10 +197,8 @@ client<span style='color:#d2cd86; '>.</span>query<span style='color:#d2cd86; '>(
                 </div>
                 <div class="panel-content php-content">
                     <pre style='color:#d1d1d1;background:#000000;'>
-<span style='color:#f6c1d0; background:#281800; '>&lt;?php</span><span style='color:#ffffff; background:#281800; '></span>
 <span style='color:#9999a9; '>// Compute Some Analytics</span>
 <span style='color:#ffffff; background:#281800; '>$api</span><span style='color:#d2cd86; background:#281800; '>-</span><span style='color:#d2cd86; background:#281800; '>></span><span style='color:#ffffff; background:#281800; '>query</span><span style='color:#d2cd86; background:#281800; '>(</span><span style='color:#00c4c4; background:#281800; '>'count(//foo)'</span><span style='color:#d2cd86; background:#281800; '>)</span><span style='color:#b060b0; background:#281800; '>;</span><span style='color:#ffffff; background:#281800; '></span>
-<span style='color:#f6c1d0; background:#281800; '>?></span>
                     </pre>
                 </div>
                 <div class="panel-content ruby-content">
@@ -407,10 +399,15 @@ ReportGrid<span style='color:#d2cd86; '>.</span>streamGraph<span style='color:#d
         <div class="two-columns-end">
             <div class="very-dark-background">
                 <h2>Other Resources</h2>
+                <a href="/developers/">Developer Center</a>
+                <p>The Developer Center is the launchpad for building applications using Precog. You'll find API docs, client libraries, and more.</p>
+                
                 <a href="/developers/how-tos/common-analytics/">Common Analytics</a>
                 <p>This is a short guide that shows how to perform very common analytical queries using the Quirrel query language.</p>
+                
                 <a href="/developers/how-tos/embed-reporting/">Embed Reporting</a>
                 <p>If you're building a business application, then your customers probably want self-service reporting.</p>
+                
                 <a href="/developers/how-tos/optimize-performance/">Optimize Performance</a>
                 <p>If you are deploying a production application that uses Precog, you may be interested in ways to optimize the runtime query performance.</p>
             </div>
@@ -522,10 +519,8 @@ client<span style='color:#d2cd86; '>.</span>upload_file<span style='color:#d2cd8
             </div>
             <div id="php-code" class="code-panel">
                 <pre style='color:#d1d1d1;background:#000000;'>
-<span style='color:#f6c1d0; background:#281800; '>&lt;?php</span><span style='color:#ffffff; background:#281800; '></span>
 <span style='color:#9999a9; background:#281800; '># run a query</span><span style='color:#ffffff; background:#281800; '></span>
 <span style='color:#ffffff; background:#281800; '>client</span><span style='color:#d2cd86; background:#281800; '>.</span><span style='color:#ffffff; background:#281800; '>query</span><span style='color:#d2cd86; background:#281800; '>(</span><span style='color:#00c4c4; background:#281800; '>'//foo with precog::enrichment(//foo, SentimentAnalysis)'</span><span style='color:#d2cd86; background:#281800; '>)</span><span style='color:#ffffff; background:#281800; '></span>
-<span style='color:#f6c1d0; background:#281800; '>?></span>
                 </pre>
             </div>
             <div id="ruby-code" class="code-panel">
