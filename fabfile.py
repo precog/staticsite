@@ -199,6 +199,7 @@ def deploy():
 
     upload_current_release()
     create_redirects()
+    make_symlinks()
     symlink_current_release()
     sudo('service nginx reload')
 
@@ -244,6 +245,11 @@ def symlink_current_release():
         with settings(warn_only=True):
             run('mv current releases/%(release)s/rollback' % env)
         run('ln -s releases/%(release)s current' % env)
+
+def make_symlinks():
+    puts(green('>>> creating symlink to apidocs'))
+    with cd('%(path)s/releases/%(release)s' % env):
+        run('ln -s /var/www/precogsite/shared/apidocs apidocs')
 
 def create_redirects():
     remote = '%(path)s/releases/%(release)s/redirects.conf' % env
