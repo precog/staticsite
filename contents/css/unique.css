@@ -340,6 +340,10 @@
     margin-bottom: 0px;
 }
 
+#body-features .very-dark-background {
+    margin-top: 18px;
+}
+
 /*PRICING OPTIONS*/
 #pricing-options-menu {
     width: 100%;
@@ -492,6 +496,7 @@
 
 #body-getting-started h2 {
     line-height: 60px;
+    color: #61b1dc !important;
 }
 
 #body-getting-started ul li {
