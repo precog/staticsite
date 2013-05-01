@@ -31,7 +31,7 @@ template: page.jade
         
         <h2>root path</h2>
         <pre id="account-basepath"></pre>
-        <p>Your root path is where inside Precog your data is stored. You can create other directories inside your root path to organize data.</p>
+        <p>Your root path is where inside Precog your data is stored. To make it easy to remember, it has the same name as your account ID.</p>
         <p>Learn more about the Precog file system in the <a href="/developers">Developer Center.</a></p>
         
         
