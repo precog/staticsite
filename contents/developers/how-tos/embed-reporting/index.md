@@ -4,7 +4,7 @@ date: 2013-03-26 12:20
 template: page-devcntr.jade
 
 <h1>How To Guides</h1>
-<h2>Embed Reporting in Your App for Your Customers</h2>
+<h2>How to Embed Reporting in Your App</h2>
 <p>Check out a demo dashboard <a href="http://www2.precog.com/socialsaucedashboard">here</a>.</p>
 <h3>Overview</h3>
 <p>If you're building a business application, then your customers probably want self-service reporting. Most business applications, from marketing tools to advertising platforms, have full-featured reporting built into them. Precog makes it easy to build this kind of functionality directly into your application, without spending a lot of time or money.</p>

@@ -5,7 +5,7 @@ template: page-devcntr.jade
 
 # How To Guides
 
-## Optimizing Query Performance with Precog
+## How to Optimize Query Performance on Precog
 
 If you are deploying a production application that uses Precog, you may be
 interested in ways to optimize the runtime query performance.
