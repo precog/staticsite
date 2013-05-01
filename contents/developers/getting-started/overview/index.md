@@ -7,7 +7,7 @@ Developer Center
 
 # Getting Started
 
-## Sign up
+## Signup
 
 Please visit the [Signup Page](https://www.precog.com/account/login/) to sign
 up for a cloud-hosted account. When you signup, you'll be given an *account ID*, 
@@ -72,9 +72,11 @@ You will need to use your root path whenever you try to read or write data
 in Precog, because initially, you will only have permissions for data in 
 that directory.
 
-### Data Model
+## Precog Data Model
 
-Precog natively stores and analyzes [JSON](http://www.json.org/) data. You can store any JSON data inside the Precog file system, as well as append JSON values to existing resources.
+Precog natively stores and analyzes [JSON](http://www.json.org/) data (actually, a superset of JSON data, but that's a detail you can ignore when getting started).
+
+You can store any JSON value inside the Precog file system, as well as append JSON values to existing resources.
 
 A JSON object is an unordered set of name/value pairs. For example:
         
@@ -111,7 +113,7 @@ see it unless you give them permission to see it.
 
 Precog is secure by default.
 
-Data ownership is tracked very exhaustively in Precog so that no one can see
+Data ownership is tracked exhaustively in Precog so that no one can see
 data unless the owner of the data has given them permission to see it.
 
 ## Grants
