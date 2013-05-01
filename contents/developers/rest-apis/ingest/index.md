@@ -3,60 +3,58 @@ author: Matthew De Goes
 date: 2013-03-26 12:20
 template: page-devcntr.jade
 
-<div id="body">
-    <span class="page-title">Developer Center</span>
-    <h1>REST API</h1>
-    <h2>ingest api</h2>
-    <p>The ingest API allows streaming or batch uploading of data into the Precog platform. Various kinds of data can be ingested by Precog, including JSON, CSV, and XML. They can be ingested in raw form or in compressed form, and in single-record form or multiple-record form (multiple record form requires each entry be separated by a newline character).</p>
-    <p>The current estimated ingest rate is approximately 3,000 records per second.</p>
-    <h3 id="ingest-data-async-api">Ingest Data Asynchronously</h3>
-    <dl class="api-call-json">
-        <dt class="button-json">JSON</dt>
+<span class="page-title">Developer Center</span>
+<h1>REST API</h1>
+<h2>ingest api</h2>
+<p>The ingest API allows streaming or batch uploading of data into the Precog platform. Various kinds of data can be ingested by Precog, including JSON, CSV, and XML. They can be ingested in raw form or in compressed form, and in single-record form or multiple-record form (multiple record form requires each entry be separated by a newline character).</p>
+<p>The current estimated ingest rate is approximately 3,000 records per second.</p>
+<h3 id="ingest-data-async-api">Ingest Data Asynchronously</h3>
+<dl class="api-call-json">
+    <dt class="button-json">JSON</dt>
 
-        <dt class="m-title">POST</dt>
+    <dt class="m-title">POST</dt>
 
-        <dd class="m-text">POST /ingest/v1/async/fs/<span class="tool-tip-path">'path</span>?apiKey=<span class="tool-tip-apikey">[auth API key]</span>&amp;ownerAccountId=[Owner Account Id]</dd>
+    <dd class="m-text">POST /ingest/v1/async/fs/<span class="tool-tip-path">'path</span>?apiKey=<span class="tool-tip-apikey">[auth API key]</span>&amp;ownerAccountId=[Owner Account Id]</dd>
 
-        <dt class="d-title">description</dt>
+    <dt class="d-title">description</dt>
 
-        <dd class="d-text">
-            <p>Asynchronously uploads data to the specified path and file name. The method will return almost immediately with an HTTP ACCEPTED response.</p>
+    <dd class="d-text">
+        <p>Asynchronously uploads data to the specified path and file name. The method will return almost immediately with an HTTP ACCEPTED response.</p>
 
-            <p>The optional owner account ID parameter can be used to disambiguate the account that owns the data, if the API key has multiple write grants to the path with different owners.</p>
-        </dd>
-    </dl>
+        <p>The optional owner account ID parameter can be used to disambiguate the account that owns the data, if the API key has multiple write grants to the path with different owners.</p>
+    </dd>
+</dl>
 
-    <h3>Ingest Data Synchronously</h3>
+<h3>Ingest Data Synchronously</h3>
 
-    <dl class="api-call-json">
-        <dt class="button-json">JSON</dt>
+<dl class="api-call-json">
+    <dt class="button-json">JSON</dt>
 
-        <dt class="m-title">POST</dt>
+    <dt class="m-title">POST</dt>
 
-        <dd class="m-text">POST /ingest/v1/sync/fs/<span class="tool-tip-path">'path</span>?apiKey=<span class="tool-tip-apikey">[auth API key]</span>&amp;ownerAccountId=[Owner Account Id]</dd>
+    <dd class="m-text">POST /ingest/v1/sync/fs/<span class="tool-tip-path">'path</span>?apiKey=<span class="tool-tip-apikey">[auth API key]</span>&amp;ownerAccountId=[Owner Account Id]</dd>
 
-        <dt class="d-title">description</dt>
+    <dt class="d-title">description</dt>
 
-        <dd class="d-text">
-            <p>Synchronously uploads data to the specified path and file name. The method will not return until the data has been committed to the transaction log. Queries may or may not reflect data committed to the transaction log.</p>
+    <dd class="d-text">
+        <p>Synchronously uploads data to the specified path and file name. The method will not return until the data has been committed to the transaction log. Queries may or may not reflect data committed to the transaction log.</p>
 
-            <p>The optional owner account ID parameter can be used to disambiguate the account that owns the data, if the API key has multiple write grants to the path with different owners.</p>
-        </dd>
-    </dl>
+        <p>The optional owner account ID parameter can be used to disambiguate the account that owns the data, if the API key has multiple write grants to the path with different owners.</p>
+    </dd>
+</dl>
 
-    <h3>Delete Path</h3>
+<h3>Delete Path</h3>
 
-    <dl class="api-call-json">
-        <dt class="button-json">JSON</dt>
+<dl class="api-call-json">
+    <dt class="button-json">JSON</dt>
 
-        <dt class="m-title">DELETE</dt>
+    <dt class="m-title">DELETE</dt>
 
-        <dd class="m-text">DELETE ingest/v1/async/fs/'path?apiKey=[apiKey]</dd>
+    <dd class="m-text">DELETE ingest/v1/async/fs/'path?apiKey=[apiKey]</dd>
 
-        <dt class="d-title">description</dt>
+    <dt class="d-title">description</dt>
 
-        <dd class="d-text">
-            <p>Deletes the specified path. CAUTION! This method cannot be undone.</p>
-        </dd>
-    </dl>
-</div>
+    <dd class="d-text">
+        <p>Deletes the specified path. CAUTION! This method cannot be undone.</p>
+    </dd>
+</dl>

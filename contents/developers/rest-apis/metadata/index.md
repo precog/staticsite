@@ -3,38 +3,37 @@ author: Matthew De Goes
 date: 2013-03-26 12:20
 template: page-devcntr.jade
 
-<div id="body">
-    <span class="page-title">Developer Center</span>
-    <h1>REST API</h1>
-    <h2>metadata api</h2>
+<span class="page-title">Developer Center</span>
+<h1>REST API</h1>
+<h2>metadata api</h2>
 
-    <p>The metadata API provides a one-stop resource for metadata on the structure of data, statistics on queries, and so forth.</p>
+<p>The metadata API provides a one-stop resource for metadata on the structure of data, statistics on queries, and so forth.</p>
 
-    <h3>Retrieve Path Metadata</h3>
+<h3>Retrieve Path Metadata</h3>
 
-    <dl class="api-call-json">
-        <dt class="button-json">JSON</dt>
+<dl class="api-call-json">
+    <dt class="button-json">JSON</dt>
 
-        <dt class="m-title">GET</dt>
+    <dt class="m-title">GET</dt>
 
-        <dd class="m-text">GET /meta/v1/fs/<span class="tool-tip-path">'path</span>?type=[type]&amp;property=[JSON property]&amp;apiKey=<span class="tool-tip-apikey">[auth API key]</span></dd>
+    <dd class="m-text">GET /meta/v1/fs/<span class="tool-tip-path">'path</span>?type=[type]&amp;property=[JSON property]&amp;apiKey=<span class="tool-tip-apikey">[auth API key]</span></dd>
 
-        <dt class="d-title">description</dt>
+    <dt class="d-title">description</dt>
 
-        <dd class="d-text">
-            <p>Retrieves metadata for a particular path in the file system.</p>
+    <dd class="d-text">
+        <p>Retrieves metadata for a particular path in the file system.</p>
 
-            <p>The valid metadata types (the <code>type=[type]</code> parameter) include <code>size</code>, <code>structure</code>, and <code>children</code>. If no metadata type is specified, then all metadata is returned.</p>
+        <p>The valid metadata types (the <code>type=[type]</code> parameter) include <code>size</code>, <code>structure</code>, and <code>children</code>. If no metadata type is specified, then all metadata is returned.</p>
 
-            <p>You can retrieve information about a specific JSON property by specifying the <code>property=[JSON property]</code> query parmeter. This works the same way <em>derefing</em> and object in Quirrel works. For example, if our data looks like <code>{"a": [0, 1]}</code>, we can retrieve metadata for the 1st element of the "a" property by using <code>property=a[0]</code>. This is only valid if <code>type</code> is <em>structure</em> or omitted.</p>
+        <p>You can retrieve information about a specific JSON property by specifying the <code>property=[JSON property]</code> query parmeter. This works the same way <em>derefing</em> and object in Quirrel works. For example, if our data looks like <code>{"a": [0, 1]}</code>, we can retrieve metadata for the 1st element of the "a" property by using <code>property=a[0]</code>. This is only valid if <code>type</code> is <em>structure</em> or omitted.</p>
 
-            <p><em>Note that we currently do not provide counts of objects and arrays inside of the <code>structure.types</code> object, though this is planned for a future release</em></p>
-        </dd>
+        <p><em>Note that we currently do not provide counts of objects and arrays inside of the <code>structure.types</code> object, though this is planned for a future release</em></p>
+    </dd>
 
-        <dt class="r-title">response body</dt>
+    <dt class="r-title">response body</dt>
 
-        <dd>
-            <pre>
+    <dd>
+        <pre>
 {
 "size": 36216,
 
@@ -61,6 +60,5 @@ template: page-devcntr.jade
 "children": ["foo/", "bar/"]
 }
 </pre>
-        </dd>
-    </dl>
-</div>
+    </dd>
+</dl>
