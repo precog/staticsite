@@ -1,4 +1,4 @@
-title: How to Optimize Query Performance with Precog
+title: How to Optimize Query Performance on Precog
 author: Matthew De Goes 
 date: 2013-03-26 12:20 
 template: page-devcntr.jade
@@ -12,10 +12,10 @@ Developer Center
 If you are deploying a production application that uses Precog, you may be
 interested in ways to optimize the runtime query performance.
 
-In this document, you can find our recommended tips to getting the most out of
-Precog.
+In this document, you can find our recommended tips to maximizing runtime
+performance on Precog.
 
-### 1. Partition by path
+### 1. Partition data by path
 
 Precog partitions all data by its location in the file system. Data stored in
 one path does not degrade the performance of queries on other paths.

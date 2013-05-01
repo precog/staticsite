@@ -11,7 +11,7 @@ Developer Center
 
 ### Introduction
 
-This is a short guide that shows how to perform very common analytical queries
+This is a short guide that shows how to perform very common analytics
 using the Quirrel query language.
 
 Quirrel is a very powerful language that lets you perform much more advanced
@@ -24,8 +24,9 @@ to write advanced Quirrel, please see the following resources:
 
 All of these examples have been constructed so you can run them in the demo
 Labcoat environment, which you can access [here](https://labcoat.precog.com).
+
 By tweaking the names of the directories and field names, you should be able
-to easily run them on your own data, too.
+to easily run versions of these queries on your own data, too.
 
 ### How to compute a count
 
