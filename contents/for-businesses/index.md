@@ -29,7 +29,7 @@ template: page-flexible.jade
             <div class="img">
             </div>
             <h1>Advanced Web Analytics</h1>
-            <p>Comprehensively capture every user behavior and develop 360 views of your customers.</p>
+            <p>Comprehensively capture every user behavior and develop sophisticated 360 views of your customers.</p>
         </a>
         <a href="/solutions/white-label-reporting/" class="solutions-option last-item">
             <div class="img">

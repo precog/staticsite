@@ -1,4 +1,4 @@
-title: Empower your customers to make data-driven decisions
+title: Give your customers reporting
 author: Matthew De Goes
 date: 2013-03-26 12:20
 template: page-flexible.jade
