@@ -9,81 +9,146 @@ Developer Center
 
 ## Introduction
 
-Queries need to begin with loading some data using the double slash //
-command. The next step is create a variable and assign the data to it using
-the := assignment operator. Assigning the data into a variable will allow the
-data to be more easily referenced (not having to call the load command of the
-entire file path repeatedly).
+Quirrel is a simple but powerful query language designed for performing analytics 
+on JSON data. Quirrel is the primary interface to the Precog analytics engine.
 
-Just loading the data then looks something like:
+Quirrel can handle the full range of JSON (actually, a strict 
+superset of JSON), and can perform everything from simple rollups and
+time series queries, to much more advanced statistics and machine learning.
+
+In addition, Quirrel gracefully handles heterogeneous data and allows you
+to gradually refine the structure of your data inside a query.
+
+This article provides a fast introduction to Quirrel. See the references
+at the end for more information.
+
+### Literal Values
+
+Quirrel supports all of JSON, so you can create literal JSON values in Quirrel.
+
+For example:
+
+    {"gender": "female", "age": 42, "interests": ["weightlifting", "rowing"]}
     
-    //[path]/to/data    
+or:
 
-And assigning it to a variable:
-
-    data:= //[path]/to/data
+    [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
     
-Note that this query would result in an error. You haven't told Quirrel to
-query anything, all you've done is assign data into a variable. You have not
-called the variable. So, to see all of the data, you would then call:
+### Expressions
 
+You can create numerical and boolean expressions using familiar operators like * (multiplication),
+/ (division), + (addition), ^ (exponentiation), - (subtraction), & (boolean AND), | (boolean OR),
+! (boolean NOT), and many more.
+
+For example:
+
+    2 * 2 ^ 3 + 4 - 3
+    
+or:
+
+    true | (!false & true) & !false
+
+### Loading Data
+
+Queries need to begin with loading some data. You can use the *load()* function,
+or the absolute path load operator, represented by two forward slashes (//).
+
+For example:
+
+    //path/to/data
+
+or:
+
+    load("/path/to/data")
+
+### Assignment
+
+Often times, you will want to store the data inside a variable. To do this, just
+use the assignment operator (*:=*). Assigning a variable to the data will 
+allow you to more easily reference the data, without having to call one of
+the load commands each time.
+
+For example:
+    
+    data := //path/to/data
+    
+If you try to run this query, you'll get an error, because the query doesn't return
+anything. It just loads some data and stores it into a variable.
+
+If you wanted to retrieve the whole data set, you could run the following query:
+
+    data := //path/to/data
     data
 
-Paths can contain the following list of characters:
+### Object Drilldown
 
-  * a-z A-Z _ - 0-9 . ~ : / ? # @ ! $ &amp; ' * + =
+One basic operation is the object drilldown operator (*.*). This lets you
+look at a particular field of a JSON object.
 
-One basic operation is filtered descent with the . dot operator. Rather than
-accessing all of the data, you can query a particular subset of the data,
-which looks like:
+For example, the following query extracts out the *total*'s stored inside
+a bunch of transaction objects:
     
-    labcoatdata := //tutorial/transactions
+    data := //tutorial/transactions
     data.total    
 
-To filter data use the where operator. This allows you to get the results of a
-query limited to situations where some other condition is true. In this case,
-the filter is for the source to be equal to "ad1".
+### Filtering Data
+
+To filter data, use the *where* operator. This operators lets you filter the 
+values in a set by some boolean (true/false) predicate.
+
+For example, the following query looks at *total*'s where the data source
+is "ad1":
     
-    labcoatdata := //tutorial/transactions
+    data := //tutorial/transactions
     data.total where data.source = "ad1"
+
+### Augmentation
     
-Filtering returns a more narrow subset of the data; in contrast, it is
-possible to expand a dataset using the with operator. On the left of the with
-operator is the original data set and on the right is an object that defines
-the new variable(s) to include. You also typically want to store this in a new
-variable. The example below creates an augmented dataset called dataWithHour
-that contains an hour variable formed using a built-in time function:
-std::time::hourOfDay. This new hour variable is then used as a filter in a
+You can add fields to objects using the *with* operator.
+
+On the left of the *with* operator is the original data set. On the right is an
+object that defines new fields to include in the merged set.
+
+The example below creates an augmented dataset called *dataWithHour*,
+which contains an *hour* variable formed using a built-in time function 
+(*std::time::hourOfDay*). This new variable is then used as a filter in a
 where statement.
     
-    labcoatdata := //tutorial/transactions
-    dataWithHour := data with {hour: std::time::hourOfDay(data.timeStamp)}
+    import std::time::*
+    
+    data := //tutorial/transactions
+    dataWithHour := data with {hour: hourOfDay(data.timeStamp)}
     dataWithHour.total where dataWithHour.hour &gt; 17
 
-There are also a whole host of functions built into the standard library that
-can be accessed using functionName(argumentsToBePassedToTheFunction). For
-example, if you wanted to average the totals in the //tutorial/transaction
-dataset:
+### Standard Library
+
+There are a bunch of useful functions built into the Quirrel standard library.
+
+You can use these functions using the syntax, *f(args)*, where *f* is the function
+name, and *args* are the inputs to the function.
+
+For example, if you wanted to average the totals in the *//tutorial/transaction*:
     
-    labcoatdata := //tutorial/transactions
-    mean(data.total)    
+    data := //tutorial/transactions
+    mean(data.total)
+    
+### Grouping
 
-You can use solve statements to call some function on all of the possible
-values of a parameter for some set. In practice, this allows you to get the
-results by each member of some set. For example, you might want to know the
-sum of all sales by each source.    
+The *solve* construct allows you to perform very powerful grouping operations.
 
-    labcoatdata := //tutorial/transactions
+In the *solve* construct, Quirrel identifies solutions for a set of variables
+(called *tic variables*), and evaluates an expression for each solution. The
+results are then merged together in a single set.
+
+Take the following example:
+
+    data := //tutorial/transactions
     solve 'source
-    {source: 'source, averageSales: mean(data.total where data.source = 'source)}
+      {source: 'source, averageSales: mean(data.total where data.source = 'source)}
 
-A solve statement always starts with solve and then some tic variable that
-will be fed into into the object enclosed by curly braces "{}". Each comma
-within the curly braces separates a new set that is named by what is on the
-left of the colon ":" and defined by what is on the right on the colon.
-
-This concludes a brief introduction to Quirrel. For additional information,
-please see the resources below.
+In this example, Quirrel solves for *'source*, identifying all solutions. For each *'source*
+solution, it then evaluates the body of the solve (to yield the mean for the given source), 
+and merges the results together into a single set, which is the output of the query.
 
 ## Quirrel Standard
 
