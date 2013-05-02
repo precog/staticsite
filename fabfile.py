@@ -120,12 +120,13 @@ def optimize():
     files_set = set()
     
     for base,subdirs,files in os.walk('build'):
-        for file in files:
-            filebase, extension = get_file_base_and_extension(file)
-            path = os.path.join(base, filebase)
+        if not base.startswith('build/external'):
+            for file in files:
+                filebase, extension = get_file_base_and_extension(file)
+                path = os.path.join(base, filebase)
 
-            if extension in interesting_extensions and filebase[-4:] != '.min':
-                files_set.add((path, extension))
+                if extension in interesting_extensions and filebase[-4:] != '.min':
+                    files_set.add((path, extension))
 
     # Optimize each file in the list
     def optimize_file(original_path, file_type, minify_exec, overwrites):
