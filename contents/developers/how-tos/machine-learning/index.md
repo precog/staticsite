@@ -3,12 +3,15 @@ author: Nathan Lubchenco
 date: 2013-05-01 01:00
 template: page-devcntr.jade
 
+#How To Guides
+##How To do Machine Learning with Precog
+
 If you're interested in doing machine learning or predictive analytics with Precog, but aren't sure where to get started, this How To guide is for you.  [Machine learning](http://en.wikipedia.org/wiki/Machine_learning "Machine learning") is the practice of using algorithms to understand and learn from data. Often, once an algorithm has been trained on initial data, it is then used to predict results for future data. One feature that sets Precog apart from many embedded reporting solutions is exactly this ability to to perform machine learning and predictive analytics.  Among other things, predictions can be used to create personalizations, recommendations or other sales optimizations.
 
 In this How To guide, we will cover simple introductory examples of clustering, linear regression and logistic regression. The guide will finish with a section on evaluation metrics because it is essential to have some idea of how useful a prediction is to you.  The code snippets included will use data included in the demo version of [Labcoat](http://labcoat.precog.com/" Labcoat" so that you can run the queries and modify if desired.
 
-Clustering
-----------
+###Clustering
+
 [Cluster analysis](http://en.wikipedia.org/wiki/Cluster_analysis "Cluster analysis") is the process of finding groups in a set of data that are similar to each other.  The notion of similarity can vary depending on the specific clustering algorithm used, but the general idea is to find points in the data that minimize the distance between those points and the rest of the points in the data.  For more details, see an [overview](http://en.wikipedia.org/wiki/K-medians_clustering "overview") or the details on the [specific algorithm we use](http://valis.cs.uiuc.edu/~sariel/papers/03/kcoreset/kcoreset.pdf "specific algorithm we use").
 
 Suppose we had some demographic data and wanted to do customer segmentation.  The first step is to decide what charcteristic or characteristics we want to segment on.  To keep things simple, we'll choose to just do clustering on age for the example below.  It is worth noting that if you cluster on multiple dimensions, you will want to scale your data to get the best results. This first query creates a model with 7 age clusters. This is as simple as choosing some subset of data to be the input and selecting the number of clusters desired.  Choosing the number of clusters is a non-trivial and often ambiguos problem. An [overview](http://en.wikipedia.org/wiki/Determining_the_number_of_clusters_in_a_data_set "overview") of methods for choosing is availible. The resulting model will contain centroids that minimize the distance between each datapoint and its closest centroid. 
@@ -50,8 +53,8 @@ Some other uses for clustering include, but are certainly not limited to:
 * Recommendation Engine
 * Bio-informatics
 
-Linear Regression
------------------
+###Linear Regression
+
 
 [Linear regression](http://en.wikipedia.org/wiki/Linear_regression "Linear regression") is a statistical technique for modeling the best fit line through a set of data points.  Given its name of linear, it should be clear that linear regression can have difficulty predicting relationships that are non-linear, but linear regression is still the best linear unbiased estimator of non-linear relationships. Linear regression is useful in an explanatory role to understand the relationship between variables and it is also useful to predict unknown values based on known variables. Predicting unknown values can be used for a variety of purposes:
 
@@ -122,8 +125,7 @@ Some things to notice above, starting from the bottom.  The RSquared value is a 
 
 The above example covers the use of linear regression for deep exploratory analysis.  In the evaluation metrics section of this How To guide, we will cover how to use a model to predict unknown values. 
 
-Logistic Regression
--------------------
+###Logistic Regression
 
 [Logistic regression](http://en.wikipedia.org/wiki/Logistic_regression "Logistic Regression") is regression designed for classification as opposed to predicting a continuous value.  It is appropriate when the dependent variable is categorical. An example of a categorical variable would be a set of colors.  If "green" is coded as 4 in our data and "blue" is coded as "2" it does not mean that we would expect to see twice the effect from a "green" than from a "blue".  Our current implementation of logistic regression is limited to the binary case of predicting 1s and 0s. To classify a multinomial categorical variable, you can use random forest.
 
@@ -155,8 +157,7 @@ Logistic regression can be helpful in many situations involving dichotomous vari
 * thresholds (above / below)
 * failure vs success
 
-Evaluation Metrics
------------------
+###Evaluation Metrics
 
 It is often helpful to have some means of evaluating the quality of a prediction.  There are a multitude of such evaluation metrics and deciding on the correct one is an important part of the process (which is beyond the scope of this How To guide).  For a list of a number of metrics and their implementations in number of languages, see [Ben Hamner’s repository](https://github.com/benhamner/Metrics "Ben Hamner’s repository") of metrics used in [](http://www.kaggle.com/ "Kaggle competitions").
 
@@ -201,7 +202,7 @@ Now we just need some observed and predicted values to feed into our function. L
 	model2rmse : rmse(results.prediction.model2.fit, results.Weight)
 	}
 
-[Run in Labcoat](https://labcoat.precog.com/?q=medals+%3A%3D+%2F%2Fsummer_games%2Flondon_medals%0A%0Afilter+%3A%3D+observe%28medals%2C+std%3A%3Arandom%3A%3Auniform%2838%29%29%0Atrain+%3A%3D+medals+where+filter+%3C%3D+0.8%0Atest+%3A%3D+medals+where+filter+%3E+0.8%0A%0AindVars+%3A%3D%0A{%0AHeightIncm+%3A+train.HeightIncm%2C%0AAge+%3A+train.Age%2C%0ATotal+%3A+train.Total%0A}%0A%0Amodel+%3A%3D+std%3A%3Astats%3A%3AlinearRegression%28train.Weight%2C+indVars%29%0Aprediction+%3A%3D+std%3A%3Astats%3A%3ApredictLinear%28test%2C+model%29%0Aresults+%3A%3D+test+with+{prediction+%3A+prediction}%0A%0Armse%28predicted%2C+observed%29+%3A%3D%0A+diff+%3A%3D+observed+-+predicted%0A+std%3A%3Amath%3A%3Asqrt%28%28mean%28diff^2%29%29%29%0A%0A{%0Amodel1rmse+%3A+rmse%28results.prediction.model1.fit%2C+results.Weight%29%2C%0Amodel2rmse+%3A+rmse%28results.prediction.model2.fit%2C+results.Weight%29%0A}&apiKey=5CDA81E8-9817-438A-A340-F34E578E86F8&analyticsService=https%3A%2F%2Flabcoat.precog.com%2F "See the results in Labcoat").
+[Run in Labcoat](https://labcoat.precog.com/?q=medals+%3A%3D+%2F%2Fsummer_games%2Flondon_medals%0A%0Afilter+%3A%3D+observe%28medals%2C+std%3A%3Arandom%3A%3Auniform%2838%29%29%0Atrain+%3A%3D+medals+where+filter+%3C%3D+0.8%0Atest+%3A%3D+medals+where+filter+%3E+0.8%0A%0AindVars+%3A%3D%0A{%0AHeightIncm+%3A+train.HeightIncm%2C%0AAge+%3A+train.Age%2C%0ATotal+%3A+train.Total%0A}%0A%0Amodel+%3A%3D+std%3A%3Astats%3A%3AlinearRegression%28train.Weight%2C+indVars%29%0Aprediction+%3A%3D+std%3A%3Astats%3A%3ApredictLinear%28test%2C+model%29%0Aresults+%3A%3D+test+with+{prediction+%3A+prediction}%0A%0Armse%28predicted%2C+observed%29+%3A%3D%0A+diff+%3A%3D+observed+-+predicted%0A+std%3A%3Amath%3A%3Asqrt%28%28mean%28diff^2%29%29%29%0A%0A{%0Amodel1rmse+%3A+rmse%28results.prediction.model1.fit%2C+results.Weight%29%2C%0Amodel2rmse+%3A+rmse%28results.prediction.model2.fit%2C+results.Weight%29%0A}&apiKey=5CDA81E8-9817-438A-A340-F34E578E86F8&analyticsService=https%3A%2F%2Flabcoat.precog.com%2F "See the results in Labcoat")
 
 Note that the results include rmse for two different models.  This is because Precog supports heterogeneous data.  So linear regression will create a model for each schema in the data.  Some observations are missing data for height, which dramatically reduces the quality of the prediction.  Notice that the RMSE for the model with height is almost twice as good as the model without.  This can help you understand your data better and the value that each component provides.
 
