@@ -8,7 +8,7 @@ template: page-devcntr.jade
 
 If you're interested in doing machine learning or predictive analytics with Precog, but aren't sure where to get started, this How To guide is for you.  [Machine learning](http://en.wikipedia.org/wiki/Machine_learning "Machine learning") is the practice of using algorithms to understand and learn from data. Often, once an algorithm has been trained on initial data, it is then used to predict results for future data. One feature that sets Precog apart from many embedded reporting solutions is exactly this ability to to perform machine learning and predictive analytics.  Among other things, predictions can be used to create personalizations, recommendations or other sales optimizations.
 
-In this How To guide, we will cover simple introductory examples of clustering, linear regression and logistic regression. The guide will finish with a section on evaluation metrics because it is essential to have some idea of how useful a prediction is to you.  The code snippets included will use data included in the demo version of [Labcoat](http://labcoat.precog.com/" Labcoat" so that you can run the queries and modify if desired.
+In this How To guide, we will cover simple introductory examples of clustering, linear regression and logistic regression. The guide will finish with a section on evaluation metrics because it is essential to have some idea of how useful a prediction is to you.  The code snippets included will use data included in the demo version of [Labcoat](http://labcoat.precog.com/ "Labcoat") so that you can run the queries and modify if desired.
 
 ###Clustering
 
@@ -159,7 +159,7 @@ Logistic regression can be helpful in many situations involving dichotomous vari
 
 ###Evaluation Metrics
 
-It is often helpful to have some means of evaluating the quality of a prediction.  There are a multitude of such evaluation metrics and deciding on the correct one is an important part of the process (which is beyond the scope of this How To guide).  For a list of a number of metrics and their implementations in number of languages, see [Ben Hamner’s repository](https://github.com/benhamner/Metrics "Ben Hamner’s repository") of metrics used in [](http://www.kaggle.com/ "Kaggle competitions").
+It is often helpful to have some means of evaluating the quality of a prediction.  There are a multitude of such evaluation metrics and deciding on the correct one is an important part of the process (which is beyond the scope of this How To guide).  For a list of a number of metrics and their implementations in number of languages, see [Ben Hamner’s repository](https://github.com/benhamner/Metrics "Ben Hamner’s repository") of metrics used in [Kaggle competitions](http://www.kaggle.com/ "Kaggle competitions").
 
 Let’s focus on creating and deploying a single evaluation metric in Quirrel.  We’ll use root mean squared error (RMSE) because its relatively common.
 
