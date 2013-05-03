@@ -200,7 +200,7 @@ body {
 
 #menu>ul {
     list-style-type: none;
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 590px;
 }
 
