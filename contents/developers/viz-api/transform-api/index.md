@@ -1,3 +1,8 @@
+title: Visualization API
+Cloud author: John A. De Goes
+date: 2013-05-03 12:20 
+template: page-devcntr.jade
+
 # Visualization API
 
 Data Transform API
@@ -6,7 +11,7 @@ Data Transform API
 The Data Transform API is a JavaScript library designed to
 load/handle/transform/enhance datasets immediately prior to visualization.
 A dataset is considered to be an array of datapoints, where a datapoint is 
-usually a JavsSript object (key/value pairs).
+usually a JavaScript object (key/value pairs).
 
 The Data Transform API is included in the "reportgrid-charts.js" file,
 and you can use its functionalities by adding the script to your HTML page. 
@@ -38,7 +43,7 @@ by the visualization.
 
 During the execution of a query a "stack" of datasets is kept
 internally. This allows more flexible combinations of commands and
-operations. The methods that explicitely work on the whole stack are
+operations. The methods that explicitly work on the whole stack are
 prefixed with `stack`. Even if internally there might be multiple
 datasets the handler of execute will always receive an array of
 datapoints (the stack is flattened before `execute`).
@@ -83,7 +88,7 @@ Appends the passed values to the current stack.
 
 `.load(Function loader)`
 
-The `loader` function is responsible of loading some data asynchrnously
+The `loader` function is responsible of loading some data asynchronously
 and to invoke its argument callback once the data is ready. The loaded
 data is appended to the current stack.
 
@@ -125,7 +130,7 @@ your stack first.
 
 Performs the `handler` action on each datapoint for the dataset. It can
 be used to monitor the datapoints at a determined points of the query
-tranformation chain. Note that the return values from `handler` is
+transformation chain. Note that the return values from `handler` is
 ignored.
 
     ReportGrid.query
@@ -234,7 +239,7 @@ each dataset in the stack).
             return { ismale : dp.gender == "male" };
         })
 
-Map can be very handy to tranform primitive values (strings, numbers
+Map can be very handy to transform primitive values (strings, numbers
 ...) into datasets of JavaScript objects.
 
     ReportGrid.query
@@ -374,7 +379,7 @@ to a bucket identified by the return value.
 `unique(?Function uniqueFunction)`
 
 Removes duplicates from the datasets. If `uniqueFunction` is passed than
-it will be used to determine if two datapoins are equal, otherwise each
+it will be used to determine if two datapoints are equal, otherwise each
 datapoint will be structurally compared analyzing the value of each
 field recursively.
 
@@ -463,7 +468,7 @@ Reverses the order of the datasets in the stack.
 
 `stackRetrieve(?String name)`
 
-Retrieves and appends tha data stored through `stackStore` at the end of
+Retrieves and appends the data stored through `stackStore` at the end of
 the current stack.
 
 ### stackRotate
@@ -487,7 +492,7 @@ use that value to compare the datasets in the stack.
 
 `stackStore(?String name)`
 
-Puts the current stack into a reserved meomory space for later retrieval
+Puts the current stack into a reserved memory space for later retrieval
 with `stackRetrieve`. You can optionally associate a `name` to the
 stored data.
 
@@ -495,7 +500,7 @@ Low Level Methods
 -----------------
 
 The methods below are used a lot internally and are exposed because can
-cover usages that are not possible using the methods decribed above.
+cover usages that are not possible using the methods described above.
 These methods require probably a deeper knowledge of JavaScript and more
 code writing.
 

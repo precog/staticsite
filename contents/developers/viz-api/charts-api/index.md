@@ -1,3 +1,7 @@
+title: Visualization API
+Cloud author: John A. De Goes
+date: 2013-05-03 12:20 
+template: page-devcntr.jade
 
 # Visualization API
 
@@ -98,13 +102,13 @@ the example above.
 ### Load
 
 Sometimes the data needs to be loaded from a service and is not
-immeditely available. In that case you can wrap your data loading
+immediately available. In that case you can wrap your data loading
 operation in a function passed to the `load` parameter. The signature
 for that function is
 `function(callback : Array<DataPoint> -> Void) -> Void`, which means a
 function that takes a function as an argument. That argument function
 should be called by your code once the data is available. Supposing that
-you are using JQuery to load some JSON objects from a service, that
+you are using jQuery to load some JSON objects from a service, that
 could be coded this way:
 
     ReportGrid.pieChart("#chart", {
@@ -144,7 +148,7 @@ might want to follow the special notation: `time:periodicity` (where
     :   -   `"fit"` :
             :   The first and last tickmarks in the scale are set to
                 leave a space before and after. This is particularly
-                useful for bar charts that need some mmargin before and
+                useful for bar charts that need some margin before and
                 after the centers of the bars.
 
         -   `"fill"` :
@@ -168,7 +172,7 @@ might want to follow the special notation: `time:periodicity` (where
     is also useful to precisely order the values along the axis.
 
 `variable` : string (`"dependent"` or `"independent"`)
-:   It is not usually neede to specify this property unless you want for
+:   It is not usually needed to specify this property unless you want for
     example to reverse the axis in a cartesian chart.
 
 `view` : array mixed
@@ -287,7 +291,7 @@ Bar charts can also be rendered horizontally.
 
 `labelangle` : float OR function(string type) float
 :   The passed value or the return value of the passed function controls
-    the inclinaiton (angle in degrees) of the labels.
+    the inclination (angle in degrees) of the labels.
 
 `labelorientation` : string OR function(string type) string
 :   The passed value or the return value of the passed function controls
@@ -403,7 +407,7 @@ The funnel chart is an extremely insightful visualization to quickly
 grasp ROI-like information. The funnel starts big for a certain variable
 and 'funnel' into subordinate values.
 
-Note that the subordinate values do not necessarely need to be smaller
+Note that the subordinate values do not necessarily need to be smaller
 and you can achieve that way a reversed funnel effect. The funnel chart
 requires two axes, one to segment the funnel and one to size the
 segments.
@@ -421,7 +425,7 @@ segments.
 :   The effect to apply to the funnel sections. \* `noeffect` simply
     uses a solid fill color \* `gradient` applies a gradient \*
     `gradient:{value}` : applies a gradient from the color in the
-    stylesheet darkened or lightned by the value. If the value is 1.0
+    stylesheet darkened or lightened by the value. If the value is 1.0
     there will be no gradient at all, use bigger or lower values to make
     the gradient lighter or darker (default is 1.25).
 
@@ -431,7 +435,7 @@ segments.
     almost completely flat.
 
 `label` : object labeloptions
-:   Conveys information over labelling the funnel sections\_.
+:   Conveys information over labeling the funnel sections\_.
 
 `segmentpadding` : float
 :   Distance in pixel (white space) between the sections of the funnel
@@ -525,8 +529,8 @@ metadata will be contained in the `#data` field. In the same way also
 the centroids in pixel of the geometries is injected in the datapoint in
 the `#centroid` field.
 
-Geo charts require two axes, one to identify the geomtry features and
-one to apply the colouring or scaling the overlapped symbol.
+Geo charts require two axes, one to identify the geometry features and
+one to apply the coloring or scaling the overlapped symbol.
 
 **options:**
 
@@ -550,9 +554,9 @@ one to apply the colouring or scaling the overlapped symbol.
     datapoint.
 
 `color` : string OR function(datapoint, stats) string
-:   This parameter determins how the geometries are colored. The default value is `css` but the field accept any of the following:
+:   This parameter determines how the geometries are colored. The default value is `css` but the field accept any of the following:
     :   -   `"css"` or `"css:{int}"` :
-            :   It uses the colors in the stylesheet to colour the
+            :   It uses the colors in the stylesheet to color the
                 geometries. The colors in the css palette are
                 automatically detected and the color scale is divided
                 proportionally to associate the values in the axis with
@@ -581,10 +585,10 @@ one to apply the colouring or scaling the overlapped symbol.
 :   Configuration object for text labels.
 
 `mapping` : mixed (a URL or a json object)
-:   The mapping propertyes is used to map the geometries identifiers to
+:   The mapping properties is used to map the geometries identifiers to
     something different. The mapping can be done using a JavaScript
     object that has as keys the values matching the id field of the data
-    point and the values match the id in the grometry file.
+    point and the values match the id in the geometry file.
 
 `mode` : string
 :   The projection mode for the `azimuthal` projection. The value can be
@@ -708,9 +712,9 @@ query. Each cell of the grid is colored according to the third axis.
 **options:**
 
 `color` : string OR function(datapoint, stats) string
-:   This parameter determins how the geometries are colored. The default value is `css` but the field accept any of the following:
+:   This parameter determines how the geometries are colored. The default value is `css` but the field accept any of the following:
     :   -   `"css"` or `"css:{int}"` :
-            :   It uses the colors in the stylesheet to colour the
+            :   It uses the colors in the stylesheet to color the
                 geometries. The colors in the css palette are
                 automatically detected and the color scale is divided
                 proportionally to associate the values in the axis with
@@ -796,7 +800,7 @@ query. Each cell of the grid is colored according to the third axis.
 
 `labelangle` : float OR function(string type) float
 :   The passed value or the return value of the passed function controls
-    the inclinaiton (angle in degrees) of the labels.
+    the inclination (angle in degrees) of the labels.
 
 `labelorientation` : string OR function(string type) string
 :   The passed value or the return value of the passed function controls
@@ -927,7 +931,7 @@ and the other to quantify each item.
 :   A handler function that is executed when the user click or touches a
     datapoint.
 
-`displaybar` : bool (defaultr true)
+`displaybar` : bool (default true)
 :   Makes the measurement bar visible or not.
 
 `effect` : string
@@ -966,7 +970,7 @@ and it is animated in the first place.
 `animated` : bool
 :   Set if the visualization should be animated or not. Usually the
     animation consists in a fade-in effect and some kind of mouse
-    interaction. The dafault val\`e for `animated` is false.
+    interaction. The default val\`e for `animated` is false.
 
 `duration` : int
 :   The duration in milliseconds of the animation.
@@ -1022,7 +1026,7 @@ stacked or not. It requires at least two axes but can support more.
     :   -   SVG PATH format. There is a practical function
             `ReportGrid.symbol.get()` to quickly build symbols.
         -   "image:urltoimage". This second format allows to embed
-            raster images instead of vecorial symbols. The URL part must
+            raster images instead of vectorial symbols. The URL part must
             be an absolute path to an image. It is also possible to
             specify the size of the image this way:
             "image,40x50:urltoimage". The images are by default aligned
@@ -1051,7 +1055,7 @@ stacked or not. It requires at least two axes but can support more.
     `"cardinal"`, `"cardinal:{value}"`, `"cardinalopen"`,
     `"cardinalopen:{value}"`, `"cardinalclosed"`,
     `"cardinalclosed:{value}"`, `"monotone"`, `"stepafter"`,
-    `"stepbefore"`, `"linear"` The `value` parameter is an optinal
+    `"stepbefore"`, `"linear"` The `value` parameter is an optional
     `float` value for `cardinal` interpolations.
 
 `segment` : object segmentoptions
@@ -1127,7 +1131,7 @@ stacked or not. It requires at least two axes but can support more.
 
 `labelangle` : float OR function(string type) float
 :   The passed value or the return value of the passed function controls
-    the inclinaiton (angle in degrees) of the labels.
+    the inclination (angle in degrees) of the labels.
 
 `labelorientation` : string OR function(string type) string
 :   The passed value or the return value of the passed function controls
@@ -1328,7 +1332,7 @@ slice size.
 :   The outer radius is useful when you want accentuated transitions
     (animations) that can bleed the border of the charts. Another use in
     combination with `innerradius` is to nest two or more donut charts
-    in the same visualization and avoid overlappings.
+    in the same visualization and avoid overlapping.
 
 `overradius` : float
 :   The over radius is used to control the slice size when animation is
@@ -1386,7 +1390,7 @@ and it is animated in the first place.
 `animated` : bool
 :   Set if the visualization should be animated or not. Usually the
     animation consists in a fade-in effect and some kind of mouse
-    interaction. The dafault val\`e for `animated` is false.
+    interaction. The default val\`e for `animated` is false.
 
 `duration` : int
 :   The duration in milliseconds of the animation.
@@ -1415,7 +1419,7 @@ or rows.
 `columnaxes` : int
 :   This parameter controls how many dimensions of the query are grouped
     as columns. If you have three axis and you want to group just the
-    first on the coloumns and the remaining two on the rows, the
+    first on the columns and the remaining two on the rows, the
     `columnaxes` value must set to `1` (default value). The same
     visualization can have 2axes on the columns and 1 axis on the rows,
     setting the value to 1.
@@ -1456,7 +1460,7 @@ or rows.
     the function returns `null` nothing is injected.
 
 `totalclass`: function(mixed value, array of string headers) string
-:   A function to inject custom class(es) in the total celll container.
+:   A function to inject custom class(es) in the total cell container.
     If the function returns `null` nothing is injected.
 
 #### Label Options
@@ -1514,13 +1518,13 @@ so that your labels can be customized with their related datapoints.
 
 `ReportGrid.sankey(selector el, parameters object) void`
 
-Sankey diagrams are a type of flow diagram in which nodes are connecte
+Sankey diagrams are a type of flow diagram in which nodes are connected
 by arrows whose width is proportional to the flow quantity. They are
 typically used to visualize transfer of quantities between processes.
 They can also be seen as bi-dimensional funnel charts.
 
 The visualization is composed of nodes rendered as rectangle whose
-height is proportional to their weight in the graph. The nodes are layed
+height is proportional to their weight in the graph. The nodes are laid
 on a set of vertical lines (those lines can be styled using CSS rules
 and are hidden by default) called layers. The nodes are automatically
 associated to the layers unless you provide a `layoutmap` definition
@@ -1530,7 +1534,7 @@ defined, the visualization will use the algorithm specified in
 
 Complex layouts may use dummy nodes to fill the graph in a way that
 edges are correctly positioned. The dummy node id is by convention
-prefixed with the pund "\#" character. Dummy nodes do not render labels
+prefixed with the pound "\#" character. Dummy nodes do not render labels
 or mouse over.
 
 The sankey requires only one axis to quantify each edge node but it
@@ -1540,7 +1544,7 @@ the nodes uniquely and a weight field that matches the mandatory axis
 type. Optionally, you can pass a set of node data points that are used
 to set the absolute weight of each node (that value can be greater than
 the sum of each edge flowing in or out). Those nodes must have the field
-ìd\` and a weight field matchind the mandatory axis type.
+ìd\` and a weight field matching the mandatory axis type.
 
 `backedgespacing` : number
 :   The vertical spacing between roll-back edges
@@ -1564,7 +1568,7 @@ the sum of each edge flowing in or out). Those nodes must have the field
 
 `edgeclass` : string or function(datapoint, stats) void
 :   Additional class to append to the edges. It is used mainly for
-    styiling.
+    styling.
 
 `extraheight` : number
 :   The height in pixel for the entry/exit edges.
@@ -1598,7 +1602,7 @@ the sum of each edge flowing in or out). Those nodes must have the field
 :   Space between the label over the nodes and the node itself.
 
 `layerwidth` : number
-:   The widht of the node rectangles in pixels. The remaining space is
+:   The width of the node rectangles in pixels. The remaining space is
     occupied by the edges.
 
 `layoutmap` : object { layers : array of array of strings, dummies : array of array of strings }
@@ -1616,7 +1620,7 @@ the sum of each edge flowing in or out). Those nodes must have the field
 
 `nodeclass` : string or function(datapoint, stats) void
 :   Additional class to append to the nodes. It is used mainly for
-    styiling.
+    styling.
 
 `nodespacing` : number
 :   Vertical spacing in pixels between two nodes. Note that if you use
@@ -1682,7 +1686,7 @@ Y axis.
     :   -   SVG PATH format. There is a practical function
             `ReportGrid.symbol.get()` to quickly build symbols.
         -   "image:urltoimage". This second format allows to embed
-            raster images instead of vecorial symbols. The URL part must
+            raster images instead of vectorial symbols. The URL part must
             be an absolute path to an image. It is also possible to
             specify the size of the image this way:
             "image,40x50:urltoimage". The images are by default aligned
@@ -1768,7 +1772,7 @@ Y axis.
 
 `labelangle` : float OR function(string type) float
 :   The passed value or the return value of the passed function controls
-    the inclinaiton (angle in degrees) of the labels.
+    the inclination (angle in degrees) of the labels.
 
 `labelorientation` : string OR function(string type) string
 :   The passed value or the return value of the passed function controls
@@ -1936,7 +1940,7 @@ requires two axes, one for the X axis and one for the Y axis.
                 darkness of the stop color in the gradient.
 
 `interpolation` : string
-:   Controls how the lines in the stream graph are interoilated, the
+:   Controls how the lines in the stream graph are interpolated, the
     allowed values are: "basis", "basisopen", "basisclosed", "cardinal",
     "cardinalopen", "cardinalclosed", "cardinal:{value}",
     "cardinalopen:{value}", "cardinalclosed:{value}", "monotone",
@@ -2014,7 +2018,7 @@ requires two axes, one for the X axis and one for the Y axis.
 
 `labelangle` : float OR function(string type) float
 :   The passed value or the return value of the passed function controls
-    the inclinaiton (angle in degrees) of the labels.
+    the inclination (angle in degrees) of the labels.
 
 `labelorientation` : string OR function(string type) string
 :   The passed value or the return value of the passed function controls
@@ -2177,7 +2181,7 @@ always relative to a specific axis.
 :   The biggest value in the data set.
 
 `tot` : (only for numeric values)
-:   The summatory of all the values in the dataset.
+:   The numeric total of all the values in the dataset.
 
 `count` :
 :   The number of values in the data set.
