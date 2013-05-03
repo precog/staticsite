@@ -32,7 +32,7 @@ template: page-flexible.jade
     <div id="hiw-menu">
         <div class="holder">
             <ul>
-                <li><i class="icon-download"></i> Store</li>
+                <li><i class="icon-download-alt"></i> Store</li>
                 <li><i class="icon-bolt"></i> Enrich</li>
                 <li><i class="icon-search"></i> Analyze</li>
                 <li><i class="icon-bar-chart"></i> Visualize</li>
@@ -49,7 +49,7 @@ template: page-flexible.jade
 Precog<span style='color:#d2cd86; '>.</span>append<span style='color:#d2cd86; '>(</span><span style='color:#b060b0; '>{</span>path<span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>'/foo/'</span><span style='color:#d2cd86; '>,</span> value<span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>hello</span><span style='color:#02d045; '>"</span><span style='color:#b060b0; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>world</span><span style='color:#02d045; '>"</span><span style='color:#b060b0; '>}</span><span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
 
 <span style='color:#9999a9; '>// Upload a file</span>
-Precog<span style='color:#d2cd86; '>.</span>uploadFile<span style='color:#d2cd86; '>(</span><span style='color:#b060b0; '>{</span>path<span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>'/foo/data.json'</span><span style='color:#d2cd86; '>,</span> type<span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>'text/csv'</span><span style='color:#d2cd86; '>,</span> contents<span style='color:#b060b0; '>:</span> file<span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+Precog<span style='color:#d2cd86; '>.</span>uploadFile<span style='color:#d2cd86; '>(</span><span style='color:#b060b0; '>{</span>path<span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>'/foo/data.json'</span><span style='color:#d2cd86; '>,</span> type<span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>'application/json'</span><span style='color:#d2cd86; '>,</span> contents<span style='color:#b060b0; '>:</span> file<span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
                     </pre>
                 </div>
                 <div class="panel-content java-content">
@@ -80,7 +80,7 @@ client<span style='color:#d2cd86; '>.</span>upload_file<span style='color:#d2cd8
 <span style='color:#ffffff; background:#281800; '>$api</span><span style='color:#d2cd86; background:#281800; '>-</span><span style='color:#d2cd86; background:#281800; '>></span><span style='color:#ffffff; background:#281800; '>store</span><span style='color:#d2cd86; background:#281800; '>(</span><span style='color:#00c4c4; background:#281800; '>'</span><span style='color:#02d045; background:#281800; '>/</span><span style='color:#00c4c4; background:#281800; '>foo</span><span style='color:#02d045; background:#281800; '>/</span><span style='color:#00c4c4; background:#281800; '>'</span><span style='color:#d2cd86; background:#281800; '>,</span><span style='color:#ffffff; background:#281800; '> </span><span style='color:#e66170; background:#281800; font-weight:bold; '>array</span><span style='color:#d2cd86; background:#281800; '>(</span><span style='color:#00c4c4; background:#281800; '>'hello'</span><span style='color:#ffffff; background:#281800; '> </span><span style='color:#d2cd86; background:#281800; '>=</span><span style='color:#d2cd86; background:#281800; '>></span><span style='color:#ffffff; background:#281800; '> </span><span style='color:#00c4c4; background:#281800; '>'world'</span><span style='color:#d2cd86; background:#281800; '>)</span><span style='color:#d2cd86; background:#281800; '>)</span><span style='color:#b060b0; background:#281800; '>;</span><span style='color:#ffffff; background:#281800; '></span>
 <span style='color:#ffffff; background:#281800; '>&#xa0;</span>
 <span style='color:#9999a9; '>// Upload a file</span>
-<span style='color:#ffffff; background:#281800; '>$api</span><span style='color:#d2cd86; background:#281800; '>-</span><span style='color:#d2cd86; background:#281800; '>></span><span style='color:#ffffff; background:#281800; '>ingest</span><span style='color:#d2cd86; background:#281800; '>(</span><span style='color:#00c4c4; background:#281800; '>'/foo/data.json'</span><span style='color:#d2cd86; background:#281800; '>,</span><span style='color:#ffffff; background:#281800; '> </span><span style='color:#ffffff; background:#281800; '>$fileContent</span><span style='color:#d2cd86; background:#281800; '>,</span><span style='color:#ffffff; background:#281800; '> </span><span style='color:#00c4c4; background:#281800; '>'text/csv'</span><span style='color:#d2cd86; background:#281800; '>)</span><span style='color:#b060b0; background:#281800; '>;</span><span style='color:#ffffff; background:#281800; '></span>
+<span style='color:#ffffff; background:#281800; '>$api</span><span style='color:#d2cd86; background:#281800; '>-</span><span style='color:#d2cd86; background:#281800; '>></span><span style='color:#ffffff; background:#281800; '>ingest</span><span style='color:#d2cd86; background:#281800; '>(</span><span style='color:#00c4c4; background:#281800; '>'/foo/data.json'</span><span style='color:#d2cd86; background:#281800; '>,</span><span style='color:#ffffff; background:#281800; '> </span><span style='color:#ffffff; background:#281800; '>$fileContent</span><span style='color:#d2cd86; background:#281800; '>,</span><span style='color:#ffffff; background:#281800; '> </span><span style='color:#00c4c4; background:#281800; '>'application/json'</span><span style='color:#d2cd86; background:#281800; '>)</span><span style='color:#b060b0; background:#281800; '>;</span><span style='color:#ffffff; background:#281800; '></span>
                     </pre>
                 </div>
                 <div class="panel-content ruby-content">
@@ -90,8 +90,8 @@ Precog<span style='color:#d2cd86; '>.</span>append<span style='color:#d2cd86; '>
 precog<span style='color:#d2cd86; '>.</span>append<span style='color:#d2cd86; '>(</span><span style='color:#00c4c4; '>'/foo'</span>, <span style='color:#b060b0; '>{</span> :hello <span style='color:#d2cd86; '>=</span>> <span style='color:#00c4c4; '>'world'</span> <span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span>
 
 <span style='color:#9999a9; '>// Upload a file</span>
-Precog<span style='color:#d2cd86; '>.</span>uploadFile<span style='color:#d2cd86; '>(</span><span style='color:#b060b0; '>{</span>path: <span style='color:#00c4c4; '>'/foo/data.json'</span>, type: <span style='color:#00c4c4; '>'text/csv'</span>, contents: file<span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span>;
-precog<span style='color:#d2cd86; '>.</span>upload_file<span style='color:#d2cd86; '>(</span><span style='color:#00c4c4; '>'/foo/data.json'</span>, :csv, file<span style='color:#d2cd86; '>)</span>
+Precog<span style='color:#d2cd86; '>.</span>uploadFile<span style='color:#d2cd86; '>(</span><span style='color:#b060b0; '>{</span>path: <span style='color:#00c4c4; '>'/foo/data.json'</span>, type: <span style='color:#00c4c4; '>'application/json'</span>, contents: file<span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span>;
+precog<span style='color:#d2cd86; '>.</span>upload_file<span style='color:#d2cd86; '>(</span><span style='color:#00c4c4; '>'/foo/data.json'</span>, :json, file<span style='color:#d2cd86; '>)</span>
                     </pre>
                 </div>
                 <div class="panel-content nodejs-content">
@@ -100,7 +100,7 @@ precog<span style='color:#d2cd86; '>.</span>upload_file<span style='color:#d2cd8
 Precog<span style='color:#d2cd86; '>.</span>append<span style='color:#d2cd86; '>(</span><span style='color:#b060b0; '>{</span>path<span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>'/foo/'</span><span style='color:#d2cd86; '>,</span> value<span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>hello</span><span style='color:#02d045; '>"</span><span style='color:#b060b0; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>world</span><span style='color:#02d045; '>"</span><span style='color:#b060b0; '>}</span><span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
 
 <span style='color:#9999a9; '>// Upload a file</span>
-Precog<span style='color:#d2cd86; '>.</span>uploadFile<span style='color:#d2cd86; '>(</span><span style='color:#b060b0; '>{</span>path<span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>'/foo/data.json'</span><span style='color:#d2cd86; '>,</span> type<span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>'text/csv'</span><span style='color:#d2cd86; '>,</span> contents<span style='color:#b060b0; '>:</span> file<span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+Precog<span style='color:#d2cd86; '>.</span>uploadFile<span style='color:#d2cd86; '>(</span><span style='color:#b060b0; '>{</span>path<span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>'/foo/data.json'</span><span style='color:#d2cd86; '>,</span> type<span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>'application/json'</span><span style='color:#d2cd86; '>,</span> contents<span style='color:#b060b0; '>:</span> file<span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
                     </pre>
                 </div>
                 <div class="panel-content csharp-content">
@@ -475,13 +475,13 @@ ReportGrid<span style='color:#d2cd86; '>.</span>streamGraph<span style='color:#d
         </form>
         <h2><span>2</span>Get a client library in your favorite programming language.</h2>
         <ul>
-            <li class="dark-background"><a href="https://github.com/precog/precog_js_client" target="_blank">JavaScript</a></li>
-            <li class="dark-background"><a href="https://github.com/precog/precog_java_client" target="_blank">Java</a></li>
-            <li class="dark-background"><a href="https://github.com/precog/precog_python_client" target="_blank">Python</a></li>
-            <li class="dark-background"><a href="https://github.com/precog/precog_php_client" target="_blank">PHP</a></li>
-            <li class="dark-background"><a href="https://github.com/precog/precog_ruby_client" target="_blank">Ruby</a></li>
-            <li class="dark-background"><a href="https://github.com/precog/precog_js_client" target="_blank">NodeJS</a></li>
-            <li class="dark-background"><a href="https://github.com/precog/precog_dotnet_client" target="_blank">C#</a></li>
+            <li class="dark-background"><a href="https://web4.precog.com/developers/client-libraries/#JavaScript" target="_blank">JavaScript</a></li>
+            <li class="dark-background"><a href="https://web4.precog.com/developers/client-libraries/#Java" target="_blank">Java</a></li>
+            <li class="dark-background"><a href="https://web4.precog.com/developers/client-libraries/#Python" target="_blank">Python</a></li>
+            <li class="dark-background"><a href="https://web4.precog.com/developers/client-libraries/#PHP" target="_blank">PHP</a></li>
+            <li class="dark-background"><a href="https://web4.precog.com/developers/client-libraries/#Ruby" target="_blank">Ruby</a></li>
+            <li class="dark-background"><a href="https://web4.precog.com/developers/client-libraries/#NodeJS" target="_blank">NodeJS</a></li>
+            <li class="dark-background"><a href="https://web4.precog.com/developers/client-libraries/#C#/.NET" target="_blank">C#</a></li>
         </ul>
         <div class="clear-left"></div>
         <h2><span>3</span>Write a couple lines of code to upload or stream data into Precog.</h2>
@@ -492,7 +492,7 @@ ReportGrid<span style='color:#d2cd86; '>.</span>streamGraph<span style='color:#d
 Precog<span style='color:#d2cd86; '>.</span>append<span style='color:#d2cd86; '>(</span><span style='color:#b060b0; '>{</span>path<span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>'/foo/'</span><span style='color:#d2cd86; '>,</span> value<span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>hello</span><span style='color:#02d045; '>"</span><span style='color:#b060b0; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>world</span><span style='color:#02d045; '>"</span><span style='color:#b060b0; '>}</span><span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
 
 <span style='color:#9999a9; '>// Upload a file</span>
-Precog<span style='color:#d2cd86; '>.</span>uploadFile<span style='color:#d2cd86; '>(</span><span style='color:#b060b0; '>{</span>path<span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>'/foo/data.json'</span><span style='color:#d2cd86; '>,</span> type<span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>'text/csv'</span><span style='color:#d2cd86; '>,</span> contents<span style='color:#b060b0; '>:</span> file<span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+Precog<span style='color:#d2cd86; '>.</span>uploadFile<span style='color:#d2cd86; '>(</span><span style='color:#b060b0; '>{</span>path<span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>'/foo/data.json'</span><span style='color:#d2cd86; '>,</span> type<span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>'application/json'</span><span style='color:#d2cd86; '>,</span> contents<span style='color:#b060b0; '>:</span> file<span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
                 </pre>
             </div>
             <div id="java-code" class="code-panel">
@@ -523,7 +523,7 @@ client<span style='color:#d2cd86; '>.</span>upload_file<span style='color:#d2cd8
 <span style='color:#ffffff; background:#281800; '>$api</span><span style='color:#d2cd86; background:#281800; '>-</span><span style='color:#d2cd86; background:#281800; '>></span><span style='color:#ffffff; background:#281800; '>store</span><span style='color:#d2cd86; background:#281800; '>(</span><span style='color:#00c4c4; background:#281800; '>'</span><span style='color:#02d045; background:#281800; '>/</span><span style='color:#00c4c4; background:#281800; '>foo</span><span style='color:#02d045; background:#281800; '>/</span><span style='color:#00c4c4; background:#281800; '>'</span><span style='color:#d2cd86; background:#281800; '>,</span><span style='color:#ffffff; background:#281800; '> </span><span style='color:#e66170; background:#281800; font-weight:bold; '>array</span><span style='color:#d2cd86; background:#281800; '>(</span><span style='color:#00c4c4; background:#281800; '>'hello'</span><span style='color:#ffffff; background:#281800; '> </span><span style='color:#d2cd86; background:#281800; '>=</span><span style='color:#d2cd86; background:#281800; '>></span><span style='color:#ffffff; background:#281800; '> </span><span style='color:#00c4c4; background:#281800; '>'world'</span><span style='color:#d2cd86; background:#281800; '>)</span><span style='color:#d2cd86; background:#281800; '>)</span><span style='color:#b060b0; background:#281800; '>;</span><span style='color:#ffffff; background:#281800; '></span>
 <span style='color:#ffffff; background:#281800; '>&#xa0;</span>
 <span style='color:#9999a9; '>// Upload a file</span>
-<span style='color:#ffffff; background:#281800; '>$api</span><span style='color:#d2cd86; background:#281800; '>-</span><span style='color:#d2cd86; background:#281800; '>></span><span style='color:#ffffff; background:#281800; '>ingest</span><span style='color:#d2cd86; background:#281800; '>(</span><span style='color:#00c4c4; background:#281800; '>'/foo/data.json'</span><span style='color:#d2cd86; background:#281800; '>,</span><span style='color:#ffffff; background:#281800; '> </span><span style='color:#ffffff; background:#281800; '>$fileContent</span><span style='color:#d2cd86; background:#281800; '>,</span><span style='color:#ffffff; background:#281800; '> </span><span style='color:#00c4c4; background:#281800; '>'text/csv'</span><span style='color:#d2cd86; background:#281800; '>)</span><span style='color:#b060b0; background:#281800; '>;</span><span style='color:#ffffff; background:#281800; '></span>
+<span style='color:#ffffff; background:#281800; '>$api</span><span style='color:#d2cd86; background:#281800; '>-</span><span style='color:#d2cd86; background:#281800; '>></span><span style='color:#ffffff; background:#281800; '>ingest</span><span style='color:#d2cd86; background:#281800; '>(</span><span style='color:#00c4c4; background:#281800; '>'/foo/data.json'</span><span style='color:#d2cd86; background:#281800; '>,</span><span style='color:#ffffff; background:#281800; '> </span><span style='color:#ffffff; background:#281800; '>$fileContent</span><span style='color:#d2cd86; background:#281800; '>,</span><span style='color:#ffffff; background:#281800; '> </span><span style='color:#00c4c4; background:#281800; '>'application/json'</span><span style='color:#d2cd86; background:#281800; '>)</span><span style='color:#b060b0; background:#281800; '>;</span><span style='color:#ffffff; background:#281800; '></span>
                 </pre>
             </div>
             <div id="ruby-code" class="code-panel">
@@ -533,8 +533,8 @@ Precog<span style='color:#d2cd86; '>.</span>append<span style='color:#d2cd86; '>
 precog<span style='color:#d2cd86; '>.</span>append<span style='color:#d2cd86; '>(</span><span style='color:#00c4c4; '>'/foo'</span>, <span style='color:#b060b0; '>{</span> :hello <span style='color:#d2cd86; '>=</span>> <span style='color:#00c4c4; '>'world'</span> <span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span>
 
 <span style='color:#d2cd86; '>/</span><span style='color:#d2cd86; '>/</span> Upload a file
-Precog<span style='color:#d2cd86; '>.</span>uploadFile<span style='color:#d2cd86; '>(</span><span style='color:#b060b0; '>{</span>path: <span style='color:#00c4c4; '>'/foo/data.json'</span>, type: <span style='color:#00c4c4; '>'text/csv'</span>, contents: file<span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span>;
-precog<span style='color:#d2cd86; '>.</span>upload_file<span style='color:#d2cd86; '>(</span><span style='color:#00c4c4; '>'/foo/data.json'</span>, :csv, file<span style='color:#d2cd86; '>)</span>
+Precog<span style='color:#d2cd86; '>.</span>uploadFile<span style='color:#d2cd86; '>(</span><span style='color:#b060b0; '>{</span>path: <span style='color:#00c4c4; '>'/foo/data.json'</span>, type: <span style='color:#00c4c4; '>'application/json'</span>, contents: file<span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span>;
+precog<span style='color:#d2cd86; '>.</span>upload_file<span style='color:#d2cd86; '>(</span><span style='color:#00c4c4; '>'/foo/data.json'</span>, :json, file<span style='color:#d2cd86; '>)</span>
                 </pre>
             </div>
             <div id="nodejs-code" class="code-panel">
@@ -543,7 +543,7 @@ precog<span style='color:#d2cd86; '>.</span>upload_file<span style='color:#d2cd8
 Precog<span style='color:#d2cd86; '>.</span>append<span style='color:#d2cd86; '>(</span><span style='color:#b060b0; '>{</span>path<span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>'/foo/'</span><span style='color:#d2cd86; '>,</span> value<span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>hello</span><span style='color:#02d045; '>"</span><span style='color:#b060b0; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>world</span><span style='color:#02d045; '>"</span><span style='color:#b060b0; '>}</span><span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
 
 <span style='color:#9999a9; '>// Upload a file</span>
-Precog<span style='color:#d2cd86; '>.</span>uploadFile<span style='color:#d2cd86; '>(</span><span style='color:#b060b0; '>{</span>path<span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>'/foo/data.json'</span><span style='color:#d2cd86; '>,</span> type<span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>'text/csv'</span><span style='color:#d2cd86; '>,</span> contents<span style='color:#b060b0; '>:</span> file<span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+Precog<span style='color:#d2cd86; '>.</span>uploadFile<span style='color:#d2cd86; '>(</span><span style='color:#b060b0; '>{</span>path<span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>'/foo/data.json'</span><span style='color:#d2cd86; '>,</span> type<span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>'application/json'</span><span style='color:#d2cd86; '>,</span> contents<span style='color:#b060b0; '>:</span> file<span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
                 </pre>
             </div>
             <div id="csharp-code" class="code-panel">
@@ -680,8 +680,8 @@ client<span style='color:#d2cd86; '>.</span>UploadFile<span style='color:#d2cd86
                 <li>Large</li>
                 <li>Enterprise</li>
             </ul>
-            <ul class="threads">
-                <li>THREADS</li>
+            <ul class="cpu-cores">
+                <li>CPU CORES</li>
                 <li>1</li>
                 <li>4</li>
                 <li>8</li>

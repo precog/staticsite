@@ -273,8 +273,8 @@ template: page-flexible.jade
                 <li>Large</li>
                 <li>Enterprise</li>
             </ul>
-            <ul class="threads">
-                <li>THREADS</li>
+            <ul class="cpu-cores">
+                <li>CPU CORES</li>
                 <li>1</li>
                 <li>4</li>
                 <li>8</li>

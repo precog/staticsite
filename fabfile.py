@@ -86,7 +86,7 @@ def optimize():
     png_extensions = ['.png']
     jpg_extensions = ['.jpg', '.jpeg']
 
-    if execExists('yui-compressor'):
+    if exec_exists('yui-compressor'):
         interesting_extensions.update(cssjs_extensions)
         cssjs_overwrites = False
         cssjs_exec = 'yui-compressor -o "%(target)s" "%(source)s"'
@@ -94,7 +94,7 @@ def optimize():
         warn(yellow('>>> Unable to optimize css/js files: yui-compressor not found!'))
 
     if env.optimize_images:
-        if execExists('optipng'):
+        if exec_exists('optipng'):
             interesting_extensions.update(png_extensions)
             png_overwrites = True
             png_exec = 'optipng -quiet -preserve -- "%s"'
@@ -102,7 +102,7 @@ def optimize():
             warn(yellow('>>> Unable to optimize png images: optipng not found!'))
             
 
-        if execExists('jpegoptim'):
+        if exec_exists('jpegoptim'):
             interesting_extensions.update(jpg_extensions)
             jpg_overwrites = True
             jpg_exec = 'jpegoptim --totals --strip-all  -- "%s"'
@@ -120,12 +120,13 @@ def optimize():
     files_set = set()
     
     for base,subdirs,files in os.walk('build'):
-        for file in files:
-            filebase, extension = get_file_base_and_extension(file)
-            path = os.path.join(base, filebase)
+        if not base.startswith('build/external'):
+            for file in files:
+                filebase, extension = get_file_base_and_extension(file)
+                path = os.path.join(base, filebase)
 
-            if extension in interesting_extensions and filebase[-4:] != '.min':
-                files_set.add((path, extension))
+                if extension in interesting_extensions and filebase[-4:] != '.min':
+                    files_set.add((path, extension))
 
     # Optimize each file in the list
     def optimize_file(original_path, file_type, minify_exec, overwrites):
@@ -222,7 +223,7 @@ def rollback():
         sudo('service nginx reload')
 
 
-def execExists(name):
+def exec_exists(name):
     """
         Check whether an executable binary can be found with that name
     """
