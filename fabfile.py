@@ -26,9 +26,9 @@ def production():
     """
         Execute the other actions on production environment
     """
-
     puts(green('>>> Running on Production!'))
     env.hosts = ['web1.precog.com', 'web2.precog.com']
+    puts(green('Servers: %s' % env.hosts.join(", ")))
 
 
 @task
@@ -64,11 +64,11 @@ def copy_json():
             if os.path.isfile(orig) and file[-5:] == '.json':
                 targetBase = os.path.join(targetPath, base[len(sourcePath):])
                 dest = os.path.join(targetBase, file)
-                print "Checking diretory %s" % targetBase
+                puts("Checking diretory %s" % targetBase)
                 if not os.path.exists(targetBase):
-                    print "Not found! Creating..."
+                    puts(yellow("Not found! Creating..."))
                     os.makedirs(targetBase)
-                print "Copying from %s to %s" % (orig, dest)
+                puts("Copying from %s to %s" % (orig, dest))
                 copyfile(orig, dest)
 
 
@@ -173,7 +173,6 @@ def tarball():
     """
         Generates tarball
     """
-
     local('rm -f build.tgz')
     with lcd('build'):
         local('tar czf ../build.tgz .', capture=False)
@@ -184,7 +183,6 @@ def pack():
     """
         Builds the static site, optimize files for size, and prepares for transfer
     """
-
     clean_local()
     build()
     copy_json()
@@ -210,7 +208,6 @@ def rollback():
     """
         Rolls back currently deployed version to its predecessor
     """
-
     with cd(env.path):
         run('mv current/rollback rollback')
         run('mv current undeployed')
@@ -250,7 +247,7 @@ def symlink_current_release():
 def make_symlinks():
     puts(green('>>> creating symlink to apidocs'))
     with cd('%(path)s/releases/%(release)s' % env):
-        run('ln -s /var/www/precogsite/shared/apidocs apidocs')
+        run('ln -s %s/shared/apidocs apidocs' % env.path)
 
 def create_redirects():
     remote = '%(path)s/releases/%(release)s/redirects.conf' % env
