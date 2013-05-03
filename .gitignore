@@ -3,6 +3,7 @@
 
 # For vim users
 *~
+*.swp
 
 # Artifacts left by fabric deployer
 build.tgz

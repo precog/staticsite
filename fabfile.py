@@ -28,7 +28,7 @@ def production():
     """
     puts(green('>>> Running on Production!'))
     env.hosts = ['web1.precog.com', 'web2.precog.com']
-    puts(green('Servers: %s' % env.hosts.join(", ")))
+    puts(green('Servers: %s' % ", ".join(env.hosts.join)))
 
 
 @task
@@ -126,16 +126,16 @@ def pack():
 
 
 @task
-def deploy():
+def deploy(n = 10):
     """
-        Deploys static site on web4
+        Deploys static site and garbage collect older deploys
     """
-
     upload_current_release()
     create_redirects()
     make_symlinks()
     symlink_current_release()
     sudo('service nginx reload')
+    gc_deploys(n)
 
 
 @task
@@ -153,6 +153,23 @@ def rollback():
         run('rm -fr %s' % previous)
         run('rm undeployed')
         sudo('service nginx reload')
+
+
+@task
+def gc_deploys(n = 10):
+    """
+        Garbage Collect older deploys by keeping only the last n (defaults to 10)
+
+        This will delete any directory which is older than the last n releases,
+        preventing rollbacks from before that.
+    """
+    with cd("%s/releases" % env.path):
+        files = run("ls -1t").splitlines()
+        older_files = files[n:]
+        if len(older_files) > 0:
+            puts(yellow("Removing older deploys: %s" % ", ".join(older_files)))
+        for file in older_files:
+            run("rm -fr %s" % file)
 
 
 def optimize_file(original_path, optimizable_extension):
