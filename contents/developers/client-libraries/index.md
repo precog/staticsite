@@ -12,12 +12,12 @@ Client libraries allow you to access the Precog REST API using many common progr
 ## JavaScript
 
   * [Client Library](https://github.com/precog/precog_js_client)
-  * [API Docs](https://web4.precog.com/apidocs/js/)
+  * [API Docs](/apidocs/js/)
 
 ## Java
 
   * [Client Library](https://github.com/precog/precog_java_client)
-  * [API Docs](http://www.precog.com/apidocs/java/)
+  * [API Docs](/apidocs/java/)
 
 ## Python
 
@@ -32,14 +32,14 @@ Client libraries allow you to access the Precog REST API using many common progr
 ## Ruby
 
   * [Client Library](https://github.com/precog/precog_ruby_client)
-  * [API Docs](https://web4.precog.com/apidocs/ruby/)
+  * [API Docs](/apidocs/ruby/)
 
 ## NodeJS
 
   * [Client Library](https://github.com/precog/precog_js_client)
-  * [API Docs](https://web4.precog.com/apidocs/js/)
+  * [API Docs](/apidocs/js/)
 
 ## C# / .NET
 
   * [Client Library](https://github.com/precog/precog_dotnet_client)
-  * [API Docs](https://web4.precog.com/apidocs/dotnet/)
+  * [API Docs](/apidocs/dotnet/)
