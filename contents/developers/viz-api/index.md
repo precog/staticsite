@@ -23,4 +23,4 @@ The Charts API relies on HTML5 technology, but has fallbacks for older browsers.
 
 The [Data Transform API](/developers/viz-api/transform-api/), which is bundled into the Charts API, helps you massage data immediately prior to visualizing the data.
 
-Many times, data needs to be grouped, filtered, sorted, or otherwise transformed before it can be displayed by the Charts API. The Data Transform API lets you do all of these things in a very clean, composable syntax.
+Many times, data needs to be grouped, filtered, sorted, or otherwise transformed before it can be displayed by the Charts API. The Data Transform API lets you do all of these things in a very clean, composable way.

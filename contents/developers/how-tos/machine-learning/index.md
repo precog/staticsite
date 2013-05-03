@@ -1,10 +1,11 @@
-title: "How To do Machine Learning with Precog"
+title: How to do Machine Learning with Precog
 author: Nathan Lubchenco
 date: 2013-05-01 01:00
 template: page-devcntr.jade
 
-#How To Guides
-##How To do Machine Learning with Precog
+# How To Guides
+
+## How to do Machine Learning with Precog
 
 If you're interested in doing machine learning or predictive analytics with Precog, but aren't sure where to get started, this How To guide is for you.  [Machine learning](http://en.wikipedia.org/wiki/Machine_learning "Machine learning") is the practice of using algorithms to understand and learn from data. Often, once an algorithm has been trained on initial data, it is then used to predict results for future data. One feature that sets Precog apart from many embedded reporting solutions is exactly this ability to to perform machine learning and predictive analytics.  Among other things, predictions can be used to create personalizations, recommendations or other sales optimizations.
 

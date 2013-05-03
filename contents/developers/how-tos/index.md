@@ -9,9 +9,10 @@ template: page-devcntr.jade
 
 Precog maintains a growing collection of how to guides which can help you solve common problems using Precog.
 
-  * [How to Perform Common Analytics on Precog](common-analytics/)
-  * [How to Embed Reporting in your App for your Customers](embed-reporting/)
-  * [How to Optimize Performance on Precog](optimize-performance/)
+  * [How to Perform Common Analytics on Precog](/developers/how-tos/common-analytics/)
+  * [How to Embed Reporting in your App for your Customers](/developers/how-tos/embed-reporting/)
+  * [How to do Machine Learning with Precog](/developers/how-tos/machine-learning/)
+  * [How to Optimize Performance on Precog](/developers/how-tos/optimize-performance/)
 
 If you need help with something else, be sure to check out the following great resources:
 
