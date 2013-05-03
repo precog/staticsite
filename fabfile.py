@@ -39,8 +39,8 @@ def clean_local():
     """
     local('rm -fr build')
     local('mkdir -p build')
-    
-    
+
+
 @task
 @hosts('localhost')
 def build():
@@ -53,7 +53,7 @@ def build():
 @task
 @hosts('localhost')
 def copy_json():
-    """ 
+    """
         Copy json files under external
     """
     sourcePath = 'contents/external/'
@@ -100,7 +100,7 @@ def optimize():
             png_exec = 'optipng -quiet -preserve -- "%s"'
         else:
             warn(yellow('>>> Unable to optimize png images: optipng not found!'))
-            
+
 
         if exec_exists('jpegoptim'):
             interesting_extensions.update(jpg_extensions)
@@ -118,7 +118,7 @@ def optimize():
             return filename, ''
 
     files_set = set()
-    
+
     for base,subdirs,files in os.walk('build'):
         if not base.startswith('build/external'):
             for file in files:
@@ -160,7 +160,7 @@ def optimize():
 
         compressed_size = os.path.getsize(original_path)
         compressed_total += compressed_size
-        
+
         if compressed_size < original_size:
             puts(cyan('\tcompressed %d => %d => %d%%' % (original_size, compressed_size, (compressed_size * 100 / original_size))))
 
