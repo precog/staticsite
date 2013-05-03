@@ -78,85 +78,20 @@ def optimize():
     """
         Applies optimizations to reduce file sizes
     """
-
-    # Checks what file extensions may be optimized
-    interesting_extensions = set()
-
-    cssjs_extensions = ['.css', '.js']
-    png_extensions = ['.png']
-    jpg_extensions = ['.jpg', '.jpeg']
-
-    if exec_exists('yui-compressor'):
-        interesting_extensions.update(cssjs_extensions)
-        cssjs_overwrites = False
-        cssjs_exec = 'yui-compressor -o "%(target)s" "%(source)s"'
-    else:
-        warn(yellow('>>> Unable to optimize css/js files: yui-compressor not found!'))
-
-    if env.optimize_images:
-        if exec_exists('optipng'):
-            interesting_extensions.update(png_extensions)
-            png_overwrites = True
-            png_exec = 'optipng -quiet -preserve -- "%s"'
-        else:
-            warn(yellow('>>> Unable to optimize png images: optipng not found!'))
-
-
-        if exec_exists('jpegoptim'):
-            interesting_extensions.update(jpg_extensions)
-            jpg_overwrites = True
-            jpg_exec = 'jpegoptim --totals --strip-all  -- "%s"'
-        else:
-            warn(yellow('>>> Unable to optimize jpeg images: jpegoptim not found!'))
-
-
-    # Builds a list of files to be optimized
-    def get_file_base_and_extension(filename):
-        if filename.count('.'):
-            return '.'.join(filename.split('.')[:-1]), '.%s' % filename.split('.')[-1]
-        else:
-            return filename, ''
-
-    files_set = set()
-
-    for base,subdirs,files in os.walk('build'):
-        if not base.startswith('build/external'):
-            for file in files:
-                filebase, extension = get_file_base_and_extension(file)
-                path = os.path.join(base, filebase)
-
-                if extension in interesting_extensions and filebase[-4:] != '.min':
-                    files_set.add((path, extension))
-
-    # Optimize each file in the list
-    def optimize_file(original_path, file_type, minify_exec, overwrites):
-        try:
-            if overwrites:
-                local(minify_exec % original_path)
-            else:
-                local(minify_exec % { 'source': original_path, 'target': 'minimized_file.tmp' })
-                os.rename('minimized_file.tmp', original_path)
-
-        except OSError:
-            abort(red('>>> File %s is not a %s file.' % (original_path, file_type)))
-
-    files_no = len(files_set)
+    optimizable_extensions = get_optimizable_extensions()
+    file_set = get_optimizable_files(optimizable_extensions)
+    files_no = len(file_set)
     compressed_total = 0
     original_total = 0
-    for index, (file_basename, file_extension) in enumerate(files_set):
+    for index, (file_basename, file_extension) in enumerate(file_set):
         puts(green("%.1f%% done (%d/%d)" % ((index+1.)*100./files_no, index+1, files_no)))
         original_path = '%s%s' % (file_basename, file_extension)
         original_size = os.path.getsize(original_path)
         original_total += original_size
 
-        if file_extension in png_extensions:
-            optimize_file(original_path, 'PNG', png_exec, png_overwrites)
-
-        if file_extension in jpg_extensions:
-            optimize_file(original_path, 'JPG', jpg_exec, jpg_overwrites)
-
-        if file_extension in cssjs_extensions:
-            optimize_file(original_path, 'CSS or JS', cssjs_exec, cssjs_overwrites)
+        for kind in optimizable_extensions:
+            if file_extension in optimizable_extensions[kind]['extensions']:
+                optimize_file(original_path, optimizable_extensions[kind])
 
         compressed_size = os.path.getsize(original_path)
         compressed_total += compressed_size
@@ -219,6 +154,74 @@ def rollback():
         run('rm undeployed')
         sudo('service nginx reload')
 
+
+def optimize_file(original_path, optimizable_extension):
+    minify_exec = optimizable_extension['exec']
+    overwrites = optimizable_extension['overwrites']
+    file_type = optimizable_extension['file_type']
+    try:
+        if overwrites:
+            local(minify_exec % original_path)
+        else:
+            local(minify_exec % { 'source': original_path, 'target': 'minimized_file.tmp' })
+            os.rename('minimized_file.tmp', original_path)
+
+    except OSError:
+        abort(red('>>> File %s is not a %s file.' % (original_path, file_type)))
+
+def get_optimizable_files(optimizable_extensions):
+    oe = optimizable_extensions
+    extensions = [ ext for k in oe if 'extensions' in oe[k] for ext in oe[k]['extensions'] ]
+    files_set = set()
+    for base,subdirs,files in os.walk('build'):
+        if not base.startswith('build/external'):
+            for file in files:
+                filebase, extension = get_file_base_and_extension(file)
+                path = os.path.join(base, filebase)
+
+                if extension in extensions and filebase[-4:] != '.min':
+                    files_set.add((path, extension))
+
+    return files_set
+
+def get_file_base_and_extension(filename):
+    if filename.count('.'):
+        return '.'.join(filename.split('.')[:-1]), '.%s' % filename.split('.')[-1]
+    else:
+        return filename, ''
+
+def get_optimizable_extensions():
+    optimizable_extensions = dict()
+
+    if exec_exists('yui-compressor'):
+        optimizable_extensions['cssjs'] = dict()
+        optimizable_extensions['cssjs']['extensions'] = ['.css', '.js']
+        optimizable_extensions['cssjs']['overwrites'] = False
+        optimizable_extensions['cssjs']['exec'] = 'yui-compressor -o "%(target)s" "%(source)s"'
+        optimizable_extensions['cssjs']['file_type'] = 'CSS or JS'
+    else:
+        warn(yellow('>>> Unable to optimize css/js files: yui-compressor not found!'))
+
+    if env.optimize_images:
+        if exec_exists('optipng'):
+            optimizable_extensions['png'] = dict()
+            optimizable_extensions['png']['extensions'] = ['.png']
+            optimizable_extensions['png']['overwrites'] = True
+            optimizable_extensions['png']['exec'] = 'optipng -quiet -preserve -- "%s"'
+            optimizable_extensions['png']['file_type'] = 'PNG'
+        else:
+            warn(yellow('>>> Unable to optimize png images: optipng not found!'))
+
+        if exec_exists('jpegoptim'):
+            optimizable_extensions['jpeg'] = dict()
+            optimizable_extensions['jpeg']['extensions'] = ['.jpg', '.jpeg']
+            optimizable_extensions['jpeg']['overwrites'] = True
+            optimizable_extensions['jpeg']['exec'] = 'jpegoptim --totals --strip-all  -- "%s"'
+            optimizable_extensions['jpeg']['file_type'] = 'JPEG'
+        else:
+            warn(yellow('>>> Unable to optimize jpeg images: jpegoptim not found!'))
+
+    return optimizable_extensions
 
 def exec_exists(name):
     """
