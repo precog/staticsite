@@ -9,7 +9,7 @@ template: page-flexible.jade
 </div>
 <div id="body-splash">
     <div class="holder">
-        <a href="www.precog.com/external/social-sauce-demo/index.htm" class="image-panel for-social-media-image">
+        <a href="http://www.precog.com/external/social-sauce-demo/index.htm" class="image-panel for-social-media-image">
         </a>
         <div class="text-panel">
             <p class="medium">The Precog Social Insights&trade; solution allows organizations to do ad hoc analysis on any kind of social media data. Our unique solution works natively on the data and does not require any data manipulation. Precog allows you to go far beyond simple counts and activity metrics, and ask deep questions across social data and internal data.</p>
