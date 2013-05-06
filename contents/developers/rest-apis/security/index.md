@@ -3,7 +3,7 @@ author: Matthew De Goes
 date: 2013-03-26 12:20
 template: page-devcntr.jade
 
-<span class="page-title">Developer Center</span>
+<div>
 <h1>REST API</h1>
 <h2>security api</h2>
 <p>The security API is responsible for managing permissions for all data stored in Precog. The API can be used to manage API keys and grants.</p>
@@ -476,3 +476,4 @@ template: page-devcntr.jade
 </pre>
     </dd>
 </dl>
+</div>

@@ -3,7 +3,7 @@ author: Matthew De Goes
 date: 2013-03-26 12:20
 template: page-devcntr.jade
 
-<span class="page-title">Developer Center</span>
+<div>
 <h1>REST API</h1>
 <a name="curl" id="curl"></a>
 
@@ -67,3 +67,4 @@ curl -X POST "https://beta.precog.com/security/v1/apikeys/?apiKey=ACA34385-B8F7-
 </pre>
     </li>
 </ul>
+</div>

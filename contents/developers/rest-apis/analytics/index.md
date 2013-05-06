@@ -3,7 +3,7 @@ author: Matthew De Goes
 date: 2013-03-26 12:20
 template: page-devcntr.jade
 
-<span class="page-title">Developer Center</span>
+<div>
 <h1>REST API</h1>
 <h2>analytics api</h2>
 <p>The analytics API contains a variety of methods for computing analytics on data stored in Precog.</p>
@@ -24,3 +24,4 @@ The results of the query.
 </pre>
     </dd>
 </dl>
+</div>

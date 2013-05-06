@@ -3,7 +3,7 @@ author: Matthew De Goes
 date: 2013-03-26 12:20
 template: page-devcntr.jade
 
-<span class="page-title">Developer Center</span>
+<div>
 <h1>REST API</h1>
 <p>The API calls below are given relative to an analytics service. For example, create an account is documented as: POST /accounts/v1/accounts/. The full call will include the analytics service such as https://beta.precog.com:</p>
 <pre>
@@ -210,3 +210,4 @@ GET /accounts/v1/accounts/0001205271/
         <p>Deletes an account's plan. This is the same as switching a plan to the free plan.</p>
     </dd>
 </dl>
+</div>

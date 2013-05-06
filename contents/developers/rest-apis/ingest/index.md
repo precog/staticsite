@@ -3,7 +3,7 @@ author: Matthew De Goes
 date: 2013-03-26 12:20
 template: page-devcntr.jade
 
-<span class="page-title">Developer Center</span>
+<div>
 <h1>REST API</h1>
 <h2>ingest api</h2>
 <p>The ingest API allows streaming or batch uploading of data into the Precog platform. Various kinds of data can be ingested by Precog, including JSON, CSV, and XML. They can be ingested in raw form or in compressed form, and in single-record form or multiple-record form (multiple record form requires each entry be separated by a newline character).</p>
@@ -58,3 +58,4 @@ template: page-devcntr.jade
         <p>Deletes the specified path. CAUTION! This method cannot be undone.</p>
     </dd>
 </dl>
+</div>

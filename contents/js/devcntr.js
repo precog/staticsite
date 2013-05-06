@@ -3,119 +3,35 @@ var currentLocation = window.location.pathname;
 $(document).ready(function(){
       
       $("h1, h2, h3, h4, h5").each(function(){
-        var h2Value = $(this).html().replace(/ /g,'').replace(/(\r\n|\n|\r)/gm,"");
-        $(this).attr('id', h2Value);
+        var val = $(this).html().replace(/ /g,'').replace(/(\r\n|\n|\r)/gm,"");
+        $(this).attr('id', val);
       });
       
-      $("section.content > h1").after('<ul id="section-index"></ui>');
+      $("#body h1:first-child").after('<ul id="section-index"></ui>');
       
       $("#body").find("h2, h3").each(function(){
+            
           var link = $(this).attr("id");
           var title = $(this).html();
+          var tagName = this.tagName.toLowerCase();
           
-          $("#section-index").append('<li><a href="#'+ link +'">'+ title +'</a></li>');
+          $("#section-index").append('<li class="' + tagName + '"><a href="#'+ link +'">'+ title +'</a></li>');
       });
           
       var windowHeight = $(window).height();
-      $(window).resize(function(){
+            $(window).resize(function(){
          windowHeight = $(window).height();
          resizeWindow();
       });
       
       function resizeWindow () {
-          $("#pages-documentation #main-nav #menu>ul").css({height: windowHeight - 40});
+          $("#pages-documentation #main-nav #menu>ul").css({height: windowHeight - 50});
       }
       resizeWindow();
       
       $.fn.scrollBottom = function() {
           return $(document).height() - this.scrollTop() - this.height();
       };
-  
-      var $el = $('#menu, #developer-center-tooltips');
-      var $window = $(window);
-  
-      $window.bind("scroll resize", function() {
-          var gap = $window.height() - $el.height() - 40;
-          var visibleFoot = 110 - $window.scrollBottom();
-          var scrollTop = $window.scrollTop()
-  
-          if(scrollTop < 110 - 40){
-              $el.css({
-                  top: (110 - scrollTop) + "px",
-                  bottom: "auto"
-              });
-          }else if (visibleFoot > gap) {
-              $el.css({
-                  top: "auto",
-                  bottom: visibleFoot + "px"
-              });
-          } else {
-              $el.css({
-                  top: 40,
-                  bottom: "auto"
-              });
-          }
-      });
-      
-      /*function body_scroll() {
-          $("#body h1").each(function(){        
-              console.log(this);
-              
-          });
-      }
-      
-      $(window).scroll(body_scroll);
-      */
-      
-      /*var $ul = $("#menu ul");
-      $("#body h1").each(function(){
-          var $h1 = $(this),
-              $li1 = $ul.append('<li class="first-level"><a href="#'+$(this).attr("id")+'">' + $(this).text() + '</a><ul></ul></li>').find("li:last"),
-              $ul1 = $li1.find("ul");
-          $li1.find("a").click(function(e){
-              $("body,html").animate({
-                          'scrollTop': $h1.offset().top
-                      }, 350
-                      );
-                      e.preventDefault();
-          });
-          $(window).scroll(function() {
-              $ul.find("a").removeClass("active-link");
-              var found = false;
-              var last = $("h1:first")[0];
-              $("h1, h2, h3").each(function(){
-                  if (found) return;
-                  if ($(this).offset().top >= $(document).scrollTop() + 10) {
-                      found = true;
-                      $ul.find('a[href="#'+ $(last).attr("id") +'"]').addClass("active-link");
-                  }
-                  last = this;
-              });
-          });
-          $(this).parent().find("h2").each(function(){
-              var $h2 = $(this),
-                  $li2 = $ul1.append('<li><a href="#'+$(this).attr("id")+'">' + $(this).text() + '</a><ul></ul></li>').find("li:last"),
-                  $ul2 = $li2.find("ul");
-              $li2.find("a").click(function(e){
-                  $("body,html").animate({
-                          'scrollTop': $h2.offset().top
-                      }, 350
-                      );
-                      e.preventDefault();
-              });            
-              $(this).parent().find("h3").each(function(){
-                  var $h3 = $(this),
-                      $li3 = $ul2.append('<li><a href="#'+$(this).attr("id")+'">' + $(this).text() + '</a></li>').find("li:last");
-                  $li3.find("a").click(function(e){
-                      $("body,html").animate({
-                          'scrollTop': $h3.offset().top
-                      }, 350
-                      );
-                      e.preventDefault();
-                  });
-              });
-          });
-      });*/
       
       $("a.button-launch-labcoat").click(function() {
         scriptRun = $(this).parent()[0].childNodes[1].nodeValue;
