@@ -26,6 +26,6 @@ You'll also notice we've forked the home page into two different tracks: one for
 
 One wants to think in terms of business value and solving business problems, and the other wants to think in terms of how Precog works and what Precog can do at a technical level. By forking the home page, we can direct each group to content they want to see, rather than trying to aim for a middle-ground that confuses business stakeholders and doesn't contain the juicy technical details that developers need.
 
-Please give our new site a whirl, and consider [signing](http://www.precog.com/account/login/) up for a free account in our managed cloud. If you have any feedback, please send it on to me directly at [john@precog.com](mailto:john@precog.com).
+Please give our [new site](http://www.precog.com/) a whirl, and consider [signing](http://www.precog.com/account/login/) up for a free account in our managed cloud. If you have any feedback, please send it on to me directly at [john@precog.com](mailto:john@precog.com).
 
 Thanks again to everyone who made this day possible!
