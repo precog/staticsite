@@ -384,7 +384,8 @@ body {
     border-left: solid 4px #ff0000;
     font-size: 20pt;
     padding-top: 6px;
-    padding-bottom: 20px;
+    padding-bottom: 6px;
+    margin-bottom: 14px;
     padding-left: 10px;
     text-transform: uppercase;
     border-top: 1px solid #D8D8D8;
