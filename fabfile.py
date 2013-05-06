@@ -28,7 +28,7 @@ def production():
     """
     puts(green('>>> Running on Production!'))
     env.hosts = ['web1.precog.com', 'web2.precog.com']
-    puts(green('Servers: %s' % ", ".join(env.hosts.join)))
+    puts(green('Servers: %s' % ", ".join(env.hosts)))
 
 
 @task
