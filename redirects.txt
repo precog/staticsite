@@ -5,6 +5,10 @@
 ^/precog-blog$ /blog/
 ^/blog-precog$ /blog/
 ^/registration$ /account/login/
+^/solutions/nosql-analytics$ /for-developers/
+^/solutions/data-productization$ /for-developers/
+^/solutions/data-science$ /for-developers/
+^/solutions/embedded-reporting$ /for-businesses/
 ^/developers/$ /developers/getting-started/overview/
 ^/developers$ /developers/getting-started/overview/
 ^/getting-started/sign-up$ /developers/getting-started/overview/
