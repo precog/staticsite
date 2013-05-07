@@ -281,8 +281,8 @@ header #header-logo {
 
 #body-impression ul li {
     float: left;
-    width: 100px;
-    height: 100px;
+    width: 98px;
+    height: 98px;
     margin-right: 20px;
     text-align: center;
     list-style-type: none;
@@ -290,6 +290,15 @@ header #header-logo {
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 6px;
+    border: 1px solid #14171A;
+}
+
+#body-impression ul li:hover {
+    border: 1px solid #617280;
+}
+
+#body-impression ul li:hover span {
+    color: #fff;
 }
 
 #body-impression ul li:first-child {
