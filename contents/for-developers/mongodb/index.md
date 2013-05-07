@@ -20,7 +20,9 @@ template: page.jade
     <div class="very-dark-background">
         <h2>Related Resources</h2>
         <a href="http://www.precog.com/external/mongodb-changelog.htm">Change Log</a>
+        <p>A record of past changes for the download.</p>
         <a href="https://www.precog.com/blog/Community-Spotlight-Translating%20MongoDB-Queries-into-Quirrel/">Customer Spotlight: Translating MongoDB Queries</a>
+        <p>See Precog for MongoDB action, and up on how to, with this blog post!</p>
         <h2>Download Precog for MongoDB</h2>
         <p>Please fill out the form below, after which you can start your download.</p>
         <div id="contact-signup-form">
