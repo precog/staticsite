@@ -407,9 +407,12 @@ ReportGrid<span style='color:#d2cd86; '>.</span>streamGraph<span style='color:#d
                 
                 <a href="/developers/how-tos/embed-reporting/">Embed Reporting</a>
                 <p>If you're building a business application, then your customers probably want self-service reporting.</p>
-                
+
                 <a href="/developers/how-tos/optimize-performance/">Optimize Performance</a>
                 <p>If you are deploying a production application that uses Precog, you may be interested in ways to optimize the runtime query performance.</p>
+                
+                <a href="/for-developers/mongodb/">Precog for MongoDB</a>
+                <p>Try an experimental version of precog running on your mongodb database.</p>
             </div>
         </div>
         <div class="clear-left"></div>

@@ -26,7 +26,7 @@ template: page.jade
             <table width="260" class="signupframe" border="0" cellspacing="0" cellpadding="5">
                     <tr>
                   <td valign="top" align="right">
-                    <p><span class="required">&#42;</span>ÊEmail</p>
+                    <p><span class="required">&#42;</span> Email</p>
                   </td>
                   <td align="left">
                     <input type="text" name="fields_email">
@@ -34,7 +34,7 @@ template: page.jade
                 </tr>
                     <tr>
                   <td valign="top" align="right">
-                    <p><span class="required">&#42;</span>ÊFirst Name</p>
+                    <p><span class="required">&#42;</span> First Name</p>
                   </td>
                   <td align="left">
                     <input type="text" name="fields_fname">
@@ -42,7 +42,7 @@ template: page.jade
                 </tr>
                     <tr>
                   <td valign="top" align="right">
-                    <p><span class="required">&#42;</span>ÊLast Name</p>
+                    <p><span class="required">&#42;</span> Last Name</p>
                   </td>
                   <td align="left">
                     <input type="text" name="fields_lname">
@@ -70,11 +70,11 @@ template: page.jade
                 <input type="hidden" name="reallistid" value="1">
                 <input type="hidden" name="doubleopt" value="0">
                 <tr>
-                  <td>Ê</td>
+                  <td></td>
                   <td><p class="mini-text"><span class="required">&#42;</span> = Required Field</p></td>
                 </tr>
                 </table>
-                <input type="submit" name="Submit" value="Download">
+                <input class="red-background small-button" type="submit" name="Submit" value="Download">
             </div>
             </form>
             <script type="text/javascript">
