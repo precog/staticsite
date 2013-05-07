@@ -15,67 +15,73 @@ template: page.jade
         <h3>How fast is Precog for MongoDB?</h3>
         <p>The current version of Precog for MongoDB uses streaming to perform analytics, and does not take advantage of indexes, the aggregation framework, or MapReduce. Performance on large collections may be degraded.</p>
     </div>
-    <h2>Download Precog for MongoDB</h2>
-    <p>Please fill out the form below, after which you can start your download.</p>
-    <div id="contact-signup-form">
-        <form method="post" action="https://app.icontact.com/icp/signup.php" name="icpsignup" id="icpsignup351" accept-charset="UTF-8" onsubmit="return verifyRequired351();" >
-            <input type="hidden" name="redirect" value="http://www.precog.com/for-developers/mongodb/download/">
-            <input type="hidden" name="errorredirect" value="http://www.icontact.com/www/signup/error.html">
-            
-            <div id="SignUp">
-            <table width="260" class="signupframe" border="0" cellspacing="0" cellpadding="5">
+</div>
+<div class="two-columns-end">
+    <div class="very-dark-background">
+        <h2>Related Resources</h2>
+        <a href="http://www.precog.com/external/mongodb-changelog.htm">Change Log</a>
+        <a href="https://www.precog.com/blog/Community-Spotlight-Translating%20MongoDB-Queries-into-Quirrel/">Customer Spotlight: Translating MongoDB Queries</a>
+        <h2>Download Precog for MongoDB</h2>
+        <p>Please fill out the form below, after which you can start your download.</p>
+        <div id="contact-signup-form">
+            <form method="post" action="https://app.icontact.com/icp/signup.php" name="icpsignup" id="icpsignup351" accept-charset="UTF-8" onsubmit="return verifyRequired351();" >
+                <input type="hidden" name="redirect" value="http://www.precog.com/for-developers/mongodb/download/">
+                <input type="hidden" name="errorredirect" value="http://www.icontact.com/www/signup/error.html">
+                
+                <div id="SignUp">
+                <table width="260" class="signupframe" border="0" cellspacing="0" cellpadding="5">
+                        <tr>
+                      <td valign="top" align="right">
+                        <p><span class="required">&#42;</span> Email</p>
+                      </td>
+                      <td align="left">
+                        <input type="text" name="fields_email">
+                      </td>
+                    </tr>
+                        <tr>
+                      <td valign="top" align="right">
+                        <p><span class="required">&#42;</span> First Name</p>
+                      </td>
+                      <td align="left">
+                        <input type="text" name="fields_fname">
+                      </td>
+                    </tr>
+                        <tr>
+                      <td valign="top" align="right">
+                        <p><span class="required">&#42;</span> Last Name</p>
+                      </td>
+                      <td align="left">
+                        <input type="text" name="fields_lname">
+                      </td>
+                    </tr>
+                        <tr>
+                        <td valign="top" align="right"><p>Business</p>
+                      </td>
+                      <td align="left">
+                        <input type="text" name="fields_business">
+                      </td>
+                    </tr>
+                        <tr>
+                      <td valign="top" align="right"><p>Job Title</p>
+                      </td>
+                      <td align="left">
+                        <input type="text" name="fields_jobtitle">
+                      </td>
+                    </tr>
+                    <input type="hidden" name="listid" value="1366">
+                    <input type="hidden" name="specialid:1366" value="N0SQ">
+                
+                    <input type="hidden" name="clientid" value="1348845">
+                    <input type="hidden" name="formid" value="351">
+                    <input type="hidden" name="reallistid" value="1">
+                    <input type="hidden" name="doubleopt" value="0">
                     <tr>
-                  <td valign="top" align="right">
-                    <p><span class="required">&#42;</span> Email</p>
-                  </td>
-                  <td align="left">
-                    <input type="text" name="fields_email">
-                  </td>
-                </tr>
-                    <tr>
-                  <td valign="top" align="right">
-                    <p><span class="required">&#42;</span> First Name</p>
-                  </td>
-                  <td align="left">
-                    <input type="text" name="fields_fname">
-                  </td>
-                </tr>
-                    <tr>
-                  <td valign="top" align="right">
-                    <p><span class="required">&#42;</span> Last Name</p>
-                  </td>
-                  <td align="left">
-                    <input type="text" name="fields_lname">
-                  </td>
-                </tr>
-                    <tr>
-                    <td valign="top" align="right"><p>Business</p>
-                  </td>
-                  <td align="left">
-                    <input type="text" name="fields_business">
-                  </td>
-                </tr>
-                    <tr>
-                  <td valign="top" align="right"><p>Job Title</p>
-                  </td>
-                  <td align="left">
-                    <input type="text" name="fields_jobtitle">
-                  </td>
-                </tr>
-                <input type="hidden" name="listid" value="1366">
-                <input type="hidden" name="specialid:1366" value="N0SQ">
-            
-                <input type="hidden" name="clientid" value="1348845">
-                <input type="hidden" name="formid" value="351">
-                <input type="hidden" name="reallistid" value="1">
-                <input type="hidden" name="doubleopt" value="0">
-                <tr>
-                  <td></td>
-                  <td><p class="mini-text"><span class="required">&#42;</span> = Required Field</p></td>
-                </tr>
-                </table>
-                <input class="red-background small-button" type="submit" name="Submit" value="Download">
-            </div>
+                      <td></td>
+                      <td><p class="mini-text"><span class="required">&#42;</span> = Required Field</p></td>
+                    </tr>
+                    </table>
+                    <input class="red-background small-button" type="submit" name="Submit" value="Download">
+                </div>
             </form>
             <script type="text/javascript">
             
@@ -105,13 +111,7 @@ template: page.jade
             return true;
             }
             </script>
-    </div>
-</div>
-<div class="two-columns-end">
-    <div class="very-dark-background">
-        <h2>Related Resources</h2>
-        <a href="http://www.precog.com/external/mongodb-changelog.htm">Change Log</a>
-        <a href="https://www.precog.com/blog/Community-Spotlight-Translating%20MongoDB-Queries-into-Quirrel/">Customer Spotlight: Translating MongoDB Queries</a>
+        </div>
     </div>
 </div>
 <div class="clear-left"></div>
