@@ -412,7 +412,7 @@ ReportGrid<span style='color:#d2cd86; '>.</span>streamGraph<span style='color:#d
                 <p>If you are deploying a production application that uses Precog, you may be interested in ways to optimize the runtime query performance.</p>
                 
                 <a href="/for-developers/mongodb/">Precog for MongoDB</a>
-                <p>Try an experimental version of precog running on your mongodb database.</p>
+                <p>Try an experimental version of precog running on your MongoDB database.</p>
             </div>
         </div>
         <div class="clear-left"></div>
