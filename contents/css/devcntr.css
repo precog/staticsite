@@ -406,3 +406,25 @@ ul.rest-request li:nth-child(7) {
 ul.rest-request li:nth-child(7) pre {
     border-radius: 0px !important;
 }
+
+ul.rest-request li:nth-child(8) {
+    border-left: 1px solid #666;
+    font-size: 14pt;
+    text-transform: uppercase;
+    padding-left: 10px;
+    padding-bottom: 4px;
+    margin-top: 20px;
+}
+
+ul.rest-request li:nth-child(9) {
+    border-left: 1px solid #666;
+    margin-top: 0px;
+}
+
+ul.rest-request li:nth-child(10) {
+    margin-top: 0px;
+}
+
+ul.rest-request li:nth-child(10) pre {
+    border-radius: 0px !important;
+}
