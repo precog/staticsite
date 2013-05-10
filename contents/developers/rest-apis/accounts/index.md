@@ -3,7 +3,7 @@ author: Matthew De Goes
 date: 2013-03-26 12:20
 template: page-devcntr.jade
 
-## Accounts API
+## Overview
 
 The API calls below are given relative to an analytics service. For example, create an account is documented as: POST /accounts/v1/accounts/. The full call will include the analytics service such as https://beta.precog.com:
 
@@ -31,13 +31,13 @@ All use of the accounts API must be encrypted using SSL/TLS. All API methods exc
   * description
   * Creates a new account ID, accessible by the specified email address and password, or returns the existing account ID. An email address may be associated with at most one account. This is the only accounts API method that does not require HTTP Basic authentication. Anyone can create an account on the Precog platform, which will be subscribed to the free plan by default and provisioned with a new account root directory (the path to which is the same as the newly created account ID) and API key providing grants to all available permissions for that directory. To retrieve the API key and other information, use the &Ocirc;describe' call described below.
   * request body
-  *    {
-    "email": "jdoe@gmail.com",
-    "password": "someFancyString"
-    }
+  * <pre>{
+"email": "jdoe@gmail.com",
+"password": "someFancyString"
+}</pre>
   * response body
   * Returns the account id of the new (or existing) account. Account IDs are not secure identifiers, and may appear in publicly available URLs and so forth without compromising account security.
-  *    {"accountId": "2389482834"}  
+  * <pre>{"accountId": "2389482834"}</pre>
 
 ### Describe an Account
 
@@ -54,8 +54,8 @@ All use of the accounts API must be encrypted using SSL/TLS. All API methods exc
 "apiKey": "[masterAPIKey]",
 "rootPath": "/jdoe/",
 "plan": {
-"type": "developer",
-}
+   "type": "developer",
+   }
 }</pre>
 
 ### Add a Grant to an Account
@@ -66,7 +66,7 @@ All use of the accounts API must be encrypted using SSL/TLS. All API methods exc
   * description
   * Adds a grant to an account's API key. This method is conceptually equivalent to retrieving the API key of the account, and then using the security API to add the specified grant to the API key. The main difference is that this method does not require the client to know the API key of the account. Therefore, this method represents a secure, anonymous way to add additional grants to a third-party account, without first knowing the API key of that account. This request requires HTTP Basic authentication.
   * request body
-  *     {"grantId": "[Grant Id]"}
+  * <pre>{"grantId": "[Grant Id]"}</pre>
   
 ### Describe an Account's Plan
 
@@ -74,7 +74,7 @@ All use of the accounts API must be encrypted using SSL/TLS. All API methods exc
   * GET
   * GET /accounts/v1/accounts/<span class="tool-tip-account-id">'accountId</span>/plan
   * response body
-  *    {"type": "free"}
+  * <pre>{"type": "free"}</pre>
 
 ### Change an Account's Plan
 
@@ -84,7 +84,7 @@ All use of the accounts API must be encrypted using SSL/TLS. All API methods exc
   * description
   * Changes an account's plan (only the plan type itself may be changed). Billing for the new plan, if appropriate, will be prorated.
   * request body
-  *    {"type": "bronze"}
+  * <pre>{"type": "bronze"}</pre>
 
 ### Change an Account's Password
 
@@ -94,7 +94,7 @@ All use of the accounts API must be encrypted using SSL/TLS. All API methods exc
   * description
   * Changes your account access password. This call requires HTTP Basic authentication using the current password.
   * request body
-  *    {"password": "myPassword"}
+  * <pre>{"password": "myPassword"}</pre>
 
 ### Delete an Account's Plan
 

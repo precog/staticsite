@@ -3,56 +3,35 @@ author: Matthew De Goes
 date: 2013-03-26 12:20
 template: page-devcntr.jade
 
-<div>
-<h2>security api</h2>
-<p>The security API is responsible for managing permissions for all data stored in Precog. The API can be used to manage API keys and grants.</p>
-<p>An API key is required for interacting with all Precog data APIs. An API key may be associated with many different grants, each of which confers specific permissions with respect to some directory and data owner.</p>
-<p>The fields "name" and "description" are optional fields taking arbitrary strings that increase the human read-ability of the output. "parentIds" is an optional field that can take the Grant ID of the parent grant. If no expiration date is set, the grant will not expire. To set an expiration date, provide an ISO8601 formatted string.</p>
-<p>For more information on API keys and grants, see the Precog Security Model.</p>
-<h3>List API Keys</h3>
+## security api
 
-<dl class="api-call-json">
-    <dt class="button-json">JSON</dt>
+The security API is responsible for managing permissions for all data stored in Precog. The API can be used to manage API keys and grants.
 
-    <dt class="m-title">GET</dt>
+An API key is required for interacting with all Precog data APIs. An API key may be associated with many different grants, each of which confers specific permissions with respect to some directory and data owner.
 
-    <dd class="m-text">GET /security/v1/apikeys/?apiKey=<span class="tool-tip-apikey">[auth API key]</span></dd>
+The fields "name" and "description" are optional fields taking arbitrary strings that increase the human read-ability of the output. "parentIds" is an optional field that can take the Grant ID of the parent grant. If no expiration date is set, the grant will not expire. To set an expiration date, provide an ISO8601 formatted string.
 
-    <dt class="d-title">description</dt>
+For more information on API keys and grants, see the Precog Security Model.
 
-    <dd class="d-text">
-        <p>Retrieves all API keys created by the authorization API key.</p>
-    </dd>
+### List API Keys
 
-    <dt class="r-title">response body</dt>
+  * JSON
+  * GET
+  * GET /security/v1/apikeys/?apiKey=<span class="tool-tip-apikey">[auth API key]</span>
+  * description
+  * Retrieves all API keys created by the authorization API key.
+  * response body
+  * <pre>[{"apiKey": "[API Key]"}, {"apiKey": "[API Key]"}, ...]</pre>
 
-    <dd>
-        <pre>
-[{"apiKey": "[API Key]"}, {"apiKey": "[API Key]"}, ...]
-</pre>
-    </dd>
-</dl>
+### Create an API Key
 
-<h3 id="create-api-api">Create an API Key</h3>
-
-<dl class="api-call-json">
-    <dt class="button-json">JSON</dt>
-
-    <dt class="m-title">POST</dt>
-
-    <dd class="m-text">POST /security/v1/apikeys/?apiKey=<span class="tool-tip-apikey">[auth API key]</span></dd>
-
-    <dt class="d-title">description</dt>
-
-    <dd class="d-text">
-        <p>Creates a new API key that has the grants specified in the body of the request. The grants of the authorization API key will be used to issue the grants for the new API key. If multiple grants can be used to satisfy the requirements, then all of them will be used to issue the grants for the new API key.</p>
-    </dd>
-
-    <dt class="r-title">request body</dt>
-
-    <dd>
-        <pre>
-{
+  * JSON
+  * POST
+  * POST /security/v1/apikeys/?apiKey=<span class="tool-tip-apikey">[auth API key]</span>
+  * description
+  * Creates a new API key that has the grants specified in the body of the request. The grants of the authorization API key will be used to issue the grants for the new API key. If multiple grants can be used to satisfy the requirements, then all of them will be used to issue the grants for the new API key.
+  * request body
+  * <pre>{
 
 "name": ...
 
@@ -85,39 +64,19 @@ template: page-devcntr.jade
 ]
 }
 </pre>
-    </dd>
+    
+  * response body
+  * <pre>{&Ograve;apiKey&Oacute;: &Ograve;[API Key]&Oacute;}</pre>
 
-    <dt class="r-title">response body</dt>
+### Describe an API Key
 
-    <dd>
-        <pre>
-{&Ograve;apiKey&Oacute;: &Ograve;[API Key]&Oacute;}
-</pre>
-    </dd>
-</dl>
-
-<h3>Describe an API Key</h3>
-
-<dl class="api-call-json">
-    <dt class="button-json">JSON</dt>
-
-    <dt class="m-title">GET</dt>
-
-    <dd class="m-text">GET /security/v1/apikeys/<span class="tool-tip-apikey tool-tip-apikey">'apiKey</span></dd>
-
-    <dt class="d-title">description</dt>
-
-    <dd class="d-text">
-        <p>Retrieves the details of a particular API key. The API key must have been created by the authorization API key.</p>
-
-        <p>If a given grant cannot be shared, it will not return information on the grant id (because this could be used to issue additional grants from the given grant).</p>
-    </dd>
-
-    <dt class="r-title">response body</dt>
-
-    <dd>
-        <pre>
-{
+  * JSON
+  * GET
+  * GET /security/v1/apikeys/<span class="tool-tip-apikey tool-tip-apikey">'apiKey</span>
+  * description
+  * Retrieves the details of a particular API key. The API key must have been created by the authorization API key. If a given grant cannot be shared, it will not return information on the grant id (because this could be used to issue additional grants from the given grant).
+  * response body
+  * <pre>{
 
 "apiKey": "[API key]",
 
@@ -150,47 +109,24 @@ template: page-devcntr.jade
 }, ...
 
 ]
-}
-</pre>
-    </dd>
-</dl>
+}</pre>
 
-<h3>Delete an API Key</h3>
+### Delete an API Key
 
-<dl class="api-call-json">
-    <dt class="button-json">JSON</dt>
+  * JSON
+  * DELETE
+  * DELETE /security/v1/apikeys/<span class="tool-tip-apikey tool-tip-apikey">'apiKey</span>
+  * description
+  * Deletes a particular API key.
 
-    <dt class="m-title">DELETE</dt>
-
-    <dd class="m-text">DELETE /security/v1/apikeys/<span class="tool-tip-apikey tool-tip-apikey">'apiKey</span></dd>
-
-    <dt class="d-title">description</dt>
-
-    <dd class="d-text">
-        <p>Deletes a particular API key.</p>
-    </dd>
-</dl>
-
-<h3>Retrieve the Grants of an API Key</h3>
-
-<dl class="api-call-json">
-    <dt class="button-json">JSON</dt>
-
-    <dt class="m-title">GET</dt>
-
-    <dd class="m-text">GET /security/v1/apikeys/<span class="tool-tip-apikey tool-tip-apikey">'apiKey</span>/grants/</dd>
-
-    <dt class="d-title">description</dt>
-
-    <dd class="d-text">
-        <p>Retrieves all the grants of a particular API key. If a grant cannot be shared, then its grant id will not be exposed, although its type and other settings will be visible.</p>
-    </dd>
-
-    <dt class="r-title">response body</dt>
-
-    <dd>
-        <pre>
-[{
+### Retrieve the Grants of an API Key
+  
+  * JSON
+  * GET
+  * GET /security/v1/apikeys/<span class="tool-tip-apikey tool-tip-apikey">'apiKey</span>/grants/
+  * description
+  * Retrieves all the grants of a particular API key. If a grant cannot be shared, then its grant id will not be exposed, although its type and other settings will be visible.
+  * <pre>[{
 
 "grantId": "[Grant ID]",
 
@@ -213,72 +149,34 @@ template: page-devcntr.jade
 ]
 
 }, ...
-]
+]</pre>
 
-</pre>
-    </dd>
-</dl>
+### Add a Grant to an API Key
 
-<h3>Add a Grant to an API Key</h3>
+  * JSON
+  * GET
+  * GET /security/v1/apikeys/<span class="tool-tip-apikey tool-tip-apikey">'apiKey</span>/grants/
+  * description
+  * Adds the specified grant to the specified API key. The authorization API key must possess (possibly indirectly) the grant being added.
+  * request body
+  * <pre>{&Ograve;grantId&Oacute;: "[Grant Id]"}</pre>
 
-<dl class="api-call-json">
-    <dt class="button-json">JSON</dt>
+### Remove a Grant from an API Key
 
-    <dt class="m-title">GET</dt>
+  * JSON
+  * DELETE
+  * DELETE /security/v1/apikeys/<span class="tool-tip-apikey tool-tip-apikey">'apiKey</span>/grants/<span class="tool-tip-grant-id">'grantId</span>
+  * description
+  * Deletes a particular grant from an API key. The API key must have been created by the authorization API key, and the grant must have been added by the API key.
 
-    <dd class="m-text">GET /security/v1/apikeys/<span class="tool-tip-apikey tool-tip-apikey">'apiKey</span>/grants/</dd>
+### Create a New Grant
 
-    <dt class="d-title">description</dt>
-
-    <dd class="d-text">
-        <p>Adds the specified grant to the specified API key. The authorization API key must possess (possibly indirectly) the grant being added.</p>
-    </dd>
-
-    <dt class="r-title">request body</dt>
-
-    <dd>
-        <pre>
-{&Ograve;grantId&Oacute;: "[Grant Id]"}
-</pre>
-    </dd>
-</dl>
-
-<h3>Remove a Grant from an API Key</h3>
-
-<dl class="api-call-json">
-    <dt class="button-json">JSON</dt>
-
-    <dt class="m-title">DELETE</dt>
-
-    <dd class="m-text">DELETE /security/v1/apikeys/<span class="tool-tip-apikey tool-tip-apikey">'apiKey</span>/grants/<span class="tool-tip-grant-id">'grantId</span></dd>
-
-    <dt class="d-title">description</dt>
-
-    <dd class="d-text">
-        <p>Deletes a particular grant from an API key. The API key must have been created by the authorization API key, and the grant must have been added by the API key.</p>
-    </dd>
-</dl>
-
-<h3>Create a New Grant</h3>
-
-<dl class="api-call-json">
-    <dt class="button-json">JSON</dt>
-
-    <dt class="m-title">POST</dt>
-
-    <dd class="m-text">POST /security/v1/grants/?apiKey=<span class="tool-tip-apikey">[auth API key]</span></dd>
-
-    <dt class="d-title">description</dt>
-
-    <dd class="d-text">
-        <p>Creates a new grant, derived from grants of the authorization API key. If the authorization key has multiple grants which can be used to satisfy the requirements of the new grant, then the least powerful such grant will be used to derive the new grant. If the authorization key does not have any grants which can be used to satisfy the requirements of the new grant, then the method will not succeed.</p>
-    </dd>
-
-    <dt class="r-title">request body</dt>
-
-    <dd>
-        <pre>
-{
+  * JSON
+  * POST
+  * POST /security/v1/grants/?apiKey=<span class="tool-tip-apikey">[auth API key]</span>
+  * description
+  * Creates a new grant, derived from grants of the authorization API key. If the authorization key has multiple grants which can be used to satisfy the requirements of the new grant, then the least powerful such grant will be used to derive the new grant. If the authorization key does not have any grants which can be used to satisfy the requirements of the new grant, then the method will not succeed.
+  * <pre>{
 
 "name": ...
 
@@ -299,39 +197,20 @@ template: page-devcntr.jade
 }, ...
 
 ]
-}
-</pre>
-    </dd>
+}</pre>
+    
+  * response body
+  * <pre>{"grantId": "[Grant Id]"}</pre>
 
-    <dt class="r-title">response body</dt>
+### Describe a Grant
 
-    <dd>
-        <pre>
-{"grantId": "[Grant Id]"}
-</pre>
-    </dd>
-</dl>
-
-<h3>Describe a Grant</h3>
-
-<dl class="api-call-json">
-    <dt class="button-json">JSON</dt>
-
-    <dt class="m-title">GET</dt>
-
-    <dd class="m-text">GET /security/v1/grants/<span class="tool-tip-grant-id">'grantId</span>?apiKey=<span class="tool-tip-apikey">[auth API key]</span></dd>
-
-    <dt class="d-title">description</dt>
-
-    <dd class="d-text">
-        <p>Describes the details of a particular grant. Anyone who has access to the grant id can list the full details of the grant.</p>
-    </dd>
-
-    <dt class="r-title">response body</dt>
-
-    <dd>
-        <pre>
-{
+  * JSON
+  * GET
+  * GET /security/v1/grants/<span class="tool-tip-grant-id">'grantId</span>?apiKey=<span class="tool-tip-apikey">[auth API key]</span>
+  * description
+  * Describes the details of a particular grant. Anyone who has access to the grant id can list the full details of the grant.
+  * response body
+  * <pre>{
 
 "grantId": "[Grant ID]",
 
@@ -352,47 +231,25 @@ template: page-devcntr.jade
 }, ...
 
 ]
-}
-</pre>
-    </dd>
-</dl>
+}</pre>
 
-<h3 id="delete-grant-api">Delete a Grant</h3>
+### Delete a Grant
 
-<dl class="api-call-json">
-    <dt class="button-json">JSON</dt>
+  * JSON
+  * DELETE
+  * DELETE /security/v1/grants/<span class="tool-tip-grant-id">'grantId</span>?apiKey=<span class="tool-tip-apikey">[auth API key]</span>
+  * description
+  * Deletes a particular grant specified by id. Only the creator of a grant can delete it.
 
-    <dt class="m-title">DELETE</dt>
+### List Children of a Grant
 
-    <dd class="m-text">DELETE /security/v1/grants/<span class="tool-tip-grant-id">'grantId</span>?apiKey=<span class="tool-tip-apikey">[auth API key]</span></dd>
-
-    <dt class="d-title">description</dt>
-
-    <dd class="d-text">
-        <p>Deletes a particular grant specified by id. Only the creator of a grant can delete it.</p>
-    </dd>
-</dl>
-
-<h3 id="list-children-of-grant-api">List Children of a Grant</h3>
-
-<dl class="api-call-json">
-    <dt class="button-json">JSON</dt>
-
-    <dt class="m-title">GET</dt>
-
-    <dd class="m-text">GET /security/v1/grants/<span class="tool-tip-grant-id">'grantId</span>/children/?apiKey=<span class="tool-tip-apikey">[auth API key]</span></dd>
-
-    <dt class="d-title">description</dt>
-
-    <dd class="d-text">
-        <p>Lists all immediate children of the specified grant. Only the creator of a grant can list the children of the grant.</p>
-    </dd>
-
-    <dt class="r-title">response body</dt>
-
-    <dd>
-        <pre>
-[{
+  * JSON
+  * GET
+  * GET /security/v1/grants/<span class="tool-tip-grant-id">'grantId</span>/children/?apiKey=<span class="tool-tip-apikey">[auth API key]</span>
+  * description
+  * Lists all immediate children of the specified grant. Only the creator of a grant can list the children of the grant.
+  * response body
+  * <pre>[{
 
 "grantId": "[Grant ID]",
 
@@ -416,33 +273,17 @@ template: page-devcntr.jade
 
 }, ...
 
-]
-</pre>
-    </dd>
-</dl>
+]</pre>
 
-<h3>Create a Child Grant</h3>
+### Create a Child Grant
 
-<dl class="api-call-json">
-    <dt class="button-json">JSON</dt>
-
-    <dt class="m-title">POST</dt>
-
-    <dd class="m-text">POST /security/v1/grants/<span class="tool-tip-grant-id">'grantId</span>/children/?apiKey=<span class="tool-tip-apikey">[auth API key]</span></dd>
-
-    <dt class="d-title">description</dt>
-
-    <dd class="d-text">
-        <p>Creates a new grant that is derived from the specified grant. The child grant may be less powerful than the specified grant.</p>
-
-        <p>When this grant is created, the shared property can indicate whether or not the new child grant can be shared. If the grant cannot be shared, then although it will appear on any API keys to which it is added, the id of the grant will not be exposed.</p>
-    </dd>
-
-    <dt class="r-title">request body</dt>
-
-    <dd>
-        <pre>
-{
+  * JSON
+  * POST
+  * POST /security/v1/grants/<span class="tool-tip-grant-id">'grantId</span>/children/?apiKey=<span class="tool-tip-apikey">[auth API key]</span>
+  * description
+  * Creates a new grant that is derived from the specified grant. The child grant may be less powerful than the specified grant. When this grant is created, the shared property can indicate whether or not the new child grant can be shared. If the grant cannot be shared, then although it will appear on any API keys to which it is added, the id of the grant will not be exposed.
+  * request body
+  * <pre>{
 
 "name": ...
 
@@ -463,16 +304,7 @@ template: page-devcntr.jade
 }, ...
 
 ]
-}
-</pre>
-    </dd>
+}</pre>
 
-    <dt class="r-title">response body</dt>
-
-    <dd>
-        <pre>
-{&Ograve;grantId&Oacute;: "[Grant Id]"}
-</pre>
-    </dd>
-</dl>
-</div>
+  * response body
+  * <pre>{&Ograve;grantId&Oacute;: "[Grant Id]"}</pre>
