@@ -94,8 +94,7 @@ For more information on API keys and grants, see the Precog Security Model.
   * GET
   * GET /security/v1/apikeys/<span class="tool-tip-apikey tool-tip-apikey">'apiKey</span>/grants/
   * description
-  * Retrieves all the grants of a particular API key. If a grant cannot be shared, then its grant id will not be exposed, although its type and other settings will be visible.
-<pre>[{
+  * Retrieves all the grants of a particular API key. If a grant cannot be shared, then its grant id will not be exposed, although its type and other settings will be visible.<pre>[{
 "grantId": "[Grant ID]",
 "name": ...,
 "description": ...,

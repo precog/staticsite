@@ -52,13 +52,13 @@ $(document).ready(function(){
     });
     
     //BODY LINK SMOOTH SCROLL
-    /*$("#section-index").on("click", "a", function(e){
+    $("#section-index").on("click", "a", function(e){
         e.preventDefault();
         
         $('html, body').animate({
             scrollTop: $($(this).attr('href')).offset().top - 50
         }, 500);
-    });*/
+    });
     
     //UL DETECT
     $("ul li").each(function(){
