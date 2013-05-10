@@ -1,4 +1,11 @@
+var currentLocation = window.location.href;
+
 $(document).ready(function(){
+    
+    //MENU ACTIVATION
+    if(currentLocation.indexOf("getting-started") > -1) {
+       $("#fixed-menu ul.getting-started").addClass("active")
+    }
     
     //API KEY
     $("#page-content p, #page-content ul li").each(function(){
