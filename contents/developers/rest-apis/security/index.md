@@ -32,7 +32,6 @@ For more information on API keys and grants, see the Precog Security Model.
   * Creates a new API key that has the grants specified in the body of the request. The grants of the authorization API key will be used to issue the grants for the new API key. If multiple grants can be used to satisfy the requirements, then all of them will be used to issue the grants for the new API key.
   * request body
   * <pre>{
-
 "name": ...
 "description": ...
 "grants": [{
@@ -49,7 +48,6 @@ For more information on API keys and grants, see the Precog Security Model.
 }, ...
 ]
 }</pre>
-    
   * response body
   * <pre>{"apiKey": "[API Key]"}</pre>
 
@@ -94,7 +92,9 @@ For more information on API keys and grants, see the Precog Security Model.
   * GET
   * GET /security/v1/apikeys/<span class="tool-tip-apikey tool-tip-apikey">'apiKey</span>/grants/
   * description
-  * Retrieves all the grants of a particular API key. If a grant cannot be shared, then its grant id will not be exposed, although its type and other settings will be visible.<pre>[{
+  * Retrieves all the grants of a particular API key. If a grant cannot be shared, then its grant id will not be exposed, although its type and other settings will be visible.
+  * Request Body
+  * <pre>[{
 "grantId": "[Grant ID]",
 "name": ...,
 "description": ...,
@@ -133,6 +133,7 @@ For more information on API keys and grants, see the Precog Security Model.
   * POST /security/v1/grants/?apiKey=<span class="tool-tip-apikey">[auth API key]</span>
   * description
   * Creates a new grant, derived from grants of the authorization API key. If the authorization key has multiple grants which can be used to satisfy the requirements of the new grant, then the least powerful such grant will be used to derive the new grant. If the authorization key does not have any grants which can be used to satisfy the requirements of the new grant, then the method will not succeed.
+  * Request Body
   * <pre>{
 "name": ...
 "description": ...
