@@ -34,39 +34,24 @@ For more information on API keys and grants, see the Precog Security Model.
   * <pre>{
 
 "name": ...
-
 "description": ...
-
 "grants": [{
-
 "name": ...
-
 "description": ...
-
 "parentIds": ...
-
 "expirationDate": ...
-
 "permissions" : [{
-
 "accessType": "read",
-
 "path": "/foo/",
-
 "ownerAccountIds": "[Owner Account Id]"
-
 }, ...
-
 ]
-
 }, ...
-
 ]
-}
-</pre>
+}</pre>
     
   * response body
-  * <pre>{&Ograve;apiKey&Oacute;: &Ograve;[API Key]&Oacute;}</pre>
+  * <pre>{"apiKey": "[API Key]"}</pre>
 
 ### Describe an API Key
 
@@ -77,37 +62,21 @@ For more information on API keys and grants, see the Precog Security Model.
   * Retrieves the details of a particular API key. The API key must have been created by the authorization API key. If a given grant cannot be shared, it will not return information on the grant id (because this could be used to issue additional grants from the given grant).
   * response body
   * <pre>{
-
 "apiKey": "[API key]",
-
 "name": ...,
-
 "description": ...,
-
 "grants": [{
-
 "grantId": "[Grant ID]",
-
 "name": ...,
-
 "description": ...,
-
 "expirationDate": ...,
-
 "permissions": [{
-
 "accessType": "read",
-
 "path": "/foo/",
-
 "ownerAccountIds": "[Owner Account Id]"
-
 }, ...
-
 ]
-
 }, ...
-
 ]
 }</pre>
 
@@ -126,7 +95,7 @@ For more information on API keys and grants, see the Precog Security Model.
   * GET /security/v1/apikeys/<span class="tool-tip-apikey tool-tip-apikey">'apiKey</span>/grants/
   * description
   * Retrieves all the grants of a particular API key. If a grant cannot be shared, then its grant id will not be exposed, although its type and other settings will be visible.
-  * <pre>[{
+<pre>[{
 "grantId": "[Grant ID]",
 "name": ...,
 "description": ...,
@@ -148,7 +117,7 @@ For more information on API keys and grants, see the Precog Security Model.
   * description
   * Adds the specified grant to the specified API key. The authorization API key must possess (possibly indirectly) the grant being added.
   * request body
-  * <pre>{&Ograve;grantId&Oacute;: "[Grant Id]"}</pre>
+  * <pre>{"grantId": "[Grant Id]"}</pre>
 
 ### Remove a Grant from an API Key
 
