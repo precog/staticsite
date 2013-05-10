@@ -30,3 +30,4 @@
 ^/client-libraries/python$ /developers/client-libraries/python/
 ^/client-libraries/java$ /developers/client-libraries/java/
 ^/quirrel/introduction$ /developers/quirrel/introduction/
+^/downloads/(.*)$ http://downloads.precog.com/$1
