@@ -2,10 +2,20 @@
 html
   head
     link(rel='stylesheet', type='text/css', href='/css/devcntr.css')
+    link(rel='icon', type='image/png', href='/images/favicon.png')
     link(href='https://fonts.googleapis.com/css?family=Questrial|Lato:300,400,700,900,300italic,400italic|Montserrat:400,700', rel='stylesheet', type='text/css')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js')
     script(type='text/javascript', src='/js/devcntr.js')
-    title Dev Center
+    script(type='text/javascript')
+        var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-33659709-1']);
+          _gaq.push(['_trackPageview']);
+          (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
   body
     header
       .holder
@@ -28,7 +38,7 @@ html
           h1#page-title Dev Center
           li
             a(href='/developers/getting-started/overview/') Getting Started
-            ul
+            ul.active
               li
                 a(href='/developers/getting-started/overview/') Overview
               li
@@ -37,7 +47,7 @@ html
                 a(href='/developers/getting-started/analytics/') Analytics
           li
             a(href='/developers/how-tos/') How To Guides
-            ul.active
+            ul
               li
                 a(href='/developers/how-tos/common-analytics/') Common Analytics
               li
