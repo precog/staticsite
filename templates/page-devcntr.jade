@@ -1,5 +1,11 @@
 extends layout-devcntr
 
+block prepend title
+  | #{ page.title } - 
+
 block content
-  page.post
-  section.content!= page.html
+    h1.page-title= page.title
+    #dynamic-body-links
+      ul#section-index
+    #page-content
+    != page.html

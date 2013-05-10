@@ -1,124 +1,114 @@
 !!! 5
-html(lang='en')
+html
   head
-    block head
-      meta(charset='utf-8')
-      title
-        block title
-          = locals.name
-          
-      link(rel='stylesheet', href='/css/devcntr.css')
-      link(href='https://fonts.googleapis.com/css?family=Questrial|Abel|Cinzel:400,700,900', rel='stylesheet', type='text/css')
-      link(rel='icon', type='image/png', href='/images/favicon.png')
-      script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
-      script(src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js')
-      script(type='text/javascript', src='/js/devcntr.js')
-      script(type='text/javascript')
-        var _gaq = _gaq || [];
-          _gaq.push(['_setAccount', 'UA-33659709-1']);
-          _gaq.push(['_trackPageview']);
-          (function() {
-          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-          })();
-          
+    link(rel='stylesheet', type='text/css', href='css/innerpage.css')
+    link(href='http://fonts.googleapis.com/css?family=Questrial|Lato:300,400,700,900,300italic,400italic|Montserrat:400,700', rel='stylesheet', type='text/css')
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js')
+    script(type='text/javascript', src='js/default.js')
+    title Dev Center
   body
-    #pages-documentation
-      #main-nav
-        #logo
-          a(href='http://www.precog.com')
-            img(src='/images/logo-dark-precog.png', alt='Precog')
-        #menu
-          ul.menu
+    header
+      .holder
+        #header-logo
+          a(href='/for-developers/')
+            img(src='/images/logo-precog.png', alt='Precog')
+        #header-mini-menu
+          ul
             li
-                a(href='/developers/getting-started/overview/') Getting Started
-                ul
-                  li
-                    a(href='/developers/getting-started/overview/') Overview
-                  li
-                    a(href='/developers/getting-started/faq/') FAQ
-                  li
-                    a(href='/developers/getting-started/analytics/') Analytics
+              a#login-link(href='/account/login/') Login
+            li
+              a(href='/blog/') Blog
+            li
+              a(href='http://support.precog.com') Support
+            li
+              a(href='/about/contact-us/') Contact
+    #body
+      #body-menu
+        ul#fixed-menu
+          h1#page-title Dev Center
+          li
+            a(href='/developers/getting-started/overview/') Getting Started
+            ul
               li
-                a(href='/developers/how-tos/') How To Guides
-                ul
-                  li
-                    a(href='/developers/how-tos/common-analytics/') Common Analytics
-                  li
-                    a(href='/developers/how-tos/embed-reporting/') Embedded Reporting
-                  li
-                    a(href='/developers/how-tos/machine-learning/') Machine Learning
-                  li
-                    a(href='/developers/how-tos/optimize-performance/') Optimizing Performance
+                a(href='/developers/getting-started/overview/') Overview
               li
-                a(href='/developers/rest-apis/accounts/') REST API
-                ul
-                  li
-                    a(href='/developers/rest-apis/accounts/') Accounts
-                  li
-                    a(href='/developers/rest-apis/ingest/') Ingest
-                  li
-                    a(href='/developers/rest-apis/metadata/') Metadata
-                  li
-                    a(href='/developers/rest-apis/analytics/') Analytics
-                  li
-                    a(href='/developers/rest-apis/security/') Security
+                a(href='/developers/getting-started/faq/') FAQ
               li
-                a(href='/developers/client-libraries/') Client Libraries
+                a(href='/developers/getting-started/analytics/') Analytics
+          li
+            a(href='/developers/how-tos/') How To Guides
+            ul.active
               li
-                a(href='/developers/viz-api/') Visualization API
-                ul
-                  li
-                    a(href='/developers/viz-api/charts-api/') Charts API
-                  li
-                    a(href='/developers/viz-api/transform-api/') Data Transform API
+                a(href='/developers/how-tos/common-analytics/') Common Analytics
               li
-                a(href='/developers/quirrel/introduction/') Quirrel
-
-        #search-box
-          form(method='get', action='http://www2.precog.com/s/17892/e1369a4926353556f972788c89f928c2')
-            p
-              input(type='text', name='q', value='')
-              input(type='submit', value='Search')
-      #body
+                a(href='/developers/how-tos/embed-reporting/') Embedded Reporting
+              li
+                a(href='/developers/how-tos/machine-learning/') Machine Learning
+              li
+                a(href='/developers/how-tos/optimize-performance/') Optimizing Performance
+          li
+            a(href='/developers/rest-apis/accounts/') Rest API
+            ul
+              li
+                a(href='/developers/rest-apis/accounts/') Accounts
+              li
+                a(href='/developers/rest-apis/ingest/') Ingest
+              li
+                a(href='/developers/rest-apis/metadata/') MetaData
+              li
+                a(href='/developers/rest-apis/analytics/') Analytics
+              li
+                a(href='/developers/rest-apis/security/') Security
+          li
+            a(href='/developers/client-libraries/') Client Libraries
+          li
+            a(href='/developers/viz-api/') Visualization API
+            ul
+              li
+                a(href='/developers/viz-api/charts-api/') Charts API
+              li
+                a(href='/developers/viz-api/transform-api/') Data Transform API
+          li
+            a(href='/developers/quirrel/introduction/') Quirrel
+      #body-content
         block content
-      #right-panel
-        #developer-center-tooltips
-            #tool-tip-path.tool-tip.tt-information
-              h1 path
-              p
-                | This is the path to your data. Replace 'path or [path], tic or brackets included with the correct directory location.
-            #tool-tip-root-path.tool-tip.tt-information
-              h1 root path
-              p
-                | This your root path. Replace [root path], brackets included with your root path. Your root path can be found on
-                a(href='/account') your account page
-                | .
-            #tool-tip-account-id.tool-tip.tt-information
-              h1 accountId
-              p
-                | This is your accountId. Replace 'accountId, tic included with your accountId. Your accountId is the same as your root path and can be found on
-                a(href='/account') your account page
-            #tool-tip-grant-id.tool-tip.tt-information
-              h1 grantId
-              p
-                | This is a grantId. Repalce 'grantId, tic included with the appropriate grantId. GrantId's can be generated and accessed using various Security API calls.
-            #tool-tip-apikey.tool-tip.tt-information
-              h1 api key
-              p
-                | This is an API Key. Replace 'apiKey or [auth API key], tic or brackets included with the appropriate API Key. You are assigned an initial API Key upon creating your account that is accessible on
-                a(href='/account') your account page
-                | . API Keys can also be created using the Security API.
-            #tool-tip-auth-apikey.tool-tip.tt-information
-              h1 auth api key
-              p
-                | This is the authorizing API Key. Most likely it is your initital master Precog API Key. It can be found on
-                a(href='/account') your account page
-                | . Replace [auth API Key], brackets included with your Precog API key.
-            #tool-tip-query.tool-tip.tt-information
-              h1 query
-              p
-                | This is your custom Quirrel query. See documentation on the quirrel language
-                a(href='http://quirrel-lang.org/') here
-                | . Replace [...], brackets included, with a query that has proper syntax.
+      .clear
+      #developer-center-tooltips
+        #path-tt.tool-tip
+          h4 Path
+          p
+            | This is the path to your data. Replace 'path or [path], tic or brackets included with the correct directory location.
+        #root-path-tt.tool-tip
+          h4 Root Path
+          p
+            | This your root path. Replace [root path], brackets included with your root path. Your root path can be found on
+            a(href='/account') your account page
+            | .
+        #account-id-tt.tool-tip
+          h4 Account ID
+          p
+            | This is your accountId. Replace 'accountId, tic included with your accountId. Your accountId is the same as your root path and can be found on
+            a(href='/account') your account page
+        #grant-id-tt.tool-tip
+          h4 Grant ID
+          p
+            | This is a grantId. Repalce 'grantId, tic included with the appropriate grantId. GrantId's can be generated and accessed using various Security API calls.
+        #api-key-tt.tool-tip
+          h4 API Key
+          p
+            | This is an API Key. Replace 'apiKey or [auth API key], tic or brackets included with the appropriate API Key. You are assigned an initial API Key upon creating your account that is accessible on
+            a(href='/account') your account page
+            | . API Keys can also be created using the Security API.
+        #auth-api-key-tt.tool-tip
+          h4 Auth API Key
+          p
+            | This is the authorizing API Key. Most likely it is your initital master Precog API Key. It can be found on
+            a(href='/account') your account page
+            | . Replace [auth API Key], brackets included with your Precog API key.
+        #query-tt.tool-tip
+          h4 Query
+          p
+            | This is your custom Quirrel query. See documentation on the quirrel language
+            a(href='http://quirrel-lang.org/') here
+            | . Replace [...], brackets included, with a query that has proper syntax.
+    footer
