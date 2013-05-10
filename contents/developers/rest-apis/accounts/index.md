@@ -25,7 +25,7 @@ All use of the accounts API must be encrypted using SSL/TLS. All API methods exc
 
 ### Create Account
 
-  * JSON{.rest-request}
+  * JSON
   * POST
   * POST /accounts/v1/accounts/
   * description
@@ -47,16 +47,16 @@ All use of the accounts API must be encrypted using SSL/TLS. All API methods exc
   * description
   * Retrieves the details about a particular account. This call is the primary mechanism by which you can retrieve your master API key.
   * response body
-  *    {
-    "accountId": 9384923423,
-    "email": "jdoe@gmail.com",
-    "accountCreationDate": "09-21-2001",
-    "apiKey": "[masterAPIKey]",
-    "rootPath": "/jdoe/",
-    "plan": {
-    "type": "developer",
-    }
-    }
+  * <pre>{
+"accountId": 9384923423,
+"email": "jdoe@gmail.com",
+"accountCreationDate": "09-21-2001",
+"apiKey": "[masterAPIKey]",
+"rootPath": "/jdoe/",
+"plan": {
+"type": "developer",
+}
+}</pre>
 
 ### Add a Grant to an Account
 

@@ -60,4 +60,15 @@ $(document).ready(function(){
         }, 500);
     });
     
+    //UL DETECT
+    $("ul li").each(function(){
+        currentHTML = $(this).html();
+        
+        if (currentHTML == "JSON") {
+            $(this).parent("ul").addClass("rest-request");
+            
+            console.log(this);
+        }
+    });
+    
 });
