@@ -4,7 +4,13 @@ $(document).ready(function(){
     
     //MENU ACTIVATION
     if(currentLocation.indexOf("getting-started") > -1) {
-       $("#fixed-menu ul.getting-started").addClass("active")
+        $("#fixed-menu ul.getting-started").addClass("active")
+    } else if (currentLocation.indexOf("how-tos") > -1) {
+        $("#fixed-menu ul.how-tos").addClass("active")
+    } else if (currentLocation.indexOf("rest-apis") > -1) {
+        $("#fixed-menu ul.rest-apis").addClass("active")
+    } else if (currentLocation.indexOf("viz-api") > -1) {
+        $("#fixed-menu ul.viz-api").addClass("active")
     }
     
     //API KEY
