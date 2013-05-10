@@ -3,8 +3,6 @@ author: Matthew De Goes
 date: 2013-03-26 12:20 
 template: page-devcntr.jade
 
-# Getting Started
-
 ## Analytics
 
 The query interface to Precog is [Quirrel](/developers/quirrel/introduction), a simple but powerful analytical query language capable of handling multi-structured data like JSON.

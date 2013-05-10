@@ -4,7 +4,6 @@ date: 2013-03-26 12:20
 template: page-devcntr.jade
 
 <div>
-<h1>REST API</h1>
 <a name="curl" id="curl"></a>
 
 <h2>ACCESSING USING CURL</h2>

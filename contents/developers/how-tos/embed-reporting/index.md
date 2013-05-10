@@ -3,7 +3,7 @@ author: Matthew De Goes
 date: 2013-03-26 12:20
 template: page-devcntr.jade
 
-<div><h1>How To Guides</h1>
+<div>
 <h2>How to Embed Reporting in Your App</h2>
 <p>Check out a demo dashboard <a href="http://www2.precog.com/socialsaucedashboard">here</a>.</p>
 <h3>Overview</h3>

@@ -4,7 +4,6 @@ date: 2013-03-26 12:20
 template: page-devcntr.jade
 
 <div>
-<h1>REST API</h1>
 <h2>metadata api</h2>
 
 <p>The metadata API provides a one-stop resource for metadata on the structure of data, statistics on queries, and so forth.</p>

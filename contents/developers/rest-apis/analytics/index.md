@@ -4,7 +4,6 @@ date: 2013-03-26 12:20
 template: page-devcntr.jade
 
 <div>
-<h1>REST API</h1>
 <h2>analytics api</h2>
 <p>The analytics API contains a variety of methods for computing analytics on data stored in Precog.</p>
 <h3>Execute a Fast Query</h3>

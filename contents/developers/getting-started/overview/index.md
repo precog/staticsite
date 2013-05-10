@@ -3,8 +3,6 @@ author: Matthew De Goes
 date: 2013-03-26 12:20 
 template: page-devcntr.jade
 
-# Getting Started
-
 ## Signup
 
 Please visit the [Signup Page](https://www.precog.com/account/login/) to sign

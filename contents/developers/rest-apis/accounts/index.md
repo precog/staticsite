@@ -4,7 +4,6 @@ date: 2013-03-26 12:20
 template: page-devcntr.jade
 
 <div>
-<h1>REST API</h1>
 <p>The API calls below are given relative to an analytics service. For example, create an account is documented as: POST /accounts/v1/accounts/. The full call will include the analytics service such as https://beta.precog.com:</p>
 <pre>
 POST https://beta.precog.com/accounts/v1/accounts/

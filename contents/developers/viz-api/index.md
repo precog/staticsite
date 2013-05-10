@@ -3,8 +3,6 @@ Cloud author: John A. De Goes
 date: 2013-03-26 12:20 
 template: page-devcntr.jade
 
-# Visualization API
-
 ## Introduction
 
 Precog's Visualization API is a JavaScript API that can help you quickly build charts and interactive reporting dashboards.

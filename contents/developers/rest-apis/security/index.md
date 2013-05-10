@@ -4,7 +4,6 @@ date: 2013-03-26 12:20
 template: page-devcntr.jade
 
 <div>
-<h1>REST API</h1>
 <h2>security api</h2>
 <p>The security API is responsible for managing permissions for all data stored in Precog. The API can be used to manage API keys and grants.</p>
 <p>An API key is required for interacting with all Precog data APIs. An API key may be associated with many different grants, each of which confers specific permissions with respect to some directory and data owner.</p>
