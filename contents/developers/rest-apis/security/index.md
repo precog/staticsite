@@ -1,4 +1,4 @@
-title: Labcoat Cloud
+title: Security
 author: Matthew De Goes
 date: 2013-03-26 12:20
 template: page-devcntr.jade
@@ -127,27 +127,16 @@ For more information on API keys and grants, see the Precog Security Model.
   * description
   * Retrieves all the grants of a particular API key. If a grant cannot be shared, then its grant id will not be exposed, although its type and other settings will be visible.
   * <pre>[{
-
 "grantId": "[Grant ID]",
-
 "name": ...,
-
 "description": ...,
-
 "expirationDate": ...,
-
 "permissions": [{
-
 "accessType": "read",
-
 "path": "/foo/",
-
 "ownerAccountIds": "[Owner Account Id]"
-
 }, ...
-
 ]
-
 }, ...
 ]</pre>
 
@@ -177,25 +166,15 @@ For more information on API keys and grants, see the Precog Security Model.
   * description
   * Creates a new grant, derived from grants of the authorization API key. If the authorization key has multiple grants which can be used to satisfy the requirements of the new grant, then the least powerful such grant will be used to derive the new grant. If the authorization key does not have any grants which can be used to satisfy the requirements of the new grant, then the method will not succeed.
   * <pre>{
-
 "name": ...
-
 "description": ...
-
 "parentIds": ...
-
 "expirationDate": ...
-
 "permissions" : [{
-
 "accessType": "read",
-
 "path": "/foo/",
-
 "ownerAccountIds": "[Owner Account Id]"
-
 }, ...
-
 ]
 }</pre>
     
@@ -211,25 +190,15 @@ For more information on API keys and grants, see the Precog Security Model.
   * Describes the details of a particular grant. Anyone who has access to the grant id can list the full details of the grant.
   * response body
   * <pre>{
-
 "grantId": "[Grant ID]",
-
 "name": ...,
-
 "description": ...,
-
 "expirationDate": ...,
-
 "permissions": [{
-
 "accessType": "read",
-
 "path": "/foo/",
-
 "ownerAccountIds": "[Owner Account Id]"
-
 }, ...
-
 ]
 }</pre>
 
@@ -250,29 +219,17 @@ For more information on API keys and grants, see the Precog Security Model.
   * Lists all immediate children of the specified grant. Only the creator of a grant can list the children of the grant.
   * response body
   * <pre>[{
-
 "grantId": "[Grant ID]",
-
 "name": ...,
-
 "description": ...,
-
 "expirationDate": ...,
-
 "permissions": [{
-
 "accessType": "read",
-
 "path": "/foo/",
-
 "ownerAccountIds": "[Owner Account Id]"
-
 }, ...
-
 ]
-
 }, ...
-
 ]</pre>
 
 ### Create a Child Grant
@@ -284,27 +241,17 @@ For more information on API keys and grants, see the Precog Security Model.
   * Creates a new grant that is derived from the specified grant. The child grant may be less powerful than the specified grant. When this grant is created, the shared property can indicate whether or not the new child grant can be shared. If the grant cannot be shared, then although it will appear on any API keys to which it is added, the id of the grant will not be exposed.
   * request body
   * <pre>{
-
 "name": ...
-
 "description": ...
-
 "parentIds": ...
-
 "expirationDate": ...
-
 "permissions" : [{
-
 "accessType": "read",
-
 "path": "/foo/",
-
 "ownerAccountIds": "[Owner Account Id]"
-
 }, ...
-
 ]
 }</pre>
 
   * response body
-  * <pre>{&Ograve;grantId&Oacute;: "[Grant Id]"}</pre>
+  * <pre>{"grantId": "[Grant Id]"}</pre>

@@ -16,7 +16,13 @@ $(document).ready(function(){
     //API KEY
     $("#page-content p, #page-content ul li").each(function(){
         var html = $(this).html();
-        var newHtml = html.replace(/API Key|API key|api key|Api key|Api Key/gi, '<span id="api-key" class="tt-link">API Key</span>').replace(/Root Path|Root path|RootPath|ROOT Path/gi, '<span id="root-path" class="tt-link">Root Path</span>').replace(/Account ID|Account id|Account Id/gi, '<span id="account-id" class="tt-link">Account ID</span>');
+        var newHtml = html.replace(/API Key|API key|api key|Api key|Api Key/gi, '<span id="api-key" class="tt-link">API Key</span>')
+        .replace(/Root Path|Root path|RootPath|ROOT Path/gi, '<span id="root-path" class="tt-link">Root Path</span>')
+        .replace(/Account ID|Account id|Account Id/gi, '<span id="account-id" class="tt-link">Account ID</span>')
+        .replace(/PATH|Path|path/gi, '<span id="path" class="tt-link">Path</span>')
+        .replace(/grant-id|Grant-id|Grant-Id|Grant-ID/gi, '<span id="grant-id" class="tt-link">Grant ID</span>')
+        .replace(/auth api key|Auth Api Key|Auth API key/gi, '<span id="auth-api-key" class="tt-link">Auth API Key</span>')
+        .replace(/Query|query|QUERY/gi, '<span id="query" class="tt-link">Query</span>');
         
         $(this).html(newHtml);
     });

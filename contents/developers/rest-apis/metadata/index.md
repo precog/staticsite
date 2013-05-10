@@ -1,4 +1,4 @@
-title: Labcoat Cloud
+title: MetaData
 author: Matthew De Goes
 date: 2013-03-26 12:20
 template: page-devcntr.jade
@@ -17,26 +17,15 @@ The metadata API provides a one-stop resource for metadata on the structure of d
   * response body
   * <pre>{
 "size": 36216,
-
 "structure": {
-
 "children": [ ".a", ".b" ],
-
 "types": {
-
 "Object": 1923,
-
 "Array": 9743,
-
 "String": 93,
-
 "Boolean": 712,
-
 "Number": 23745
-
 }
-
 },
-
 "children": ["foo/", "bar/"]
 }</pre>
