@@ -417,14 +417,9 @@ ul.rest-request li:nth-child(8) {
 }
 
 ul.rest-request li:nth-child(9) {
-    border-left: 1px solid #666;
     margin-top: 0px;
 }
 
-ul.rest-request li:nth-child(10) {
-    margin-top: 0px;
-}
-
-ul.rest-request li:nth-child(10) pre {
+ul.rest-request li:nth-child(9) pre {
     border-radius: 0px !important;
 }
