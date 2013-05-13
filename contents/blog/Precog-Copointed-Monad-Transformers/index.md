@@ -10,7 +10,7 @@ do precisely this. Other monad transformers can mix in the behaviour of <code>Op
 <h2>Evolving a Simple Service to Use Monad Transformers</h2>
 <p>To start us off, we&#8217;ll build on our previous article, <a href="http://precog.com/blog-precog-2/entry/the-abstract-future">&#8220;The Abstract Future,&#8221;</a> as monad transformers and abstracting over your monad compliment each other so nicely. Let&#8217;s say we have a simple service for managing users.</p>
 <pre><code>
-// Don't worry -- we wouldn't actually store a plain text password <img src='http://blog.precog.com/wp-includes/images/smilies/icon_wink.gif' alt=';)' class='wp-smiley' /> 
+// Don't worry -- we wouldn't actually store a plain text password
 case class User(userId: String, email: String, password: String)
 
 trait UserService[M[+_]] {
