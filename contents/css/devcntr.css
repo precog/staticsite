@@ -100,14 +100,15 @@ header {
     top: 0px;
     width: 100%;
     min-width: 1050px;
-    height: 60px;
+    height: 59px;
     z-index: 10000;
     background-color: #fefefe;
+    border-bottom: 1px solid #eaeaea;
 }
 
 header #header-logo {
     position: absolute;
-    top: 14px;
+    top: 12px;
     width: 200px;
     z-index: 2000;
 }
@@ -116,7 +117,7 @@ header #header-logo {
 #header-mini-menu {
     position: absolute;
     right: 0px;
-    top: 16px;
+    top: 14px;
     width: 1000px;
     z-index: 1000;
 }
@@ -157,7 +158,7 @@ header #header-logo {
     text-transform: uppercase;
     font-size: 18pt;
     color: #ff0000;
-    border-bottom: 1px solid #dedede;
+    border-bottom: 1px solid #eaeaea;
     padding-bottom: 26px;
 }
 
@@ -240,13 +241,13 @@ header #header-logo {
 #body-content h1 {
     color: #666;
     text-transform: uppercase;
-    border-bottom: 1px solid #dedede;
+    border-bottom: 1px solid #eaeaea;
     padding-bottom: 16px;
 }
 
 #body-content h2 {
     color: #666;
-    border-top: 1px solid #dedede;
+    border-top: 1px solid #eaeaea;
     padding-top: 20px;
 }
 
@@ -295,7 +296,7 @@ header #header-logo {
 
 /*TOOL TIP*/
 #body .tt-link {
-    border-bottom: 1px solid #4986a6;
+    border-bottom: 1px dashed #4986a6;
     cursor: help;
     font-style: italic;
 }

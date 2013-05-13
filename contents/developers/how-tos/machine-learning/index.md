@@ -1,4 +1,4 @@
-title: How to do Machine Learning with Precog
+title: Machine Learning
 author: Nathan Lubchenco
 date: 2013-05-01 01:00
 template: page-devcntr.jade

@@ -1,4 +1,4 @@
-title: How to Optimize Query Performance on Precog
+title: How Tos
 author: Matthew De Goes 
 date: 2013-03-26 12:20 
 template: page-devcntr.jade

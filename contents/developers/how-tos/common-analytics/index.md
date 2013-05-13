@@ -1,4 +1,4 @@
-title: How to Perform Common Analytics on Precog
+title: Common Analytics
 author: Matthew De Goes 
 date: 2013-03-26 12:20 
 template: page-devcntr.jade

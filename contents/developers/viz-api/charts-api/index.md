@@ -1,4 +1,4 @@
-title: Visualization API
+title: Charts API
 Cloud author: John A. De Goes
 date: 2013-05-03 12:20 
 template: page-devcntr.jade
