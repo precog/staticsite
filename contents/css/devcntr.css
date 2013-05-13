@@ -241,7 +241,6 @@ header #header-logo {
 #body-content h1 {
     color: #666;
     text-transform: uppercase;
-    border-bottom: 1px solid #eaeaea;
     padding-bottom: 16px;
 }
 
@@ -358,7 +357,6 @@ ul.rest-request li:nth-child(1) {
 }
 
 ul.rest-request li:nth-child(2) {
-    border-left: 1px solid #ff0000;
     font-size: 14pt;
     text-transform: uppercase;
     padding-left: 10px;
@@ -366,7 +364,7 @@ ul.rest-request li:nth-child(2) {
 }
 
 ul.rest-request li:nth-child(3) {
-    border: 1px solid #ff0000;
+    border: 1px dotted #efefef;
     margin-top: 0px;
     font-size: 11pt;
     padding: 10px;
@@ -375,7 +373,6 @@ ul.rest-request li:nth-child(3) {
 }
 
 ul.rest-request li:nth-child(4) {
-    border-left: 1px solid #4986a6;
     font-size: 14pt;
     text-transform: uppercase;
     padding-left: 10px;
@@ -384,7 +381,7 @@ ul.rest-request li:nth-child(4) {
 }
 
 ul.rest-request li:nth-child(5) {
-    border: 1px solid #4986a6;
+    border: 1px dotted #efefef;
     margin-top: 0px;
     font-size: 11pt;
     padding: 10px;
@@ -392,7 +389,6 @@ ul.rest-request li:nth-child(5) {
 }
 
 ul.rest-request li:nth-child(6) {
-    border-left: 1px solid #666;
     font-size: 14pt;
     text-transform: uppercase;
     padding-left: 10px;
@@ -409,7 +405,6 @@ ul.rest-request li:nth-child(7) pre {
 }
 
 ul.rest-request li:nth-child(8) {
-    border-left: 1px solid #666;
     font-size: 14pt;
     text-transform: uppercase;
     padding-left: 10px;
