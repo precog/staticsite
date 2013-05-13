@@ -108,7 +108,7 @@ header {
 
 header #header-logo {
     position: absolute;
-    top: 12px;
+    top: 16px;
     width: 200px;
     z-index: 2000;
 }
@@ -117,7 +117,7 @@ header #header-logo {
 #header-mini-menu {
     position: absolute;
     right: 0px;
-    top: 14px;
+    top: 10px;
     width: 1000px;
     z-index: 1000;
 }
@@ -241,7 +241,6 @@ header #header-logo {
 #body-content h1 {
     color: #666;
     text-transform: uppercase;
-    padding-bottom: 16px;
 }
 
 #body-content h2 {
@@ -361,6 +360,7 @@ ul.rest-request li:nth-child(2) {
     text-transform: uppercase;
     padding-left: 10px;
     padding-bottom: 4px;
+    color: #ff0000 !important;
 }
 
 ul.rest-request li:nth-child(3) {
@@ -378,6 +378,7 @@ ul.rest-request li:nth-child(4) {
     padding-left: 10px;
     padding-bottom: 4px;
     margin-top: 20px;
+    color: #4986a6 !important;
 }
 
 ul.rest-request li:nth-child(5) {
