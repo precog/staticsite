@@ -191,35 +191,19 @@ $(document).ready(function(){
                                                 Precog.createAccount(userEmail, userPassword, function(data){
                                                       var accountDetail = data;
                                                       
-                                                      $.getScript("/js/iframesubmit.js", function(){
-                                                            $.getScript("/js/pardot.js", function(){
-                                                                  submit_pardot_form(
-                                                                    "http://www2.precog.com/l/17892/2012-12-10/76rq ",
-                                                                    {
-                                                                      "jform[email1]" : userEmail,
-                                                                      "jform[name]" : userName,
-                                                                      "jform[profile][company]" : userCompany,
-                                                                      "jform[username]" : userEmail,
-                                                                      "jform[profile][jobtitle]" : userTitle
-                                                                    },
-                                                                    function(){
-                                                                        Precog.describeAccount(userEmail, userPassword, accountDetail.accountId, function(data){
-                                                                              var additionalAccountDetails = data;
-                                                                              
-                                                                              sessionStorage.setItem('PrecogAccount_Email', userEmail);
-                                                                              sessionStorage.setItem('PrecogAccount_Name', userName);
-                                                                              sessionStorage.setItem('PrecogAccount_Company', userCompany);
-                                                                              sessionStorage.setItem('PrecogAccount_ID', accountDetail.accountId);
-                                                                              sessionStorage.setItem('PrecogAccount_ApiKey', additionalAccountDetails.apiKey);
-                                                                              sessionStorage.setItem('PrecogAccount_AnalyticsService', Precog.$.Config.analyticsService);
-                                                                              sessionStorage.setItem('PrecogAccount_BasePath', additionalAccountDetails.rootPath);
-                                                                              sessionStorage.setItem('PrecogAccount_Login', 'Logged In');
-                                                                              
-                                                                              window.location = "/account/"
-                                                                        });
-                                                                    }
-                                                                  );
-                                                            });
+                                                      Precog.describeAccount(userEmail, userPassword, accountDetail.accountId, function(data){
+                                                            var additionalAccountDetails = data;
+                                                            
+                                                            sessionStorage.setItem('PrecogAccount_Email', userEmail);
+                                                            sessionStorage.setItem('PrecogAccount_Name', userName);
+                                                            sessionStorage.setItem('PrecogAccount_Company', userCompany);
+                                                            sessionStorage.setItem('PrecogAccount_ID', accountDetail.accountId);
+                                                            sessionStorage.setItem('PrecogAccount_ApiKey', additionalAccountDetails.apiKey);
+                                                            sessionStorage.setItem('PrecogAccount_AnalyticsService', Precog.$.Config.analyticsService);
+                                                            sessionStorage.setItem('PrecogAccount_BasePath', additionalAccountDetails.rootPath);
+                                                            sessionStorage.setItem('PrecogAccount_Login', 'Logged In');
+                                                            
+                                                            window.location = "/account/"
                                                       });
                                                       
                                                 }, function(e){
