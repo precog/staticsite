@@ -39,7 +39,7 @@ $(document).ready(function(){
     
     //DYNAMIC LINK GENERATION
     $("#body-content h1, #body-content h2, #body-content h3, #body-content h4, #body-content h5").each(function(){
-        var val = $(this).html().replace(/ /g,'').replace(/(\r\n|\n|\r)/gm,"");
+        var val = $(this).html().replace(/ /g,'').replace(/[^a-z0-9\s]/gi, '').replace(/(\r\n|\n|\r)/gm,"");
         $(this).attr('id', val);
     });
       
