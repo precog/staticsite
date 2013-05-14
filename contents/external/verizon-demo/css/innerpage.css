@@ -181,6 +181,15 @@ header .menu li a:hover {
     margin-bottom: 30px;
 }
 
+#body-message {
+    height: 320px;
+    width: 918px;
+    padding: 40px;
+    background: url("../images/photo-misc-person.png") no-repeat center right;
+    border: 1px solid #ccc;
+    margin-bottom: 30px;
+}
+
 h1.large-title {
     font-size: 40pt !important;
     letter-spacing: 1px;
