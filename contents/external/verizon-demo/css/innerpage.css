@@ -221,7 +221,8 @@ h1.large-title {
 /*FOOTER*/
 footer p {
     font-family: arial;
-    font-size: 10pt;
-    text-align: right;
-    color: #666666;
+    font-weight: bold;
+    font-size: 8pt;
+    text-align: left;
+    color: #333333;
 }

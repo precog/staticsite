@@ -1,42 +1,23 @@
-<html lang="en" ng-app="myApp"><head>
+<html ng-app="myApp">
+<head>
+    <title>Demographics</title>
     <meta charset="utf-8">
-    <title>URL Traffic Flow</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="description" content="">
-    <meta name="author" content="">
+
+    <link rel="stylesheet" type="text/css" href="css/innerpage.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 
     <script src="http://maps.googleapis.com/maps/api/js?sensor=false&language=en&libraries=drawing"></script>
-     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
-      <script src="./js/ui-select2-master/src/select2.js"></script>
+    <script src="./js/ui-select2-master/src/select2.js"></script>
     <script src="js/angular-google-maps.js"></script>
     <link rel="stylesheet" href="https://api.reportgrid.com/css/rg-charts.css">
-   <link rel="stylesheet" href="./css/flow.css">
+    <link rel="stylesheet" href="./css/flow.css">
     <script src="https://api.reportgrid.com/js/reportgrid-charts.js?authCode=r59uh0XNfjFqI1M%2ByxJK33KGZ0Mm82UqEme9ShK7g12KlIHBhCZK1rFV7KdOHgZ7GAePArW%2FT4EuOgzCPCbZB%2BAGlqH7I8OeRMwxKJA5lSRO1GTNp5IkXcrS4rKVj0KT3jnc%2Fkc6gJBjzZPBwwX10Xgdg2%2B%2FKI1QnoOCVhDJ8Hg%3D"></script>
     <script src="http://api.reportgrid.com/js/precog.js?apiKey=10FE4058-2F45-4F46-925D-729FA545FA6B&basePath=0000000097&analyticsService=https://nebula.precog.com/"></script>
     <script src="./js/precog_js_client-master/dist/precog.min.js"></script>
     <script src="js/controller.js"></script>
-    <!-- Le styles -->
-    <link href="./bootstrap/css/bootstrap.css" rel="stylesheet">
-    <style>
-      body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-      }
-    </style>
-    <link href="./bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="../bootstrap/js/html5shiv.js"></script>
-    <![endif]-->
-
-    <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="./bootstrap/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="./bootstrap/ico/apple-touch-icon-114-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="./bootstrap/ico/apple-touch-icon-72-precomposed.png">
-                    <link rel="apple-touch-icon-precomposed" href="./bootstrap/ico/apple-touch-icon-57-precomposed.png">
-                                   <link rel="shortcut icon" href="./bootstrap/ico/favicon.png">
-  </head>
+</head>
 <!--
   <h1>URL Traffic Flow</h1>
       <div id="chart-holder">
@@ -51,62 +32,60 @@
             <hr>
           <div id="chart">
 -->
-  <body>
-
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="#">Traffic Flow</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="active"><a href="./index.html">Home</a></li>
-              <li class="active"><a href="./overview.html">Overview</a></li>
-              <li class="active"><a href="./geo.html">Geo</a></li>
+<body>
+    <header>
+        <div class="holder">
+            <img src="images/logo-verizon-wireless.png" alt="Verizon">
+            <ul class="menu">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./overview.html">Overview</a></li>
+                <li><a href="./trafficFlow.html">Traffic Flow</a></li>
+                <li><a href="./geo.html">Geo</a></li>
             </ul>
-          </div><!--/.nav-collapse -->
         </div>
-      </div>
-    </div>
-
-    <div class="container">
-
-      <div ng-controller="ChartRenderingController_Flow">
-          <p>Enter Site Name Here: <input type="text" name="input" ng-model="siteName"/> </p> 
-           <p>Exlude Nodes with counts below : <input type="number" name="input" ng-model="filter"/>  </p>
-     <!--   
-        <select id="test" ui-select2 ng-model="select2">
-           
-        </select>
+    </header>
+    <div id="body">
+        <div class="container">
+    
+          <div ng-controller="ChartRenderingController_Flow">
+              <p>Enter Site Name Here: <input type="text" name="input" ng-model="siteName"/> </p> 
+               <p>Exlude Nodes with counts below : <input type="number" name="input" ng-model="filter"/>  </p>
+         <!--   
+            <select id="test" ui-select2 ng-model="select2">
+               
+            </select>
+          -->
+              <hr>
+              <div class="row">
+               <div id="chart" class="span12" class="spinner"></div>
+             </div>
+          </div>
+        </div> <!-- /container -->
+    
+        <!-- Le javascript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster 
+        <script src="./bootstrap/js/jquery.js"></script>
+        <script src="./bootstrap/js/bootstrap-transition.js"></script>
+        <script src="./bootstrap/js/bootstrap-alert.js"></script>
+        <script src="./bootstrap/js/bootstrap-modal.js"></script>
+        <script src="./bootstrap/js/bootstrap-dropdown.js"></script>
+        <script src="./bootstrap/js/bootstrap-scrollspy.js"></script>
+        <script src="./bootstrap/js/bootstrap-tab.js"></script>
+        <script src="./bootstrap/js/bootstrap-tooltip.js"></script>
+        <script src="./bootstrap/js/bootstrap-popover.js"></script>
+        <script src="./bootstrap/js/bootstrap-button.js"></script>
+        <script src="./bootstrap/js/bootstrap-collapse.js"></script>
+        <script src="./bootstrap/js/bootstrap-carousel.js"></script>
+        <script src="./bootstrap/js/bootstrap-typeahead.js"></script>
+    
       -->
-          <hr>
-          <div class="row">
-           <div id="chart" class="span12" class="spinner"></div>
-         </div>
-      </div>
-    </div> <!-- /container -->
 
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster 
-    <script src="./bootstrap/js/jquery.js"></script>
-    <script src="./bootstrap/js/bootstrap-transition.js"></script>
-    <script src="./bootstrap/js/bootstrap-alert.js"></script>
-    <script src="./bootstrap/js/bootstrap-modal.js"></script>
-    <script src="./bootstrap/js/bootstrap-dropdown.js"></script>
-    <script src="./bootstrap/js/bootstrap-scrollspy.js"></script>
-    <script src="./bootstrap/js/bootstrap-tab.js"></script>
-    <script src="./bootstrap/js/bootstrap-tooltip.js"></script>
-    <script src="./bootstrap/js/bootstrap-popover.js"></script>
-    <script src="./bootstrap/js/bootstrap-button.js"></script>
-    <script src="./bootstrap/js/bootstrap-collapse.js"></script>
-    <script src="./bootstrap/js/bootstrap-carousel.js"></script>
-    <script src="./bootstrap/js/bootstrap-typeahead.js"></script>
-
-  -->
-
-</body></html>
+    </div>
+    <footer>
+        <div class="holder">
+            <p>&copy; Precog 2013</p>
+        </div>
+    </footer>
+</body>
+</html>

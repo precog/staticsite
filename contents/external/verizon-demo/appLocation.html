@@ -1,9 +1,10 @@
-<html lang="en" ng-app="myApp"><head>
+<html ng-app="myApp">
+<head>
+    <title>Demographics</title>
     <meta charset="utf-8">
-    <title>Geo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="description" content="">
-    <meta name="author" content="">
+
+    <link rel="stylesheet" type="text/css" href="css/innerpage.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 
     <script src="http://maps.googleapis.com/maps/api/js?sensor=false&language=en&libraries=drawing"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
@@ -14,27 +15,7 @@
     <script src="http://api.reportgrid.com/js/precog.js?apiKey=10FE4058-2F45-4F46-925D-729FA545FA6B&basePath=0000000097&analyticsService=https://nebula.precog.com/"></script>
     <script src="./js/precog_js_client-master/dist/precog.min.js"></script>
     <script src="js/controller.js"></script>
-    <!-- Le styles -->
-    <link href="./bootstrap/css/bootstrap.css" rel="stylesheet">
-    <style>
-      body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-      }
-    </style>
-    <link href="./bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="../bootstrap/js/html5shiv.js"></script>
-    <![endif]-->
-
-    <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="./bootstrap/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="./bootstrap/ico/apple-touch-icon-114-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="./bootstrap/ico/apple-touch-icon-72-precomposed.png">
-                    <link rel="apple-touch-icon-precomposed" href="./bootstrap/ico/apple-touch-icon-57-precomposed.png">
-                                   <link rel="shortcut icon" href="./bootstrap/ico/favicon.png">
-  </head>
+</head>
 <!--
   <div ng-controller="MapController" id="gmap">
     
@@ -48,30 +29,19 @@
       </div>
 -->
   <body>
-
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="#">Geo</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="active"><a href="./index.html">Home</a></li>
-              <li class="active"><a href="./overview.html">Overview</a></li>
-              <li class="active"><a href="./trafficFlow.html">Traffic Flow</a></li>
+    <header>
+        <div class="holder">
+            <img src="images/logo-verizon-wireless.png" alt="Verizon">
+            <ul class="menu">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./overview.html">Overview</a></li>
+                <li><a href="./trafficFlow.html">Traffic Flow</a></li>
+                <li><a href="./geo.html">Geo</a></li>
             </ul>
-          </div><!--/.nav-collapse -->
         </div>
-      </div>
-    </div>
-
-    <div class="container">
-
-    <div class="row">
+    </header>
+    <div id="body">
+        <div class="holder">
        <div ng-controller="MapController_AppLocation" id="gmap" class="span 8">
          <p>Enter App Name Here: <input type="text" name="input" ng-model="appName"/> </p> 
         <google-map id="map" map="map" center="center" draggable="true" zoom="zoom" markers="markers" mark-click="true" style="display:block;height: 600px;width:600px"></google-map>
@@ -82,35 +52,13 @@
         <div id="chart2">
         </div> 
     </div>-->
-
-    </div>  
-      <div class="row">
-        <div class="span 4">
-           <p><a class="btn" href="./paths.html">Geo Paths »</a></p>
-        </div>
-         <div class="span 4">
-           <p><a class="btn" href="./demographics.html">Geo Demographics »</a></p>
-        </div>
-      </div>
+        <a class="btn-sm" href="./paths.html">Geo Paths »</a>
+        <a class="btn-sm" href="./demographics.html">Geo Demographics »</a>
     </div>
-
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster 
-    <script src="./bootstrap/js/jquery.js"></script>
-    <script src="./bootstrap/js/bootstrap-transition.js"></script>
-    <script src="./bootstrap/js/bootstrap-alert.js"></script>
-    <script src="./bootstrap/js/bootstrap-modal.js"></script>
-    <script src="./bootstrap/js/bootstrap-dropdown.js"></script>
-    <script src="./bootstrap/js/bootstrap-scrollspy.js"></script>
-    <script src="./bootstrap/js/bootstrap-tab.js"></script>
-    <script src="./bootstrap/js/bootstrap-tooltip.js"></script>
-    <script src="./bootstrap/js/bootstrap-popover.js"></script>
-    <script src="./bootstrap/js/bootstrap-button.js"></script>
-    <script src="./bootstrap/js/bootstrap-collapse.js"></script>
-    <script src="./bootstrap/js/bootstrap-carousel.js"></script>
-    <script src="./bootstrap/js/bootstrap-typeahead.js"></script>
--->
-  
-
-</body></html>
+    <footer>
+        <div class="holder">
+            <p>&copy; Precog 2013</p>
+        </div>
+    </footer>
+</body>
+</html>
