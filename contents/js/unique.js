@@ -203,7 +203,28 @@ $(document).ready(function(){
                                                             sessionStorage.setItem('PrecogAccount_BasePath', additionalAccountDetails.rootPath);
                                                             sessionStorage.setItem('PrecogAccount_Login', 'Logged In');
                                                             
-                                                            window.location = "/account/"
+                                                            var firstName = userName.split(' ').slice(0, -1).join(' ');
+                                                            var lastName = userName.split(' ').slice(-1).join(' ');
+                                                            
+                                                            var url = "https://app.icontact.com/icp/a/1348845/c/1093/contacts/" + accountDetail.accountId;
+                                                            
+                                                            var customerData = {
+                                                            "email": userEmail,
+                                                            "firstName": firstName,
+                                                            "lastName": lastName
+                                                            };
+                                                                
+                                                                  $.ajax({
+                                                                        type: "POST",
+                                                                        url: url,
+                                                                        data: customerData,
+                                                                        success: function(){
+                                                                            //On Success Re Route window.location = "/account/"
+                                                                            console.log("Data Submitted");
+                                                                        },
+                                                                        error: function(err){ console.log('my message', err); }
+                                                                  });
+                                                            });
                                                       });
                                                       
                                                 }, function(e){
