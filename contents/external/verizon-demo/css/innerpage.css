@@ -115,6 +115,13 @@ pre {
     padding-right: 10px;
 }
 
+/*COLUMNS*/
+.three-columns {
+    float: left;
+    width: 30%;
+    margin-right: 5%;
+}
+
 /*HEADER*/
 header {
     height: 50px;
