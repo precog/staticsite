@@ -206,7 +206,7 @@ $(document).ready(function(){
                                                             var firstName = userName.split(' ').slice(0, -1).join(' ');
                                                             var lastName = userName.split(' ').slice(-1).join(' ');
                                                             
-                                                            var url = ("https://app.icontact.com/icp/a/1348845/c/1093/contacts/" + accountDetail.accountId);
+                                                            var url = ("https://app.icontact.com/icp/a/1348845/c/1093/contacts/");
                                                             
                                                             var customerData = {
                                                             "email": userEmail,
