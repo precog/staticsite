@@ -159,7 +159,7 @@ header .menu li a {
     color: #fff;
 }
 
-header .menu li a:hover {
+header .menu li a:hover, .active {
     background-color: #630000;
 }
 
