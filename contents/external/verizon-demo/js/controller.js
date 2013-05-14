@@ -110,8 +110,8 @@
 		};
 
 
-		var swBound = new google.maps.LatLng(41, -88);
-		var neBound = new google.maps.LatLng(42, -87);
+		var swBound = new google.maps.LatLng(41.45, -88.1);
+		var neBound = new google.maps.LatLng(42.15, -87.35);
 		var bounds = new google.maps.LatLngBounds(swBound, neBound);
 		var srcImage = ""// "./sample.png"
 
@@ -374,8 +374,8 @@
 		};
 
 
-		var swBound = new google.maps.LatLng(41, -88);
-		var neBound = new google.maps.LatLng(42, -87);
+		var swBound = new google.maps.LatLng(41.5, -88.5);
+		var neBound = new google.maps.LatLng(42.5, -87.5);
 		var bounds = new google.maps.LatLngBounds(swBound, neBound);
 		var srcImage = ""// "./sample.png"
 
