@@ -122,6 +122,12 @@ pre {
     margin-right: 5%;
 }
 
+.two-columns {
+    float: left;
+    width: 47%;
+    margin-right: 5%;
+}
+
 /*HEADER*/
 header {
     height: 50px;
