@@ -32,23 +32,8 @@
     </header>
     <div id="body">
         <div ng-controller="ChartRenderingController_Overview" class="row">
-            <div class="three-columns">
-                <h2>Operating System </h2>
-                <div id="chart">
-                </div>
-            </div>
-            <div class="three-columns">
-                <h2>Top Downloads </h2>
-                <div id="chart2">
-                </div>
-            </div>
-            <div class="three-columns last">
-                <h2>Top Average App Usage</h2>
-                <div id="chart3">
-                </div>
-            </div>
             <h2>App Usage </h2>
-            <div id="chart4">
+            <div id="chart4" class="bordered">
             </div>
             <!-- /container -->
             <!-- Le javascript
@@ -68,6 +53,21 @@
             <script src="../bootstrap/js/bootstrap-carousel.js"></script>
             <script src="../bootstrap/js/bootstrap-typeahead.js"></script>
             -->
+            <div class="three-columns">
+                <h2>Operating System </h2>
+                <div id="chart" class="bordered">
+                </div>
+            </div>
+            <div class="three-columns">
+                <h2>Top Downloads </h2>
+                <div id="chart2" class="bordered">
+                </div>
+            </div>
+            <div class="three-columns last">
+                <h2>Top Average App Usage</h2>
+                <div id="chart3" class="bordered">
+                </div>
+            </div>
         </div>
     </div>
     <footer>

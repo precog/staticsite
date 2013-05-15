@@ -231,6 +231,12 @@ h1.large-title {
     right: 24px;
 }
 
+.bordered {
+    border: 1px solid #CBCBCB;
+    padding: 20px;
+    margin: 20px 0px;
+}
+
 /*FOOTER*/
 footer p {
     font-family: arial;
