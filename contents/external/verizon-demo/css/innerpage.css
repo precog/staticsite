@@ -197,6 +197,24 @@ header .menu li a:hover, .active {
 .btn-m {
     display: block;
     color: #fff;
+    width: 126px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    font-size: 10pt;
+    background: #4e4c4d; /* Old browsers */
+    background: -moz-linear-gradient(top,  #4e4c4d 0%, #2a2829 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4e4c4d), color-stop(100%,#2a2829)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #4e4c4d 0%,#2a2829 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #4e4c4d 0%,#2a2829 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #4e4c4d 0%,#2a2829 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #4e4c4d 0%,#2a2829 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4e4c4d', endColorstr='#2a2829',GradientType=0 ); /* IE6-9 */
+}
+
+.btn-lg {
+    display: block;
+    color: #fff;
     width: 140px;
     height: 42px;
     line-height: 42px;
@@ -275,6 +293,10 @@ h1.large-title {
 }
 
 /*FOOTER*/
+footer {
+    padding: 20px 0px;
+}
+
 footer p {
     font-family: arial;
     font-weight: bold;
@@ -321,11 +343,25 @@ footer p {
 
 /*GEO*/
 .body-geo {
-    height: 200px;
+    height: 160px;
     width: 960px;
     padding: 20px;
     border: 1px solid #ccc;
     margin-bottom: 30px;
+    background-repeat: no-repeat;
+    background-position: center right;
+}
+
+.body-geo:nth-child(1) {
+    background-image: url("../images/graphic-app1.png");
+}
+
+.body-geo:nth-child(2) {
+    background-image: url("../images/graphic-app2.png");
+}
+
+.body-geo:nth-child(3) {
+    background-image: url("../images/graphic-app3.png");
 }
 
 .body-geo p {
@@ -334,8 +370,34 @@ footer p {
     line-height: 1.4;
 }
 
-.body-geo a {
+.body-geo .btn-lg {
     position: absolute;
     left: 20px;
     bottom: 20px;
+}
+
+/*GEO INSIDE PAGES*/
+.major-promo {
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    float: left;
+    width: 438px;
+    height: 100px;
+    margin-right: 40px;
+    border: 1px solid #CBCBCB;
+    background: #f4f4f4; /* Old browsers */
+    background: -moz-linear-gradient(top,  #f4f4f4 0%, #dfddde 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f4f4f4), color-stop(100%,#dfddde)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #f4f4f4 0%,#dfddde 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #f4f4f4 0%,#dfddde 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #f4f4f4 0%,#dfddde 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #f4f4f4 0%,#dfddde 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#dfddde',GradientType=0 ); /* IE6-9 */
+}
+
+.major-promo .btn-m {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
 }

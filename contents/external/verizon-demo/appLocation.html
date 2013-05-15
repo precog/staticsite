@@ -41,19 +41,27 @@
         </div>
     </header>
     <div id="body">
-        <div class="holder">
-       <div ng-controller="MapController_AppLocation" id="gmap" class="span 8">
-         <p>Enter Store Name Here: <input type="text" name="input" ng-model="storeName"/> </p> 
-        <google-map id="map" map="map" center="center" draggable="true" zoom="zoom" markers="markers" mark-click="true" style="display:block;height: 600px;width:600px"></google-map>
-      </div>
+        <div ng-controller="MapController_AppLocation" id="gmap" class="span 8">
+            <p>Enter Store Name Here <input type="text" name="input" ng-model="storeName"/> </p> 
+            <google-map id="map" map="map" center="center" draggable="true" zoom="zoom" markers="markers" mark-click="true" style="display:block;height: 600px;width:900px"></google-map>
+        </div>
      <!--  <div ng-controller="ChartRenderingController_Geo" class="span 4">
         <div id="chart">
         </div>
         <div id="chart2">
         </div> 
     </div>-->
-        <a class="btn-sm" href="./paths.html">Geo Paths »</a>
-        <a class="btn-sm" href="./demographics.html">Geo Demographics »</a>
+        <div class="major-promo">
+            <h2>Temp Title</h2>
+            <p>Temp sentence for holding purposes.</p>
+            <a class="btn-m" href="./paths.html">Geo Paths</a>
+        </div>
+        <div class="major-promo last">
+            <h2>Temp Title</h2>
+            <p>Temp sentence for holding purposes.</p>
+            <a class="btn-m" href="./demographics.html">Geo Demographics</a>
+        </div>
+        <div class="clear"></div>
     </div>
     <footer>
         <div class="holder">
