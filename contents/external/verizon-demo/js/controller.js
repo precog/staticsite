@@ -9,8 +9,6 @@
 
 		app.controller('MapController_AppLocation', function MapController ($scope, $http) {
 
-			$scope.appName = "Twitter";
-
 	//	$http.get('./js/data.json').success(function(data){
 		api.execute({query : "road := //0000000097/sampled/roadseg  rand := observe(road, std::random::uniform(41))  road' := road where rand > 0.999 {lat : road'.PREV_GEO_CD_LAT, lng: road'.PREV_GEO_CD_LONG, day: road'.DAY_PART, val: 1250}"}, function(data){
 	//	});
@@ -70,9 +68,11 @@
 			}
 		});
 	//	});
-		
+		$scope.storeName = "Verizon";
+		console.log($scope.storeName);
+
 	//	$http.get('./js/markers.json').success(function(data){
-		api.execute({query : "poi := //0000000097/sampled/poi rand := observe(poi, std::random::uniform(41)) poi' := poi where rand > 0.999 {lat : poi'.LATITUDE, lng: poi'.LONGITUDE, poiName: poi'.POI_NM }"},
+		api.execute({query : "poi := //0000000097/sampled/poi poi where poi.POI_NM =  \"" + $scope.storeName + "\"" },
 		  function(data) { 
 		  	var data = data.data;
 		  	console.log(data);
@@ -82,9 +82,9 @@
 			for (var marker in data){
 
 				markers[i] = new google.maps.Marker({
-				position : new google.maps.LatLng(data[marker].lat,data[marker].lng),
+				position : new google.maps.LatLng(data[marker].LATITUDE,data[marker].LONGITUDE),
 				map: $scope.map.instance,
-				title : data[marker].poiName
+				title : data[marker].POI_NM
 				});
 				i++;
 			}
