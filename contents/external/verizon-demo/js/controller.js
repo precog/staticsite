@@ -7,51 +7,37 @@
 
 	var api = new Precog.api({"apiKey": "10FE4058-2F45-4F46-925D-729FA545FA6B", "analyticsService" : "https://nebula.precog.com"});
 
-		app.controller('MapController_AppLocation', function MapController ($scope, $http) {
+	function renderCircles(data , map){
+		console.log("data", data);
+		
+		var circles = [];
+		var color;
 
-	//	$http.get('./js/data.json').success(function(data){
-		api.execute({query : "road := //0000000097/sampled/roadseg  rand := observe(road, std::random::uniform(41))  road' := road where rand > 0.999 {lat : road'.PREV_GEO_CD_LAT, lng: road'.PREV_GEO_CD_LONG, day: road'.DAY_PART, val: 1250}"}, function(data){
-	//	});
+			for (i = 0; i < data.length ; i++) {
 
-			$scope.points = data.data;
-			console.log($scope.points);
-			console.log($scope.points.length);
-			var circles = [];
-			var color;
-			//for (var point in $scope.points) {
-			for (i = 0; i < $scope.points.length ; i++) {
-				//console.log($scope.points[i].lat);
-
-				
-				if($scope.points[i].day === 2){
+				if(data[i].day === 2){
 					color = '#333333';
-				}  else if($scope.points[i].day === 1){
+				}  else if(data[i].day === 1){
 					color = '#6dc066'; 
 				}
 				else color = '#FF0000';
-
-			//	var j = 0;
 				
-
 				var circleOptions = {
 				  strokeColor: color,
 				  strokeOpacity: 0.8,
 				  strokeWeight: 2,
 				  fillColor: color,
 				  fillOpacity: 0.35,
-				  map: $scope.map.instance,
-				  center: new google.maps.LatLng($scope.points[i].lat,$scope.points[i].lng),
-				  radius: $scope.points[i].val
+				  map: map,
+				  center: new google.maps.LatLng(data[i].lat,data[i].lng),
+				  radius: data[i].val
 				};
 				circles[i] = new google.maps.Circle(circleOptions);
-				//j++;
 			}
 
 			for (j =0; j < circles.length; j++){
 				return circles[j];
 			}
-
-			//console.log(circles);
 
 			for (k =0; k < circles.length; k++){
 				(function(circle){
@@ -66,12 +52,66 @@
 	    			})(circles[k]);
 				});
 			}
-		});
-	//	});
-		$scope.storeName = "Verizon";
-		console.log($scope.storeName);
+		}
 
-	//	$http.get('./js/markers.json').success(function(data){
+	app.controller('MapController_AppLocation', function MapController ($scope) {
+
+		api.execute({query : "road := //0000000097/sampled/roadseg  rand := observe(road, std::random::uniform(41))  road' := road where rand > 0.999 {lat : road'.PREV_GEO_CD_LAT, lng: road'.PREV_GEO_CD_LONG, day: road'.DAY_PART, val: 1250}"}, 
+			function(data){
+	
+			$scope.points = data.data;
+			renderCircles($scope.points , $scope.map.instance);
+			
+/*
+			console.log($scope.points);
+			console.log($scope.points.length);
+			var circles = [];
+			var color;
+
+			for (i = 0; i < $scope.points.length ; i++) {
+
+				if($scope.points[i].day === 2){
+					color = '#333333';
+				}  else if($scope.points[i].day === 1){
+					color = '#6dc066'; 
+				}
+				else color = '#FF0000';
+				
+				var circleOptions = {
+				  strokeColor: color,
+				  strokeOpacity: 0.8,
+				  strokeWeight: 2,
+				  fillColor: color,
+				  fillOpacity: 0.35,
+				  map: $scope.map.instance,
+				  center: new google.maps.LatLng($scope.points[i].lat,$scope.points[i].lng),
+				  radius: $scope.points[i].val
+				};
+				circles[i] = new google.maps.Circle(circleOptions);
+			}
+
+			for (j =0; j < circles.length; j++){
+				return circles[j];
+			}
+
+			for (k =0; k < circles.length; k++){
+				(function(circle){
+					google.maps.event.addListener(circle, 'click', function() {
+						console.log("clicked on circle");
+						if($scope.zoom <= 16){
+							var zoomLevel = $scope.zoom + 1; 
+						} else var zoomLevel = $scope.zoom;
+					    
+					    $scope.map.instance.setZoom(zoomLevel);
+		    			$scope.map.instance.setCenter(circle.getPosition());
+	    			})(circles[k]);
+				});
+			}
+*/
+		});
+
+		$scope.storeName = "Verizon";
+
 		api.execute({query : "poi := //0000000097/sampled/poi poi where poi.POI_NM =  \"" + $scope.storeName + "\"" },
 		  function(data) { 
 		  	var data = data.data;
@@ -102,7 +142,6 @@
 				})(markers[i]);
 			}
 		});
-	//	});
 
 		$scope.center = {
 			lat: 41.85, // initial map center latitude
@@ -118,18 +157,12 @@
 
 		setTimeout(function(){
 
+
 		function CustomOverlay(bounds, image, map){
 			  this.bounds_ = bounds;
 			  this.image_ = image;
 			  this.map_ = map;
-
-			  // We define a property to hold the image's
-			  // div. We'll actually create this div
-			  // upon receipt of the add() method so we'll
-			  // leave it null for now.
 			  this.div_ = null;
-
-			  // Explicitly call setMap() on this overlay
 			  this.setMap(map);
 		}
 
@@ -141,22 +174,20 @@
 			div.style.borderWidth = "0px";
 			div.style.position = "absolute";
 
-			// Create an IMG element and attach it to the DIV.
+
 			var img = document.createElement("img");
 			img.src = this.image_;
 			img.style.width = "100%";
 			img.style.height = "100%";
 			div.appendChild(img);
 
-			// Set the overlay's div_ property to this DIV
+
 			this.div_ = div;
 
-			// We add an overlay to a map via one of the map's panes.
-			// We'll add this overlay to the overlayImage pane.
 			var panes = this.getPanes();
 			panes.overlayMouseTarget.appendChild(div);
 			google.maps.event.addDomListener( div, 'click', function(){
-		      //	google.maps.event.trigger(, 'click');
+		      //	specify actual behavior here
 		        alert("Clicked");
 		    } );
 
@@ -164,18 +195,11 @@
 
 		CustomOverlay.prototype.draw = function() {
 
-			// Size and position the overlay. We use a southwest and northeast
-			// position of the overlay to peg it to the correct position and size.
-			// We need to retrieve the projection from this overlay to do this.
 			var overlayProjection = this.getProjection();
 
-			// Retrieve the southwest and northeast coordinates of this overlay
-			// in latlngs and convert them to pixels coordinates.
-			// We'll use these coordinates to resize the DIV.
 			var sw = overlayProjection.fromLatLngToDivPixel(this.bounds_.getSouthWest());
 			var ne = overlayProjection.fromLatLngToDivPixel(this.bounds_.getNorthEast());
 
-			// Resize the image's DIV to fit the indicated dimensions.
 			var div = this.div_;
 			div.style.left = sw.x + 'px';
 			div.style.top = ne.y + 'px';
@@ -208,82 +232,28 @@
 		$scope.markerLat = null;
 		$scope.markerLng = null;
 
-		
-
-	/*
-		$scope.addMarker = function () {
-			$scope.markers.push({
-				latitude: parseFloat($scope.markerLat),
-				longitude: parseFloat($scope.markerLng)
-			});
-			
-			$scope.markerLat = null;
-			$scope.markerLng = null;
-		};
-*/
-		$scope.findMe = function () {
-			if ($scope.geolocationAvailable) {
-				navigator.geolocation.getCurrentPosition(function (position) {
-					$scope.center = {
-						lat: position.coords.latitude,
-						lng: position.coords.longitude
-					};
-					$scope.$apply();
-				}, function () {
-					
-				});
-			}	
-		};
-/*
-		setTimeout(function() {
-			console.log("go", $scope.map);
-			//for (var city in citymap) {
-				// Construct the circle for each value in citymap. We scale population by 20.
-				var circleOptions = {
-				  strokeColor: '#FF0000',
-				  strokeOpacity: 0.8,
-				  strokeWeight: 2,
-				  fillColor: '#FF0000',
-				  fillOpacity: 0.35,
-				  map: $scope.map.instance,
-				  center: new google.maps.LatLng(41.85, -87.65),
-				  radius: 10000
-				};
-				var point = new google.maps.Circle(circleOptions);
-			//}
-		}, 2000);
-*/
 		console.log($scope.map);
 	});
 
 	app.controller('MapController_Paths', function MapController ($scope, $http) {
 
 			
-
-	//	$http.get('./js/data.json').success(function(data){
 		api.execute({query : "road := //0000000097/sampled/roadseg  rand := observe(road, std::random::uniform(41))  road' := road where rand > 0.999 {lat : road'.PREV_GEO_CD_LAT, lng: road'.PREV_GEO_CD_LONG, day: road'.DAY_PART, val: 1250}"}, function(data){
-	//	});
 
 			$scope.points = data.data;
 			console.log($scope.points);
 			console.log($scope.points.length);
 			var circles = [];
 			var color;
-			//for (var point in $scope.points) {
 			for (i = 0; i < $scope.points.length ; i++) {
-				//console.log($scope.points[i].lat);
-
-				
+	
 				if($scope.points[i].day === 2){
 					color = '#333333';
 				}  else if($scope.points[i].day === 1){
 					color = '#6dc066'; 
 				}
 				else color = '#FF0000';
-
-			//	var j = 0;
-				
-
+		
 				var circleOptions = {
 				  strokeColor: color,
 				  strokeOpacity: 0.8,
@@ -295,14 +265,11 @@
 				  radius: $scope.points[i].val
 				};
 				circles[i] = new google.maps.Circle(circleOptions);
-				//j++;
 			}
 
 			for (j =0; j < circles.length; j++){
 				return circles[j];
 			}
-
-			//console.log(circles);
 
 			for (k =0; k < circles.length; k++){
 				(function(circle){
@@ -318,7 +285,6 @@
 				});
 			}
 		});
-	//	});
 		
 		$http.get('./js/markers.json').success(function(data){
 			
@@ -393,14 +359,7 @@
 			 this.bounds_ = bounds;
 			  this.image_ = image;
 			  this.map_ = map;
-
-			  // We define a property to hold the image's
-			  // div. We'll actually create this div
-			  // upon receipt of the add() method so we'll
-			  // leave it null for now.
 			  this.div_ = null;
-
-			  // Explicitly call setMap() on this overlay
 			  this.setMap(map);
 		}
 
@@ -412,22 +371,20 @@
 			div.style.borderWidth = "0px";
 			div.style.position = "absolute";
 
-			// Create an IMG element and attach it to the DIV.
+
 			var img = document.createElement("img");
 			img.src = this.image_;
 			img.style.width = "100%";
 			img.style.height = "100%";
 			div.appendChild(img);
 
-			// Set the overlay's div_ property to this DIV
 			this.div_ = div;
 
-			// We add an overlay to a map via one of the map's panes.
-			// We'll add this overlay to the overlayImage pane.
+
 			var panes = this.getPanes();
 			panes.overlayMouseTarget.appendChild(div);
 			google.maps.event.addDomListener( div, 'click', function(){
-		      //	google.maps.event.trigger(, 'click');
+		      //	specify actual behavior here
 		        alert("Clicked");
 		    } );
 
@@ -435,18 +392,11 @@
 
 		CustomOverlay.prototype.draw = function() {
 
-			// Size and position the overlay. We use a southwest and northeast
-			// position of the overlay to peg it to the correct position and size.
-			// We need to retrieve the projection from this overlay to do this.
 			var overlayProjection = this.getProjection();
 
-			// Retrieve the southwest and northeast coordinates of this overlay
-			// in latlngs and convert them to pixels coordinates.
-			// We'll use these coordinates to resize the DIV.
 			var sw = overlayProjection.fromLatLngToDivPixel(this.bounds_.getSouthWest());
 			var ne = overlayProjection.fromLatLngToDivPixel(this.bounds_.getNorthEast());
 
-			// Resize the image's DIV to fit the indicated dimensions.
 			var div = this.div_;
 			div.style.left = sw.x + 'px';
 			div.style.top = ne.y + 'px';
@@ -479,51 +429,9 @@
 		$scope.markerLat = null;
 		$scope.markerLng = null;
 
-	/*
-		$scope.addMarker = function () {
-			$scope.markers.push({
-				latitude: parseFloat($scope.markerLat),
-				longitude: parseFloat($scope.markerLng)
-			});
-			
-			$scope.markerLat = null;
-			$scope.markerLng = null;
-		};
-*/
-		$scope.findMe = function () {
-			if ($scope.geolocationAvailable) {
-				navigator.geolocation.getCurrentPosition(function (position) {
-					$scope.center = {
-						lat: position.coords.latitude,
-						lng: position.coords.longitude
-					};
-					$scope.$apply();
-				}, function () {
-					
-				});
-			}	
-		};
-/*
-		setTimeout(function() {
-			console.log("go", $scope.map);
-			//for (var city in citymap) {
-				// Construct the circle for each value in citymap. We scale population by 20.
-				var circleOptions = {
-				  strokeColor: '#FF0000',
-				  strokeOpacity: 0.8,
-				  strokeWeight: 2,
-				  fillColor: '#FF0000',
-				  fillOpacity: 0.35,
-				  map: $scope.map.instance,
-				  center: new google.maps.LatLng(41.85, -87.65),
-				  radius: 10000
-				};
-				var point = new google.maps.Circle(circleOptions);
-			//}
-		}, 2000);
-*/
 		console.log($scope.map);
 	});
+	
 	app.controller('MapController_Demographics', function MapController ($scope, $http) {
 
 		$scope.iOS = true;
@@ -558,29 +466,23 @@
 
 		
 
-	//	$http.get('./js/data.json').success(function(data){
+
 		api.execute({query : "road := //0000000097/sampled/roadseg  rand := observe(road, std::random::uniform(41))  road' := road where rand > 0.999 {lat : road'.PREV_GEO_CD_LAT, lng: road'.PREV_GEO_CD_LONG, day: road'.DAY_PART, val: 1250}"}, function(data){
-	//	});
 
 			$scope.points = data.data;
 			console.log($scope.points);
 			console.log($scope.points.length);
 			var circles = [];
 			var color;
-			//for (var point in $scope.points) {
-			for (i = 0; i < $scope.points.length ; i++) {
-				//console.log($scope.points[i].lat);
 
-				
+			for (i = 0; i < $scope.points.length ; i++) {
+	
 				if($scope.points[i].day === 2){
 					color = '#333333';
 				}  else if($scope.points[i].day === 1){
 					color = '#6dc066'; 
 				}
 				else color = '#FF0000';
-
-			//	var j = 0;
-				
 
 				var circleOptions = {
 				  strokeColor: color,
@@ -593,14 +495,11 @@
 				  radius: $scope.points[i].val
 				};
 				circles[i] = new google.maps.Circle(circleOptions);
-				//j++;
 			}
 
 			for (j =0; j < circles.length; j++){
 				return circles[j];
 			}
-
-			//console.log(circles);
 
 			for (k =0; k < circles.length; k++){
 				(function(circle){
@@ -616,7 +515,6 @@
 				});
 			}
 		});
-	//	});
 		
 		$http.get('./js/markers.json').success(function(data){
 			var markers = [],
@@ -666,13 +564,8 @@
 			  this.image_ = image;
 			  this.map_ = map;
 
-			  // We define a property to hold the image's
-			  // div. We'll actually create this div
-			  // upon receipt of the add() method so we'll
-			  // leave it null for now.
 			  this.div_ = null;
 
-			  // Explicitly call setMap() on this overlay
 			  this.setMap(map);
 		}
 
@@ -684,22 +577,18 @@
 			div.style.borderWidth = "0px";
 			div.style.position = "absolute";
 
-			// Create an IMG element and attach it to the DIV.
 			var img = document.createElement("img");
 			img.src = this.image_;
 			img.style.width = "100%";
 			img.style.height = "100%";
 			div.appendChild(img);
 
-			// Set the overlay's div_ property to this DIV
 			this.div_ = div;
 
-			// We add an overlay to a map via one of the map's panes.
-			// We'll add this overlay to the overlayImage pane.
 			var panes = this.getPanes();
 			panes.overlayMouseTarget.appendChild(div);
 			google.maps.event.addDomListener( div, 'click', function(){
-		      //	google.maps.event.trigger(, 'click');
+		      //	specify behavior here
 		        alert("Clicked");
 		    } );
 
@@ -707,18 +596,11 @@
 
 		CustomOverlay.prototype.draw = function() {
 
-			// Size and position the overlay. We use a southwest and northeast
-			// position of the overlay to peg it to the correct position and size.
-			// We need to retrieve the projection from this overlay to do this.
 			var overlayProjection = this.getProjection();
 
-			// Retrieve the southwest and northeast coordinates of this overlay
-			// in latlngs and convert them to pixels coordinates.
-			// We'll use these coordinates to resize the DIV.
 			var sw = overlayProjection.fromLatLngToDivPixel(this.bounds_.getSouthWest());
 			var ne = overlayProjection.fromLatLngToDivPixel(this.bounds_.getNorthEast());
 
-			// Resize the image's DIV to fit the indicated dimensions.
 			var div = this.div_;
 			div.style.left = sw.x + 'px';
 			div.style.top = ne.y + 'px';
@@ -750,20 +632,6 @@
 		
 		$scope.markerLat = null;
 		$scope.markerLng = null;
-
-		$scope.findMe = function () {
-			if ($scope.geolocationAvailable) {
-				navigator.geolocation.getCurrentPosition(function (position) {
-					$scope.center = {
-						lat: position.coords.latitude,
-						lng: position.coords.longitude
-					};
-					$scope.$apply();
-				}, function () {
-					
-				});
-			}	
-		};
 
 		console.log($scope.map);
 	});
@@ -836,11 +704,9 @@
 			ReportGrid.sankey("#chart", {
 				axes : ["count"],
 				load : ReportGrid.query.precog(customFlow),
-			//	data : [{"tail":"Google","head":"Google API","count":725},{"tail":"Google","head":"YouTube","count":322},{"tail":"Google","head":"Other","count":8529},{"tail":"Google API2","head":"Google","count":573},{"tail":"YouTube","head":"Google","count":224},{"tail":"Other","head":"Google","count":9657}],
 				options : {
 					"height" : 800,
 					"width" : 950,
-				//	layoutmethod : "weightbalance",
 				    stackbackedges : false,
 				    thinbackedges : true,
 					filterpacing : 15,
@@ -849,7 +715,6 @@
 						console.log(dp);
 						$scope.siteName = dp.id;
 						$scope.$apply();
-						//$scope.render($scope.siteName, $scope.filter)
 					},
 					"ready" : function(){
 						angular.element("#chart").removeClass("spinner");
