@@ -43,6 +43,12 @@ h2, h3, h4, h5 {
     color: #B00000;
 }
 
+input {
+    padding: 4px;
+    background-color: #fff;
+    border: 1px solid #CBCBCB;
+}
+
 /*FONT PADDING*/
 /*P*/
 p + p {
@@ -245,6 +251,9 @@ h1.large-title {
 
 .grey {
     background-color: #FAFAFA;
+    -moz-box-shadow: inset 0 0 60px 0 #ccc;
+    -webkit-box-shadow: inset 0 0 60px 0 #ccc;
+    box-shadow: inset 0 0 60px 0 #ccc;
 }
 
 /*FOOTER*/
