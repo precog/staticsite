@@ -751,17 +751,6 @@
 		$scope.markerLat = null;
 		$scope.markerLng = null;
 
-	/*
-		$scope.addMarker = function () {
-			$scope.markers.push({
-				latitude: parseFloat($scope.markerLat),
-				longitude: parseFloat($scope.markerLng)
-			});
-			
-			$scope.markerLat = null;
-			$scope.markerLng = null;
-		};
-*/
 		$scope.findMe = function () {
 			if ($scope.geolocationAvailable) {
 				navigator.geolocation.getCurrentPosition(function (position) {
@@ -775,25 +764,7 @@
 				});
 			}	
 		};
-/*
-		setTimeout(function() {
-			console.log("go", $scope.map);
-			//for (var city in citymap) {
-				// Construct the circle for each value in citymap. We scale population by 20.
-				var circleOptions = {
-				  strokeColor: '#FF0000',
-				  strokeOpacity: 0.8,
-				  strokeWeight: 2,
-				  fillColor: '#FF0000',
-				  fillOpacity: 0.35,
-				  map: $scope.map.instance,
-				  center: new google.maps.LatLng(41.85, -87.65),
-				  radius: 10000
-				};
-				var point = new google.maps.Circle(circleOptions);
-			//}
-		}, 2000);
-*/
+
 		console.log($scope.map);
 	});
 
@@ -803,23 +774,6 @@
 			$scope.points = data;
 		});
 
-		/*
-		var testCircle;
-
-		var testOptions = {
-		  center: new google.maps.LatLng(41.85, -87.65),
-		  radius : 100000,
-		  strokeColor: "#FF0000",
-		  strokeOpacity: 0.8,
-		  strokeWeight: 2,
-		  fillColor: "#FFFFFF",
-		  fillOpacity: 0.35
-		};
-		$scope.data = {
-		testCircle : new google.maps.Circle(testOptions)
-		}
-		*/
-
 	});
 
 	app.controller('ChartRenderingController_Geo', function ($scope){
@@ -827,7 +781,7 @@
 		function renderBarChart(data, div){
 			ReportGrid.barChart(div, {
 			axes : ["x", "y"],
-			data : data, //ReportGrid.query.load(data),
+			data : data, 
 			options : {
 				"height" : 275,
 				"width" : 300
@@ -845,43 +799,14 @@
 
 		renderBarChart(data, "#chart");
 		renderBarChart(data, "#chart2");
-/*
-		ReportGrid.barChart("#chart", {
-			axes : ["x", "y"],
-			data : data, //ReportGrid.query.load(data),
-			options : {
-				"height" : 275,
-				"width" : 300
-			}
-		});
-
-		ReportGrid.barChart("#chart2", {
-			axes : ["x", "y"],
-			data : data, //ReportGrid.query.load(data),
-			options : {
-				"height" : 275,
-				"width" : 300
-			}
-		});
-*/
 	});
 
 
 	app.controller('ChartRenderingController_Flow', function ($scope){
 
-	/*	api.execute({query : "url := //sampled/url distinct(url.URL_NM)", function(data}){
-			console.log(data);
-			$scope.siteNames = data;
-
-			$("#test").select2({
-				data : [ {id : 1, text: "a"}, {id : 2, text: "b"}] // $scope.siteNames
-			});
-		})
-	*/
 		$scope.$watch(function(){
 			return $scope.siteName + " " + $scope.filter;
 		}, (function(){
-			console.log("watching stuff");
 			var timer;
 			return function(){
 				clearTimeout(timer);
@@ -894,7 +819,8 @@
 
 
 		$scope.siteName = 'Twitter';
-		$scope.filter = 25;
+		$scope.filter = 50;
+		
 		$scope.render = function (siteName, filter){
 			ReportGrid.tooltip && ReportGrid.tooltip.hide();
 			angular.element("#chart").addClass("spinner");
@@ -912,8 +838,8 @@
 				load : ReportGrid.query.precog(customFlow),
 			//	data : [{"tail":"Google","head":"Google API","count":725},{"tail":"Google","head":"YouTube","count":322},{"tail":"Google","head":"Other","count":8529},{"tail":"Google API2","head":"Google","count":573},{"tail":"YouTube","head":"Google","count":224},{"tail":"Other","head":"Google","count":9657}],
 				options : {
-					"height" : 700,
-					"width" : 900,
+					"height" : 800,
+					"width" : 950,
 				//	layoutmethod : "weightbalance",
 				    stackbackedges : false,
 				    thinbackedges : true,
@@ -945,8 +871,8 @@
 			axes : ["count"],
 			load : ReportGrid.query.precog(devices),
 			options : {
-				"height" : 300,
-				"width" : 300,
+				"height" : 240,
+				"width" : 240,
 				"labelorientation" : "horizontal",
 				"label" : {
 					"datapoint" : "@device",
@@ -959,9 +885,9 @@
 			axes : ["app", "count"],
 			load : ReportGrid.query.precog(top10Downloads),
 			options : {
-				"height" : 300,
-				"width" : 450,
-				"barpadding" : 18,
+				"height" : 250,
+				"width" : 325,
+				"barpadding" : 14,
 				"horizontal" : true
 			}
 		});
@@ -970,10 +896,10 @@
 			axes : ["app", "aveSession"],
 			load : ReportGrid.query.precog(aveUsage),
 			options : {
-				"height" : 300,
-				"width" : 450,
+				"height" : 250,
+				"width" : 325,
 				"horizontal" : true,
-				"barpadding" : 18,
+				"barpadding" : 14,
 				"label" : {
 					"datapointover" : "max : @maxSession, stdDev : @ReportGrid.format(stdDev), total : @totalTime"
 				}
