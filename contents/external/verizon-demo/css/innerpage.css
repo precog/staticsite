@@ -202,6 +202,12 @@ h1.large-title {
     letter-spacing: 1px;
 }
 
+#body-message p {
+    width: 600px;
+    font-size: 16pt;
+    line-height: 1.4;
+}
+
 .minor-promo {
     padding: 20px;
     float: left;
