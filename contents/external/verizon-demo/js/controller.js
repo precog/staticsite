@@ -895,8 +895,8 @@
 				load : ReportGrid.query.precog(customFlow),
 			//	data : [{"tail":"Google","head":"Google API","count":725},{"tail":"Google","head":"YouTube","count":322},{"tail":"Google","head":"Other","count":8529},{"tail":"Google API2","head":"Google","count":573},{"tail":"YouTube","head":"Google","count":224},{"tail":"Other","head":"Google","count":9657}],
 				options : {
-					"height" : 800,
-					"width" : 1150,
+					"height" : 700,
+					"width" : 900,
 				//	layoutmethod : "weightbalance",
 				    stackbackedges : false,
 				    thinbackedges : true,
@@ -944,6 +944,7 @@
 			options : {
 				"height" : 300,
 				"width" : 450,
+				"barpadding" : 18,
 				"horizontal" : true
 			}
 		});
@@ -955,6 +956,7 @@
 				"height" : 300,
 				"width" : 450,
 				"horizontal" : true,
+				"barpadding" : 18,
 				"label" : {
 					"datapointover" : "max : @maxSession, stdDev : @ReportGrid.format(stdDev), total : @totalTime"
 				}
@@ -965,8 +967,8 @@
 			axes : ["count", "total"],
 			load : ReportGrid.query.precog(usageScatter).sortValue("count"),
 			options : {
-				"height" : 800,
-				"width" : 1100,
+				"height" : 650,
+				"width" : 900,
 				"symbol" :  function(dp, stats){
 					return ReportGrid.symbol("circle" , dp.aveSession * 3)
 				},
@@ -980,6 +982,7 @@
 				},
 				"displaytickminor": false,
       			"displaytickmajor": false,
+      			"displayanchorlinetick" : true,
 				"displayticklabel" : function(axis){
 			        if(axis === "count"){
 			          return false;
@@ -987,7 +990,7 @@
 			        else return false;
 			    },
 			    "padding" : {
-			    	left : 60
+			    	left : 80
 			    }
 			
 			}
