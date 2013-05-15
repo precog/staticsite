@@ -119,7 +119,7 @@
 		setTimeout(function(){
 
 		function CustomOverlay(bounds, image, map){
-			 this.bounds_ = bounds;
+			  this.bounds_ = bounds;
 			  this.image_ = image;
 			  this.map_ = map;
 
@@ -189,6 +189,11 @@
 		console.log($scope.map.instance.mapTypeId);
 		$scope.map.instance.mapTypeId = $scope.view;
 
+		$scope.styles = [ { "featureType": "administrative", "stylers": [ { "visibility": "off" } ] },{ "featureType": "poi", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.local", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.arterial", "stylers": [ { "hue": "#ff0900" }, { "lightness": 49 } ] },{ "featureType": "road.highway", "stylers": [ { "hue": "#ff0900" }, { "lightness": 48 } ] },{ "featureType": "transit", "stylers": [ { "visibility": "off" } ] },{ "featureType": "water", "stylers": [ { "hue": "#0091ff" }, { "lightness": 49 } ] },{ } ];
+		$scope.styledMap = new google.maps.StyledMapType($scope.styles, {name: "Styled Map"});
+		$scope.map.instance.mapTypes.set('map_style', $scope.styledMap);
+  		$scope.map.instance.setMapTypeId('map_style');
+
 		}, 2000);
 
 		$scope.geolocationAvailable = navigator.geolocation ? true : false;		
@@ -202,6 +207,8 @@
 		
 		$scope.markerLat = null;
 		$scope.markerLng = null;
+
+		
 
 	/*
 		$scope.addMarker = function () {
@@ -452,6 +459,11 @@
 		$scope.view = google.maps.MapTypeId.TERRAIN;
 		console.log($scope.map.instance.mapTypeId);
 		$scope.map.instance.mapTypeId = $scope.view;
+
+		$scope.styles = [ { "featureType": "administrative", "stylers": [ { "visibility": "off" } ] },{ "featureType": "poi", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.local", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.arterial", "stylers": [ { "hue": "#ff0900" }, { "lightness": 49 } ] },{ "featureType": "road.highway", "stylers": [ { "hue": "#ff0900" }, { "lightness": 48 } ] },{ "featureType": "transit", "stylers": [ { "visibility": "off" } ] },{ "featureType": "water", "stylers": [ { "hue": "#0091ff" }, { "lightness": 49 } ] },{ } ];
+		$scope.styledMap = new google.maps.StyledMapType($scope.styles, {name: "Styled Map"});
+		$scope.map.instance.mapTypes.set('map_style', $scope.styledMap);
+  		$scope.map.instance.setMapTypeId('map_style');
 
 		}, 2000);
 
@@ -719,6 +731,11 @@
 		$scope.view = google.maps.MapTypeId.TERRAIN;
 		console.log($scope.map.instance.mapTypeId);
 		$scope.map.instance.mapTypeId = $scope.view;
+
+		$scope.styles = [ { "featureType": "administrative", "stylers": [ { "visibility": "off" } ] },{ "featureType": "poi", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.local", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.arterial", "stylers": [ { "hue": "#ff0900" }, { "lightness": 49 } ] },{ "featureType": "road.highway", "stylers": [ { "hue": "#ff0900" }, { "lightness": 48 } ] },{ "featureType": "transit", "stylers": [ { "visibility": "off" } ] },{ "featureType": "water", "stylers": [ { "hue": "#0091ff" }, { "lightness": 49 } ] },{ } ];
+		$scope.styledMap = new google.maps.StyledMapType($scope.styles, {name: "Styled Map"});
+		$scope.map.instance.mapTypes.set('map_style', $scope.styledMap);
+  		$scope.map.instance.setMapTypeId('map_style');
 
 		}, 2000);
 
