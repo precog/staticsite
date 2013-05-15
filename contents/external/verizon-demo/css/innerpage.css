@@ -194,6 +194,24 @@ header .menu li a:hover, .active {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4e4c4d', endColorstr='#2a2829',GradientType=0 ); /* IE6-9 */
 }
 
+.btn-m {
+    display: block;
+    color: #fff;
+    width: 140px;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    font-size: 12pt;
+    background: #4e4c4d; /* Old browsers */
+    background: -moz-linear-gradient(top,  #4e4c4d 0%, #2a2829 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4e4c4d), color-stop(100%,#2a2829)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #4e4c4d 0%,#2a2829 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #4e4c4d 0%,#2a2829 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #4e4c4d 0%,#2a2829 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #4e4c4d 0%,#2a2829 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4e4c4d', endColorstr='#2a2829',GradientType=0 ); /* IE6-9 */
+}
+
 /*BODY*/
 #body {
     margin-top: 30px;
@@ -299,4 +317,25 @@ footer p {
     background-image: url("../images/graphic-smartphones.png");
     background-repeat: no-repeat;
     background-position: 560px 450px;
+}
+
+/*GEO*/
+.body-geo {
+    height: 200px;
+    width: 960px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin-bottom: 30px;
+}
+
+.body-geo p {
+    width: 600px;
+    font-size: 16pt;
+    line-height: 1.4;
+}
+
+.body-geo a {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
 }
