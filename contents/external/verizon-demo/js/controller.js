@@ -9,8 +9,6 @@
 
 		app.controller('MapController_AppLocation', function MapController ($scope, $http) {
 
-			$scope.appName = "Twitter";
-
 	//	$http.get('./js/data.json').success(function(data){
 		api.execute({query : "road := //0000000097/sampled/roadseg  rand := observe(road, std::random::uniform(41))  road' := road where rand > 0.999 {lat : road'.PREV_GEO_CD_LAT, lng: road'.PREV_GEO_CD_LONG, day: road'.DAY_PART, val: 1250}"}, function(data){
 	//	});
@@ -70,9 +68,11 @@
 			}
 		});
 	//	});
-		
+		$scope.storeName = "Verizon";
+		console.log($scope.storeName);
+
 	//	$http.get('./js/markers.json').success(function(data){
-		api.execute({query : "poi := //0000000097/sampled/poi rand := observe(poi, std::random::uniform(41)) poi' := poi where rand > 0.999 {lat : poi'.LATITUDE, lng: poi'.LONGITUDE, poiName: poi'.POI_NM }"},
+		api.execute({query : "poi := //0000000097/sampled/poi poi where poi.POI_NM =  \"" + $scope.storeName + "\"" },
 		  function(data) { 
 		  	var data = data.data;
 		  	console.log(data);
@@ -82,9 +82,9 @@
 			for (var marker in data){
 
 				markers[i] = new google.maps.Marker({
-				position : new google.maps.LatLng(data[marker].lat,data[marker].lng),
+				position : new google.maps.LatLng(data[marker].LATITUDE,data[marker].LONGITUDE),
 				map: $scope.map.instance,
-				title : data[marker].poiName
+				title : data[marker].POI_NM
 				});
 				i++;
 			}
@@ -895,8 +895,8 @@
 				load : ReportGrid.query.precog(customFlow),
 			//	data : [{"tail":"Google","head":"Google API","count":725},{"tail":"Google","head":"YouTube","count":322},{"tail":"Google","head":"Other","count":8529},{"tail":"Google API2","head":"Google","count":573},{"tail":"YouTube","head":"Google","count":224},{"tail":"Other","head":"Google","count":9657}],
 				options : {
-					"height" : 800,
-					"width" : 1150,
+					"height" : 700,
+					"width" : 900,
 				//	layoutmethod : "weightbalance",
 				    stackbackedges : false,
 				    thinbackedges : true,
@@ -944,6 +944,7 @@
 			options : {
 				"height" : 300,
 				"width" : 450,
+				"barpadding" : 18,
 				"horizontal" : true
 			}
 		});
@@ -955,6 +956,7 @@
 				"height" : 300,
 				"width" : 450,
 				"horizontal" : true,
+				"barpadding" : 18,
 				"label" : {
 					"datapointover" : "max : @maxSession, stdDev : @ReportGrid.format(stdDev), total : @totalTime"
 				}
@@ -965,8 +967,8 @@
 			axes : ["count", "total"],
 			load : ReportGrid.query.precog(usageScatter).sortValue("count"),
 			options : {
-				"height" : 800,
-				"width" : 1100,
+				"height" : 650,
+				"width" : 900,
 				"symbol" :  function(dp, stats){
 					return ReportGrid.symbol("circle" , dp.aveSession * 3)
 				},
@@ -980,6 +982,7 @@
 				},
 				"displaytickminor": false,
       			"displaytickmajor": false,
+      			"displayanchorlinetick" : true,
 				"displayticklabel" : function(axis){
 			        if(axis === "count"){
 			          return false;
@@ -987,7 +990,7 @@
 			        else return false;
 			    },
 			    "padding" : {
-			    	left : 60
+			    	left : 80
 			    }
 			
 			}
