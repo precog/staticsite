@@ -243,6 +243,10 @@ h1.large-title {
     margin: 20px 0px;
 }
 
+.grey {
+    background-color: #FAFAFA;
+}
+
 /*FOOTER*/
 footer p {
     font-family: arial;
@@ -250,4 +254,40 @@ footer p {
     font-size: 8pt;
     text-align: left;
     color: #333333;
+}
+
+/*OVERVIEW*/
+#absolute-pie-chart {
+    position: absolute;
+    top: 400px;
+    right: 20px;
+}
+
+#absolute-pie-chart h2 {
+    font-size: 12pt;
+    color: #666;
+    text-align: right;
+}
+
+.three-columns-spec {
+    float: left;
+    width: 35%;
+}
+
+.three-columns-spec.middle {
+    margin-top: 48px;
+    width: 30%;
+    background-color: #b00000;
+}
+
+.three-columns-spec.middle p {
+    color: #ffffff;
+    font-size: 11pt;
+    padding: 20px;
+}
+
+.iphone {
+    background-image: url("../images/graphic-smartphones.png");
+    background-repeat: no-repeat;
+    background-position: 560px 450px;
 }
