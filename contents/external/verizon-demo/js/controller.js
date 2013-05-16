@@ -7,163 +7,83 @@
 
 	var api = new Precog.api({"apiKey": "10FE4058-2F45-4F46-925D-729FA545FA6B", "analyticsService" : "https://nebula.precog.com"});
 
-	function renderCircles(data , map){
-		console.log("data", data);
-		
+	function renderCircles(data , map){	
 		var circles = [];
 		var color;
 
-			for (i = 0; i < data.length ; i++) {
+		for (i = 0; i < data.length ; i++) {
 
-				if(data[i].day === 2){
-					color = '#333333';
-				}  else if(data[i].day === 1){
-					color = '#6dc066'; 
-				}
-				else color = '#FF0000';
-				
-				var circleOptions = {
-				  strokeColor: color,
-				  strokeOpacity: 0.8,
-				  strokeWeight: 2,
-				  fillColor: color,
-				  fillOpacity: 0.35,
-				  map: map,
-				  center: new google.maps.LatLng(data[i].lat,data[i].lng),
-				  radius: data[i].val
-				};
-				circles[i] = new google.maps.Circle(circleOptions);
+			if(data[i].day === 2){
+				color = '#333333';
+			}  else if(data[i].day === 1){
+				color = '#6dc066'; 
 			}
-
-			for (j =0; j < circles.length; j++){
-				return circles[j];
-			}
-
-			for (k =0; k < circles.length; k++){
-				(function(circle){
-					google.maps.event.addListener(circle, 'click', function() {
-						console.log("clicked on circle");
-						if($scope.zoom <= 16){
-							var zoomLevel = $scope.zoom + 1; 
-						} else var zoomLevel = $scope.zoom;
-					    
-					    $scope.map.instance.setZoom(zoomLevel);
-		    			$scope.map.instance.setCenter(circle.getPosition());
-	    			})(circles[k]);
-				});
-			}
+			else color = '#FF0000';
+			
+			var circleOptions = {
+			  strokeColor: color,
+			  strokeOpacity: 0.8,
+			  strokeWeight: 2,
+			  fillColor: color,
+			  fillOpacity: 0.35,
+			  map: map,
+			  center: new google.maps.LatLng(data[i].lat,data[i].lng),
+			  radius: data[i].val
+			};
+			circles[i] = new google.maps.Circle(circleOptions);
 		}
 
-	app.controller('MapController_AppLocation', function MapController ($scope) {
+		for (k =0; k < circles.length; k++){
+			(function(circle){
+				google.maps.event.addListener(circle, 'click', function() {
+					console.log("clicked on circle");
+					if($scope.zoom <= 16){
+						var zoomLevel = $scope.zoom + 1; 
+					} else var zoomLevel = $scope.zoom;
+				    
+				    map.setZoom(zoomLevel);
+	    			map.setCenter(circle.getPosition());
+    			})(circles[k]);
+			});
+		}
+	}
 
-		api.execute({query : "road := //0000000097/sampled/roadseg  rand := observe(road, std::random::uniform(41))  road' := road where rand > 0.999 {lat : road'.PREV_GEO_CD_LAT, lng: road'.PREV_GEO_CD_LONG, day: road'.DAY_PART, val: 1250}"}, 
-			function(data){
-	
-			$scope.points = data.data;
-			renderCircles($scope.points , $scope.map.instance);
-			
-/*
-			console.log($scope.points);
-			console.log($scope.points.length);
-			var circles = [];
-			var color;
+	function renderMarkers(data, map){
+  		console.log(data);
+		var markers = [],
+			i = 0;
 
-			for (i = 0; i < $scope.points.length ; i++) {
-
-				if($scope.points[i].day === 2){
-					color = '#333333';
-				}  else if($scope.points[i].day === 1){
-					color = '#6dc066'; 
-				}
-				else color = '#FF0000';
-				
-				var circleOptions = {
-				  strokeColor: color,
-				  strokeOpacity: 0.8,
-				  strokeWeight: 2,
-				  fillColor: color,
-				  fillOpacity: 0.35,
-				  map: $scope.map.instance,
-				  center: new google.maps.LatLng($scope.points[i].lat,$scope.points[i].lng),
-				  radius: $scope.points[i].val
-				};
-				circles[i] = new google.maps.Circle(circleOptions);
-			}
-
-			for (j =0; j < circles.length; j++){
-				return circles[j];
-			}
-
-			for (k =0; k < circles.length; k++){
-				(function(circle){
-					google.maps.event.addListener(circle, 'click', function() {
-						console.log("clicked on circle");
-						if($scope.zoom <= 16){
-							var zoomLevel = $scope.zoom + 1; 
-						} else var zoomLevel = $scope.zoom;
-					    
-					    $scope.map.instance.setZoom(zoomLevel);
-		    			$scope.map.instance.setCenter(circle.getPosition());
-	    			})(circles[k]);
-				});
-			}
-*/
-		});
-
-		$scope.storeName = "Verizon";
-
-		api.execute({query : "poi := //0000000097/sampled/poi poi where poi.POI_NM =  \"" + $scope.storeName + "\"" },
-		  function(data) { 
-		  	var data = data.data;
-		  	console.log(data);
-			var markers = [],
-				i = 0;
-
-			for (var marker in data){
-
-				markers[i] = new google.maps.Marker({
+		for (var marker in data){
+			markers[i] = new google.maps.Marker({
 				position : new google.maps.LatLng(data[marker].LATITUDE,data[marker].LONGITUDE),
-				map: $scope.map.instance,
+				map: map,
 				title : data[marker].POI_NM
 				});
-				i++;
-			}
+			i++;
+		}
 
-			for (i=0; i < markers.length; i++){
-				(function(marker){
-					google.maps.event.addListener(marker, 'click', function() {
-						if($scope.zoom <= 16){
-							var zoomLevel = $scope.zoom + 1; 
-						} else var zoomLevel = $scope.zoom;
-					    $scope.map.instance.setZoom(zoomLevel);
-		    			$scope.map.instance.setCenter(marker.getPosition());
-		    			console.log(marker);
-  					});
-				})(markers[i]);
-			}
-		});
+		for (i=0; i < markers.length; i++){
+			(function(marker){
+				google.maps.event.addListener(marker, 'click', function() {
+					if($scope.zoom <= 16){
+						var zoomLevel = $scope.zoom + 1; 
+					} else var zoomLevel = $scope.zoom;
+				    map.setZoom(zoomLevel);
+	    			map.setCenter(marker.getPosition());
+	    			console.log(marker);
+					});
+			})(markers[i]);
+		}
+	}
 
-		$scope.center = {
-			lat: 41.85, // initial map center latitude
-			lng: -87.65 // initial map center longitude
-		};
-
-
-		var swBound = new google.maps.LatLng(41.45, -88.1);
-		var neBound = new google.maps.LatLng(42.15, -87.35);
-		var bounds = new google.maps.LatLngBounds(swBound, neBound);
-		var srcImage = ""// "./sample.png"
-
-
-		setTimeout(function(){
-
+	function creatOverlay(bounds, srcImage, map){
 
 		function CustomOverlay(bounds, image, map){
-			  this.bounds_ = bounds;
-			  this.image_ = image;
-			  this.map_ = map;
-			  this.div_ = null;
-			  this.setMap(map);
+		  this.bounds_ = bounds;
+		  this.image_ = image;
+		  this.map_ = map;
+		  this.div_ = null;
+		  this.setMap(map);
 		}
 
 		CustomOverlay.prototype = new google.maps.OverlayView();
@@ -174,13 +94,11 @@
 			div.style.borderWidth = "0px";
 			div.style.position = "absolute";
 
-
 			var img = document.createElement("img");
 			img.src = this.image_;
 			img.style.width = "100%";
 			img.style.height = "100%";
 			div.appendChild(img);
-
 
 			this.div_ = div;
 
@@ -190,7 +108,6 @@
 		      //	specify actual behavior here
 		        alert("Clicked");
 		    } );
-
 		}
 
 		CustomOverlay.prototype.draw = function() {
@@ -207,28 +124,142 @@
 			div.style.height = (sw.y - ne.y) + 'px';
 		}
 
-		var overlay = new CustomOverlay(bounds, srcImage, $scope.map.instance);
+		var overlay = new CustomOverlay(bounds, srcImage, map);
+		return overlay;
+	}
 
-		$scope.view = google.maps.MapTypeId.TERRAIN;
-		console.log($scope.map.instance.mapTypeId);
-		$scope.map.instance.mapTypeId = $scope.view;
+	app.controller('MapController_AppLocation', function MapController ($scope) {
 
-		$scope.styles = [ { "featureType": "administrative", "stylers": [ { "visibility": "off" } ] },{ "featureType": "poi", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.local", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.arterial", "stylers": [ { "hue": "#ff0900" }, { "lightness": 49 } ] },{ "featureType": "road.highway", "stylers": [ { "hue": "#ff0900" }, { "lightness": 48 } ] },{ "featureType": "transit", "stylers": [ { "visibility": "off" } ] },{ "featureType": "water", "stylers": [ { "hue": "#0091ff" }, { "lightness": 49 } ] },{ } ];
-		$scope.styledMap = new google.maps.StyledMapType($scope.styles, {name: "Styled Map"});
-		$scope.map.instance.mapTypes.set('map_style', $scope.styledMap);
-  		$scope.map.instance.setMapTypeId('map_style');
+		api.execute({query : "road := //0000000097/sampled/roadseg  rand := observe(road, std::random::uniform(41))  road' := road where rand > 0.999 {lat : road'.PREV_GEO_CD_LAT, lng: road'.PREV_GEO_CD_LONG, day: road'.DAY_PART, val: 1250}"}, 
+			function(data){
+				$scope.points = data.data;
+				renderCircles($scope.points , $scope.map.instance);
+		});
 
-		}, 2000);
+		$scope.storeName = "Verizon";
 
-		$scope.geolocationAvailable = navigator.geolocation ? true : false;		
+		api.execute({query : "poi := //0000000097/sampled/poi poi where poi.POI_NM =  \"" + $scope.storeName + "\"" },
+		 	function(data) { 
+			  	var data = data.data;
+			  	renderMarkers(data, $scope.map.instance);
+			  	/*
+			  	console.log(data);
+				var markers = [],
+					i = 0;
+
+				for (var marker in data){
+
+					markers[i] = new google.maps.Marker({
+					position : new google.maps.LatLng(data[marker].LATITUDE,data[marker].LONGITUDE),
+					map: $scope.map.instance,
+					title : data[marker].POI_NM
+					});
+					i++;
+				}
+
+				for (i=0; i < markers.length; i++){
+					(function(marker){
+						google.maps.event.addListener(marker, 'click', function() {
+							if($scope.zoom <= 16){
+								var zoomLevel = $scope.zoom + 1; 
+							} else var zoomLevel = $scope.zoom;
+						    $scope.map.instance.setZoom(zoomLevel);
+			    			$scope.map.instance.setCenter(marker.getPosition());
+			    			console.log(marker);
+	  					});
+					})(markers[i]);
+				}
+				*/
+		});
+
+		$scope.center = {
+			lat: 41.85, // initial map center latitude
+			lng: -87.65 // initial map center longitude
+		};
+
+/*
+		var swBound = new google.maps.LatLng(41.45, -88.1);
+		var neBound = new google.maps.LatLng(42.15, -87.35);
+		var bounds = new google.maps.LatLngBounds(swBound, neBound);
+		var srcImage = ""// "./sample.png"
+*/
+
+		setTimeout(function(){
+/*
+			function CustomOverlay(bounds, image, map){
+				  this.bounds_ = bounds;
+				  this.image_ = image;
+				  this.map_ = map;
+				  this.div_ = null;
+				  this.setMap(map);
+			}
+
+			CustomOverlay.prototype = new google.maps.OverlayView();
+
+			CustomOverlay.prototype.onAdd = function(){
+				var div = document.createElement('div');
+				div.style.border = "none";
+				div.style.borderWidth = "0px";
+				div.style.position = "absolute";
+
+
+				var img = document.createElement("img");
+				img.src = this.image_;
+				img.style.width = "100%";
+				img.style.height = "100%";
+				div.appendChild(img);
+
+
+				this.div_ = div;
+
+				var panes = this.getPanes();
+				panes.overlayMouseTarget.appendChild(div);
+				google.maps.event.addDomListener( div, 'click', function(){
+			      //	specify actual behavior here
+			        alert("Clicked");
+			    } );
+
+			}
+
+			CustomOverlay.prototype.draw = function() {
+
+				var overlayProjection = this.getProjection();
+
+				var sw = overlayProjection.fromLatLngToDivPixel(this.bounds_.getSouthWest());
+				var ne = overlayProjection.fromLatLngToDivPixel(this.bounds_.getNorthEast());
+
+				var div = this.div_;
+				div.style.left = sw.x + 'px';
+				div.style.top = ne.y + 'px';
+				div.style.width = (ne.x - sw.x) + 'px';
+				div.style.height = (sw.y - ne.y) + 'px';
+			}
+
+			var overlay = new CustomOverlay(bounds, srcImage, $scope.map.instance);
+
+*/
+			var swBound = new google.maps.LatLng(41.45, -88.1);
+		var neBound = new google.maps.LatLng(42.15, -87.35);
+		var bounds = new google.maps.LatLngBounds(swBound, neBound);
+		var srcImage = ""// "./sample.png"
+			var overlay = new creatOverlay(bounds, srcImage, $scope.map.instance);
+			$scope.view = google.maps.MapTypeId.TERRAIN;
+			console.log($scope.map.instance.mapTypeId);
+			$scope.map.instance.mapTypeId = $scope.view;
+
+			$scope.styles = [ { "featureType": "administrative", "stylers": [ { "visibility": "off" } ] },{ "featureType": "poi", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.local", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.arterial", "stylers": [ { "hue": "#ff0900" }, { "lightness": 49 } ] },{ "featureType": "road.highway", "stylers": [ { "hue": "#ff0900" }, { "lightness": 48 } ] },{ "featureType": "transit", "stylers": [ { "visibility": "off" } ] },{ "featureType": "water", "stylers": [ { "hue": "#0091ff" }, { "lightness": 49 } ] },{ } ];
+			$scope.styledMap = new google.maps.StyledMapType($scope.styles, {name: "Styled Map"});
+			$scope.map.instance.mapTypes.set('map_style', $scope.styledMap);
+	  		$scope.map.instance.setMapTypeId('map_style');
+
+			}, 2000);
+
+		//$scope.geolocationAvailable = navigator.geolocation ? true : false;		
 
 		$scope.latitude = null;
 		$scope.longitude = null;
-		
 		$scope.zoom = 9;
-		
 		$scope.markers = [];
-		
 		$scope.markerLat = null;
 		$scope.markerLng = null;
 
