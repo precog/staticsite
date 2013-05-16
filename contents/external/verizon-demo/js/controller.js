@@ -99,6 +99,10 @@
 	  	}
 	}
 
+	$("header").click(function(){
+		console.log("clicked");
+		createOverlay();
+	});
 	  //OVERLAY FUNCTION
 	  function createOverlay() {
 	    $("body").prepend("<div id='overlay'></div>");
@@ -372,6 +376,10 @@
 	});
 
 	app.controller('ChartRenderingController_Geo', function ($scope){
+
+		$scope.test = function(){
+			console.log("log test");
+		}
 		
 		function renderBarChart(data, div){
 			ReportGrid.barChart(div, {
@@ -381,7 +389,9 @@
 				"height" : 275,
 				"width" : 300
 			},
-			ready : createOverlay();
+			ready : function(){
+				createOverlay();
+			}
 		});
 		}
 
@@ -393,8 +403,8 @@
 			{"x" : 5, "y" :4 }
 		]
 
-		renderBarChart(data, "#chart");
-		renderBarChart(data, "#chart2");
+		renderBarChart(data, "#interactive-chart");
+		//renderBarChart(data, "#chart2");
 	});
 
 
