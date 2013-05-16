@@ -66,9 +66,14 @@ h2, h3, h4, h5 {
 
 input {
     padding: 4px;
+    font-size: 10pt;
     background-color: #fff;
     border: 1px solid #CBCBCB;
 }
+
+/*REMOVEinput:hover {
+    border: 1px solid #b00000;
+}*/
 
 /*FONT PADDING*/
 /*P*/
@@ -491,3 +496,19 @@ footer p {
     bottom: 24px;
     right: 24px;
 }
+
+/*TRAFFIC FLOW*/
+/*REMOVE#traffic-flow-controls {
+    position: absolute;
+    z-index: 1000;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+#traffic-flow-controls p {
+    font-weight: bold;
+    font-size: 8pt;
+    padding-top: 8px;
+    padding-bottom: 4px;
+    letter-spacing: 1px;
+}*/
