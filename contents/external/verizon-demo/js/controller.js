@@ -99,10 +99,6 @@
 	  	}
 	}
 
-	$("header").click(function(){
-		console.log("clicked");
-		createOverlay();
-	});
 	  //OVERLAY FUNCTION
 	  function createOverlay() {
 	    $("body").prepend("<div id='overlay'></div>");
