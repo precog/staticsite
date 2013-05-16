@@ -6,7 +6,6 @@ $(document).ready(function(){
     var textVar = elemVar / 5;
     
     $(this).css({width: elemVar, height: elemVar, fontSize: textVar, borderRadius: elemVar, lineHeight: (elemVar + "px")})
-    console.log(elemVar);
   });
   
   
