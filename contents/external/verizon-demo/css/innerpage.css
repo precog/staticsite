@@ -215,6 +215,10 @@ header .menu li a:hover, .active {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4e4c4d', endColorstr='#2a2829',GradientType=0 ); /* IE6-9 */
 }
 
+/*REMOVE.btn-sm:hover {
+    background: #808080;
+}*/
+
 .btn-m {
     display: block;
     color: #fff;
@@ -233,6 +237,10 @@ header .menu li a:hover, .active {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4e4c4d', endColorstr='#2a2829',GradientType=0 ); /* IE6-9 */
 }
 
+/*REMOVE.btn-m:hover {
+    background: #808080;
+}*/
+
 .btn-lg {
     display: block;
     color: #fff;
@@ -250,6 +258,10 @@ header .menu li a:hover, .active {
     background: linear-gradient(to bottom,  #4e4c4d 0%,#2a2829 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4e4c4d', endColorstr='#2a2829',GradientType=0 ); /* IE6-9 */
 }
+
+/*REMOVE.btn-lg:hover {
+    background: #808080;
+}*/
 
 /*BODY*/
 /*HOME*/
@@ -280,8 +292,10 @@ h1.large-title {
 
 /*CUSTOM BUBBLE VIS*/
 #custom-bubble-vis {
+    margin-top: 20px;
     list-style-type: none;
-}
+    display: none;
+}/*REMOVE*/
 
 #custom-bubble-vis li {
     font-size: 10pt;
@@ -291,13 +305,17 @@ h1.large-title {
     text-align: center;
 }
 
+/*REMOVE#custom-bubble-vis li:hover p {
+    color: #000;
+}*/
+
 #custom-bubble-vis li span {
     display: block;
     background-color: #fff;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #cccccc;
-    color: #b00000;
+    color: #848484;
     font-family: arial;
     font-weight: bold;
     cursor: pointer;
@@ -308,18 +326,20 @@ h1.large-title {
     -webkit-transition: 1s;
 }
 
-#custom-bubble-vis li span:hover {
+/*REMOVE#custom-bubble-vis li span:hover {
     border: 1px solid #b00000;
+    color: #b00000;
     -moz-box-shadow: inset 0 0 30px 0 #ccc;
     -webkit-box-shadow: inset 0 0 30px 0 #ccc;
     box-shadow: inset 0 0 30px 0 #ccc;
-}
+}*/
 
 #custom-bubble-vis li p {
     position: absolute;
     text-align: left;
     font-size: 8pt;
-    color: #000;
+    color: #afafaf;
+    width: auto;
 }
 
 .minor-promo {
@@ -350,6 +370,10 @@ h1.large-title {
     padding: 20px;
     margin: 20px 0px;
 }
+
+/*REMOVE.bordered:hover {
+    border: 1px solid #B3B3B3;
+}*/
 
 .grey {
     background-color: #FAFAFA;
