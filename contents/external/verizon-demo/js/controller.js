@@ -443,7 +443,7 @@
 				axes : ["count"],
 				load : ReportGrid.query.precog(customFlow),
 				options : {
-					"height" : 800,
+					"height" : 600,
 					"width" : 950,
 				    stackbackedges : false,
 				    thinbackedges : true,
