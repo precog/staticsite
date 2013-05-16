@@ -1,18 +1,12 @@
 $(document).ready(function(){
 
-  $("#click").click(function(){
-    createOverlay();
+  //BUBBLE CHART HOME PAGE
+  $("#custom-bubble-vis span").each(function(){
+    var elemVar = $(this).html() / 110;
+    var textVar = elemVar / 5;
+    
+    $(this).css({width: elemVar, height: elemVar, fontSize: textVar, borderRadius: elemVar, lineHeight: (elemVar + "px")})
+    console.log(elemVar);
   });
   
-  function removeMe() {
-    $("#overlay").remove();
-  }
-
-  function createOverlay() {
-    console.log("Clicked");
-    $("body").prepend("<div id='overlay'></div>");
-  }
-  
-  $("#overlay").on("click", removeMe);
-
 });
