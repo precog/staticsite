@@ -1,3 +1,8 @@
+@font-face {
+font-family: apex;
+src: url("../font/ApexNew-Book.otf") format("opentype");
+}
+
 * {
     border: 0;
     text-decoration: none;
@@ -401,9 +406,38 @@ footer p {
 }
 
 /*OVERVIEW*/
+/*#overview-header {
+    width: 100%;
+    height: 120px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    background-color: #afccdc;
+    background-image: url("../images/graphic-overview-header.png");
+    background-repeat: no-repeat;
+    background-positon: center left;
+    text-align: right;
+}
+
+#overview-header h2 {
+    padding: 30px 20px 0px 0px;
+    color: #333 !important;
+    font-size: 38px;
+    font-weight: bolder;
+    font-family: apex, sans-serif;
+    text-transform: uppercase;
+}
+
+#overview-header p {
+    padding-right: 20px;
+    text-align: right;
+    font-size: 14px;
+    font-weight: bolder;
+    color: #56707c;
+}*/
+
 #absolute-pie-chart {
     position: absolute;
-    top: 320px;
+    top: 260px;
     right: 20px;
 }
 
@@ -430,7 +464,7 @@ footer p {
     background-image: url("../images/icon-app.png");
     background-repeat: no-repeat;
     background-position: 60px 40px;
-    margin-bottom: 0px;
+    margin: 0px;
 }
 
 .symbol path {
