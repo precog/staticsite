@@ -486,8 +486,8 @@
 			load : ReportGrid.query.precog(top10Downloads),
 			options : {
 				"height" : 250,
-				"width" : 325,
-				"barpadding" : 14,
+				"width" : 460,
+				"barpadding" : 8,
 				"horizontal" : true
 			}
 		});
@@ -497,9 +497,9 @@
 			load : ReportGrid.query.precog(aveUsage),
 			options : {
 				"height" : 250,
-				"width" : 325,
+				"width" : 460,
 				"horizontal" : true,
-				"barpadding" : 14,
+				"barpadding" : 10,
 				"label" : {
 					"datapointover" : "max : @maxSession, stdDev : @ReportGrid.format(stdDev), total : @totalTime"
 				}
@@ -510,7 +510,7 @@
 			axes : ["count", "total"],
 			load : ReportGrid.query.precog(usageScatter).sortValue("count"),
 			options : {
-				"height" : 650,
+				"height" : 520,
 				"width" : 900,
 				"symbol" :  function(dp, stats){
 					return ReportGrid.symbol("circle" , dp.aveSession * 3)

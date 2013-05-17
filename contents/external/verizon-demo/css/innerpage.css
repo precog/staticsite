@@ -403,37 +403,38 @@ footer p {
 /*OVERVIEW*/
 #absolute-pie-chart {
     position: absolute;
-    top: 400px;
+    top: 320px;
     right: 20px;
 }
 
 #absolute-pie-chart h2 {
-    font-size: 12pt;
-    color: #666;
-    text-align: right;
+    font-size: 10pt;
+    color: #777;
+    text-align: center;
 }
 
-.three-columns-spec {
+.two-columns-spec {
     float: left;
-    width: 35%;
+    width: 50%;
 }
 
-.three-columns-spec.middle {
-    margin-top: 48px;
-    width: 30%;
-    background-color: #b00000;
+.two-columns-spec h2 {
+    color: #666;
 }
 
-.three-columns-spec.middle p {
-    color: #ffffff;
-    font-size: 11pt;
-    padding: 20px;
+.two-columns-spec .bordered {
+    margin-top: 0px;
 }
 
-.iphone {
-    background-image: url("../images/graphic-smartphones.png");
+.app {
+    background-image: url("../images/icon-app.png");
     background-repeat: no-repeat;
-    background-position: 560px 450px;
+    background-position: 60px 40px;
+    margin-bottom: 0px;
+}
+
+.symbol path {
+    fill: #666 !important;
 }
 
 /*GEO*/
