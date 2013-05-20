@@ -43,6 +43,10 @@
     background-image: url("/images/graphic-splash-social-media.png");
 }
 
+.for-data-science-image {
+    background-image: url("/images/graphic-data-science-media.png");
+}
+
 .for-whitelabel-reporting {
     background-image: url("/images/graphic-splash-whitelabel-reporting.png");
 }

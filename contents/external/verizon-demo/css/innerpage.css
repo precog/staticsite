@@ -482,6 +482,12 @@ footer p {
     margin-bottom: 30px;
     background-repeat: no-repeat;
     background-position: center right;
+    transition: 1s;
+    -webkit-transition: 1s;
+}
+
+.body-geo:hover {
+    
 }
 
 .body-geo:nth-child(1) {
