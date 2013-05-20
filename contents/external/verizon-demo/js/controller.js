@@ -10,6 +10,9 @@
 	function renderCircles(data , map){	
 		var circles = [];
 		var color;
+	//	console.log(data.val);
+	//	var max_of_array = Math.max.apply(Math, data.val);
+	//	console.log(max_of_array);
 
 		for (i = 0; i < data.length ; i++) {
 
@@ -18,14 +21,18 @@
 			}  else if(data[i].day === 1){
 				color = '#6dc066'; 
 			}
+				else if(data[i].type === "Company"){
+				 color = '#3ca9d0'
+				}
+
 			else color = '#FF0000';
 			
 			var circleOptions = {
 			  strokeColor: color,
-			  strokeOpacity: 0.8,
+			  strokeOpacity: 0.5,
 			  strokeWeight: 2,
 			  fillColor: color,
-			  fillOpacity: 0.35,
+			  fillOpacity: 0.2,
 			  map: map,
 			  center: new google.maps.LatLng(data[i].lat,data[i].lng),
 			  radius: data[i].val
@@ -48,16 +55,32 @@
 		}
 	}
 
-	function renderMarkers(data, map){
+	function renderHeatMap(data, map){
+		var points = [];
+
+		for (i = 0; i < data.length; i++){
+			points[i].location = new google.maps.Latlng(data.lat, data.lng);
+		}
+
+		var heatmap = new google.maps.visualization.HeatmapLayer({
+			data : points
+		});
+
+		heatmap.setMap(map);
+
+	}
+
+	function renderMarkers(data, map, $scope){
+
   		console.log(data);
 		var markers = [],
 			i = 0;
 
 		for (var marker in data){
 			markers[i] = new google.maps.Marker({
-				position : new google.maps.LatLng(data[marker].LATITUDE,data[marker].LONGITUDE),
+				position : new google.maps.LatLng(data[marker].lat,data[marker].lng),
 				map: map,
-				title : data[marker].POI_NM
+				title : data[marker].name
 				});
 			i++;
 		}
@@ -74,9 +97,11 @@
 					});
 			})(markers[i]);
 		}
+		return $scope.markers = markers;
 	}
 
 	function renderPaths(data, map){
+		
 		var data = data.data,
   			paths = [];
   			console.log(data);
@@ -99,17 +124,33 @@
 	  	}
 	}
 
-	  //OVERLAY FUNCTION
-	  function createOverlay() {
-	    $("body").prepend("<div id='overlay'></div>");
-	    $("#overlay").on("click", function(){
-	      $(this).remove();
+	function clearOverlays(markersArray) {
+	  if (markersArray) {
+	  	markersArray.map(function(marker){
+	  		marker.setMap(null);
+	  	});
+	  }
+	}
 
-	      $("#interactive-chart").animate({
-	        opacity: 0.0,
-	        zIndex: 0
-	      }, 200);
-	    });
+	function deleteOverlays(markersArray) {
+	  clearOverlays(markersArray);
+
+	  if (markersArray) {
+	  	markersArray.length = 0;
+	  }
+	}
+
+	  //OVERLAY FUNCTION
+	function createOverlay() {
+	$("body").prepend("<div id='overlay'></div>");
+	$("#overlay").on("click", function(){
+	  $(this).remove();
+
+	  $("#interactive-chart").animate({
+	    opacity: 0.0,
+	    zIndex: 0
+	  }, 200);
+	});
 
 	    function positionChart(){
 	      var hChartPosition = (($(window).width()) -600) / 2;
@@ -187,52 +228,99 @@
 
 	app.controller('MapController_AppLocation', function MapController ($scope) {
 
-		api.execute({query : "road := //0000000097/sampled/roadseg  rand := observe(road, std::random::uniform(41))  road' := road where rand > 0.999 {lat : road'.PREV_GEO_CD_LAT, lng: road'.PREV_GEO_CD_LONG, day: road'.DAY_PART, val: 1250}"}, 
+		$scope.$watch(function(){
+			return $scope.storeName;
+		}, (function(){
+			var timer;
+			return function(){
+				clearTimeout(timer);
+				timer = setTimeout(function(){
+					$scope.render($scope.storeName, $scope.map.instance, $scope);
+				}, 1000);
+
+			};
+		})());
+
+		$scope.storeName = "Verizon";
+
+/*		api.execute({query : "road := //0000000097/road  rand := observe(road, std::random::uniform(41))  road' := road where rand > 0.999 {lat : road'.prevLat, lng: road'.prevLong, day: road'.dayPart, val: 25}", limit : 1000}, 
 			function(data){
 				$scope.points = data.data;
 				renderCircles($scope.points , $scope.map.instance);
 		});
 
-		$scope.storeName = "Verizon";
 
-		api.execute({query : "poi := //0000000097/sampled/poi poi where poi.POI_NM =  \"" + $scope.storeName + "\"" },
-		 	function(data) { 
-			  	var data = data.data;
-			  	renderMarkers(data, $scope.map.instance);
-		});
-
+*/
 		setTimeout(function(){
 
-			var swBound = new google.maps.LatLng(41.45, -88.1);
-			var neBound = new google.maps.LatLng(42.15, -87.35);
-			var bounds = new google.maps.LatLngBounds(swBound, neBound);
-			var srcImage = ""// "./sample.png"
-			var overlay = new createMapOverlay(bounds, srcImage, $scope.map.instance);
+				var swBound = new google.maps.LatLng(41.45, -88.1);
+				var neBound = new google.maps.LatLng(42.15, -87.35);
+				var bounds = new google.maps.LatLngBounds(swBound, neBound);
+				var srcImage = ""// "./sample.png"
+			//	var overlay = new createMapOverlay(bounds, srcImage, $scope.map.instance);
+				
+			//	$scope.view = google.maps.MapTypeId.TERRAIN;
+			//	console.log($scope.map.instance.mapTypeId);
+			//	$scope.map.instance.mapTypeId = $scope.view;
+
+				$scope.styles = [ { "featureType": "administrative", "stylers": [ { "visibility": "off" } ] },{ "featureType": "poi", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.local", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.arterial", "stylers": [ { "hue": "#ff0900" }, { "lightness": 49 } ] },{ "featureType": "road.highway", "stylers": [ { "hue": "#ff0900" }, { "lightness": 48 } ] },{ "featureType": "transit", "stylers": [ { "visibility": "off" } ] },{ "featureType": "water", "stylers": [ { "hue": "#0091ff" }, { "lightness": 49 } ] },{ } ];
+				$scope.styledMap = new google.maps.StyledMapType($scope.styles, {name: "Styled Map"});
+				$scope.map.instance.mapTypes.set('map_style', $scope.styledMap);
+		  		$scope.map.instance.setMapTypeId('map_style');
+
+		  		$scope.render($scope.storeName, $scope.map.instance, $scope);
+			}, 2000);
 			
-			$scope.view = google.maps.MapTypeId.TERRAIN;
-			console.log($scope.map.instance.mapTypeId);
-			$scope.map.instance.mapTypeId = $scope.view;
+			$scope.center = {
+			lat: 41.85, // initial map center latitude
+			lng: -87.65 // initial map center longitude
+			};
+			$scope.latitude = null;
+			$scope.longitude = null;
+			$scope.zoom = 9;
+			$scope.markers = [];
+			$scope.markerLat = null;
+			$scope.markerLng = null;
 
-			$scope.styles = [ { "featureType": "administrative", "stylers": [ { "visibility": "off" } ] },{ "featureType": "poi", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.local", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.arterial", "stylers": [ { "hue": "#ff0900" }, { "lightness": 49 } ] },{ "featureType": "road.highway", "stylers": [ { "hue": "#ff0900" }, { "lightness": 48 } ] },{ "featureType": "transit", "stylers": [ { "visibility": "off" } ] },{ "featureType": "water", "stylers": [ { "hue": "#0091ff" }, { "lightness": 49 } ] },{ } ];
-			$scope.styledMap = new google.maps.StyledMapType($scope.styles, {name: "Styled Map"});
-			$scope.map.instance.mapTypes.set('map_style', $scope.styledMap);
-	  		$scope.map.instance.setMapTypeId('map_style');
+			console.log($scope.map);
 
-		}, 2000);
-		
-		$scope.center = {
-		lat: 41.85, // initial map center latitude
-		lng: -87.65 // initial map center longitude
-		};
-		$scope.latitude = null;
-		$scope.longitude = null;
-		$scope.zoom = 9;
-		$scope.markers = [];
-		$scope.markerLat = null;
-		$scope.markerLng = null;
+		$scope.render = function(storeName, map, $scope){
+			if ($scope.markers){
+				console.log($scope.markers);
+			//deleteOverlays($scope.markers);
+			}	
+			//api.execute({query : "poi := //0000000097/poi poi' := poi where poi.name =  \"" + storeName + "\" poi' with {lng : poi'.long}", limit : 2000 },
+			api.execute({query : "poiInfo := //0000000097/poiInfo poiInfo' := poiInfo where poiInfo.POI_NM =  \"" + storeName + "\" {name : poiInfo'.POI_NM, lat : poiInfo'.LATITUDE, lng : poiInfo'.LONGITUDE }", limit : 2000 },
+			 	function(data) { 
+				  	var data = data.data;
+				  	renderMarkers(data, map, $scope);
+				}
+			);
 
-		console.log($scope.map);
+		/*	api.execute({query : "import std::string::* allTweets := //0000000097/datasift tweets := allTweets where allTweets.salience.content.entities[0].name = \"" + storeName + "\" lat := tweets.interaction.geo.latitude lng := tweets.interaction.geo.longitude ts1 := dropLeft(tweets.interaction.created_at, 5) ts2 := dropRight(ts1, 6) timestamp := std::time::parseDateTime(ts2, \"dd MMM yyyy HH:mm:ss\") { lat : lat, lng : lng, timestamp : timestamp, name : tweets.salience.content.entities[0].name, gender : tweets.demographic.gender, language : tweets.language.tag, sentiment : tweets.salience.content.entities[0].sentiment, text : tweets.twitter.text, val : ((tweets.salience.content.entities[0].sentiment)^2 * 5) }"}, 
+				function(data){
+					var data = data.data;
+					renderCircles(data, map);
+				});
+			api.execute({query : "poi := //0000000097/poi poi' := poi where poi.name = \"" + storeName + "\" r := solve 'location poi'' := poi' where poi'.locationId = 'location { locationId : 'location, val : std::math::floor(count(poi''.locationId)/10), lng : mean(poi''.long), lat : mean(poi''.lat) } distinct(r)"}, 
+				function(data){
+					var data = data.data;
+					console.log(data);
+					renderCircles(data, map);
+				}
+			);
+		*/
+			api.execute({query : "poi := //0000000097/poi poi' := poi where poi.name = \"" + storeName + "\"  {lng : poi'.long, lat : poi'.lat}"}, 
+				function(data){
+					var data = data.data;
+					console.log(data);
+					renderHeatMap(data, map);
+				}
+			);
+		}
 	});
+
+
 
 	app.controller('MapController_Paths', function MapController ($scope, $http) {
 
