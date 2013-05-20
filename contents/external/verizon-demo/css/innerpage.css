@@ -449,7 +449,9 @@ footer p {
 
 .two-columns-spec {
     float: left;
-    width: 50%;
+    width: 458px;
+    height: 280px;
+    padding: 20px;
 }
 
 .two-columns-spec h2 {
@@ -463,7 +465,7 @@ footer p {
 .app {
     background-image: url("../images/icon-app.png");
     background-repeat: no-repeat;
-    background-position: 60px 40px;
+    background-position: 60px 27px;
     margin: 0px;
 }
 
