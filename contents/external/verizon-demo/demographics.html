@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="css/innerpage.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 
-    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&language=en&libraries=drawing"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&language=en&libraries=visualization"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
     <script src="js/angular-google-maps.js"></script>
@@ -47,11 +47,34 @@
         </div>
             <div ng-controller="MapController_Demographics" id="gmap" class="span 8">
                 <div class="controls">
-                    {{storeName}}
-                    <select ng-model="selectedTraits" multiple ng-multiple="true" ng-options="t for t in traits">
-                    </select>
+                    <h2>{{storeName}}</h2> <hr>
+                 <!--   
+                     <select ng-model="selectedTraits" multiple ng-multiple="true" ng-options="t for t in traits">
+                     </select>
+                --> 
+                    Transaction Type
                     <select ng-model="type" ng-options="t.label for t in types">
                     </select>
+                    <br>
+                    Ages
+                    <select ng-model="age" ng-options="a for a in ages">
+                    </select>
+                    Education
+                    <select ng-model="education" ng-options="a for a in educations">
+                    </select>
+                    Gender
+                    <select ng-model="gender" ng-options="a for a in genders">
+                    </select>
+                    Ethnicity
+                    <select ng-model="ethnicity" ng-options="a for a in ethnicities">
+                    </select>
+                    Income
+                    <select ng-model="income" ng-options="a for a in incomes">
+                    </select>
+                    Interests
+                    <select ng-model="interest" ng-options="a for a in interests">
+                    </select>
+                
                 </div>
                 <google-map id="map" map="map" center="center" draggable="true" zoom="zoom" markers="markers" mark-click="true" style="display:block;height: 600px;width:1000px"></google-map>
             </div>
