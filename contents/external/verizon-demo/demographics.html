@@ -46,17 +46,13 @@
             <div id="interactive-chart" ></div>
         </div>
             <div ng-controller="MapController_Demographics" id="gmap" class="span 8">
-                <h2>OS</h2>
-                <form name="osForm">
-                    iOS: <input type="checkbox" ng-model="iOS"> <br/>
-                    Android: <input type="checkbox" ng-model="Android"> <br/>
-                </form>
-                <h2>Browser</h2>
-                <form name="browserForm">
-                    Chrome: <input type="checkbox" ng-model="chrome"> <br/>
-                    Firefox: <input type="checkbox" ng-model="firefox"> <br/>
-                    IE: <input type="checkbox" ng-model="ie"> <br/>
-                </form>
+                <div class="controls">
+                    {{storeName}}
+                    <select ng-model="selectedTraits" multiple ng-multiple="true" ng-options="t for t in traits">
+                    </select>
+                    <select ng-model="type" ng-options="t.label for t in types">
+                    </select>
+                </div>
                 <google-map id="map" map="map" center="center" draggable="true" zoom="zoom" markers="markers" mark-click="true" style="display:block;height: 600px;width:1000px"></google-map>
             </div>
             <div class="major-promo">
