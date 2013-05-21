@@ -388,7 +388,8 @@ header #header-logo {
 
 #impression-menu span {
     position: absolute;
-    top: 40px;
+    top: 74px;
+    line-height: 16px;
     left: 0px;
     font-size: 10pt;
     font-family: questrial, sans-serif;
