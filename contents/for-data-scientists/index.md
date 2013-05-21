@@ -3,7 +3,6 @@ author: Matthew De Goes
 date: 2013-05-16 12:20
 template: page-flexible.jade
 
-</div>
 <div id="body-splash">
     <div class="holder">
         <a href="http://labcoat.precog.com" class="image-panel for-data-science-image">
