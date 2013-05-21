@@ -348,7 +348,7 @@ $(document).ready(function(){
       });
       
       //GET TITLES
-      if (currentLocation == "/solutions/white-label-reporting/" || currentLocation == "/solutions/social-media-analytics/" || currentLocation == "/solutions/web-analytics/" || currentLocation == "/solutions/data-science/") {
+      if (currentLocation == "/solutions/white-label-reporting/" || currentLocation == "/solutions/social-media-analytics/" || currentLocation == "/solutions/web-analytics/") {
             $("#section-body h2").each(function(){
                   var link = $(this).attr("title");
                   var titles = $(this).attr("title").replace('-', ' ');

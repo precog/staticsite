@@ -3,9 +3,6 @@ author: Matthew De Goes
 date: 2013-05-16 12:20
 template: page-flexible.jade
 
-<div class="holder">
-    <div id="body-links">
-    </div>
 </div>
 <div id="body-splash">
     <div class="holder">
