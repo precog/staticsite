@@ -7,8 +7,15 @@
 
 	var api = new Precog.api({"apiKey": "10FE4058-2F45-4F46-925D-729FA545FA6B", "analyticsService" : "https://nebula.precog.com"});
 
+	var circles;
 	function renderCircles(data , map){	
-		var circles = [];
+		if(circles){
+			circles.map(function(circle){
+				circle.setMap(null);
+			});
+		}
+
+		circles = [];
 		var color;
 	//	console.log(data.val);
 	//	var max_of_array = Math.max.apply(Math, data.val);
@@ -55,33 +62,56 @@
 		}
 	}
 
+	var heatmap;
+
 	function renderHeatMap(data, map){
+		if(heatmap){
+			heatmap.setMap(null);
+		}
 		var points = [];
 
-		for (i = 0; i < data.length; i++){
-			points[i].location = new google.maps.Latlng(data.lat, data.lng);
+		for (var i = 0; i < data.length; i++){
+			points[i] = { 
+				location : new google.maps.LatLng(data[i].lat, data[i].lng),
+				weight : data[i].weight
+			};
 		}
 
-		var heatmap = new google.maps.visualization.HeatmapLayer({
-			data : points
+		heatmap = new google.maps.visualization.HeatmapLayer({
+			data : points,
+			radius : 25
 		});
 
 		heatmap.setMap(map);
 
 	}
 
+	var markers;
+
 	function renderMarkers(data, map, $scope){
+		if(markers){
+			markers.map(function(marker){
+				marker.setMap(null);
+			});
+		}
 
   		console.log(data);
-		var markers = [],
-			i = 0;
+		markers = [];
+		var i = 0;
 
 		for (var marker in data){
 			markers[i] = new google.maps.Marker({
 				position : new google.maps.LatLng(data[marker].lat,data[marker].lng),
 				map: map,
-				title : data[marker].name
-				});
+				title : data[marker].name,
+				icon: {
+				    path: google.maps.SymbolPath.CIRCLE,
+				    scale: 4,
+				    strokeWeight : 0,
+				    fillColor : 0x000,
+				    fillOpacity : 1
+				},
+			});
 			i++;
 		}
 
@@ -97,7 +127,6 @@
 					});
 			})(markers[i]);
 		}
-		return $scope.markers = markers;
 	}
 
 	function renderPaths(data, map){
@@ -134,7 +163,6 @@
 
 	function deleteOverlays(markersArray) {
 	  clearOverlays(markersArray);
-
 	  if (markersArray) {
 	  	markersArray.length = 0;
 	  }
@@ -268,32 +296,37 @@
 				$scope.map.instance.mapTypes.set('map_style', $scope.styledMap);
 		  		$scope.map.instance.setMapTypeId('map_style');
 
-		  		$scope.render($scope.storeName, $scope.map.instance, $scope);
-			}, 2000);
+//		  		$scope.render($scope.storeName, $scope.map.instance, $scope);
+		}, 2000);
 			
-			$scope.center = {
-			lat: 41.85, // initial map center latitude
-			lng: -87.65 // initial map center longitude
-			};
-			$scope.latitude = null;
-			$scope.longitude = null;
-			$scope.zoom = 9;
-			$scope.markers = [];
-			$scope.markerLat = null;
-			$scope.markerLng = null;
+		$scope.center = {
+		lat: 41.85, // initial map center latitude
+		lng: -87.65 // initial map center longitude
+		};
+		$scope.latitude = null;
+		$scope.longitude = null;
+		$scope.zoom = 9;
+		$scope.markers = [];
+		$scope.markerLat = null;
+		$scope.markerLng = null;
 
-			console.log($scope.map);
+		window.console.log($scope.map);
 
 		$scope.render = function(storeName, map, $scope){
 			if ($scope.markers){
-				console.log($scope.markers);
+				window.console.log($scope.markers);
 			//deleteOverlays($scope.markers);
 			}	
+window.console.log("LONG QUERY");
 			//api.execute({query : "poi := //0000000097/poi poi' := poi where poi.name =  \"" + storeName + "\" poi' with {lng : poi'.long}", limit : 2000 },
 			api.execute({query : "poiInfo := //0000000097/poiInfo poiInfo' := poiInfo where poiInfo.POI_NM =  \"" + storeName + "\" {name : poiInfo'.POI_NM, lat : poiInfo'.LATITUDE, lng : poiInfo'.LONGITUDE }", limit : 2000 },
-			 	function(data) { 
+			 	function success(data) { 
+window.console.log("DONE");
 				  	var data = data.data;
 				  	renderMarkers(data, map, $scope);
+				},
+				function error(err) {
+					console.log(err);
 				}
 			);
 
@@ -310,11 +343,14 @@
 				}
 			);
 		*/
-			api.execute({query : "poi := //0000000097/poi poi' := poi where poi.name = \"" + storeName + "\"  {lng : poi'.long, lat : poi'.lat}"}, 
-				function(data){
+		//	api.execute({query : "import std::math::* poi := //0000000097/poi poi' := poi where poi.name = \"" + storeName + "\" ds :=  {lng : roundTo(poi'.long, 2), lat : roundTo(poi'.lat, 2)} solve 'lat, 'lng ds' := ds where ds.lat = 'lat & ds.lng = 'lng {lat : 'lat, lng: 'lng, weight : count(ds'.lat)}"}, 
+			api.execute({query : "poi := //0000000097/poi poi' := poi where poi.name = \"" + storeName + "\"  {lng : poi'.long, lat : poi'.lat} ", limit : 1000}, 
+				function success(data){
 					var data = data.data;
-					console.log(data);
 					renderHeatMap(data, map);
+				},
+				function error(err) {
+					console.log(err);
 				}
 			);
 		}
@@ -378,9 +414,11 @@
 
 		console.log($scope.map);
 	});
+
 	
 	app.controller('MapController_Demographics', function MapController ($scope, $http) {
 
+/*
 		$scope.iOS = true;
 		$scope.android = true;
 
@@ -410,7 +448,6 @@
 		} else $scope.browser = "\"Chrome\"";
 
 		console.log($scope.browser);
-
 		
 		api.execute({query : "road := //0000000097/sampled/roadseg  rand := observe(road, std::random::uniform(41))  road' := road where rand > 0.999 {lat : road'.PREV_GEO_CD_LAT, lng: road'.PREV_GEO_CD_LONG, day: road'.DAY_PART, val: 1250}"},
 		 function(data){
@@ -421,6 +458,29 @@
 		$http.get('./js/markers.json').success(function(data){
 			renderMarkers(data, $scope.map.instance);
 		});
+
+*/		$scope.$watch(function(){
+			return JSON.stringify($scope.selectedTraits) + ":" + JSON.stringify($scope.type);
+		}, (function(){
+			var timer;
+			return function(){
+				clearTimeout(timer);
+				timer = setTimeout(function(){
+					if(!$scope.selectedTraits || !$scope.type){
+						return;
+					}
+					$scope.render($scope.storeName, $scope.selectedTraits, $scope.type.id, $scope.map.instance, $scope);
+				}, 1000);
+			};
+		})());
+
+		$scope.storeName = "Verizon";
+		$scope.traits = [ "$0 - $14,999", "$100,000 - $124,999", "$125,000+", "$15,000 - $19,999", "$20,000 - $29,999", "$30,000 - $39,999", "$40,000 - $49,999", "$50,000 - $74,999", "$75,000 - $99,999", "18 to 24", "25 to 34", "35 to 44", "45 to 54", "55 to 64", "65 to 74", "75+", "Acred Couples", "Android", "Apple", "Apple Pie Families", "Asian", "Beauty and Wellness", "Black", "Blackberry OS", "Career Building", "Career Centered Singles", "Cartoons and Carpools", "Children First", "Children Present", "City Mixers", "Clubs and Causes", "College", "Collegiate Crowd", "Community Singles", "Cooking", "Corporate Clout", "Country Comfort", "Country Single", "Country Ways", "Devoted Duos", "Downtown Dwellers", "Dynamic Duos", "Early Parents", "English", "Entertainment", "Established Elite", "Family Matters", "Farmland Families", "Feature Phone", "Female", "Finance", "First Digs", "First Mortgage", "Full Steaming", "Fun and Games", "Graduate School", "Hard Chargers", "High School", "Hispanic", "Home Cooking", "Home and Garden", "Humble Homes", "Kids and Clout", "Kids and Rent", "Lavish Lifestyles", "Male", "Married", "Married Sophisticates", "Metro Mix", "Metro Parents", "Mid Americana", "Midtown Minivanners", "Mobile Mixers", "Modest Wages", "No Children Present", "Non Smartphone", "Other", "Outward Bound", "Own", "Pennywise Mortgagees", "Pennywise Proprietors", "Pets and Animals", "Platinum Oldies", "Raisin GrandKids", "Rent", "Resilient Renters", "Resolute Renters", "Rolling Stones", "Rural Everlasting", "Rural Parents", "Rural Retirement", "Rural Rovers", "Savvy Singles", "Shooting Stars", "Single", "Sitting Pretty", "Skyboxes and Suburbans", "Smartphone", "Soccer and SUVs", "Society", "Solid Single Parents", "Solo and Stable", "Spanish", "Sports", "Spouses and Houses", "Still Truckin", "Suburban Seniors", "Summit Estates", "Technology", "The Great Outdoors", "Thrifty Elders", "Timeless Elders", "Tots and Toys", "Travel", "Truckin and Stylin", "Urban Scramble", "Urban Tenants", "Vocational/Technical", "White", "Windows", "Work and Causes", "Young Workboots", "webOS" ];
+		$scope.types = [{id : "IS", label : "Accessory sale" }, { id : "RF", label : "Refund" }, {id :"PS", label : "Equipment & Service"}];
+
+		$scope.render = function(name, traits, type, map, scope){
+			console.log(arguments);
+		}
 
 		$scope.center = {
 			lat: 41.85, // initial map center latitude
@@ -433,7 +493,7 @@
 			var neBound = new google.maps.LatLng(42.15, -87.35);
 			var bounds = new google.maps.LatLngBounds(swBound, neBound);
 			var srcImage = ""// "./sample.png"
-			var overlay = new createMapOverlay(bounds, srcImage, $scope.map.instance);
+		//	var overlay = new createMapOverlay(bounds, srcImage, $scope.map.instance);
 			
 			$scope.view = google.maps.MapTypeId.TERRAIN;
 			console.log($scope.map.instance.mapTypeId);
@@ -450,8 +510,6 @@
 		$scope.longitude = null;
 		
 		$scope.zoom = 9;
-		
-		$scope.markers = [];
 		
 		$scope.markerLat = null;
 		$scope.markerLng = null;
