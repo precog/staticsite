@@ -1,0 +1,17 @@
+#site-holder {
+	width: 1200px;
+	position: relative;
+}
+
+#map-holder {
+	height: 800px;
+	width: 600px;
+	position: absolute;
+}
+
+#chart-holder {
+	height: 800px;
+	width: 500px;
+	position: absolute;
+	left: 615px;
+}

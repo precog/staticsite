@@ -43,6 +43,10 @@
     background-image: url("/images/graphic-splash-social-media.png");
 }
 
+.for-data-science-image {
+    background-image: url("/images/graphic-splash-data-science.png");
+}
+
 .for-whitelabel-reporting {
     background-image: url("/images/graphic-splash-whitelabel-reporting.png");
 }
@@ -504,7 +508,7 @@
 #body-getting-started h2 span {
     position: absolute;
     left: -50px;
-    line-height: 60px;
+    line-height: 83px;
     font-family: questrial, serif;
     font-size: 40pt;
     color: #61b1dc;

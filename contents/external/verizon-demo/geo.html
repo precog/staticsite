@@ -1,0 +1,65 @@
+<html ng-app="myApp">
+<head>
+    <title>Geo</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="css/innerpage.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&language=en&libraries=drawing"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+    <script src="js/angular-google-maps.js"></script>
+    <link rel="stylesheet" href="https://api.reportgrid.com/css/rg-charts.css">
+<!--    <link rel="stylesheet" href="./css/overview.css"> -->
+    <script src="https://api.reportgrid.com/js/reportgrid-charts.js?authCode=r59uh0XNfjFqI1M%2ByxJK33KGZ0Mm82UqEme9ShK7g12KlIHBhCZK1rFV7KdOHgZ7GAePArW%2FT4EuOgzCPCbZB%2BAGlqH7I8OeRMwxKJA5lSRO1GTNp5IkXcrS4rKVj0KT3jnc%2Fkc6gJBjzZPBwwX10Xgdg2%2B%2FKI1QnoOCVhDJ8Hg%3D"></script>
+    <script src="https://api.reportgrid.com/js/precog.js?apiKey=10FE4058-2F45-4F46-925D-729FA545FA6B&basePath=0000000097&analyticsService=https://nebula.precog.com/"></script>
+    <script src="./js/precog_js_client-master/dist/precog.min.js"></script>
+    <script src="js/controller.js"></script>
+</head>
+    <!--
+    <div ng-controller="MapController" id="gmap">
+        <google-map id="map" map="map" center="center" draggable="true" zoom="zoom" markers="markers" mark-click="true" style="display:block;height: 600px;width:600px"></google-map>
+        <div id="chart-holder">
+        <div ng-controller="ChartRenderingController">
+        <div id="chart">
+        </div>
+        <div id="chart2">
+        </div>
+    </div>
+    -->
+<body>
+    <header>
+        <div class="holder">
+            <img src="images/logo-verizon-wireless.png" alt="Verizon">
+            <ul class="menu">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./overview.html">Overview</a></li>
+                <li><a href="./trafficFlow.html">Traffic Flow</a></li>
+                <li class="active"><a href="./geo.html">Geo</a></li>
+            </ul>
+        </div>
+    </header>
+    <div id="body">
+        <div class="body-geo">
+            <h2>Paths</h2>
+            <p>Visualization showing paths customers take.</p>
+            <a class="btn-lg" href="./paths.html">Learn More</a>
+        </div>
+        <div class="body-geo">
+            <h2>Location Based Demographics</h2>
+            <p>Interactively visualize what kinds of customers are in particular geographic areas.</p>
+            <a class="btn-lg" href="./demographics.html">Learn More</a>
+        </div>
+        <div class="body-geo">  
+            <h2>App usage by location</h2>
+            <p>See how customers are using apps in relation to store location</p>
+            <a class="btn-lg" href="./appLocation.html">Learn More</a>
+        </div>
+    </div>
+    <footer>
+        <div class="holder">
+            <p>&copy; Precog 2013</p>
+        </div>
+    </footer>
+</body>
+</html>

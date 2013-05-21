@@ -16,7 +16,7 @@ $(document).ready(function(){
     //API KEY
     $("#page-content p, #page-content ul li").each(function(){
         var html = $(this).html();
-        var newHtml = html.replace(/<em>API Key|<em>API key|<em>api key|<em>Api key|<em>Api Key/gi, '<em><span id="api-key" class="tt-link">API Key</span>').replace(/Root Path|Root path|RootPath|ROOT Path/gi, '<span id="root-path" class="tt-link">Root Path</span>').replace(/Account ID|Account id|Account Id/gi, '<span id="account-id" class="tt-link">Account ID</span>').replace(/grant-id|Grant-id|Grant-Id|Grant-ID/gi, '<span id="grant-id" class="tt-link">Grant ID</span>').replace(/auth api key|Auth Api Key|Auth API key/gi, '<span id="auth-api-key" class="tt-link">Auth API Key</span>').replace(/Query|query|QUERY/gi, '<span id="query" class="tt-link">Query</span>');
+        var newHtml = html.replace(/<em>API Key|<em>API key|<em>api key|<em>Api key|<em>Api Key/gi, '<em><span id="api-key" class="tt-link">API Key</span>').replace(/<em>Root Path|<em>Root path|<em>RootPath|<em>ROOT Path/gi, '<em><span id="root-path" class="tt-link">Root Path</span>').replace(/<em>Account ID|<em>Account id|<em>Account Id/gi, '<em><span id="account-id" class="tt-link">Account ID</span>').replace(/<em>grant-id|<em>Grant-id|<em>Grant-Id|<em>Grant-ID/gi, '<em><span id="grant-id" class="tt-link">Grant ID</span>').replace(/<em>auth api key|<em>Auth Api Key|<em>Auth API key/gi, '<em><span id="auth-api-key" class="tt-link">Auth API Key</span>').replace(/<em>Query|<em>query|<em>QUERY/gi, '<em><span id="query" class="tt-link">Query</span>');
         
         $(this).html(newHtml);
     });
@@ -39,7 +39,7 @@ $(document).ready(function(){
     
     //DYNAMIC LINK GENERATION
     $("#body-content h1, #body-content h2, #body-content h3, #body-content h4, #body-content h5").each(function(){
-        var val = $(this).html().replace(/ /g,'').replace(/(\r\n|\n|\r)/gm,"");
+        var val = $(this).html().replace(/ /g,'').replace(/[^a-z0-9\s]/gi, '').replace(/(\r\n|\n|\r)/gm,"");
         $(this).attr('id', val);
     });
       
@@ -56,7 +56,7 @@ $(document).ready(function(){
         e.preventDefault();
         
         $('html, body').animate({
-            scrollTop: $($(this).attr('href')).offset().top - 56
+            scrollTop: $($(this).attr('href')).offset().top - 66
         }, 500);
     });
     

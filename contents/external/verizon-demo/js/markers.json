@@ -1,0 +1,38 @@
+[
+	{
+	"lat" : 42.15,
+	"lng" : -87.95,
+	"count" : 32,
+	"demographic" : "test1"
+	},
+	{
+	"lat" : 41.85,
+	"lng" : -87.35,
+	"count" : 80,
+	"demographic" : "test2"
+	},
+	{
+	"lat" : 42.55,
+	"lng" : -86.65,
+	"count" : 40,
+	"demographic" : "test3"
+	},
+	{
+	"lat" : 41.35,
+	"lng" : -87.35,
+	"count" : 60,
+	"demographic" : "test4"
+	},
+	{
+	"lat" : 41.15,
+	"lng" : -87.15,
+	"count" : 70,
+	"demographic" : "test5"
+	},
+	{
+	"lat" : 41.65,
+	"lng" : -88.65,
+	"count" : 150,
+	"demographic" : "test7"
+	}
+]

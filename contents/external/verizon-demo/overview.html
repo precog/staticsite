@@ -1,0 +1,85 @@
+<html ng-app="myApp">
+<head>
+    <title>Overview</title>
+    <meta charset="utf-8">
+    
+    <link rel="stylesheet" type="text/css" href="css/innerpage.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="https://api.reportgrid.com/css/rg-charts.css">
+    <link rel="stylesheet" href="./css/overview.css"> 
+    
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&language=en&libraries=drawing"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+    <script src="js/angular-google-maps.js"></script>
+    <script src="https://api.reportgrid.com/js/reportgrid-charts.js?authCode=r59uh0XNfjFqI1M%2ByxJK33KGZ0Mm82UqEme9ShK7g12KlIHBhCZK1rFV7KdOHgZ7GAePArW%2FT4EuOgzCPCbZB%2BAGlqH7I8OeRMwxKJA5lSRO1GTNp5IkXcrS4rKVj0KT3jnc%2Fkc6gJBjzZPBwwX10Xgdg2%2B%2FKI1QnoOCVhDJ8Hg%3D"></script>
+    <script src="https://api.reportgrid.com/js/precog.js?apiKey=10FE4058-2F45-4F46-925D-729FA545FA6B&basePath=0000000097&analyticsService=https://nebula.precog.com/"></script>
+    <script src="./js/precog_js_client-master/dist/precog.min.js"></script>
+    <script src="js/controller.js"></script>
+
+</head>
+<body>
+    <header>
+        <div class="holder">
+            <img src="images/logo-verizon-wireless.png" alt="Verizon">
+            <ul class="menu">
+                <li><a href="./index.html">Home</a></li>
+                <li class="active"><a href="./overview.html">Overview</a></li>
+                <li><a href="./trafficFlow.html">Traffic Flow</a></li>
+                <li><a href="./geo.html">Geo</a></li>
+            </ul>
+        </div>
+    </header>
+    <div id="body">
+        <div id="overview-header">
+            <h2>All Things Apps</h2>
+            <p>From most downloaded, to longest session time, it's all here.</p>
+        </div>
+        <div ng-controller="ChartRenderingController_Overview" class="row">
+            <div id="chart4" class="bordered app  grey">
+            </div>
+            <!-- /container -->
+            <!-- Le javascript
+            ================================================== -->
+            <!-- Placed at the end of the document so the pages load faster 
+            <script src="../bootstrap/js/jquery.js"></script>
+            <script src="../bootstrap/js/bootstrap-transition.js"></script>
+            <script src="../bootstrap/js/bootstrap-alert.js"></script>
+            <script src="../bootstrap/js/bootstrap-modal.js"></script>
+            <script src="../bootstrap/js/bootstrap-dropdown.js"></script>
+            <script src="../bootstrap/js/bootstrap-scrollspy.js"></script>
+            <script src="../bootstrap/js/bootstrap-tab.js"></script>
+            <script src="../bootstrap/js/bootstrap-tooltip.js"></script>
+            <script src="../bootstrap/js/bootstrap-popover.js"></script>
+            <script src="../bootstrap/js/bootstrap-button.js"></script>
+            <script src="../bootstrap/js/bootstrap-collapse.js"></script>
+            <script src="../bootstrap/js/bootstrap-carousel.js"></script>
+            <script src="../bootstrap/js/bootstrap-typeahead.js"></script>
+            -->
+            <p></p>
+            <div class="two-columns-spec bordered grey">
+                <h2>Top Downloads </h2>
+                <div id="chart2">
+                </div>
+            </div>
+            <div class="two-columns-spec bordered grey">
+                <h2>Top Average App Usage</h2>
+                <div id="chart3">
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div id="absolute-pie-chart">
+                <h2>Operating System </h2>
+                <div id="chart">
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="holder">
+            <p>&copy; Precog 2013</p>
+            <p>Image courtesy of KROMKRATHOG / <a href="http://www.freedigitalphotos.net" target="_blank">FreeDigitalPhotos.net</a></p>
+        </div>
+    </footer>
+</body>
+</html>

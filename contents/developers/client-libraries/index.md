@@ -20,7 +20,7 @@ Client libraries allow you to access the Precog REST API using many common progr
 ## Python
 
   * [Client Library](https://github.com/precog/precog_python_client)
-  * API Docs
+  * [API Docs](/apidocs/python/)
 
 ## PHP
 
