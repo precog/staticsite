@@ -681,12 +681,14 @@
 				    thinbackedges : true,
 					filterpacing : 15,
 					"click" : function(dp){
-
 						$scope.siteName = dp.id;
 						$scope.$apply();
 					},
 					"ready" : function(){
 						angular.element("#chart").removeClass("spinner");
+					},
+					"label" : {
+						"datapointover" : "<span class='chart-number'>@count</span>"
 					}
 				}
 			});
@@ -711,7 +713,7 @@
 				"labelorientation" : "horizontal",
 				"label" : {
 					"datapoint" : "@device",
-					"datapointover" : "@ReportGrid.format(count/stats.tot * 100, \"P\")"
+					"datapointover" : "<span class='chart-number'>@ReportGrid.format(count/stats.tot * 100, \"P\")</span>"
 				}
 			}
 		});
@@ -723,7 +725,10 @@
 				"height" : 250,
 				"width" : 460,
 				"barpadding" : 8,
-				"horizontal" : true
+				"horizontal" : true,
+				"label" : {
+					"datapointover" : "<span class='chart-focus'>@app</span><span class='chart-number'>@count</span>",
+				}
 			}
 		});
 
@@ -736,7 +741,7 @@
 				"horizontal" : true,
 				"barpadding" : 10,
 				"label" : {
-					"datapointover" : "max : @maxSession, stdDev : @ReportGrid.format(stdDev), total : @totalTime"
+					"datapointover" : "Max<span class='chart-number'>@maxSession</span>StdDev<span class='chart-number'>@ReportGrid.format(stdDev)</span>Total<span class='chart-number'>@totalTime</span>"
 				}
 			}
 		});
@@ -751,7 +756,7 @@
 					return ReportGrid.symbol("circle" , dp.aveSession * 3)
 				},
 				"label" : {
-					"datapointover" : "@app - uses : @count, average session: @ReportGrid.format(aveSession), total usage : @ReportGrid.format(total)",
+					"datapointover" : "<span class='chart-focus'>@app</span>Uses<span class='chart-number'>@count</span>Average Session<span class='chart-number'>@ReportGrid.format(aveSession)</span>Total Usage<span class='chart-number'>@ReportGrid.format(total)</span>",
 					"axis" : function(axis){
 						if(axis === "count"){
 							return "Total Number of Times an App is Used"
