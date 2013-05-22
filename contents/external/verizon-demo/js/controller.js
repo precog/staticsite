@@ -362,10 +362,6 @@
 		$scope.zoom = 9;
 		$scope.traits = [ "$0 - $14,999", "$100,000 - $124,999", "$125,000+", "$15,000 - $19,999", "$20,000 - $29,999", "$30,000 - $39,999", "$40,000 - $49,999", "$50,000 - $74,999", "$75,000 - $99,999", "18 to 24", "25 to 34", "35 to 44", "45 to 54", "55 to 64", "65 to 74", "75+", "Acred Couples", "Android", "Apple", "Apple Pie Families", "Asian", "Beauty and Wellness", "Black", "Blackberry OS", "Career Building", "Career Centered Singles", "Cartoons and Carpools", "Children First", "Children Present", "City Mixers", "Clubs and Causes", "College", "Collegiate Crowd", "Community Singles", "Cooking", "Corporate Clout", "Country Comfort", "Country Single", "Country Ways", "Devoted Duos", "Downtown Dwellers", "Dynamic Duos", "Early Parents", "English", "Entertainment", "Established Elite", "Family Matters", "Farmland Families", "Feature Phone", "Female", "Finance", "First Digs", "First Mortgage", "Full Steaming", "Fun and Games", "Graduate School", "Hard Chargers", "High School", "Hispanic", "Home Cooking", "Home and Garden", "Humble Homes", "Kids and Clout", "Kids and Rent", "Lavish Lifestyles", "Male", "Married", "Married Sophisticates", "Metro Mix", "Metro Parents", "Mid Americana", "Midtown Minivanners", "Mobile Mixers", "Modest Wages", "No Children Present", "Non Smartphone", "Other", "Outward Bound", "Own", "Pennywise Mortgagees", "Pennywise Proprietors", "Pets and Animals", "Platinum Oldies", "Raisin GrandKids", "Rent", "Resilient Renters", "Resolute Renters", "Rolling Stones", "Rural Everlasting", "Rural Parents", "Rural Retirement", "Rural Rovers", "Savvy Singles", "Shooting Stars", "Single", "Sitting Pretty", "Skyboxes and Suburbans", "Smartphone", "Soccer and SUVs", "Society", "Solid Single Parents", "Solo and Stable", "Spanish", "Sports", "Spouses and Houses", "Still Truckin", "Suburban Seniors", "Summit Estates", "Technology", "The Great Outdoors", "Thrifty Elders", "Timeless Elders", "Tots and Toys", "Travel", "Truckin and Stylin", "Urban Scramble", "Urban Tenants", "Vocational/Technical", "White", "Windows", "Work and Causes", "Young Workboots", "webOS" ];
 
-		var markers = [{"address":"7854 S Cicero Ave","lng":-87.741408,"id":10081,"lat":41.74946},{"address":"1577 Us Highway 41","lng":-87.470813,"id":10083,"lat":41.492824},{"address":"810 W North Ave","lng":-87.648746,"id":10167,"lat":41.910975},{"address":"1245  Torrence Ave","lng":-87.558488,"id":998130073,"lat":41.600597},{"address":"13447  Cicero Ave","lng":-87.738108,"id":998133743,"lat":41.648113},{"address":"1652 N Milwaukee Ave","lng":-87.679068,"id":998135363,"lat":41.911535},{"address":"138 E Rand Rd","lng":-87.977846,"id":998135365,"lat":42.109368},{"address":"288  Orland Square Dr","lng":-87.847312,"id":998135611,"lat":41.622534},{"address":"209 S LaSalle St","lng":-87.631929,"id":998258836,"lat":41.879069},{"address":"9635 N Milwaukee Ave","lng":-87.839031,"id":998265574,"lat":42.056298},{"address":"5  Woodfield Mall","lng":-88.038161,"id":998484506,"lat":42.049155},{"address":"810 W North Ave","lng":-87.648926,"id":998695318,"lat":41.911108},{"address":"36 S State St","lng":-87.627979,"id":1011463156,"lat":41.880853}];
-
-		
-
 		function filterTrait(item) {
 			return item.name && item.traits.length;
 		}
@@ -414,14 +410,14 @@
 		  	renderPaths(data, $scope.map.instance);
 		});
 
-*/
+
 		setTimeout(function(){
 
 			var swBound = new google.maps.LatLng(41.45, -88.1);
 			var neBound = new google.maps.LatLng(42.15, -87.35);
 			var bounds = new google.maps.LatLngBounds(swBound, neBound);
 			var srcImage = ""// "./sample.png"
-		//	var overlay = new createMapOverlay(bounds, srcImage, $scope.map.instance);
+			var overlay = new createMapOverlay(bounds, srcImage, $scope.map.instance);
 			
 			$scope.view = google.maps.MapTypeId.TERRAIN;
 			$scope.map.instance.mapTypeId = $scope.view;
@@ -430,10 +426,9 @@
 			$scope.styledMap = new google.maps.StyledMapType($scope.styles, {name: "Styled Map"});
 			$scope.map.instance.mapTypes.set('map_style', $scope.styledMap);
 	  		$scope.map.instance.setMapTypeId('map_style');
-	  		renderMarkers(markers, $scope.map.instance);
+
 		}, 2000);	
 
-/*
 		$scope.latitude = null;
 		$scope.longitude = null;
 		

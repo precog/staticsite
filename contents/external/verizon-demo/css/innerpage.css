@@ -591,6 +591,7 @@ footer p {
 /*CHARTS*/
 /*TOOL TIPS*/
 .rg.tooltip .rg_content {
+    color: #666 !important;
     font-size: 8pt;
     font-family: arial, sans-serif;
     padding: 10px !important;
