@@ -440,23 +440,11 @@
 		});
 
 */
-/*
-  		$scope.storeId = "";
-  		$scope.storeAddress = "";
-
-  		$scope.averageSaleAmount = 0;
-  		$scope.totalTraffic = 0;
-  		$scope.conversionRate = 0;
-  		$scope.totalSales = 0;
-  		$scope.transactions = 0;
-*/
 		setTimeout(function(){
 
 			var swBound = new google.maps.LatLng(41.45, -88.1);
 			var neBound = new google.maps.LatLng(42.15, -87.35);
 			var bounds = new google.maps.LatLngBounds(swBound, neBound);
-			var srcImage = ""// "./sample.png"
-		//	var overlay = new createMapOverlay(bounds, srcImage, $scope.map.instance);
 			
 			$scope.view = google.maps.MapTypeId.TERRAIN;
 			$scope.map.instance.mapTypeId = $scope.view;
@@ -742,12 +730,14 @@
 				    thinbackedges : true,
 					filterpacing : 15,
 					"click" : function(dp){
-
 						$scope.siteName = dp.id;
 						$scope.$apply();
 					},
 					"ready" : function(){
 						angular.element("#chart").removeClass("spinner");
+					},
+					"label" : {
+						"datapointover" : "<span class='chart-number'>@count</span>"
 					}
 				}
 			});
@@ -772,7 +762,7 @@
 				"labelorientation" : "horizontal",
 				"label" : {
 					"datapoint" : "@device",
-					"datapointover" : "@ReportGrid.format(count/stats.tot * 100, \"P\")"
+					"datapointover" : "<span class='chart-number'>@ReportGrid.format(count/stats.tot * 100, \"P\")</span>"
 				}
 			}
 		});
@@ -784,7 +774,10 @@
 				"height" : 250,
 				"width" : 460,
 				"barpadding" : 8,
-				"horizontal" : true
+				"horizontal" : true,
+				"label" : {
+					"datapointover" : "<span class='chart-focus'>@app</span><span class='chart-number'>@count</span>",
+				}
 			}
 		});
 
@@ -797,7 +790,7 @@
 				"horizontal" : true,
 				"barpadding" : 10,
 				"label" : {
-					"datapointover" : "max : @maxSession, stdDev : @ReportGrid.format(stdDev), total : @totalTime"
+					"datapointover" : "Max<span class='chart-number'>@maxSession</span>StdDev<span class='chart-number'>@ReportGrid.format(stdDev)</span>Total<span class='chart-number'>@totalTime</span>"
 				}
 			}
 		});
@@ -812,7 +805,7 @@
 					return ReportGrid.symbol("circle" , dp.aveSession * 3)
 				},
 				"label" : {
-					"datapointover" : "@app - uses : @count, average session: @ReportGrid.format(aveSession), total usage : @ReportGrid.format(total)",
+					"datapointover" : "<span class='chart-focus'>@app</span>Uses<span class='chart-number'>@count</span>Average Session<span class='chart-number'>@ReportGrid.format(aveSession)</span>Total Usage<span class='chart-number'>@ReportGrid.format(total)</span>",
 					"axis" : function(axis){
 						if(axis === "count"){
 							return "Total Number of Times an App is Used"

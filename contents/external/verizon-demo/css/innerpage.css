@@ -415,7 +415,7 @@ footer p {
 }
 
 /*OVERVIEW*/
-/*#overview-header {
+/*REMOVE#overview-header {
     width: 100%;
     height: 120px;
     margin-top: 20px;
@@ -591,9 +591,36 @@ footer p {
 /*CHARTS*/
 /*TOOL TIPS*/
 .rg.tooltip .rg_content {
+    color: #666 !important;
     font-size: 8pt;
     font-family: arial, sans-serif;
     padding: 10px !important;
+    background: #ffffff; /* Old browsers */
+    border-radius: 6px;
+    background: -moz-linear-gradient(top,  #ffffff 0%, #e5e5e5 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #ffffff 0%,#e5e5e5 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+}
+
+.rg_content .chart-focus {
+    display: block;
+    font-size: 12pt;
+    color: #0171E1;
+    padding-bottom: 10px;
+}
+
+.rg_content .chart-number {
+    display: block;
+    font-size: 14pt;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #000;
+    padding: 6px 0px 6px 0px;
+    text-shadow: 1px 1px 0px #fff;
 }
 
 /*BARS*/
@@ -604,4 +631,12 @@ footer p {
 /*TICK MARKS*/
 .tickmarks .tick line.major {
     display: none;
-} 
+}
+
+/*TITLES*/
+.axis-title .text {
+    font-size: 12pt;
+    fill: #b00000 !important;
+}
+
+/*chart-number*/
