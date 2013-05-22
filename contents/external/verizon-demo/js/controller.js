@@ -85,7 +85,7 @@
 
 	var markers;
 
-	function renderMarkers(data, map, styling, labeling){
+	function renderMarkers(data, map, styling, labeling, clicking){
 		styling = styling || function(){
 			return {
 			    path: google.maps.SymbolPath.CIRCLE,
@@ -117,19 +117,23 @@
 				icon : styling(item)
 			}));
 		}
-/*
-		for (i=0; i < markers.length; i++){
-			(function(marker){
-				google.maps.event.addListener(marker, 'click', function() {
-					if($scope.zoom <= 16){
-						var zoomLevel = $scope.zoom + 1; 
-					} else var zoomLevel = $scope.zoom;
-				    map.setZoom(zoomLevel);
-	    			map.setCenter(marker.getPosition());
+
+		if(clicking) {
+			for (var i = 0; i < markers.length; i++){
+				(function(item, marker){
+					google.maps.event.addListener(marker, 'click', function() {
+						clicking(item, marker, map);
 					});
-			})(markers[i]);
-		}
+/*
+	if($scope.zoom <= 16){
+		var zoomLevel = $scope.zoom + 1; 
+	} else var zoomLevel = $scope.zoom;
+    map.setZoom(zoomLevel);
+	map.setCenter(marker.getPosition());
 */
+				})(data[i], markers[i]);
+			}
+		}
 	}
 
 	function renderPaths(data, map){
@@ -302,8 +306,8 @@
 		}, 2000);
 			
 		$scope.center = {
-		lat: 41.85, // initial map center latitude
-		lng: -87.65 // initial map center longitude
+			lat: 41.85, // initial map center latitude
+			lng: -87.65 // initial map center longitude
 		};
 		$scope.latitude = null;
 		$scope.longitude = null;
@@ -362,12 +366,35 @@
 		$scope.zoom = 9;
 		$scope.traits = [ "$0 - $14,999", "$100,000 - $124,999", "$125,000+", "$15,000 - $19,999", "$20,000 - $29,999", "$30,000 - $39,999", "$40,000 - $49,999", "$50,000 - $74,999", "$75,000 - $99,999", "18 to 24", "25 to 34", "35 to 44", "45 to 54", "55 to 64", "65 to 74", "75+", "Acred Couples", "Android", "Apple", "Apple Pie Families", "Asian", "Beauty and Wellness", "Black", "Blackberry OS", "Career Building", "Career Centered Singles", "Cartoons and Carpools", "Children First", "Children Present", "City Mixers", "Clubs and Causes", "College", "Collegiate Crowd", "Community Singles", "Cooking", "Corporate Clout", "Country Comfort", "Country Single", "Country Ways", "Devoted Duos", "Downtown Dwellers", "Dynamic Duos", "Early Parents", "English", "Entertainment", "Established Elite", "Family Matters", "Farmland Families", "Feature Phone", "Female", "Finance", "First Digs", "First Mortgage", "Full Steaming", "Fun and Games", "Graduate School", "Hard Chargers", "High School", "Hispanic", "Home Cooking", "Home and Garden", "Humble Homes", "Kids and Clout", "Kids and Rent", "Lavish Lifestyles", "Male", "Married", "Married Sophisticates", "Metro Mix", "Metro Parents", "Mid Americana", "Midtown Minivanners", "Mobile Mixers", "Modest Wages", "No Children Present", "Non Smartphone", "Other", "Outward Bound", "Own", "Pennywise Mortgagees", "Pennywise Proprietors", "Pets and Animals", "Platinum Oldies", "Raisin GrandKids", "Rent", "Resilient Renters", "Resolute Renters", "Rolling Stones", "Rural Everlasting", "Rural Parents", "Rural Retirement", "Rural Rovers", "Savvy Singles", "Shooting Stars", "Single", "Sitting Pretty", "Skyboxes and Suburbans", "Smartphone", "Soccer and SUVs", "Society", "Solid Single Parents", "Solo and Stable", "Spanish", "Sports", "Spouses and Houses", "Still Truckin", "Suburban Seniors", "Summit Estates", "Technology", "The Great Outdoors", "Thrifty Elders", "Timeless Elders", "Tots and Toys", "Travel", "Truckin and Stylin", "Urban Scramble", "Urban Tenants", "Vocational/Technical", "White", "Windows", "Work and Causes", "Young Workboots", "webOS" ];
 
-		var markers = [{"address":"7854 S Cicero Ave","lng":-87.741408,"id":10081,"lat":41.74946},{"address":"1577 Us Highway 41","lng":-87.470813,"id":10083,"lat":41.492824},{"address":"810 W North Ave","lng":-87.648746,"id":10167,"lat":41.910975},{"address":"1245  Torrence Ave","lng":-87.558488,"id":998130073,"lat":41.600597},{"address":"13447  Cicero Ave","lng":-87.738108,"id":998133743,"lat":41.648113},{"address":"1652 N Milwaukee Ave","lng":-87.679068,"id":998135363,"lat":41.911535},{"address":"138 E Rand Rd","lng":-87.977846,"id":998135365,"lat":42.109368},{"address":"288  Orland Square Dr","lng":-87.847312,"id":998135611,"lat":41.622534},{"address":"209 S LaSalle St","lng":-87.631929,"id":998258836,"lat":41.879069},{"address":"9635 N Milwaukee Ave","lng":-87.839031,"id":998265574,"lat":42.056298},{"address":"5  Woodfield Mall","lng":-88.038161,"id":998484506,"lat":42.049155},{"address":"810 W North Ave","lng":-87.648926,"id":998695318,"lat":41.911108},{"address":"36 S State St","lng":-87.627979,"id":1011463156,"lat":41.880853}];
+		var markers = [{"address":"810 W North Ave","lng":-87.648746,"id":10167,"lat":41.910975},{"address":"1245  Torrence Ave","lng":-87.558488,"id":998130073,"lat":41.600597},{"address":"13447  Cicero Ave","lng":-87.738108,"id":998133743,"lat":41.648113},{"address":"1652 N Milwaukee Ave","lng":-87.679068,"id":998135363,"lat":41.911535},{"address":"9635 N Milwaukee Ave","lng":-87.839031,"id":998265574,"lat":42.056298},{"address":"5  Woodfield Mall","lng":-88.038161,"id":998484506,"lat":42.049155},{"address":"36 S State St","lng":-87.627979,"id":1011463156,"lat":41.880853}];
 
-		
 
 		function filterTrait(item) {
 			return item.name && item.traits.length;
+		}
+
+		function leaderboard() {
+			if(!$scope.storeId) return;
+			var ads = $scope.ads.filter(filterTrait);
+			if(!ads.length) return;
+
+			var traits = [];
+			ads.map(function(ad) {
+				ad.traits.map(function(trait) {
+					traits.push({name : ad.name, trait : trait});
+				});
+			});
+
+			var query = "poi := //0000000097/poi poi' := poi where poi.locationId = "+$scope.storeId+" & std::time::date(poi.timestamp) = \"2013-04-13\" potentialCustomers := { id : poi'.subsId} demo := //0000000097/demographics demo ~ potentialCustomers traits := {data : demo, id : potentialCustomers} where demo.id = potentialCustomers.id ad := new flatten("+JSON.stringify(traits)+") matchesByUser := solve 'id, 'name user := traits where traits.data.id = 'id ad ~ user r := {matches : ad.trait, id: user.id, name : 'name, count: count(ad.name where ad.name = 'name)} where ad.trait = user.data.trait distinct(r) evaluateAds := solve 'name, 'user { adStrength : count(matchesByUser.id where matchesByUser.id = 'user & matchesByUser.name = 'name)/ (matchesByUser.count where matchesByUser.name = 'name), id : 'user, name : 'name } evaluateAds";
+
+			console.log(query);
+
+			api.execute({ query : query },
+				function(data) {
+					$scope.evaluatedAds = data.data;
+					$scope.apply();
+				}
+			);
 		}
 
 		var timer;
@@ -376,11 +403,9 @@
 				return JSON.stringify($scope.ads.filter(filterTrait));
 			},
 			function() {
-				var ads = $scope.ads.filter(filterTrait);
-				if(!ads.length) return;
 				clearTimeout(timer);
 				timer = setTimeout(function() {
-					console.log(JSON.stringify(ads));
+					leaderboard();
 				}, 500);
 			}
 		);
@@ -415,6 +440,16 @@
 		});
 
 */
+/*
+  		$scope.storeId = "";
+  		$scope.storeAddress = "";
+
+  		$scope.averageSaleAmount = 0;
+  		$scope.totalTraffic = 0;
+  		$scope.conversionRate = 0;
+  		$scope.totalSales = 0;
+  		$scope.transactions = 0;
+*/
 		setTimeout(function(){
 
 			var swBound = new google.maps.LatLng(41.45, -88.1);
@@ -430,18 +465,39 @@
 			$scope.styledMap = new google.maps.StyledMapType($scope.styles, {name: "Styled Map"});
 			$scope.map.instance.mapTypes.set('map_style', $scope.styledMap);
 	  		$scope.map.instance.setMapTypeId('map_style');
-	  		renderMarkers(markers, $scope.map.instance);
+
+	  		renderMarkers(markers, $scope.map.instance, null, 
+	  			function(item) {
+	  				return item.address;
+	  			},
+	  			function(item, marker, map) {
+	  				var id = item.id;
+		  			$scope.storeId = id;
+		  			$scope.storeAddress = item.address;
+		  			$scope.$apply();
+	  				api.execute({
+		  					query : "pos := //0000000097/pos pos' := pos where pos.\"POI ID\" = "+id+" & pos.INVC_DT = \"4/13/2013\" poi := //0000000097/poi poi' := poi where poi.locationId = "+id+" & std::time::date(poi.timestamp) = \"2013-04-13\" totalTraffic := count(poi'.locationId) conversions := count(pos' where pos'.ORDER_TYPE != \"RF\") totalSales := sum(pos'.\"Sum(ITEM_PRC_AMT)\" where pos'.ORDER_TYPE != \"RF\") averageSaleAmount := totalSales/conversions conversionRate := conversions / totalTraffic {conversionRate : conversionRate, transactions : conversions, totalSales : totalSales, averageSaleAmount : averageSaleAmount, totalTraffic : totalTraffic}"
+		  				},
+		  				function(data) {
+		  					var info = data.data[0];
+		  					if(!info) return;
+		  					for(var key in info)
+		  						$scope[key] = info[key];
+		  					$scope.$apply();
+
+
+		  					console.log(JSON.stringify(info));
+		  				});
+
+	  				leaderboard();
+	  			}	
+	  		);
 		}, 2000);	
 
 /*
-		$scope.latitude = null;
-		$scope.longitude = null;
-		
-		$scope.zoom = 9;
-		
-		$scope.markerLat = null;
-		$scope.markerLng = null;
+"poi := //0000000097/poi poi' := poi where poi.locationId = "+id+" & std::time::date(poi.timestamp) = \"2013-04-13\" potentialCustomers := { id : poi'.subsId} demo := //0000000097/demographics demo ~ potentialCustomers traits := {data : demo, id : potentialCustomers} where demo.id = potentialCustomers.id ad := new flatten("+JSON.stringify(traits)+") matchesByUser := solve 'id, 'name user := traits where traits.data.id = 'id ad ~ user r := {matches : ad.trait, id: user.id, name : 'name, count: count(ad.name where ad.name = 'name)} where ad.trait = user.data.trait distinct(r) evaluateAds := solve 'name, 'user { adStrength : count(matchesByUser.id where matchesByUser.id = 'user & matchesByUser.name = 'name)/ (matchesByUser.count where matchesByUser.name = 'name), id : 'user, name : 'name } evaluateAds"
 */
+
 	});
 
 	

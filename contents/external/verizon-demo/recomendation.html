@@ -1,6 +1,6 @@
 <html ng-app="myApp">
 <head>
-    <title>Paths</title>
+    <title>Recomendation</title>
     <meta charset="utf-8">
 
     <link rel="stylesheet" type="text/css" href="css/innerpage.css">
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://api.reportgrid.com/css/rg-charts.css">
 <!--    <link rel="stylesheet" href="./css/overview.css"> -->
     <script src="https://api.reportgrid.com/js/reportgrid-charts.js?authCode=r59uh0XNfjFqI1M%2ByxJK33KGZ0Mm82UqEme9ShK7g12KlIHBhCZK1rFV7KdOHgZ7GAePArW%2FT4EuOgzCPCbZB%2BAGlqH7I8OeRMwxKJA5lSRO1GTNp5IkXcrS4rKVj0KT3jnc%2Fkc6gJBjzZPBwwX10Xgdg2%2B%2FKI1QnoOCVhDJ8Hg%3D"></script>
-    <script src="./js/precog_js_client-master/dist/precog.min.js"></script>
+    <script src="./js/precog_js_client-master/dist/precog.js"></script>
     <script src="js/controller.js"></script>
     <!-- 
     <script src="https://api.reportgrid.com/js/precog.js?apiKey=10FE4058-2F45-4F46-925D-729FA545FA6B&basePath=0000000097&analyticsService=https://nebula.precog.com/"></script>
@@ -46,6 +46,21 @@
     <div id="body">
         <div ng-controller="MapController_Recomendations" id="gmap" class="span 8">
             <google-map id="map" map="map" center="center" draggable="true" zoom="zoom" style="display:block;height: 480px;width:480px"></google-map>
+            <div class="output">
+                store id: {{storeId}}
+                <br>
+                store address: {{storeAddress}}
+                <br>
+                average sale amount: {{averageSaleAmount}}
+                <br>
+                total traffic: {{totalTraffic}}
+                <br>
+                conversion rate: {{conversionRate}}
+                <br>
+                total sales: {{totalSales}}
+                <br>
+                transactions: {{transactions}}
+            </div>
             <div class="ads">
                 <div class="ad" ng-repeat="ad in ads">
                     name: <input type="text" ng-model="ad.name">
@@ -56,6 +71,15 @@
                 <div class="actions">
                     <a class="btn-m" ng-click="addAd()">add</a>
                 </div>
+            </div>
+            <div class="evaluatedAds">
+                <ul>
+                    <li ng-repeat="item in evaluatedAds">
+                        <span class="personId">{{item.id}}</span>
+                        <span class="adName">{{item.name}}</span>
+                        <span class="strength">{{item.adStrength}}</span>
+                    </li>
+                </ul>
             </div>
         </div>
         <!--<div ng-controller="ChartRenderingController_Geo" class="span 4">
