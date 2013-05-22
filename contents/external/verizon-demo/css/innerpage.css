@@ -74,6 +74,7 @@ input {
     font-size: 10pt;
     background-color: #fff;
     border: 1px solid #CBCBCB;
+    width: 140px;
 }
 
 select {
@@ -81,6 +82,7 @@ select {
     font-size: 10pt;
     background-color: #fff;
     border: 1px solid #CBCBCB;
+    width: 140px;
 }
 
 input:hover {
@@ -572,11 +574,18 @@ footer p {
     font-family: apex, sans-serif;
     color: #fff;
     letter-spacing: 1px;
+    width: 140px;
+    text-align: right;
+}
+
+#chart-controls .store-title {
+    color: #fff;
+    padding-bottom: 10px;
 }
 
 .control-option {
     float: left;
-    padding-right: 20px;
+    padding: 2px 20px 2px 0px;
 }
 
 /*CHARTS*/
