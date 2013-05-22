@@ -44,8 +44,19 @@
         </div>
     </header>
     <div id="body">
-        <div ng-controller="MapController_Paths" id="gmap" class="span 8">
-            <google-map id="map" map="map" center="center" draggable="true" zoom="zoom" markers="markers" mark-click="true" style="display:block;height: 600px;width:1000px"></google-map>
+        <div ng-controller="MapController_Recomendations" id="gmap" class="span 8">
+            <google-map id="map" map="map" center="center" draggable="true" zoom="zoom" markers="markers" mark-click="true" style="display:block;height: 480px;width:480px"></google-map>
+            <div class="ads">
+                <div class="ad" ng-repeat="ad in ads">
+                    name: <input type="text" ng-model="ad.name">
+                    <br>
+                    traits: <select ng-model="ad.traits" multiple ng-multiple="true" ng-options="t for t in traits"></select>
+                    <a class="btn-m" ng-click="removeAd(ad)">remove</a>
+                </div>
+                <div class="actions">
+                    <a class="btn-m" ng-click="addAd()">add</a>
+                </div>
+            </div>
         </div>
         <!--<div ng-controller="ChartRenderingController_Geo" class="span 4">
             <div id="chart">

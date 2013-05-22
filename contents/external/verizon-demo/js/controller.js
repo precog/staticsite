@@ -353,8 +353,46 @@
 
 
 
-	app.controller('MapController_Paths', function MapController ($scope, $http) {
+	app.controller('MapController_Recomendations', function MapController ($scope, $http) {
+		$scope.center = {
+			lat: 41.85, // initial map center latitude
+			lng: -87.65 // initial map center longitude
+		};
+		$scope.ads = [];
+		$scope.zoom = 9;
+		$scope.traits = [ "$0 - $14,999", "$100,000 - $124,999", "$125,000+", "$15,000 - $19,999", "$20,000 - $29,999", "$30,000 - $39,999", "$40,000 - $49,999", "$50,000 - $74,999", "$75,000 - $99,999", "18 to 24", "25 to 34", "35 to 44", "45 to 54", "55 to 64", "65 to 74", "75+", "Acred Couples", "Android", "Apple", "Apple Pie Families", "Asian", "Beauty and Wellness", "Black", "Blackberry OS", "Career Building", "Career Centered Singles", "Cartoons and Carpools", "Children First", "Children Present", "City Mixers", "Clubs and Causes", "College", "Collegiate Crowd", "Community Singles", "Cooking", "Corporate Clout", "Country Comfort", "Country Single", "Country Ways", "Devoted Duos", "Downtown Dwellers", "Dynamic Duos", "Early Parents", "English", "Entertainment", "Established Elite", "Family Matters", "Farmland Families", "Feature Phone", "Female", "Finance", "First Digs", "First Mortgage", "Full Steaming", "Fun and Games", "Graduate School", "Hard Chargers", "High School", "Hispanic", "Home Cooking", "Home and Garden", "Humble Homes", "Kids and Clout", "Kids and Rent", "Lavish Lifestyles", "Male", "Married", "Married Sophisticates", "Metro Mix", "Metro Parents", "Mid Americana", "Midtown Minivanners", "Mobile Mixers", "Modest Wages", "No Children Present", "Non Smartphone", "Other", "Outward Bound", "Own", "Pennywise Mortgagees", "Pennywise Proprietors", "Pets and Animals", "Platinum Oldies", "Raisin GrandKids", "Rent", "Resilient Renters", "Resolute Renters", "Rolling Stones", "Rural Everlasting", "Rural Parents", "Rural Retirement", "Rural Rovers", "Savvy Singles", "Shooting Stars", "Single", "Sitting Pretty", "Skyboxes and Suburbans", "Smartphone", "Soccer and SUVs", "Society", "Solid Single Parents", "Solo and Stable", "Spanish", "Sports", "Spouses and Houses", "Still Truckin", "Suburban Seniors", "Summit Estates", "Technology", "The Great Outdoors", "Thrifty Elders", "Timeless Elders", "Tots and Toys", "Travel", "Truckin and Stylin", "Urban Scramble", "Urban Tenants", "Vocational/Technical", "White", "Windows", "Work and Causes", "Young Workboots", "webOS" ];
 
+		function filterTrait(item) {
+			return item.name && item.traits.length;
+		}
+
+		var timer;
+		$scope.$watch(
+			function() {
+				return JSON.stringify($scope.ads.filter(filterTrait));
+			},
+			function() {
+				var ads = $scope.ads.filter(filterTrait);
+				if(!ads.length) return;
+				clearTimeout(timer);
+				timer = setTimeout(function() {
+					console.log(JSON.stringify(ads));
+				}, 500);
+			}
+		);
+
+		$scope.removeAd = function(ad) {
+			var index = $scope.ads.indexOf(ad);
+			if(index >= 0)
+				$scope.ads.splice(index, 1);
+		};
+
+		$scope.addAd = function() {
+			$scope.ads.push({ name : "", traits : [] });
+		};
+
+		$scope.addAd();
+/*
 			
 		api.execute({query : "road := //0000000097/sampled/roadseg  rand := observe(road, std::random::uniform(41))  road' := road where rand > 0.999 {lat : road'.PREV_GEO_CD_LAT, lng: road'.PREV_GEO_CD_LONG, day: road'.DAY_PART, val: 1250}"}, 
 			function(data){
@@ -372,11 +410,6 @@
 		  	renderPaths(data, $scope.map.instance);
 		});
 
-
-		$scope.center = {
-			lat: 41.85, // initial map center latitude
-			lng: -87.65 // initial map center longitude
-		};
 
 		setTimeout(function(){
 
@@ -401,11 +434,9 @@
 		
 		$scope.zoom = 9;
 		
-		$scope.markers = [];
-		
 		$scope.markerLat = null;
 		$scope.markerLng = null;
-
+*/
 	});
 
 	
