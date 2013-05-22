@@ -119,7 +119,14 @@ nconf.defaults({
   'port': 3000
 });
 
-// Configure logging
+/**
+ * We log to a json file if one is provided by
+ * the configuration (max 10MB, 30 files), and
+ * we log to console if in debugging mode.
+ *
+ * The log includes both application level log
+ * and NCSA data.
+ */
 winston.remove(winston.transports.Console);
 if (nconf.get('debug')) {
   winston.add(winston.transports.Console, { 
@@ -138,6 +145,16 @@ if (nconf.get('logfile')) {
   });
 }
 
+function chomp(raw_text) {
+    return raw_text.replace(/(\n|\r)+$/, '');
+}
+
+var winstonStream = {
+    write: function(message, encoding) {
+        winston.info(chomp(message));
+    }
+};
+
 // Configure express
 var app = express();
 
@@ -147,8 +164,9 @@ app.set('port', nconf.get('port'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.favicon());
+app.use(express.logger({stream:winstonStream}));
 if (nconf.get('debug')) {
-  app.use(express.logger('dev')); // replace with winston
+  app.use(express.logger('dev'));
 }
 app.use(express.bodyParser());
 app.use(express.methodOverride());
