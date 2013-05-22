@@ -73,17 +73,25 @@ function makePost(path, post_data, handler) {
     req.end();
 }
 
+function getAccounts(callback) {
+    makeRequest('GET', '/icp/a/', callback);
+}
+
+function getFolders(accountId, callback) {
+    makeRequest('GET', '/icp/a/'+accountId+'/c', callback);
+}
+
 exports.accountId = function(req, res) {
-    makeRequest('GET', '/icp/a/', function(body) {
+    getAccounts(function(body) {
         winston.info(body);
         res.send(body);
     });
 };
 
 exports.folderId = function(req, res) {
-    makeRequest('GET', '/icp/a/', function(account) {
+    getAccounts(function(account) {
         var accountId = account.accounts[0].accountId;
-        makeRequest('GET', '/icp/a/'+accountId+'/c', function(body) {
+        getFolders(accountId, function(body) {
             winston.info(body);
             res.send(body);
         });
@@ -95,9 +103,9 @@ exports.register = function(req, res) {
         email: req.body.email,
     }; // TODO: Maybe just make contactData = req.body?
 
-    makeRequest('GET', '/icp/a/', function(account) {
+    getAccounts(function(account) {
         var accountId = account.accounts[0].accountId;
-        makeRequest('GET', '/icp/a/'+accountId+'/c', function(folder) {
+        getFolders(accountId, function(body) {
             makePost('/icp/a/'+accountId+'/c/'+folder.clientfolders[0].clientFolderId+'/contacts/', JSON.stringify(req.body), function(body) {
                 winston.info(body);
                 res.send(body);
