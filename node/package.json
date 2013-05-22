@@ -1,0 +1,15 @@
+{
+  "name": "not-so-static",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "3.2.4",
+    "winston": "0.7.1",
+    "nconf": "0.6.7",
+    "optimist": "0.5.0",
+    "jade": "*"
+  }
+}
