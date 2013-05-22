@@ -76,9 +76,16 @@ input {
     border: 1px solid #CBCBCB;
 }
 
-/*REMOVEinput:hover {
+select {
+    margin: 4px 4px 4px 4px;
+    font-size: 10pt;
+    background-color: #fff;
+    border: 1px solid #CBCBCB;
+}
+
+input:hover {
     border: 1px solid #b00000;
-}*/
+}
 
 /*FONT PADDING*/
 /*P*/
@@ -378,7 +385,7 @@ h1.large-title {
 .bordered {
     border: 1px solid #CBCBCB;
     padding: 20px;
-    margin: 20px 0px;
+    margin: 0px 0px 20px 0px;
 }
 
 /*REMOVE.bordered:hover {
@@ -546,21 +553,31 @@ footer p {
     background-position: center;
 }
 
-/*TRAFFIC FLOW*/
-/*REMOVE#traffic-flow-controls {
-    position: absolute;
-    z-index: 1000;
-    padding-top: 20px;
-    padding-left: 20px;
+/*CHART CONTROLS*/
+#chart-controls {
+    width: 980px;
+    padding: 12px 10px 12px 10px;
+    background-image: -ms-radial-gradient(center top, circle closest-corner, #AF0000 0%, #7B0000 100%);
+    background-image: -moz-radial-gradient(center top, circle closest-corner, #AF0000 0%, #7B0000 100%);
+    background-image: -o-radial-gradient(center top, circle closest-corner, #AF0000 0%, #7B0000 100%);
+    background-image: -webkit-gradient(radial, center top, 0, center top, 477, color-stop(0, #AF0000), color-stop(1, #7B0000));
+    background-image: -webkit-radial-gradient(center top, circle closest-corner, #AF0000 0%, #7B0000 100%);
+    background-image: radial-gradient(circle closest-corner at center top, #AF0000 0%, #7B0000 100%);
 }
 
-#traffic-flow-controls p {
-    font-weight: bold;
-    font-size: 8pt;
-    padding-top: 8px;
-    padding-bottom: 4px;
+#chart-controls span {
+    display: inline-block;
+    font-size: 12pt;
+    padding-right: 10px;
+    font-family: apex, sans-serif;
+    color: #fff;
     letter-spacing: 1px;
-}*/
+}
+
+.control-option {
+    float: left;
+    padding-right: 20px;
+}
 
 /*CHARTS*/
 /*TOOL TIPS*/
@@ -572,7 +589,6 @@ footer p {
 
 /*BARS*/
 .bar-chart .bar {
-    fill: #b00000;
     fill-opacity: 0.7;
 }
 

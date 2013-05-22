@@ -46,9 +46,14 @@
     </header>
     <div id="body">
         <div ng-controller="ChartRenderingController_Flow">
-            <div id="traffic-flow-controls">
-                <p>Site</p><input class="std-input" type="text" name="input" ng-model="siteName"/>
-                <p>Precision</p><input class="std-input" type="number" name="input" ng-model="filter"/></p>
+            <div id="chart-controls">
+                <div class="control-option">
+                    <span>Site</span><input class="std-input" type="text" name="input" ng-model="siteName"/>
+                </div>
+                <div class="control-option">
+                    <span>Precision</span><input class="std-input" type="number" name="input" ng-model="filter"/>
+                </div>
+                <div class="clear"></div>
             </div>
             <!--   
             <select id="test" ui-select2 ng-model="select2"></select>

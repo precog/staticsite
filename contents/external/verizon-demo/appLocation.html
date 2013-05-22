@@ -42,7 +42,12 @@
     </header>
     <div id="body">
         <div ng-controller="MapController_AppLocation" id="gmap" class="span 8">
-            <p>Enter Store Name Here <select name="input" ng-model="storeName" ng-options="n for n in storeNames"></select></p> 
+            <div id="chart-controls">
+                <div class="control-option">
+                    <span>Select Store</span><select name="input" ng-model="storeName" ng-options="n for n in storeNames"></select>
+                </div>
+                <div class="clear"></div>
+            </div>
             <google-map id="map" map="map" center="center" draggable="true" zoom="zoom" markers="markers" mark-click="true" style="display:block;height: 600px;width:1000px"></google-map>
         </div>
      <!--  <div ng-controller="ChartRenderingController_Geo" class="span 4">
