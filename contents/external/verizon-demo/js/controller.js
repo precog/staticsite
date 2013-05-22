@@ -385,14 +385,14 @@
 				});
 			});
 
-			var query = "poi := //0000000097/poi poi' := poi where poi.locationId = "+$scope.storeId+" & std::time::date(poi.timestamp) = \"2013-04-13\" potentialCustomers := { id : poi'.subsId} demo := //0000000097/demographics demo ~ potentialCustomers traits := {data : demo, id : potentialCustomers} where demo.id = potentialCustomers.id ad := new flatten("+JSON.stringify(traits)+") matchesByUser := solve 'id, 'name user := traits where traits.data.id = 'id ad ~ user r := {matches : ad.trait, id: user.id, name : 'name, count: count(ad.name where ad.name = 'name)} where ad.trait = user.data.trait distinct(r) evaluateAds := solve 'name, 'user { adStrength : count(matchesByUser.id where matchesByUser.id = 'user & matchesByUser.name = 'name)/ (matchesByUser.count where matchesByUser.name = 'name), id : 'user, name : 'name } evaluateAds";
+			var query = "poi := //0000000097/poi poi' := poi where poi.locationId = "+$scope.storeId+" & std::time::date(poi.timestamp) = \"2013-04-13\" potentialCustomers := { id : poi'.subsId} demo := //0000000097/demographics demo ~ potentialCustomers traits := {data : demo, id : potentialCustomers} where demo.id = potentialCustomers.id ad := new flatten("+JSON.stringify(traits)+") matchesByUser := solve 'id, 'name user := traits where traits.data.id = 'id ad ~ user r := {matches : ad.trait, id: user.id.id, name : 'name, count: count(ad.name where ad.name = 'name)} where ad.trait = user.data.trait distinct(r) evaluateAds := solve 'name, 'user { adStrength : count(matchesByUser.id where matchesByUser.id = 'user & matchesByUser.name = 'name)/ (matchesByUser.count where matchesByUser.name = 'name), id : 'user, name : 'name } evaluateAds";
 
 			console.log(query);
 
 			api.execute({ query : query },
 				function(data) {
 					$scope.evaluatedAds = data.data;
-					$scope.apply();
+					$scope.$apply();
 				}
 			);
 		}
