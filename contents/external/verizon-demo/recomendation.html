@@ -45,7 +45,7 @@
     </header>
     <div id="body">
         <div ng-controller="MapController_Recomendations" id="gmap" class="span 8">
-            <google-map id="map" map="map" center="center" draggable="true" zoom="zoom" markers="markers" mark-click="true" style="display:block;height: 480px;width:480px"></google-map>
+            <google-map id="map" map="map" center="center" draggable="true" zoom="zoom" style="display:block;height: 480px;width:480px"></google-map>
             <div class="ads">
                 <div class="ad" ng-repeat="ad in ads">
                     name: <input type="text" ng-model="ad.name">
