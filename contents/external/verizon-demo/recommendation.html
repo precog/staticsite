@@ -1,6 +1,6 @@
 <html ng-app="myApp">
 <head>
-    <title>Recomendation</title>
+    <title>Recommendation</title>
     <meta charset="utf-8">
 
     <link rel="stylesheet" type="text/css" href="css/innerpage.css">
@@ -44,7 +44,7 @@
         </div>
     </header>
     <div id="body">
-        <div ng-controller="MapController_Recomendations" id="gmap" class="span 8">
+        <div ng-controller="MapController_Recommendations" id="gmap" class="span 8">
             <google-map id="map" map="map" center="center" draggable="true" zoom="zoom" style="display:block;height: 480px;width:480px"></google-map>
             <div class="output">
                 store id: {{storeId}}
@@ -66,7 +66,7 @@
                     name: <input type="text" ng-model="ad.name">
                     <br>
                     traits: <select ng-model="ad.traits" multiple ng-multiple="true" ng-options="t for t in traits"></select>
-                    <a class="btn-m" ng-click="removeAd(ad)">remove</a>
+                    <a class="btn-m" ng-click="removeAd(ad)" ng-hide="$first">remove</a>
                 </div>
                 <div class="actions">
                     <a class="btn-m" ng-click="addAd()">add</a>
