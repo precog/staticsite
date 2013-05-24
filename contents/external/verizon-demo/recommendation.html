@@ -45,35 +45,30 @@
     </header>
     <div id="body">
         <div ng-controller="MapController_Recommendations" id="gmap" class="span 8">
-            <google-map id="map" map="map" center="center" draggable="true" zoom="zoom" style="display:block;height: 480px;width:480px"></google-map>
-            <div class="output">
-                store id: {{storeId}}
-                <br>
-                store address: {{storeAddress}}
-                <br>
-                average sale amount: {{averageSaleAmount}}
-                <br>
-                total traffic: {{totalTraffic}}
-                <br>
-                conversion rate: {{conversionRate}}
-                <br>
-                total sales: {{totalSales}}
-                <br>
-                transactions: {{transactions}}
-            </div>
+            <google-map id="map" map="map" center="center" draggable="true" zoom="zoom" style="display:block;height: 480px;width:750px"></google-map>
             <div class="ads">
+                <h2>Test Ad</h2>
                 <div class="ad" ng-repeat="ad in ads">
-                    name: <input type="text" ng-model="ad.name">
-                    <br>
-                    traits: <select ng-model="ad.traits" multiple ng-multiple="true" ng-options="t for t in traits"></select>
-                    <a class="btn-m" ng-click="removeAd(ad)" ng-hide="$first">remove</a>
+                    <p>Name</p> <input type="text" ng-model="ad.name">
+                    <p>Traits</p> <select ng-model="ad.traits" multiple ng-multiple="true" ng-options="t for t in traits"></select>
+                    <a class="btn-m" ng-click="removeAd(ad)" ng-hide="$first">Remove</a>
                 </div>
                 <div class="actions">
-                    <a class="btn-m" ng-click="addAd()">add</a>
+                    <a class="btn-m" ng-click="addAd()">Add</a>
                 </div>
             </div>
+            <div class="clear"></div>
+            <div class="output">
+                <span class="map-number">{{storeId}}</span><p>Store ID</p>
+                <span class="map-number">{{storeAddress}}</span><p>Store Address</p>
+                <span class="map-number">{{averageSaleAmount}}</span><p>Average Sale Amount</p>
+                <span class="map-number">{{totalTraffic}}</span><p>Total Traffic</p>
+                <span class="map-number">{{conversionRate}}</span><p>Conversion Rate</p>
+                <span class="map-number">{{totalSales}}</span><p>Total Sales</p>
+                <span class="map-number">{{transactions}}</span><p>Transactions</p>
+            </div>
             <div class="evaluatedAds">
-                how many? {{evaluatedAds.length}}
+                <p>How Many? {{evaluatedAds.length}}</p>
                 <ul>
                     <li ng-repeat="item in topAds">
                         <span class="personId">{{item.id}}</span>
