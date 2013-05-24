@@ -684,7 +684,7 @@ footer p {
     left: 0px;
     position: absolute;
     width: 350px;
-    height: 400px;
+    height: 440px;
 }
 
 #gmap .output p {
@@ -707,7 +707,8 @@ footer p {
     left: 370px;
     position: absolute;
     width: 350px;
-    height: 400px;
+    height: 440px;
+    overflow: hidden;
 }
 
 .map-number {
