@@ -391,8 +391,10 @@
 					traits.push({name : ad.name, trait : trait});
 				});
 			});
-
+/*
 			var query = "poi := //0000000097/poi poi' := poi where poi.locationId = "+$scope.storeId+" & std::time::date(poi.timestamp) = \"2013-04-13\" potentialCustomers := { id : poi'.subsId} demo := //0000000097/demographics demo ~ potentialCustomers traits := {data : demo, id : potentialCustomers} where demo.id = potentialCustomers.id ad := new flatten("+JSON.stringify(traits)+") matchesByUser := solve 'id, 'name user := traits where traits.data.id = 'id ad ~ user r := {matches : ad.trait, id: user.id.id, name : 'name, count: count(ad.name where ad.name = 'name)} where ad.trait = user.data.trait distinct(r) evaluateAds := solve 'name, 'user { adStrength : count(matchesByUser.id where matchesByUser.id = 'user & matchesByUser.name = 'name)/ (matchesByUser.count where matchesByUser.name = 'name), id : 'user, name : 'name } distinct(evaluateAds)";
+*/
+			var query = "ds := //0000000097/processed/traits/locId possibleMatches := count(ds.id) traits := ds where ds.locationId = "+$scope.storeId+" ad := new flatten("+JSON.stringify(traits)+") matchesByUser := solve 'id, 'name user := traits where traits.id = 'id ad ~ user r := {matches : ad.trait, id: user.id, name : 'name, count: count(ad.name where ad.name = 'name)} where ad.trait = user.trait distinct(r) counts := distinct({ name: matchesByUser.name, count: matchesByUser.count }) evaluateAds := solve 'user, 'name m' := matchesByUser where matchesByUser.id = 'user & matchesByUser.name = 'name c' := counts.count where counts.name = 'name total := count(m') / c' { adStrength: total, id: 'user, name: 'name } r := solve 'strength x := evaluateAds where evaluateAds.adStrength = 'strength { adStrength : 'strength, matches : count(x.adStrength) } r union new { matches : possibleMatches - sum(r.matches), adStrength : 0 }";
 
 			console.log(query);
 
