@@ -528,7 +528,7 @@ footer p {
     margin-top: 20px;
     margin-bottom: 20px;
     float: left;
-    width: 438px;
+    width: 436px;
     height: 100px;
     margin-right: 40px;
     border: 1px solid #CBCBCB;
@@ -743,14 +743,19 @@ footer p {
 
 #gmap .evaluatedAds li.ng-scope {
     border-bottom: 1px dotted #ccc;
+    width: 100%;
 }
 
 #gmap .evaluatedAds .adName {
+    display: inline-block;
     color: #666;
+    width: 33.33%;
 }
 
 #gmap .evaluatedAds .matches {
+    display: inline-block;
     color: #57B6DD;
+    width: 33.33%;
 }
 
 #gmap .evaluatedAds i {
@@ -760,7 +765,10 @@ footer p {
 }
 
 #gmap .evaluatedAds .strength {
+    display: inline-block;
     color: #000;
+    width: 28.00%;
+    text-align: right;
 }
 
 .map-number {
