@@ -371,13 +371,27 @@
 		};
 		$scope.ads = [];
 		$scope.zoom = 9;
-		$scope.traits = [ "$0 - $14,999", "$100,000 - $124,999", "$125,000+", "$15,000 - $19,999", "$20,000 - $29,999", "$30,000 - $39,999", "$40,000 - $49,999", "$50,000 - $74,999", "$75,000 - $99,999", "18 to 24", "25 to 34", "35 to 44", "45 to 54", "55 to 64", "65 to 74", "75+", "Acred Couples", "Android", "Apple", "Apple Pie Families", "Asian", "Beauty and Wellness", "Black", "Blackberry OS", "Career Building", "Career Centered Singles", "Cartoons and Carpools", "Children First", "Children Present", "City Mixers", "Clubs and Causes", "College", "Collegiate Crowd", "Community Singles", "Cooking", "Corporate Clout", "Country Comfort", "Country Single", "Country Ways", "Devoted Duos", "Downtown Dwellers", "Dynamic Duos", "Early Parents", "English", "Entertainment", "Established Elite", "Family Matters", "Farmland Families", "Feature Phone", "Female", "Finance", "First Digs", "First Mortgage", "Full Steaming", "Fun and Games", "Graduate School", "Hard Chargers", "High School", "Hispanic", "Home Cooking", "Home and Garden", "Humble Homes", "Kids and Clout", "Kids and Rent", "Lavish Lifestyles", "Male", "Married", "Married Sophisticates", "Metro Mix", "Metro Parents", "Mid Americana", "Midtown Minivanners", "Mobile Mixers", "Modest Wages", "No Children Present", "Non Smartphone", "Other", "Outward Bound", "Own", "Pennywise Mortgagees", "Pennywise Proprietors", "Pets and Animals", "Platinum Oldies", "Raisin GrandKids", "Rent", "Resilient Renters", "Resolute Renters", "Rolling Stones", "Rural Everlasting", "Rural Parents", "Rural Retirement", "Rural Rovers", "Savvy Singles", "Shooting Stars", "Single", "Sitting Pretty", "Skyboxes and Suburbans", "Smartphone", "Soccer and SUVs", "Society", "Solid Single Parents", "Solo and Stable", "Spanish", "Sports", "Spouses and Houses", "Still Truckin", "Suburban Seniors", "Summit Estates", "Technology", "The Great Outdoors", "Thrifty Elders", "Timeless Elders", "Tots and Toys", "Travel", "Truckin and Stylin", "Urban Scramble", "Urban Tenants", "Vocational/Technical", "White", "Windows", "Work and Causes", "Young Workboots", "webOS" ];
 
 		var markers = [{"address":"810 W North Ave","lng":-87.648746,"id":10167,"lat":41.910975},{"address":"1245  Torrence Ave","lng":-87.558488,"id":998130073,"lat":41.600597},{"address":"13447  Cicero Ave","lng":-87.738108,"id":998133743,"lat":41.648113},{"address":"1652 N Milwaukee Ave","lng":-87.679068,"id":998135363,"lat":41.911535},{"address":"9635 N Milwaukee Ave","lng":-87.839031,"id":998265574,"lat":42.056298},{"address":"5  Woodfield Mall","lng":-88.038161,"id":998484506,"lat":42.049155},{"address":"36 S State St","lng":-87.627979,"id":1011463156,"lat":41.880853}];
 
+		$scope.ages 	   = ["18 to 24",  "25 to 34",  "35 to 44",  "45 to 54",  "55 to 64",  "65 to 74",  "75+"];
+		$scope.educations  = ["College","Graduate School","High School","Vocational/Technical"];
+		$scope.ethnicities = ["Asian","Black","Hispanic","Other","White"];
+		$scope.genders 	   = ["Male", "Female"];
+		$scope.incomes 	   = [ "$0 - $14,999", "$100,000 - $124,999", "$125,000+", "$15,000 - $19,999", "$20,000 - $29,999", "$30,000 - $39,999", "$40,000 - $49,999", "$50,000 - $74,999", "$75,000 - $99,999"];
+		$scope.interests   = [ "Beauty and Wellness", "Cooking", "Entertainment", "Finance", "Home and Garden", "Pets and Animals", "Society", "Sports", "Technology", "Travel"];
 
 		function filterTrait(item) {
 			return item.name && item.traits.length;
+		}
+
+		function projectSales(ranks, total) {
+			var mod = 0;
+			ranks.map(function(rank) {
+				var number = rank.adStrength * ranks.length;
+				mod += rank.matches / total * rank.adStrength * ((10+ranks.length*ranks.length+number*number)/50);
+			});
+			return mod;
 		}
 
 		function leaderboard() {
@@ -385,41 +399,52 @@
 			var ads = $scope.ads.filter(filterTrait);
 			if(!ads.length) return;
 
-			var traits = [];
+			$scope.adRankings = [];
+			$scope.$apply();
+
 			ads.map(function(ad) {
+				var traits = [];
 				ad.traits.map(function(trait) {
 					traits.push({name : ad.name, trait : trait});
 				});
+	/*
+				var query = "poi := //0000000097/poi poi' := poi where poi.locationId = "+$scope.storeId+" & std::time::date(poi.timestamp) = \"2013-04-13\" potentialCustomers := { id : poi'.subsId} demo := //0000000097/demographics demo ~ potentialCustomers traits := {data : demo, id : potentialCustomers} where demo.id = potentialCustomers.id ad := new flatten("+JSON.stringify(traits)+") matchesByUser := solve 'id, 'name user := traits where traits.data.id = 'id ad ~ user r := {matches : ad.trait, id: user.id.id, name : 'name, count: count(ad.name where ad.name = 'name)} where ad.trait = user.data.trait distinct(r) evaluateAds := solve 'name, 'user { adStrength : count(matchesByUser.id where matchesByUser.id = 'user & matchesByUser.name = 'name)/ (matchesByUser.count where matchesByUser.name = 'name), id : 'user, name : 'name } distinct(evaluateAds)";
+	*/
+				var query = "ds := //0000000097/processed/traits/locId possibleMatches := count(ds.id) traits := ds where ds.locationId = "+$scope.storeId+" ad := new flatten("+JSON.stringify(traits)+") matchesByUser := solve 'id user := traits where traits.id = 'id ad ~ user r := {matches : ad.trait, id: user.id} where ad.trait = user.trait distinct(r) evaluateAds := solve 'user m' := matchesByUser where matchesByUser.id = 'user total := count(m') / "+traits.length +" { adStrength: total, id: 'user } r := solve 'strength x := evaluateAds where evaluateAds.adStrength = 'strength { adStrength : 'strength, matches : count(x.adStrength), name : \""+ad.name+"\" } r union new { matches : possibleMatches - sum(r.matches), adStrength : 0, name : \""+ad.name+"\" }";
+
+				console.log(query);
+
+				api.execute({ query : query },
+					function(data) {
+						$scope.adRankings = $scope.adRankings.concat(data.data);
+						$scope.adRankings.sort(function(a, b) {
+							return b.adStrength - a.adStrength;
+						});
+						var mod = 1 + projectSales($scope.adRankings, $scope.totalTraffic);
+						$scope.mod = mod;
+						$scope.projectedSales = $scope.totalSales * mod;
+						$scope.projectedConversionRate = $scope.conversionRate * mod;
+
+						$scope.$apply();
+					}
+				);
+
 			});
-/*
-			var query = "poi := //0000000097/poi poi' := poi where poi.locationId = "+$scope.storeId+" & std::time::date(poi.timestamp) = \"2013-04-13\" potentialCustomers := { id : poi'.subsId} demo := //0000000097/demographics demo ~ potentialCustomers traits := {data : demo, id : potentialCustomers} where demo.id = potentialCustomers.id ad := new flatten("+JSON.stringify(traits)+") matchesByUser := solve 'id, 'name user := traits where traits.data.id = 'id ad ~ user r := {matches : ad.trait, id: user.id.id, name : 'name, count: count(ad.name where ad.name = 'name)} where ad.trait = user.data.trait distinct(r) evaluateAds := solve 'name, 'user { adStrength : count(matchesByUser.id where matchesByUser.id = 'user & matchesByUser.name = 'name)/ (matchesByUser.count where matchesByUser.name = 'name), id : 'user, name : 'name } distinct(evaluateAds)";
-*/
-			var query = "ds := //0000000097/processed/traits/locId possibleMatches := count(ds.id) traits := ds where ds.locationId = "+$scope.storeId+" ad := new flatten("+JSON.stringify(traits)+") matchesByUser := solve 'id, 'name user := traits where traits.id = 'id ad ~ user r := {matches : ad.trait, id: user.id, name : 'name, count: count(ad.name where ad.name = 'name)} where ad.trait = user.trait distinct(r) counts := distinct({ name: matchesByUser.name, count: matchesByUser.count }) evaluateAds := solve 'user, 'name m' := matchesByUser where matchesByUser.id = 'user & matchesByUser.name = 'name c' := counts.count where counts.name = 'name total := count(m') / c' { adStrength: total, id: 'user, name: 'name } r := solve 'strength x := evaluateAds where evaluateAds.adStrength = 'strength { adStrength : 'strength, matches : count(x.adStrength) } r union new { matches : possibleMatches - sum(r.matches), adStrength : 0 }";
-
-			console.log(query);
-
-			api.execute({ query : query },
-				function(data) {
-					var ads = data.data;
-					var top = ads.sort(function(a, b) {
-						return b.adStrength - a.adStrength;
-					}).slice(0, 20);
-					$scope.topAds = top;
-					$scope.$apply();
-				}
-			);
 		}
 
 		var timer;
 		$scope.$watch(
 			function() {
+				$scope.ads.map(function(ad) {
+					ad.traits = [ad.age, ad.education, ad.ethnicity, ad.gender, ad.income, ad.interest].filter(function(v) { return !!v; });
+				});
 				return JSON.stringify($scope.ads.filter(filterTrait));
 			},
 			function() {
 				clearTimeout(timer);
 				timer = setTimeout(function() {
 					leaderboard();
-				}, 500);
+				}, 1000);
 			}
 		);
 
@@ -465,7 +490,7 @@
 		  			$scope.storeAddress = item.address;
 		  			$scope.$apply();
 	  				api.execute({
-		  					query : "pos := //0000000097/pos pos' := pos where pos.\"POI ID\" = "+id+" & pos.INVC_DT = \"4/13/2013\" poi := //0000000097/poi poi' := poi where poi.locationId = "+id+" & std::time::date(poi.timestamp) = \"2013-04-13\" totalTraffic := count(poi'.locationId) conversions := count(pos' where pos'.ORDER_TYPE != \"RF\") totalSales := sum(pos'.\"Sum(ITEM_PRC_AMT)\" where pos'.ORDER_TYPE != \"RF\") averageSaleAmount := totalSales/conversions conversionRate := conversions / totalTraffic {conversionRate : conversionRate, transactions : conversions, totalSales : totalSales, averageSaleAmount : averageSaleAmount, totalTraffic : totalTraffic}"
+		  					query : "pos := //0000000097/processed/pos pos' := pos where pos.\"POI ID\" = "+id+" & pos.INVC_DT = \"4/13/2013\" poi := //0000000097/processed/poi poi' := poi where poi.locationId = "+id+" & std::time::date(poi.timestamp) = \"2013-04-13\" totalTraffic := count(poi'.locationId) conversions := count(pos' where pos'.ORDER_TYPE != \"RF\") totalSales := sum(pos'.\"Sum(ITEM_PRC_AMT)\" where pos'.ORDER_TYPE != \"RF\") averageSaleAmount := totalSales/conversions conversionRate := conversions / totalTraffic {conversionRate : conversionRate, transactions : conversions, totalSales : totalSales, averageSaleAmount : averageSaleAmount, totalTraffic : totalTraffic}"
 		  				},
 		  				function(data) {
 		  					var info = data.data[0];
@@ -581,9 +606,9 @@
 		$scope.renderStores = function(name, type, gmap){
 			var query;
 			if(type){
-				 query = "sales := //0000000097/pos sales' := sales where sales.INVC_DT = \"4/13/2013\" & sales.ORDER_TYPE = \""+ type + "\" salesByType := solve 'id sales'' := sales' where sales'.\"POI ID\" = 'id { amount : sum(sales''.\"Sum(ITEM_PRC_AMT)\"), transactions : count(sales''.\"Sum(ITEM_PRC_AMT)\"), locationId : 'id } info := //0000000097/poiInfo info' := info where info.POI_GRP_NM = \"" +name + "\" salesByType ~ info' {amount : salesByType.amount, transactions : salesByType.transactions, id : salesByType.locationId, lat : info'.LATITUDE, lng : info'.LONGITUDE, name : info'.POI_NM } where salesByType.locationId = info'.POI_ID";
+				 query = "sales := //0000000097/processed/pos sales' := sales where sales.INVC_DT = \"4/13/2013\" & sales.ORDER_TYPE = \""+ type + "\" salesByType := solve 'id sales'' := sales' where sales'.\"POI ID\" = 'id { amount : sum(sales''.\"Sum(ITEM_PRC_AMT)\"), transactions : count(sales''.\"Sum(ITEM_PRC_AMT)\"), locationId : 'id } info := //0000000097/poiInfo info' := info where info.POI_GRP_NM = \"" +name + "\" salesByType ~ info' {amount : salesByType.amount, transactions : salesByType.transactions, id : salesByType.locationId, lat : info'.LATITUDE, lng : info'.LONGITUDE, name : info'.POI_NM } where salesByType.locationId = info'.POI_ID";
 			} else {
-				query = "sales := //0000000097/pos sales' := sales where sales.INVC_DT = \"4/13/2013\" salesByType := solve 'id sales'' := sales' where sales'.\"POI ID\" = 'id { amount : sum(sales''.\"Sum(ITEM_PRC_AMT)\"), transactions : count(sales''.\"Sum(ITEM_PRC_AMT)\"), locationId : 'id } info := //0000000097/poiInfo info' := info where info.POI_GRP_NM = \"" +name + "\" salesByType ~ info' {amount : salesByType.amount, transactions : salesByType.transactions, id : salesByType.locationId, lat : info'.LATITUDE, lng : info'.LONGITUDE, name : info'.POI_NM } where salesByType.locationId = info'.POI_ID";
+				query = "sales := //0000000097/processed/pos sales' := sales where sales.INVC_DT = \"4/13/2013\" salesByType := solve 'id sales'' := sales' where sales'.\"POI ID\" = 'id { amount : sum(sales''.\"Sum(ITEM_PRC_AMT)\"), transactions : count(sales''.\"Sum(ITEM_PRC_AMT)\"), locationId : 'id } info := //0000000097/poiInfo info' := info where info.POI_GRP_NM = \"" +name + "\" salesByType ~ info' {amount : salesByType.amount, transactions : salesByType.transactions, id : salesByType.locationId, lat : info'.LATITUDE, lng : info'.LONGITUDE, name : info'.POI_NM } where salesByType.locationId = info'.POI_ID";
 			}
 			api.execute({query: query},
   				function(data) { 
