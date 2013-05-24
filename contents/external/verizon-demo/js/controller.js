@@ -272,7 +272,7 @@
 		//	$scope.view = google.maps.MapTypeId.TERRAIN;
 		//	$scope.map.instance.mapTypeId = $scope.view;
 
-			var styles = [ { "featureType": "administrative.locality", "stylers": [ { "visibility": "simplified" } ] },{ "featureType": "landscape", "stylers": [ { "visibility": "off" } ] },{ "featureType": "poi", "stylers": [ { "visibility": "off" } ] },{ "featureType": "transit", "stylers": [ { "visibility": "off" } ] },{ "featureType": "water", "stylers": [ { "visibility": "simplified" } ] },{ "featureType": "road.local", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.arterial", "stylers": [ { "visibility": "simplified" }, { "hue": "#ff0000" }, { "saturation": -90 } ] },{ "featureType": "road.highway", "stylers": [ { "visibility": "simplified" }, { "hue": "#ff0900" }, { "saturation": -87 } ] },{ } ]; //[ { "featureType": "administrative", "stylers": [ { "visibility": "off" } ] },{ "featureType": "poi", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.local", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.arterial", "stylers": [ { "hue": "#ff0900" }, { "lightness": 49 } ] },{ "featureType": "road.highway", "stylers": [ { "hue": "#ff0900" }, { "lightness": 48 } ] },{ "featureType": "transit", "stylers": [ { "visibility": "off" } ] },{ "featureType": "water", "stylers": [ { "hue": "#0091ff" }, { "lightness": 49 } ] },{ } ];
+			var styles = [ { "featureType": "administrative", "stylers": [ { "visibility": "off" } ] },{ "featureType": "poi", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.local", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.arterial", "stylers": [ { "hue": "#ff0900" }, { "lightness": 49 } ] },{ "featureType": "road.highway", "stylers": [ { "hue": "#ff0900" }, { "lightness": 48 } ] },{ "featureType": "transit", "stylers": [ { "visibility": "off" } ] },{ "featureType": "water", "stylers": [ { "hue": "#0091ff" }, { "lightness": 49 } ] },{ } ];
 			var styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"});
 			$scope.map.instance.mapTypes.set('map_style',styledMap);
 	  		$scope.map.instance.setMapTypeId('map_style');
@@ -372,7 +372,7 @@
 		$scope.ads = [];
 		$scope.zoom = 9;
 
-		var markers = [{"address":"810 W North Ave","lng":-87.648746,"id":10167,"lat":41.910975},{"address":"1245  Torrence Ave","lng":-87.558488,"id":998130073,"lat":41.600597},{"address":"13447  Cicero Ave","lng":-87.738108,"id":998133743,"lat":41.648113},{"address":"1652 N Milwaukee Ave","lng":-87.679068,"id":998135363,"lat":41.911535},{"address":"9635 N Milwaukee Ave","lng":-87.839031,"id":998265574,"lat":42.056298},{"address":"5  Woodfield Mall","lng":-88.038161,"id":998484506,"lat":42.049155},{"address":"36 S State St","lng":-87.627979,"id":1011463156,"lat":41.880853}];
+		var markers = [{"address":"1245  Torrence Ave","lng":-87.558488,"id":998130073,"lat":41.600597},{"address":"13447  Cicero Ave","lng":-87.738108,"id":998133743,"lat":41.648113},{"address":"9635 N Milwaukee Ave","lng":-87.839031,"id":998265574,"lat":42.056298},{"address":"5  Woodfield Mall","lng":-88.038161,"id":998484506,"lat":42.049155},{"address":"36 S State St","lng":-87.627979,"id":1011463156,"lat":41.880853}];
 
 		$scope.ages 	   = ["18 to 24",  "25 to 34",  "35 to 44",  "45 to 54",  "55 to 64",  "65 to 74",  "75+"];
 		$scope.educations  = ["College","Graduate School","High School","Vocational/Technical"];
