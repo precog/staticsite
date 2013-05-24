@@ -329,7 +329,7 @@
 			//deleteOverlays($scope.markers);
 			}	
 			//api.execute({query : "poi := //0000000097/poi poi' := poi where poi.name =  \"" + storeName + "\" poi' with {lng : poi'.long}", limit : 2000 },
-			api.execute({query : "poiInfo := //0000000097/poiInfo poiInfo' := poiInfo where poiInfo.POI_NM =  \"" + storeName + "\" {name : poiInfo'.POI_NM, lat : poiInfo'.LATITUDE, lng : poiInfo'.LONGITUDE }", limit : 2000 },
+			api.execute({query : "poiInfo := //0000000097/processed/locationIds poiInfo' := poiInfo where poiInfo.name =  \"" + storeName + "\" {name : poiInfo'.name, lat : poiInfo'.lat, lng : poiInfo'.lng }", limit : 2000 },
 			 	function success(data) { 
 				  	var data = data.data;
 				  	renderMarkers(data, map);
@@ -659,23 +659,7 @@
 			lng: -87.65 // initial map center longitude
 		};
 
-		setTimeout(function(){
-
-			var swBound = new google.maps.LatLng(41.45, -88.1);
-			var neBound = new google.maps.LatLng(42.15, -87.35);
-			var bounds = new google.maps.LatLngBounds(swBound, neBound);
-			var srcImage = ""// "./sample.png"
-		//	var overlay = new createMapOverlay(bounds, srcImage, $scope.map.instance);
-			
-			$scope.view = google.maps.MapTypeId.TERRAIN;
-			$scope.map.instance.mapTypeId = $scope.view;
-
-			$scope.styles = [ { "featureType": "administrative", "stylers": [ { "visibility": "off" } ] },{ "featureType": "poi", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.local", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.arterial", "stylers": [ { "hue": "#ff0900" }, { "lightness": 49 } ] },{ "featureType": "road.highway", "stylers": [ { "hue": "#ff0900" }, { "lightness": 48 } ] },{ "featureType": "transit", "stylers": [ { "visibility": "off" } ] },{ "featureType": "water", "stylers": [ { "hue": "#0091ff" }, { "lightness": 49 } ] },{ } ];
-			$scope.styledMap = new google.maps.StyledMapType($scope.styles, {name: "Styled Map"});
-			$scope.map.instance.mapTypes.set('map_style', $scope.styledMap);
-	  		$scope.map.instance.setMapTypeId('map_style');
-
-		}, 2000);	
+		styleMap($scope);
 
 		$scope.latitude = null;
 		$scope.longitude = null;
