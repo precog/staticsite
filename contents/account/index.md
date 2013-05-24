@@ -52,6 +52,7 @@ template: page.jade
                     <input type="text" id="form-description" name="form-path">
                 </dd>
             </dl>
+            <dl class="clear"></dl>
             <dl>
                 <dt>
                     <label for="form-path">Path</label>

@@ -911,10 +911,15 @@ footer {
     margin-top: 20px;
 }
 
+.precog-account-form-full dl {
+    width: 100%;
+}
+
 /*SPECIAL FORM FORMATTING*/
 #precog-create-apikey .two-columns {
     float: left;
     width: 45%;
+    margin: 0px;
 }
 
 #precog-create-apikey .two-columns:first-child {
