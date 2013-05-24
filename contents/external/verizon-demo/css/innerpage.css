@@ -689,17 +689,18 @@ footer p {
 
 #gmap .output p {
     font-size: 9pt;
-    line-height: 26px !important;
+    line-height: 20px !important;
     padding: 0px !important;
     color: #666;
 }
 
 #gmap .output span {
     display: block;
+    font-size: 10pt !important;
     color: #b00000;
     margin: 0px !important;
     padding: 0px !important;
-    height: 22px !important;
+    height: 16px !important;
 }
 
 #gmap .output .mirror {
@@ -712,6 +713,14 @@ footer p {
     text-align: center;
     padding: 3%;
     margin-bottom: 10px;
+}
+
+#gmap .output .mirror span {
+    font-size: 14pt !important;
+}
+
+#gmap .output .mirror p {
+    padding-top: 4px !important;
 }
 
 #gmap .output .mirror:nth-child(5) span, #gmap .output .mirror:nth-child(6) span {
@@ -729,6 +738,11 @@ footer p {
     width: 350px;
     height: 440px;
     overflow: hidden;
+    border-bottom: 1px dotted #e6e6e6;
+}
+
+#gmap .evaluatedAds li.ng-scope {
+    border-bottom: 1px dotted #ccc;
 }
 
 #gmap .evaluatedAds .adName {
@@ -739,8 +753,14 @@ footer p {
     color: #57B6DD;
 }
 
-#gmap .evaluatedAds .strength {
+#gmap .evaluatedAds i {
+    padding-left: 10px;
+    padding-right: 6px;
     color: #57B6DD;
+}
+
+#gmap .evaluatedAds .strength {
+    color: #000;
 }
 
 .map-number {
