@@ -35,7 +35,7 @@ template: page.jade
         <h2>api key management</h2>
         <div id="current-api-keys">
         </div>
-        <form id="precog-create-apikey" class="precog-account-form" method="post">
+        <form id="precog-create-apikey" class="precog-account-form-full" method="post">
             <dl class="two-columns">
                 <dt>
                     <label for="form-name">Name</label>
