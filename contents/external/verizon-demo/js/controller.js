@@ -570,7 +570,7 @@
 						return;
 					}
 					$scope.render($scope.storeName, traits, $scope.map.instance);
-				}, 3000);
+				}, 1000);
 			};
 		})());
 
@@ -629,9 +629,9 @@
 
 		$scope.render = function(name, traits, gmap){
 
-			var where = traits.map(function(trait) { return 'demo.trait = "'+trait.replace(/["]/g, '\\"')+'"'; }).join(' | ');
+			var where = traits.map(function(trait) { return 'ds.trait = "'+trait.replace(/["]/g, '\\"')+'"'; }).join(' | ');
 
-			api.execute({query : "poi := //0000000097/poi poi' := poi where poi.name = \"" + name + "\" & std::time::date(poi.timestamp) = \"2013-04-13\" demo := //0000000097/demographics demo' := demo where " + where + " poi' ~ demo' joined := {poi : poi', demo : demo'} where demo'.id = poi'.subsId byTrait := solve 'id, 'trait joined' := joined where joined.poi.locationId = 'id & joined.demo.trait = 'trait { locationId : 'id, trait : 'trait, count : count(joined'.demo.trait), id :joined.poi.subsId } r := solve 'id, 'location results' := distinct(byTrait where byTrait.id = 'id & byTrait.locationId = 'location) { id : 'id, traitOccurences : count(results'.trait), data : results' } r where r.traitOccurences = "+ traits.length},
+			api.execute({query : "ds := //0000000097/processed/demographics joined := ds where "+ where + " byTrait := distinct(joined) r := solve 'id, 'location results' := distinct(byTrait where byTrait.id = 'id & byTrait.locationId = 'location) { locationId : 'location, traitOccurences : count(results'.trait) } r' := r where r.traitOccurences = " + traits.length +" solve 'locationId { locationId : 'locationId, weight : count(r'.locationId where r'.locationId = 'locationId) }"},
 				function(data) { 
 					var data = data.data;
 
@@ -642,9 +642,8 @@
   								map[loc.locationId] = loc;
   							});
   							data.map(function(item){
-  								item.lat = map[item.data.locationId].lat;
-  								item.lng = map[item.data.locationId].lng;
-  								item.weight = 1;
+  								item.lat = map[item.locationId].lat;
+  								item.lng = map[item.locationId].lng;
   							});
 
 							renderHeatMap(data, gmap);
@@ -664,7 +663,7 @@
 		$scope.latitude = null;
 		$scope.longitude = null;
 		
-		$scope.zoom = 11;
+		$scope.zoom = 10;
 		
 		$scope.markerLat = null;
 		$scope.markerLng = null;
