@@ -750,12 +750,15 @@ footer p {
     display: inline-block;
     color: #666;
     width: 33.33%;
+    overflow: hidden;
+    height: 18px;
 }
 
 #gmap .evaluatedAds .matches {
     display: inline-block;
     color: #57B6DD;
     width: 33.33%;
+    height: 18px;
 }
 
 #gmap .evaluatedAds i {
@@ -769,6 +772,7 @@ footer p {
     color: #000;
     width: 28.00%;
     text-align: right;
+    height: 18px;
 }
 
 .map-number {
