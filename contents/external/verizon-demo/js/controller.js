@@ -186,27 +186,27 @@
 	  }, 200);
 	});
 
-	    function positionChart(){
-	      var hChartPosition = (($(window).width()) -600) / 2;
-	      var vChartPosition = (($(window).height()) -400) / 2;
+	function positionChart() {
+		var hChartPosition = (($(window).width()) -600) / 2;
+		var vChartPosition = (($(window).height()) -400) / 2;
 
-	      $("#interactive-chart").css({
-	        left: hChartPosition,
-	        top: vChartPosition,
-	        zIndex: 1100
-	      });
-	    }
+		$("#interactive-chart").css({
+			left: hChartPosition,
+			top: vChartPosition,
+			zIndex: 1100
+		});
+	}
 
-	    $(window).resize(function(){
-	      positionChart();
-	    });
+	$(window).resize(function(){
+	 	positionChart();
+	});
 
-	    positionChart();
+	positionChart();
 
-	    $("#interactive-chart").animate({
-	      opacity: 1.0
-	    }, 500);
-	  }
+	$("#interactive-chart").animate({
+		opacity: 1.0
+	}, 500);
+}
 
 	function createMapOverlay(bounds, srcImage, map){
 
@@ -260,6 +260,30 @@
 		return overlay;
 	}
 
+	function styleMap($scope, handler){
+		setTimeout(function(){
+
+			var swBound = new google.maps.LatLng(41.45, -88.1);
+			var neBound = new google.maps.LatLng(42.15, -87.35);
+			var bounds = new google.maps.LatLngBounds(swBound, neBound);
+			var srcImage = ""// "./sample.png"
+		//	var overlay = new createMapOverlay(bounds, srcImage, $scope.map.instance);
+			
+		//	$scope.view = google.maps.MapTypeId.TERRAIN;
+		//	$scope.map.instance.mapTypeId = $scope.view;
+
+			var styles = [ { "featureType": "administrative", "stylers": [ { "visibility": "off" } ] },{ "featureType": "poi", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.local", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.arterial", "stylers": [ { "hue": "#ff0900" }, { "lightness": 49 } ] },{ "featureType": "road.highway", "stylers": [ { "hue": "#ff0900" }, { "lightness": 48 } ] },{ "featureType": "transit", "stylers": [ { "visibility": "off" } ] },{ "featureType": "water", "stylers": [ { "hue": "#0091ff" }, { "lightness": 49 } ] },{ } ];
+			var styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"});
+			$scope.map.instance.mapTypes.set('map_style',styledMap);
+	  		$scope.map.instance.setMapTypeId('map_style');
+
+	  		if(handler){
+	  			handler($scope.map.instance);
+	  		}
+//		  		$scope.render($scope.storeName, $scope.map.instance, $scope);
+		}, 0);
+	}
+
 	app.controller('MapController_AppLocation', function MapController ($scope) {
 
 		$scope.$watch(function(){
@@ -286,24 +310,7 @@
 
 
 */
-		setTimeout(function(){
-
-				var swBound = new google.maps.LatLng(41.45, -88.1);
-				var neBound = new google.maps.LatLng(42.15, -87.35);
-				var bounds = new google.maps.LatLngBounds(swBound, neBound);
-				var srcImage = ""// "./sample.png"
-			//	var overlay = new createMapOverlay(bounds, srcImage, $scope.map.instance);
-				
-			//	$scope.view = google.maps.MapTypeId.TERRAIN;
-			//	$scope.map.instance.mapTypeId = $scope.view;
-
-				$scope.styles = [ { "featureType": "administrative", "stylers": [ { "visibility": "off" } ] },{ "featureType": "poi", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.local", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.arterial", "stylers": [ { "hue": "#ff0900" }, { "lightness": 49 } ] },{ "featureType": "road.highway", "stylers": [ { "hue": "#ff0900" }, { "lightness": 48 } ] },{ "featureType": "transit", "stylers": [ { "visibility": "off" } ] },{ "featureType": "water", "stylers": [ { "hue": "#0091ff" }, { "lightness": 49 } ] },{ } ];
-				$scope.styledMap = new google.maps.StyledMapType($scope.styles, {name: "Styled Map"});
-				$scope.map.instance.mapTypes.set('map_style', $scope.styledMap);
-		  		$scope.map.instance.setMapTypeId('map_style');
-
-//		  		$scope.render($scope.storeName, $scope.map.instance, $scope);
-		}, 2000);
+		styleMap($scope);
 			
 		$scope.center = {
 			lat: 41.85, // initial map center latitude
@@ -357,7 +364,7 @@
 
 
 
-	app.controller('MapController_Recomendations', function MapController ($scope, $http) {
+	app.controller('MapController_Recommendations', function MapController ($scope, $http) {
 		$scope.center = {
 			lat: 41.85, // initial map center latitude
 			lng: -87.65 // initial map center longitude
@@ -385,13 +392,17 @@
 				});
 			});
 
-			var query = "poi := //0000000097/poi poi' := poi where poi.locationId = "+$scope.storeId+" & std::time::date(poi.timestamp) = \"2013-04-13\" potentialCustomers := { id : poi'.subsId} demo := //0000000097/demographics demo ~ potentialCustomers traits := {data : demo, id : potentialCustomers} where demo.id = potentialCustomers.id ad := new flatten("+JSON.stringify(traits)+") matchesByUser := solve 'id, 'name user := traits where traits.data.id = 'id ad ~ user r := {matches : ad.trait, id: user.id.id, name : 'name, count: count(ad.name where ad.name = 'name)} where ad.trait = user.data.trait distinct(r) evaluateAds := solve 'name, 'user { adStrength : count(matchesByUser.id where matchesByUser.id = 'user & matchesByUser.name = 'name)/ (matchesByUser.count where matchesByUser.name = 'name), id : 'user, name : 'name } evaluateAds";
+			var query = "poi := //0000000097/poi poi' := poi where poi.locationId = "+$scope.storeId+" & std::time::date(poi.timestamp) = \"2013-04-13\" potentialCustomers := { id : poi'.subsId} demo := //0000000097/demographics demo ~ potentialCustomers traits := {data : demo, id : potentialCustomers} where demo.id = potentialCustomers.id ad := new flatten("+JSON.stringify(traits)+") matchesByUser := solve 'id, 'name user := traits where traits.data.id = 'id ad ~ user r := {matches : ad.trait, id: user.id.id, name : 'name, count: count(ad.name where ad.name = 'name)} where ad.trait = user.data.trait distinct(r) evaluateAds := solve 'name, 'user { adStrength : count(matchesByUser.id where matchesByUser.id = 'user & matchesByUser.name = 'name)/ (matchesByUser.count where matchesByUser.name = 'name), id : 'user, name : 'name } distinct(evaluateAds)";
 
 			console.log(query);
 
 			api.execute({ query : query },
 				function(data) {
-					$scope.evaluatedAds = data.data;
+					var ads = data.data;
+					var top = ads.sort(function(a, b) {
+						return b.adStrength - a.adStrength;
+					}).slice(0, 20);
+					$scope.topAds = top;
 					$scope.$apply();
 				}
 			);
@@ -440,21 +451,9 @@
 		});
 
 */
-		setTimeout(function(){
+		styleMap($scope, function(map){
 
-			var swBound = new google.maps.LatLng(41.45, -88.1);
-			var neBound = new google.maps.LatLng(42.15, -87.35);
-			var bounds = new google.maps.LatLngBounds(swBound, neBound);
-			
-			$scope.view = google.maps.MapTypeId.TERRAIN;
-			$scope.map.instance.mapTypeId = $scope.view;
-
-			$scope.styles = [ { "featureType": "administrative", "stylers": [ { "visibility": "off" } ] },{ "featureType": "poi", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.local", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.arterial", "stylers": [ { "hue": "#ff0900" }, { "lightness": 49 } ] },{ "featureType": "road.highway", "stylers": [ { "hue": "#ff0900" }, { "lightness": 48 } ] },{ "featureType": "transit", "stylers": [ { "visibility": "off" } ] },{ "featureType": "water", "stylers": [ { "hue": "#0091ff" }, { "lightness": 49 } ] },{ } ];
-			$scope.styledMap = new google.maps.StyledMapType($scope.styles, {name: "Styled Map"});
-			$scope.map.instance.mapTypes.set('map_style', $scope.styledMap);
-	  		$scope.map.instance.setMapTypeId('map_style');
-
-	  		renderMarkers(markers, $scope.map.instance, null, 
+	  		renderMarkers(markers, map, null, 
 	  			function(item) {
 	  				return item.address;
 	  			},
@@ -480,7 +479,8 @@
 	  				leaderboard();
 	  			}	
 	  		);
-		}, 2000);	
+		});
+		
 
 /*
 "poi := //0000000097/poi poi' := poi where poi.locationId = "+id+" & std::time::date(poi.timestamp) = \"2013-04-13\" potentialCustomers := { id : poi'.subsId} demo := //0000000097/demographics demo ~ potentialCustomers traits := {data : demo, id : potentialCustomers} where demo.id = potentialCustomers.id ad := new flatten("+JSON.stringify(traits)+") matchesByUser := solve 'id, 'name user := traits where traits.data.id = 'id ad ~ user r := {matches : ad.trait, id: user.id, name : 'name, count: count(ad.name where ad.name = 'name)} where ad.trait = user.data.trait distinct(r) evaluateAds := solve 'name, 'user { adStrength : count(matchesByUser.id where matchesByUser.id = 'user & matchesByUser.name = 'name)/ (matchesByUser.count where matchesByUser.name = 'name), id : 'user, name : 'name } evaluateAds"
