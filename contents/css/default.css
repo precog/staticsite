@@ -873,6 +873,61 @@ footer {
     height: 600px;
 }
 
+/*FORM FULL*/
+.precog-account-form-full label {
+    font-family: questrial, sans-serif;
+    color: #617280;
+    font-size: 12pt;
+}
+
+.precog-account-form-full input {
+    background-color: #000;
+    border: 1px solid #282e33;
+    color: #fff;
+    font-size: 10pt;
+    height: 26px;
+    width: 100%;
+    padding-left: 1%;
+    margin-top: 2px;
+    margin-bottom: 8px;
+}
+
+.precog-account-form-full input:hover, .precog-account-form input:active {
+    border: 1px solid #404A52;
+}
+
+.precog-account-form-full .form-radio {
+    float: left;
+    width: 100px;
+    text-align: center;
+}
+
+.precog-account-form-full .form-radio input{
+    height: 14px !important;
+    width: auto;
+}
+
+.precog-account-form-full button {
+    margin-top: 20px;
+}
+
+/*SPECIAL FORM FORMATTING*/
+#precog-create-apikey .two-columns {
+    float: left;
+    width: 45%;
+}
+
+#precog-create-apikey .two-columns:first-child {
+    float: left;
+    width: 45% !important;
+    padding-right: 10%;
+}
+
+#precog-create-apikey .two-columns input {
+    float: left;
+    width: 100%;
+}
+
 /*NEWS LETTER ICONTACT*/
 #newsletter-signup-form {
     position: absolute;
