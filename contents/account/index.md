@@ -52,7 +52,7 @@ template: page.jade
                     <input type="text" id="form-description" name="form-path">
                 </dd>
             </dl>
-            <dl class="clear"></dl>
+            <dl class="clear-left"></dl>
             <dl>
                 <dt>
                     <label for="form-path">Path</label>
@@ -74,7 +74,7 @@ template: page.jade
                     <label for="form-grants-delete">Delete</label>
                     <input type="checkbox" id="form-grants-delete" name="form-grants" value="delete">
                 </dt>
-                <dt class="clear"></dt>
+                <dt class="clear-left"></dt>
             </dl>
             <input class="button small-button red-background" type="submit" value="Create">
         </form>

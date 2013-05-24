@@ -899,11 +899,11 @@ footer {
 .precog-account-form-full .form-radio {
     float: left;
     width: 100px;
-    text-align: center;
+    text-align: left;
 }
 
 .precog-account-form-full .form-radio input{
-    height: 14px !important;
+    height: 13px !important;
     width: auto;
 }
 
