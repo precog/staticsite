@@ -702,6 +702,26 @@ footer p {
     height: 22px !important;
 }
 
+#gmap .output .mirror {
+    float: left;
+    width: 44%;
+    background-color: #FAFAFA;
+    -moz-box-shadow: inset 0 0 60px 0 #ccc;
+    -webkit-box-shadow: inset 0 0 60px 0 #ccc;
+    box-shadow: inset 0 0 60px 0 #ccc;
+    text-align: center;
+    padding: 3%;
+    margin-bottom: 10px;
+}
+
+#gmap .output .mirror:nth-child(5) span, #gmap .output .mirror:nth-child(6) span {
+    color: #57B6DD !important;
+}
+
+#gmap .output h3, #gmap .evaluatedAds h3 {
+    color: #666 !important;
+}
+
 #gmap .evaluatedAds {
     top: 500px;
     left: 370px;
@@ -709,6 +729,18 @@ footer p {
     width: 350px;
     height: 440px;
     overflow: hidden;
+}
+
+#gmap .evaluatedAds .adName {
+    color: #666;
+}
+
+#gmap .evaluatedAds .matches {
+    color: #57B6DD;
+}
+
+#gmap .evaluatedAds .strength {
+    color: #57B6DD;
 }
 
 .map-number {

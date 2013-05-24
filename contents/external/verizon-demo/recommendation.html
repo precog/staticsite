@@ -48,7 +48,6 @@
             <google-map id="map" map="map" center="center" draggable="true" zoom="zoom" style="display:block;height: 480px;width:750px"></google-map>
             <div class="ads">
                 <h2>Simulate Ads</h2>
-
                 <div class="ad" ng-repeat="ad in ads">
                     <p>Name</p> <input type="text" ng-model="ad.name">
                     <p>Traits</p>
@@ -70,8 +69,6 @@
                     <select ng-model="ad.interest" ng-options="t for t in interests">
                         <option value="">-- interest --</option>
                     </select>
-
-
                     <a class="btn-m" ng-click="removeAd(ad)" ng-hide="$first">Remove</a>
                 </div>
                 <div class="actions">
@@ -80,24 +77,33 @@
             </div>
             <div class="clear"></div>
             <div class="output">
-                <span class="map-number">{{storeId}}</span><p>Store ID</p>
-                <span class="map-number">{{storeAddress}}</span><p>Store Address</p>
-                <span class="map-number">{{averageSaleAmount | currency}}</span><p>Average Sale Amount</p>
-                <span class="map-number">{{totalTraffic | number:0}}</span><p>Total Traffic</p>
-                <span class="map-number">{{conversionRate * 100 | number: 2}} %</span><p>Conversion Rate</p>
-                <span class="map-number">{{projectedConversionRate * 100 | number: 2}} %</span><p>Projected Conversion</p>
-                <span class="map-number">{{totalSales | currency}}</span><p>Total Sales</p>
-                <span class="map-number">{{projectedSales | currency}}</span><p>Projected Sales</p>
-                <span class="map-number">{{transactions | number:0}}</span><p>Transactions</p>
-
-                <span class="map-number">{{mod | number}}</span><p>Mod</p>
+                <h3>Current</h3>
+                <div class="mirror">
+                    <span class="map-number">{{totalSales | currency}}</span><p>Total Sales</p>
+                </div>
+                <div class="mirror">
+                    <span class="map-number">{{conversionRate * 100 | number: 2}} %</span><p>Conversion Rate</p>
+                </div>
+                <h3>Projected</h3>
+                <div class="mirror">
+                    <span class="map-number">{{projectedSales | currency}}</span><p>Projected Sales</p>
+                </div>
+                <div class="mirror">
+                    <span class="map-number">{{projectedConversionRate * 100 | number: 2}} %</span><p>Projected Conversion</p>
+                </div>
+                <span class="clear-left"></span>
+                <p>Store ID</p><span class="map-number">{{storeId}}</span>
+                <p>Store Address</p><span class="map-number">{{storeAddress}}</span>
+                <p>Average Sale Amount</p><span class="map-number">{{averageSaleAmount | currency}}</span>
+                <p>Total Traffic</p><span class="map-number">{{totalTraffic | number:0}}</span>
+                <p>Transactions</p><span class="map-number">{{transactions | number:0}}</span>
             </div>
             <div class="evaluatedAds">
-                <p>How Many? {{evaluatedAds.length}}</p>
+                <h3>Applied Ads {{evaluatedAds.length}}</h3>
                 <ul>
                     <li ng-repeat="item in adRankings">
                         <span class="adName">{{item.name}}</span>
-                        <span class="matches">{{item.matches | number}}</span>
+                        <span class="matches"><i class="icon-group"></i>{{item.matches | number}}</span>
                         <span class="strength">{{item.adStrength * 100 | number:0}} %</span>
                     </li>
                 </ul>
