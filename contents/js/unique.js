@@ -280,13 +280,11 @@ $(document).ready(function(){
                         $("#form-path").val(userBasePath);
                     
                         precogApi.listApiKeys().then(function(data){
-                              $("#current-api-keys").html("<h3>Existing Keys</h3>")
-                              
                               for (var value in data) {
                                     var obj = data[value];
-                                    var keys = "<dl><dt>" + obj.name + "</dt><dd>" + obj.description + "</dd><dd>" + obj.apiKey + "</dd><a id='delete-key' href='#'>Delete Key</a></dl>";
+                                    var keys = "<dt>" + obj.name + "</dt><dd>" + obj.description + "</dd><dd>" + obj.apiKey + "</dd><a id='delete-key' href='#'>Delete Key</a>";
                                 
-                                    $("#current-api-keys").append(keys);
+                                    $("#current-api-keys dl").append(keys);
                               }
                         });
                         
@@ -341,8 +339,8 @@ $(document).ready(function(){
                                     }
                                 
                                     precogApi.createApiKey(grants).then(function(data){
-                                        var newKey = "<dl><dt>" + data.name + "</dt><dd>" + data.description + "</dd><dd>" + data.apiKey + "</dd><a id='delete-key' href='#'>Delete Key</a></dl>";
-                                        $("#current-api-keys").append(newKey)
+                                        var newKey = "<dt>" + data.name + "</dt><dd>" + data.description + "</dd><dd>" + data.apiKey + "</dd><a id='delete-key' href='#'>Delete Key</a>";
+                                        $("#current-api-keys dl").append(newKey)
                                     },function(data){
                                         //UNABLE TO CREATE GRANT
                                     });

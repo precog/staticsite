@@ -36,7 +36,6 @@ template: page.jade
         <div id="current-api-keys">
         <h3>Existing Keys</h3>
         <dl>
-            <dt>No API Keys Found.</dt>
         </dl>
         </div>
         <h3>Create New Keys</h3>
