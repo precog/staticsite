@@ -678,6 +678,7 @@ a.product-link-labcoat-account:hover {
     right: 10px;
     padding: 6px 10px;
     border-radius: 6px;
+    color: #000 !important;
 }
 
 #current-api-keys #delete-key:hover {
