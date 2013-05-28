@@ -271,9 +271,11 @@ $(document).ready(function(){
                   $("#account-basepath").html(userBasePath);
                   $("#account-id").html(userAccountID);
                   
+                  var urlService = userAnalyticsService.substring(0, str.length - 1);
+                  
                   $.getScript("/js/precog.min.js", function(){
                   
-                        var precogApi = new Precog.api({"apiKey": userApiKey, "analyticsService" : userAnalyticsService});
+                        var precogApi = new Precog.api({"apiKey": userApiKey, "analyticsService" : urlService});
                             
                         $("#form-path").val(userBasePath);
                     
