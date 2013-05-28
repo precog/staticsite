@@ -286,6 +286,8 @@ $(document).ready(function(){
                                 
                                 $("#current-api-keys").append(keys);
                             }
+                        },function(){
+                              $("#current-api-keys").append("<dl><dt>No API Keys Found.</dt></dl>");
                         });
                         
                         $("#current-api-keys").on("click", "a", function(e){
@@ -293,7 +295,7 @@ $(document).ready(function(){
                             var killKey = $(this).parent().find("dd:nth-child(3)").html();
                             
                             function confirmDelete() {
-                                var doubleCheck = confirm("Just Checking, are you sure you want to delete this API Key?");
+                                var doubleCheck = confirm("Are you sure you want to delete this API Key?");
                                 
                                 if (doubleCheck == true) {
                                     precogApi.deleteApiKey(killKey);
