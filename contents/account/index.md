@@ -32,6 +32,51 @@ template: page.jade
         <pre id="account-analyticsservice"></pre>
         <p>Your analytics service determines which cluster your account is deployed on. We separate freemium accounts from paid accounts.</p>
         <p>You will need the analytics service URL in order to use the Precog API or any of the client libraries.</p>
+        <h2>manage your apikeys</h2>
+        <div id="current-api-keys">
+        </div>
+        <form id="precog-create-apikey" class="precog-account-form" method="post">
+            <dl class="two-columns">
+                <dt>
+                    <label for="form-name">Name</label>
+                </dt>
+                <dd>
+                    <input type="text" id="form-name" name="form-path">
+                </dd>
+            </dl>
+            <dl class="two-columns">
+                <dt>
+                    <label for="form-description">Description</label>
+                </dt>
+                <dd>
+                    <input type="text" id="form-description" name="form-path">
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <label for="form-path">Path</label>
+                </dt>
+                <dd>
+                    <input type="text" id="form-path" name="form-path">
+                </dd>
+            </dl>
+            <dl>
+                <dt class="form-radio">
+                    <label for="form-grants-read">Read</label>
+                    <input type="checkbox" id="form-grants-read" name="form-grants" value="read">
+                </dt>
+                <dt class="form-radio">
+                    <label for="form-grants-write">Write</label>
+                    <input type="checkbox" id="form-grants-write" name="form-grants" value="write">
+                </dt>
+                <dt class="form-radio">
+                    <label for="form-grants-delete">Delete</label>
+                    <input type="checkbox" id="form-grants-delete" name="form-grants" value="delete">
+                </dt>
+                <dt class="clear"></dt>
+            </dl>
+            <input class="button small-button red-background" type="submit" value="Create">
+        </form>
     </div>
 </div>
 <div class="two-columns-end">

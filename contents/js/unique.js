@@ -269,7 +269,89 @@ $(document).ready(function(){
                   $("#account-apikey").html(userApiKey);
                   $("#account-analyticsservice").html(userAnalyticsService);
                   $("#account-basepath").html(userBasePath);
-                  $("#account-id").html(userAccountID);  
+                  $("#account-id").html(userAccountID);
+                  
+                  $.getScript("/js/precog.min.js", function(){
+                  
+                        var precogApi = new Precog.api({"apiKey": userApiKey, "analyticsService" : userAnalyticsService});
+                            
+                        $("#form-path").val(userBasePath);
+                    
+                        precogApi.listApiKeys().then(function(data){
+                            for (var value in data) {
+                                var obj = data[value];
+                                var keys = "<dl><dt>" + obj.name + "</dt><dd>" + obj.description + "</dd><dd>" + obj.apiKey + "</dd><a id='delete-key' href='#'>Delete Key</a></dl>";
+                                
+                                $("#current-api-keys").append(keys);
+                            }
+                        });
+                        
+                        $("#current-api-keys").on("click", "a", function(e){
+                            e.preventDefault();
+                            var killKey = $(this).parent().find("dd:nth-child(3)").html();
+                            
+                            function confirmDelete() {
+                                var doubleCheck = confirm("Just Checking, are you sure you want to delete this API Key?");
+                                
+                                if (doubleCheck == true) {
+                                    precogApi.deleteApiKey(killKey);
+                                    location.reload();
+                                } else {
+                                }
+                            }
+                            confirmDelete();
+                        });
+                        
+                        $("#precog-create-apikey").submit(function(e){
+                            
+                            var formName = $("#form-name").val();
+                            var formDescription = $("#form-description").val();
+                            var formPath = $("#form-path").val();
+                            var accountID = "0000000055";
+                            
+                            if (formName.length < 1 || formDescription.length < 3 || formPath.length < 3) {
+                                $(".precog-account-form-full").append("<div id='form-error'><p class='error-font'>Please check entry fields. Each field must contain a value.</p></div>").find("#form-error").delay(2000).fadeOut(500);
+                            } else {
+                                
+                                var grantPermissions = new Array();
+                                    
+                                $('input:checked').each(function() {
+                                    grantType = $(this).attr('value');
+                                    
+                                    grantPermissions.push({ accessType: grantType, path: formPath, ownerAccountIds: [accountID]});
+                                });
+                                    
+                                if (grantPermissions.length < 1) {
+                                    $(".precog-account-form-full").append("<div id='form-error'><p class='error-font'>Please select at least one grant to be associated with this API Key</p></div>").find("#form-error").delay(2000).fadeOut(500);
+                                } else {
+                                
+                                    var grants = {
+                                        "name": formName,
+                                        "description": formDescription,
+                                        "grants": [{
+                                            "name": "Grant For-" + formName,
+                                            "description": "Grant For-" + formDescription,
+                                            "permissions" : grantPermissions
+                                        }
+                                        ]
+                                    }
+                                
+                                    precogApi.createApiKey(grants).then(function(data){
+                                        var newKey = "<dl><dt>" + data.name + "</dt><dd>" + data.description + "</dd><dd>" + data.apiKey + "</dd><a id='delete-key' href='#'>Delete Key</a></dl>";
+                                        $("#current-api-keys").append(newKey)
+                                    },function(data){
+                                        //UNABLE TO CREATE GRANT
+                                    });
+                                    
+                                }
+                            }
+                            
+                            e.preventDefault();
+                            return false;
+                        });
+                        
+                  });
+                  
             } else {
                   window.location = "/account/login/";
             }
