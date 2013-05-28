@@ -271,7 +271,7 @@ $(document).ready(function(){
                   $("#account-basepath").html(userBasePath);
                   $("#account-id").html(userAccountID);
                   
-                  var urlService = userAnalyticsService.substring(0, str.length - 1);
+                  var urlService = userAnalyticsService.substring(0, userAnalyticsService.length - 1);
                   
                   $.getScript("/js/precog.min.js", function(){
                   
