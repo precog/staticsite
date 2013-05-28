@@ -91,7 +91,7 @@ template: page.jade
         <p>Click here for our developer center, jam-packed with documentation and code snippets.</p>
         <a href="/developers/how-tos/embed-reporting/">Embed Reporting In Your App For Your Customers</a>
         <p>An easy guide for developers that shows them how to use Precog to embed self-service reporting into any app.</p>
-        <a href="/developers/client-libraries/javascript/">Client Libraries</a>
+        <a href="/developers/client-libraries/">Client Libraries</a>
         <p>Javascript, PHP and many more!</p>
         <a href="/developers/rest-apis/accounts/">REST API</a>
         <p>The easy to use Precog Rest API!</p>
