@@ -34,6 +34,7 @@ template: page.jade
         <p>You will need the analytics service URL in order to use the Precog API or any of the client libraries.</p>
         <h2>manage your apikeys</h2>
         <div id="current-api-keys">
+        <h3>Existing Keys</h3>
         </div>
         <form id="precog-create-apikey" class="precog-account-form-full" method="post">
             <dl class="two-columns">
