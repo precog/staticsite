@@ -280,14 +280,14 @@ $(document).ready(function(){
                         $("#form-path").val(userBasePath);
                     
                         precogApi.listApiKeys().then(function(data){
-                            for (var value in data) {
-                                var obj = data[value];
-                                var keys = "<dl><dt>" + obj.name + "</dt><dd>" + obj.description + "</dd><dd>" + obj.apiKey + "</dd><a id='delete-key' href='#'>Delete Key</a></dl>";
+                              $("#current-api-keys").html("<h3>Existing Keys</h3>")
+                              
+                              for (var value in data) {
+                                    var obj = data[value];
+                                    var keys = "<dl><dt>" + obj.name + "</dt><dd>" + obj.description + "</dd><dd>" + obj.apiKey + "</dd><a id='delete-key' href='#'>Delete Key</a></dl>";
                                 
-                                $("#current-api-keys").append(keys);
-                            }
-                        },function(){
-                              $("#current-api-keys").append("<dl><dt>No API Keys Found.</dt></dl>");
+                                    $("#current-api-keys").append(keys);
+                              }
                         });
                         
                         $("#current-api-keys").on("click", "a", function(e){
