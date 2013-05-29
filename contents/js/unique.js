@@ -272,6 +272,7 @@ $(document).ready(function(){
                   $("#account-id").html(userAccountID);
                   
                   var urlService = userAnalyticsService.substring(0, userAnalyticsService.length - 1);
+                  console.log(urlService);
                   
                   $.getScript("/js/precog.min.js", function(){
                   
