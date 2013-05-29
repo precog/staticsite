@@ -1,0 +1,90 @@
+<html ng-app="myApp">
+<head>
+    <title>Traffic Flow</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="css/innerpage.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&language=en&libraries=drawing"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+    <script src="./js/ui-select2-master/src/select2.js"></script>
+    <script src="js/angular-google-maps.js"></script>
+    <link rel="stylesheet" href="https://api.reportgrid.com/css/rg-charts.css">
+    <link rel="stylesheet" href="./css/flow.css">
+    <script src="https://api.reportgrid.com/js/reportgrid-charts.js?authCode=r59uh0XNfjFqI1M%2ByxJK33KGZ0Mm82UqEme9ShK7g12KlIHBhCZK1rFV7KdOHgZ7GAePArW%2FT4EuOgzCPCbZB%2BAGlqH7I8OeRMwxKJA5lSRO1GTNp5IkXcrS4rKVj0KT3jnc%2Fkc6gJBjzZPBwwX10Xgdg2%2B%2FKI1QnoOCVhDJ8Hg%3D"></script>
+    <script src="https://api.reportgrid.com/js/precog.js?apiKey=10FE4058-2F45-4F46-925D-729FA545FA6B&basePath=0000000097&analyticsService=https://office01.precog.com/"></script>
+    <script src="./js/precog_js_client-master/dist/precog.min.js"></script>
+    <script src="js/controller.js"></script>
+</head>
+<!--
+  <h1>URL Traffic Flow</h1>
+      <div id="chart-holder">
+        <div ng-controller="ChartRenderingController2">
+          <input type="text" name="input" ng-model="siteName"/>
+          Enter Site Name Here: {{siteName}} <br>
+          <input type="number" name="input" ng-model="nodes"/>
+          Enter Desired Nodes Here : {{nodes}} <br>
+           <button ng-click="render(siteName, nodes)">
+            Render
+            </button>
+            <hr>
+          <div id="chart">
+-->
+<body>
+    <header>
+        <div class="holder">
+            <img src="images/logo-verizon-wireless.png" alt="Verizon">
+            <ul class="menu">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./overview.html">Overview</a></li>
+                <li class="active"><a href="./trafficFlow.html">Traffic Flow</a></li>
+                <li><a href="./geo.html">Geo</a></li>
+            </ul>
+        </div>
+    </header>
+    <div id="body">
+        <div ng-controller="ChartRenderingController_Flow">
+            <h2>Mobile URL Usage</h2>
+            <p>Understand not just where potential customers are already browsing the web near your locations, but where they are likely to go next.</p>
+            <div id="chart-controls">
+                <div class="control-option">
+                    <span>Site Name</span><input class="std-input" type="text" name="input" ng-model="siteName"/>
+                </div>
+                <div class="control-option">
+                    <span>Precision</span><input class="std-input" type="number" name="input" ng-model="filter"/>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <!--   
+            <select id="test" ui-select2 ng-model="select2"></select>
+            -->
+            <hr>
+            <div id="chart" class="bordered grey spinner"></div>
+        </div>
+        <!-- Le javascript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster 
+        <script src="./bootstrap/js/jquery.js"></script>
+        <script src="./bootstrap/js/bootstrap-transition.js"></script>
+        <script src="./bootstrap/js/bootstrap-alert.js"></script>
+        <script src="./bootstrap/js/bootstrap-modal.js"></script>
+        <script src="./bootstrap/js/bootstrap-dropdown.js"></script>
+        <script src="./bootstrap/js/bootstrap-scrollspy.js"></script>
+        <script src="./bootstrap/js/bootstrap-tab.js"></script>
+        <script src="./bootstrap/js/bootstrap-tooltip.js"></script>
+        <script src="./bootstrap/js/bootstrap-popover.js"></script>
+        <script src="./bootstrap/js/bootstrap-button.js"></script>
+        <script src="./bootstrap/js/bootstrap-collapse.js"></script>
+        <script src="./bootstrap/js/bootstrap-carousel.js"></script>
+        <script src="./bootstrap/js/bootstrap-typeahead.js"></script>
+        -->
+    </div>
+    <footer>
+        <div class="holder">
+            <p>&copy; Precog 2013</p>
+        </div>
+    </footer>
+</body>
+</html>

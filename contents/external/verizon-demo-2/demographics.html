@@ -1,0 +1,125 @@
+<html ng-app="myApp">
+<head>
+    <title>Demographics</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="css/innerpage.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&language=en&libraries=visualization"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+    <script src="js/angular-google-maps.js"></script>
+    <link rel="stylesheet" href="https://api.reportgrid.com/css/rg-charts.css">
+<!--    <link rel="stylesheet" href="./css/overview.css"> -->
+    <script src="https://api.reportgrid.com/js/reportgrid-charts.js?authCode=r59uh0XNfjFqI1M%2ByxJK33KGZ0Mm82UqEme9ShK7g12KlIHBhCZK1rFV7KdOHgZ7GAePArW%2FT4EuOgzCPCbZB%2BAGlqH7I8OeRMwxKJA5lSRO1GTNp5IkXcrS4rKVj0KT3jnc%2Fkc6gJBjzZPBwwX10Xgdg2%2B%2FKI1QnoOCVhDJ8Hg%3D"></script>
+    <script src="https://api.reportgrid.com/js/precog.js?apiKey=10FE4058-2F45-4F46-925D-729FA545FA6B&basePath=0000000097&analyticsService=https://office01.precog.com/"></script>
+    <script src="./js/precog_js_client-master/dist/precog.min.js"></script>
+    <script src="js/controller.js"></script>
+  </head>
+<!--
+  <div ng-controller="MapController" id="gmap">
+    
+        <google-map id="map" map="map" center="center" draggable="true" zoom="zoom" markers="markers" mark-click="true" style="display:block;height: 600px;width:600px"></google-map>
+         <div id="chart-holder">
+      <div ng-controller="ChartRenderingController">
+        <div id="chart">
+        </div>
+        <div id="chart2">
+        </div>
+      </div>
+-->
+<body>
+    <header>
+        <div class="holder">
+            <img src="images/logo-verizon-wireless.png" alt="Verizon">
+            <ul class="menu">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./overview.html">Overview</a></li>
+                <li><a href="./trafficFlow.html">Traffic Flow</a></li>
+                <li><a href="./geo.html">Geo</a></li>
+            </ul>
+        </div>
+    </header>
+    <div id="body">
+        <div ng-controller="ChartRenderingController_Geo" ng-click="test()">
+            <div id="interactive-chart" ></div>
+        </div>
+            <div ng-controller="MapController_Demographics" id="gmap" class="span 8">
+                <div id="chart-controls" class="controls">
+                    <h2 class="store-title">{{storeName}}</h2> <hr>
+                 <!--   
+                     <select ng-model="selectedTraits" multiple ng-multiple="true" ng-options="t for t in traits">
+                     </select>
+                -->
+                    <div class="control-option">
+                        <span>Transaction Type</span>
+                        <select ng-model="type" ng-options="t.label for t in types"></select>
+                    </div>
+                    <div class="control-option">
+                        <span>Ages</span>
+                        <select ng-model="age" ng-options="a for a in ages"></select>
+                    </div>
+                    <div class="control-option">
+                        <span>Education</span>
+                        <select ng-model="education" ng-options="a for a in educations"></select>
+                    </div>
+                    <div class="control-option">
+                        <span>Gender</span>
+                        <select ng-model="gender" ng-options="a for a in genders"></select>
+                    </div>
+                    <div class="control-option">
+                        <span>Ethnicity</span>
+                        <select ng-model="ethnicity" ng-options="a for a in ethnicities"></select>
+                    </div>
+                    <div class="control-option">
+                        <span>Income</span>
+                        <select ng-model="income" ng-options="a for a in incomes"></select>
+                    </div>
+                    <div class="control-option">
+                        <span>Interests</span>
+                        <select ng-model="interest" ng-options="a for a in interests"></select>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <google-map id="map" map="map" center="center" draggable="true" zoom="zoom" markers="markers" mark-click="true" style="display:block;height: 600px;width:1000px"></google-map>
+            </div>
+            <div class="major-promo">
+                <h2>Recommendation</h2>
+                <p>Utilize demographic data to project store sales based on a hypothetical ad targeting specific user traits.</p>
+                <a class="btn-m" href="./recommendation.html">Project Store Sales</a>
+            </div>
+            <div class="major-promo last">
+                <h2>Point of Interest Activity</h2>
+                <p>Visualize activity around retail locations.</p>
+                <a class="btn-m" href="./activity.html">POI Activity</a>
+            </div>
+            <div class="clear"></div>
+        
+        <!-- /container -->
+    
+        <!-- Le javascript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster 
+        <script src="./bootstrap/js/jquery.js"></script>
+        <script src="./bootstrap/js/bootstrap-transition.js"></script>
+        <script src="./bootstrap/js/bootstrap-alert.js"></script>
+        <script src="./bootstrap/js/bootstrap-modal.js"></script>
+        <script src="./bootstrap/js/bootstrap-dropdown.js"></script>
+        <script src="./bootstrap/js/bootstrap-scrollspy.js"></script>
+        <script src="./bootstrap/js/bootstrap-tab.js"></script>
+        <script src="./bootstrap/js/bootstrap-tooltip.js"></script>
+        <script src="./bootstrap/js/bootstrap-popover.js"></script>
+        <script src="./bootstrap/js/bootstrap-button.js"></script>
+        <script src="./bootstrap/js/bootstrap-collapse.js"></script>
+        <script src="./bootstrap/js/bootstrap-carousel.js"></script>
+        <script src="./bootstrap/js/bootstrap-typeahead.js"></script>
+    -->
+    </div>
+    <footer>
+        <div class="holder">
+            <p>&copy; Precog 2013</p>
+        </div>
+    </footer>
+</body>
+</html>
