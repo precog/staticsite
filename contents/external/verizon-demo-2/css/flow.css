@@ -1,0 +1,10 @@
+.rg .sankey .node rect.fill.node {
+	stroke-width: 0;
+}
+
+.spinner {
+        background-image: url("../ajax-loader.gif");
+        background-repeat: no-repeat;
+        background-position: center;  
+}
+

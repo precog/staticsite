@@ -1,0 +1,77 @@
+<html ng-app="myApp">
+<head>
+    <title>Activity</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="css/innerpage.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&language=en&libraries=visualization"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+    <script src="js/angular-google-maps.js"></script>
+    <link rel="stylesheet" href="https://api.reportgrid.com/css/rg-charts.css">
+<!--    <link rel="stylesheet" href="./css/overview.css"> -->
+    <script src="https://api.reportgrid.com/js/reportgrid-charts.js?authCode=r59uh0XNfjFqI1M%2ByxJK33KGZ0Mm82UqEme9ShK7g12KlIHBhCZK1rFV7KdOHgZ7GAePArW%2FT4EuOgzCPCbZB%2BAGlqH7I8OeRMwxKJA5lSRO1GTNp5IkXcrS4rKVj0KT3jnc%2Fkc6gJBjzZPBwwX10Xgdg2%2B%2FKI1QnoOCVhDJ8Hg%3D"></script>
+    <script src="https://api.reportgrid.com/js/precog.js?apiKey=10FE4058-2F45-4F46-925D-729FA545FA6B&basePath=0000000097&analyticsService=https://office01.precog.com/"></script>
+    <script src="./js/precog_js_client-master/dist/precog.min.js"></script>
+    <script src="js/controller.js"></script>
+</head>
+<!--
+  <div ng-controller="MapController" id="gmap">
+    
+        <google-map id="map" map="map" center="center" draggable="true" zoom="zoom" markers="markers" mark-click="true" style="display:block;height: 600px;width:600px"></google-map>
+         <div id="chart-holder">
+      <div ng-controller="ChartRenderingController">
+        <div id="chart">
+        </div>
+        <div id="chart2">
+        </div>
+      </div>
+-->
+  <body>
+    <header>
+        <div class="holder">
+            <img src="images/logo-verizon-wireless.png" alt="Verizon">
+            <ul class="menu">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./overview.html">Overview</a></li>
+                <li><a href="./trafficFlow.html">Traffic Flow</a></li>
+                <li><a href="./geo.html">Geo</a></li>
+            </ul>
+        </div>
+    </header>
+    <div id="body">
+        <div ng-controller="MapController_AppLocation" id="gmap" class="span 8">
+            <div id="chart-controls">
+                <div class="control-option">
+                    <span>Select Store</span><select name="input" ng-model="storeName" ng-options="n for n in storeNames"></select>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <google-map id="map" map="map" center="center" draggable="true" zoom="zoom" markers="markers" mark-click="true" style="display:block;height: 600px;width:1000px"></google-map>
+        </div>
+     <!--  <div ng-controller="ChartRenderingController_Geo" class="span 4">
+        <div id="chart">
+        </div>
+        <div id="chart2">
+        </div> 
+    </div>-->
+        <div class="major-promo">
+            <h2>Recommendation</h2>
+            <p>Simulate the effect on sales of a demographic targetted ad.</p>
+            <a class="btn-m" href="./recommendation.html">Geo Paths</a>
+        </div>
+        <div class="major-promo last">
+            <h2>Demographics</h2>
+            <p>Explore the demographic make-up of customers near retail locations.</p>
+            <a class="btn-m" href="./demographics.html">Geo Demographics</a>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <footer>
+        <div class="holder">
+            <p>&copy; Precog 2013</p>
+        </div>
+    </footer>
+</body>
+</html>
