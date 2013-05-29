@@ -310,7 +310,7 @@ $(document).ready(function(){
                             var formName = $("#form-name").val();
                             var formDescription = $("#form-description").val();
                             var formPath = $("#form-path").val();
-                            var accountID = "0000000055";
+                            var accountID = userAccountID;
                             
                             if (formName.length < 1 || formDescription.length < 3 || formPath.length < 3) {
                                 $(".precog-account-form-full").append("<div id='form-error'><p class='error-font'>Please check entry fields. Each field must contain a value.</p></div>").find("#form-error").delay(2000).fadeOut(500);
