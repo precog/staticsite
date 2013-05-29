@@ -5,7 +5,7 @@
 		$locationProvider.html5Mode(false).hashPrefix('!');
 	});
 
-	var api = new Precog.api({"apiKey": "10FE4058-2F45-4F46-925D-729FA545FA6B", "analyticsService" : "https://nebula.precog.com"});
+	var api = new Precog.api({"apiKey": "10FE4058-2F45-4F46-925D-729FA545FA6B", "analyticsService" : "https://nebula-b.precog.com"});
 
 	var circles;
 	function renderCircles(data , map){	
