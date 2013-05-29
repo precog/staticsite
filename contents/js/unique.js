@@ -340,7 +340,7 @@ $(document).ready(function(){
                                     }
                                 
                                     precogApi.createApiKey(grants).then(function(data){
-                                        var newKey = "<dt>" + data.name + "</dt><dd>" + data.description + "</dd><dd>" + data.apiKey + "</dd><a id='delete-key' href='#'>Delete Key</a>";
+                                        var newKey = "<dt>" + data.name + "</dt><dd>" + data.description + "</dd><dd>" + data.apiKey + "</dd><a class='delete-key' href='#'>Delete Key</a>";
                                         $("#current-api-keys dl").append(newKey)
                                     },function(data){
                                         //UNABLE TO CREATE GRANT

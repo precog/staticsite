@@ -671,7 +671,7 @@ a.product-link-labcoat-account:hover {
     padding: 2px 0px;
 }
 
-#current-api-keys #delete-key {
+#current-api-keys .delete-key {
     background-color: #c13707;
     position: absolute;
     top: 10px;
@@ -683,7 +683,7 @@ a.product-link-labcoat-account:hover {
     text-transform: uppercase;
 }
 
-#current-api-keys #delete-key:hover {
+#current-api-keys .delete-key:hover {
     background-color: #d03905;
 }
 
