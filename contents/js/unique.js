@@ -185,8 +185,8 @@ $(document).ready(function(){
                                                       //RESET YOUR PASSWORD OR LOGIN
                                                       $("#precog-form-create-account").append("<div id='form-error'><p class='error-font'>We found a previous account under your e-mail address. Please attempt to login or reset your password.</p></div>").find("#form-error").delay(2000).fadeOut(500);
                                                 }
-                                          }, function(serviceUrl){
-                                                Precog.$.Config.analyticsService = serviceUrl;
+                                          }, function(){
+                                                Precog.$.Config.analyticsService = "https://beta.precog.com/";
                                                 //CREATE NEW ACCOUNT
                                                 Precog.createAccount(userEmail, userPassword, function(data){
                                                       var accountDetail = data;
