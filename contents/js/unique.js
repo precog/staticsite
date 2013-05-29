@@ -283,7 +283,7 @@ $(document).ready(function(){
                         precogApi.listApiKeys().then(function(data){
                               for (var value in data) {
                                     var obj = data[value];
-                                    var keys = "<dt>" + obj.name + "</dt><dd>" + obj.description + "</dd><dd>" + obj.apiKey + "</dd><a id='delete-key' href='#'>Delete Key</a>";
+                                    var keys = "<dt>" + obj.name + "</dt><dd>" + obj.description + "</dd><dd>" + obj.apiKey + "</dd><a class='delete-key' href='#'>Delete Key</a>";
                                 
                                     $("#current-api-keys dl").append(keys);
                               }
