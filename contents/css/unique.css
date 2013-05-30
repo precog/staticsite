@@ -658,7 +658,8 @@ a.product-link-labcoat-account:hover {
     margin: 10px 0;
     overflow: auto;
     padding: 12px;
-    border-radius: 6px;    
+    border-radius: 6px;
+    white-space: normal;
 }
 
 #current-api-keys dt {

@@ -284,7 +284,7 @@ $(document).ready(function(){
     
                         precogApi.listApiKeys().then(function(data){
                             
-                                for (var i = 0; i < data.length; i++) {
+                              for (var i = 0; i < data.length; i++) {
                                     var dl = $("<dl></dl>").appendTo(container);
                                     var obj = data[i];
                                     var path = obj.grants[0].permissions[0].path;
@@ -294,18 +294,25 @@ $(document).ready(function(){
                                     
                                     for (var j = 0; j < grantsVar.length; j++) {
                                         
-                                        var grantActual = grantsVar[j];
-                                        var ulPermissions = $("<li><ul class='permissions'></ul></li>").appendTo(ulGrants).find(".permissions");
-                                        var grantPermissions = grantsVar[j].permissions
-                                        
-                                        for (var k = 0; k < grantPermissions.length; k++) {
-                    
-                                            var permissionActual = grantPermissions[k];
-                                            var permissionAppend = permissionActual.accessType;
-                                            $("<li>" + permissionAppend + "</li>").appendTo(ulPermissions);
-                                        }
+                                          var grantActual = grantsVar[j];
+                                          var ulPermissions = $("<li><ul class='permissions'></ul></li>").appendTo(ulGrants).find(".permissions");
+                                          var grantPermissions = grantsVar[j].permissions
+                                          
+                                          for (var k = 0; k < grantPermissions.length; k++) {
+                      
+                                                var permissionActual = grantPermissions[k];
+                                                var permissionAppend = permissionActual.accessType;
+                                                $("<li>" + permissionAppend + "</li>").appendTo(ulPermissions);
+                                          }
                                     }
-                                }
+                              }
+                              
+                              var containerEmpty = container.html();
+        
+                              if (containerEmpty == "") {
+                                  $("#current-api-keys").append("<dl><dd>No API Keys exist.</dd></dl>");
+                              }
+                              
                         });
                         
                         $("#current-api-keys").on("click", "a", function(e){
@@ -379,6 +386,8 @@ $(document).ready(function(){
                                                       $("<li>" + permissionAppend + "</li>").appendTo(ulPermissions);
                                               }
                                           }
+                                          
+                                          $("#current-api-keys .no-api-keys-exist").remove();
                                     },function(data){
                                         //UNABLE TO CREATE GRANT
                                     });
