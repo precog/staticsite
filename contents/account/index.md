@@ -33,9 +33,8 @@ template: page.jade
         <p>Your analytics service determines which cluster your account is deployed on. We separate freemium accounts from paid accounts.</p>
         <p>You will need the analytics service URL in order to use the Precog API or any of the client libraries.</p>
         <h2>manage your apikeys</h2>
-        <div id="current-api-keys">
         <h3>Existing Keys</h3>
-        </div>
+        <div id="current-api-keys"></div>
         <h3>Create New Keys</h3>
         <form id="precog-create-apikey" class="precog-account-form-full" method="post">
             <dl class="two-columns">
