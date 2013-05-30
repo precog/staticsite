@@ -5,7 +5,7 @@
 		$locationProvider.html5Mode(false).hashPrefix('!');
 	});
 
-	var api = new Precog.api({"apiKey": "10FE4058-2F45-4F46-925D-729FA545FA6B", "analyticsService" : "https://nebula.precog.com"});
+	var api = new Precog.api({"apiKey": "10FE4058-2F45-4F46-925D-729FA545FA6B", "analyticsService" : "https://nebula-b.precog.com"});
 
 	var circles;
 	function renderCircles(data , map){	
@@ -85,7 +85,7 @@
 
 	var markers;
 
-	function renderMarkers(data, map, styling, labeling){
+	function renderMarkers(data, map, styling, labeling, clicking){
 		styling = styling || function(){
 			return {
 			    path: google.maps.SymbolPath.CIRCLE,
@@ -117,19 +117,23 @@
 				icon : styling(item)
 			}));
 		}
-/*
-		for (i=0; i < markers.length; i++){
-			(function(marker){
-				google.maps.event.addListener(marker, 'click', function() {
-					if($scope.zoom <= 16){
-						var zoomLevel = $scope.zoom + 1; 
-					} else var zoomLevel = $scope.zoom;
-				    map.setZoom(zoomLevel);
-	    			map.setCenter(marker.getPosition());
+
+		if(clicking) {
+			for (var i = 0; i < markers.length; i++){
+				(function(item, marker){
+					google.maps.event.addListener(marker, 'click', function() {
+						clicking(item, marker, map);
 					});
-			})(markers[i]);
-		}
+/*
+	if($scope.zoom <= 16){
+		var zoomLevel = $scope.zoom + 1; 
+	} else var zoomLevel = $scope.zoom;
+    map.setZoom(zoomLevel);
+	map.setCenter(marker.getPosition());
 */
+				})(data[i], markers[i]);
+			}
+		}
 	}
 
 	function renderPaths(data, map){
@@ -182,27 +186,27 @@
 	  }, 200);
 	});
 
-	    function positionChart(){
-	      var hChartPosition = (($(window).width()) -600) / 2;
-	      var vChartPosition = (($(window).height()) -400) / 2;
+	function positionChart() {
+		var hChartPosition = (($(window).width()) -600) / 2;
+		var vChartPosition = (($(window).height()) -400) / 2;
 
-	      $("#interactive-chart").css({
-	        left: hChartPosition,
-	        top: vChartPosition,
-	        zIndex: 1100
-	      });
-	    }
+		$("#interactive-chart").css({
+			left: hChartPosition,
+			top: vChartPosition,
+			zIndex: 1100
+		});
+	}
 
-	    $(window).resize(function(){
-	      positionChart();
-	    });
+	$(window).resize(function(){
+	 	positionChart();
+	});
 
-	    positionChart();
+	positionChart();
 
-	    $("#interactive-chart").animate({
-	      opacity: 1.0
-	    }, 500);
-	  }
+	$("#interactive-chart").animate({
+		opacity: 1.0
+	}, 500);
+}
 
 	function createMapOverlay(bounds, srcImage, map){
 
@@ -256,6 +260,30 @@
 		return overlay;
 	}
 
+	function styleMap($scope, handler){
+		setTimeout(function(){
+
+			var swBound = new google.maps.LatLng(41.45, -88.1);
+			var neBound = new google.maps.LatLng(42.15, -87.35);
+			var bounds = new google.maps.LatLngBounds(swBound, neBound);
+			var srcImage = ""// "./sample.png"
+		//	var overlay = new createMapOverlay(bounds, srcImage, $scope.map.instance);
+			
+		//	$scope.view = google.maps.MapTypeId.TERRAIN;
+		//	$scope.map.instance.mapTypeId = $scope.view;
+
+			var styles = [ { "featureType": "administrative", "stylers": [ { "visibility": "off" } ] },{ "featureType": "poi", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.local", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.arterial", "stylers": [ { "hue": "#ff0900" }, { "lightness": 49 } ] },{ "featureType": "road.highway", "stylers": [ { "hue": "#ff0900" }, { "lightness": 48 } ] },{ "featureType": "transit", "stylers": [ { "visibility": "off" } ] },{ "featureType": "water", "stylers": [ { "hue": "#0091ff" }, { "lightness": 49 } ] },{ } ];
+			var styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"});
+			$scope.map.instance.mapTypes.set('map_style',styledMap);
+	  		$scope.map.instance.setMapTypeId('map_style');
+
+	  		if(handler){
+	  			handler($scope.map.instance);
+	  		}
+//		  		$scope.render($scope.storeName, $scope.map.instance, $scope);
+		}, 0);
+	}
+
 	app.controller('MapController_AppLocation', function MapController ($scope) {
 
 		$scope.$watch(function(){
@@ -271,7 +299,7 @@
 			};
 		})());
 
-		$scope.storeName = "Verizon";
+		$scope.storeName = "Walgreens";
 		$scope.storeNames = ["7-Eleven","AMC Theatres","AT&T","Abercrombie & Fitch","Ace Hardware","Acura","Advance Auto Parts","Aloft","American Eagle Outfitters","Apple Store","Applebee's","Arby's","Audi","AutoZone","Avis","BMW","Babies\"R\"Us","Banana Republic","Bank Of America","Bath & Body Works","Bed Bath & Beyond","Bentley","Best Buy","Best Western","Big Lots","Bloomingdale's","Buick","Burger King","CVS/pharmacy","Cadillac","Caribou Coffee","Chase","Chevrolet","Chrysler","Chuck E. Cheese's","Cinemark","Circle K","Citibank","Coach","Comfort Inn","Comfort Suites","Costco Wholesale","Courtyard by Marriott","Days Inn","Dick's Sporting Goods","Dodge","Dollar Tree","Dunkin' Donuts","Exxon","Fairfield Inn & Suites by Marriott","Ferrari","Fiat","Ford","Four Points by Sheraton","GMC","GameStop","Gap","Gymboree","H&M","Hampton Inn","Hilton","Hilton Garden Inn","Holiday Inn","Holiday Inn Express","Honda","Hyundai","IMAX","Infiniti","J.Crew","JCPenney","JW Marriott","Jaguar","Jeep","Kerasotes ShowPlace Theaters","Kia","Kmart","Kohl's","Kroger","Lamborghini","Land Rover","Lexus","Lincoln","Lowe's","MINI","Macy's","Marcus Theaters","Marriott","Marriott SpringHill Suites","Marshalls","Maserati","Maybach","Mazda","McDonald's","Meijer","Mercedes-Benz","Mitsubishi","Mobil","Motel 6","Neiman Marcus","Nissan","Nordstrom","O'Reilly Auto Parts","Office Depot","OfficeMax","Old Navy","Olive Garden","PNC Bank","Panera Bread","PetSmart","Petco","Pizza Hut","Porsche","Quality Inn","RadioShack","Red Lobster","Regal Cinemas","Rolls-Royce","Saab","Sam's Club","Save-A-Lot","Sears","Sears Hometown Store","Shell","Sheraton","Sports Authority","Staples","Starbucks","Subaru","Subway","Super 8","Suzuki","T.G.I. FRIDAY's","T.J.Maxx","TARGET","Taco Bell","The Children's Place","The Home Depot","The UPS Store","Toyota","Toys\"R\"Us","Trader Joe's","Verizon","Victoria's Secret","Volkswagen","Volvo","Walgreens","Walmart","Wells Fargo","Wendy's","Westin","Whole Foods"];
 
 /*		api.execute({query : "road := //0000000097/road  rand := observe(road, std::random::uniform(41))  road' := road where rand > 0.999 {lat : road'.prevLat, lng: road'.prevLong, day: road'.dayPart, val: 25}", limit : 1000}, 
@@ -282,28 +310,11 @@
 
 
 */
-		setTimeout(function(){
-
-				var swBound = new google.maps.LatLng(41.45, -88.1);
-				var neBound = new google.maps.LatLng(42.15, -87.35);
-				var bounds = new google.maps.LatLngBounds(swBound, neBound);
-				var srcImage = ""// "./sample.png"
-			//	var overlay = new createMapOverlay(bounds, srcImage, $scope.map.instance);
-				
-			//	$scope.view = google.maps.MapTypeId.TERRAIN;
-			//	$scope.map.instance.mapTypeId = $scope.view;
-
-				$scope.styles = [ { "featureType": "administrative", "stylers": [ { "visibility": "off" } ] },{ "featureType": "poi", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.local", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.arterial", "stylers": [ { "hue": "#ff0900" }, { "lightness": 49 } ] },{ "featureType": "road.highway", "stylers": [ { "hue": "#ff0900" }, { "lightness": 48 } ] },{ "featureType": "transit", "stylers": [ { "visibility": "off" } ] },{ "featureType": "water", "stylers": [ { "hue": "#0091ff" }, { "lightness": 49 } ] },{ } ];
-				$scope.styledMap = new google.maps.StyledMapType($scope.styles, {name: "Styled Map"});
-				$scope.map.instance.mapTypes.set('map_style', $scope.styledMap);
-		  		$scope.map.instance.setMapTypeId('map_style');
-
-//		  		$scope.render($scope.storeName, $scope.map.instance, $scope);
-		}, 2000);
+		styleMap($scope);
 			
 		$scope.center = {
-		lat: 41.85, // initial map center latitude
-		lng: -87.65 // initial map center longitude
+			lat: 41.85, // initial map center latitude
+			lng: -87.65 // initial map center longitude
 		};
 		$scope.latitude = null;
 		$scope.longitude = null;
@@ -318,7 +329,7 @@
 			//deleteOverlays($scope.markers);
 			}	
 			//api.execute({query : "poi := //0000000097/poi poi' := poi where poi.name =  \"" + storeName + "\" poi' with {lng : poi'.long}", limit : 2000 },
-			api.execute({query : "poiInfo := //0000000097/poiInfo poiInfo' := poiInfo where poiInfo.POI_NM =  \"" + storeName + "\" {name : poiInfo'.POI_NM, lat : poiInfo'.LATITUDE, lng : poiInfo'.LONGITUDE }", limit : 2000 },
+			api.execute({query : "poiInfo := //0000000097/processed/locationIds poiInfo' := poiInfo where poiInfo.name =  \"" + storeName + "\" {name : poiInfo'.name, lat : poiInfo'.lat, lng : poiInfo'.lng }", limit : 2000 },
 			 	function success(data) { 
 				  	var data = data.data;
 				  	renderMarkers(data, map);
@@ -353,35 +364,87 @@
 
 
 
-	app.controller('MapController_Recomendations', function MapController ($scope, $http) {
+	app.controller('MapController_Recommendations', function MapController ($scope, $http) {
 		$scope.center = {
 			lat: 41.85, // initial map center latitude
 			lng: -87.65 // initial map center longitude
 		};
 		$scope.ads = [];
 		$scope.zoom = 9;
-		$scope.traits = [ "$0 - $14,999", "$100,000 - $124,999", "$125,000+", "$15,000 - $19,999", "$20,000 - $29,999", "$30,000 - $39,999", "$40,000 - $49,999", "$50,000 - $74,999", "$75,000 - $99,999", "18 to 24", "25 to 34", "35 to 44", "45 to 54", "55 to 64", "65 to 74", "75+", "Acred Couples", "Android", "Apple", "Apple Pie Families", "Asian", "Beauty and Wellness", "Black", "Blackberry OS", "Career Building", "Career Centered Singles", "Cartoons and Carpools", "Children First", "Children Present", "City Mixers", "Clubs and Causes", "College", "Collegiate Crowd", "Community Singles", "Cooking", "Corporate Clout", "Country Comfort", "Country Single", "Country Ways", "Devoted Duos", "Downtown Dwellers", "Dynamic Duos", "Early Parents", "English", "Entertainment", "Established Elite", "Family Matters", "Farmland Families", "Feature Phone", "Female", "Finance", "First Digs", "First Mortgage", "Full Steaming", "Fun and Games", "Graduate School", "Hard Chargers", "High School", "Hispanic", "Home Cooking", "Home and Garden", "Humble Homes", "Kids and Clout", "Kids and Rent", "Lavish Lifestyles", "Male", "Married", "Married Sophisticates", "Metro Mix", "Metro Parents", "Mid Americana", "Midtown Minivanners", "Mobile Mixers", "Modest Wages", "No Children Present", "Non Smartphone", "Other", "Outward Bound", "Own", "Pennywise Mortgagees", "Pennywise Proprietors", "Pets and Animals", "Platinum Oldies", "Raisin GrandKids", "Rent", "Resilient Renters", "Resolute Renters", "Rolling Stones", "Rural Everlasting", "Rural Parents", "Rural Retirement", "Rural Rovers", "Savvy Singles", "Shooting Stars", "Single", "Sitting Pretty", "Skyboxes and Suburbans", "Smartphone", "Soccer and SUVs", "Society", "Solid Single Parents", "Solo and Stable", "Spanish", "Sports", "Spouses and Houses", "Still Truckin", "Suburban Seniors", "Summit Estates", "Technology", "The Great Outdoors", "Thrifty Elders", "Timeless Elders", "Tots and Toys", "Travel", "Truckin and Stylin", "Urban Scramble", "Urban Tenants", "Vocational/Technical", "White", "Windows", "Work and Causes", "Young Workboots", "webOS" ];
 
-		var markers = [{"address":"7854 S Cicero Ave","lng":-87.741408,"id":10081,"lat":41.74946},{"address":"1577 Us Highway 41","lng":-87.470813,"id":10083,"lat":41.492824},{"address":"810 W North Ave","lng":-87.648746,"id":10167,"lat":41.910975},{"address":"1245  Torrence Ave","lng":-87.558488,"id":998130073,"lat":41.600597},{"address":"13447  Cicero Ave","lng":-87.738108,"id":998133743,"lat":41.648113},{"address":"1652 N Milwaukee Ave","lng":-87.679068,"id":998135363,"lat":41.911535},{"address":"138 E Rand Rd","lng":-87.977846,"id":998135365,"lat":42.109368},{"address":"288  Orland Square Dr","lng":-87.847312,"id":998135611,"lat":41.622534},{"address":"209 S LaSalle St","lng":-87.631929,"id":998258836,"lat":41.879069},{"address":"9635 N Milwaukee Ave","lng":-87.839031,"id":998265574,"lat":42.056298},{"address":"5  Woodfield Mall","lng":-88.038161,"id":998484506,"lat":42.049155},{"address":"810 W North Ave","lng":-87.648926,"id":998695318,"lat":41.911108},{"address":"36 S State St","lng":-87.627979,"id":1011463156,"lat":41.880853}];
+		var markers = [{"address":"1245  Torrence Ave","lng":-87.558488,"id":998130073,"lat":41.600597},{"address":"13447  Cicero Ave","lng":-87.738108,"id":998133743,"lat":41.648113},{"address":"9635 N Milwaukee Ave","lng":-87.839031,"id":998265574,"lat":42.056298},{"address":"5  Woodfield Mall","lng":-88.038161,"id":998484506,"lat":42.049155},{"address":"36 S State St","lng":-87.627979,"id":1011463156,"lat":41.880853}];
 
-		
+		$scope.ages 	   = ["18 to 24",  "25 to 34",  "35 to 44",  "45 to 54",  "55 to 64",  "65 to 74",  "75+"];
+		$scope.educations  = ["College","Graduate School","High School","Vocational/Technical"];
+		$scope.ethnicities = ["Asian","Black","Hispanic","Other","White"];
+		$scope.genders 	   = ["Male", "Female"];
+		$scope.incomes 	   = [ "$0 - $14,999", "$100,000 - $124,999", "$125,000+", "$15,000 - $19,999", "$20,000 - $29,999", "$30,000 - $39,999", "$40,000 - $49,999", "$50,000 - $74,999", "$75,000 - $99,999"];
+		$scope.interests   = [ "Beauty and Wellness", "Cooking", "Entertainment", "Finance", "Home and Garden", "Pets and Animals", "Society", "Sports", "Technology", "Travel"];
 
 		function filterTrait(item) {
 			return item.name && item.traits.length;
 		}
 
+		function projectSales(ranks, total) {
+			var mod = 0;
+			ranks.map(function(rank) {
+				var number = rank.adStrength * ranks.length;
+				mod += rank.matches / total * rank.adStrength * ((10+ranks.length*ranks.length+number*number)/50);
+			});
+			return mod;
+		}
+
+		function leaderboard() {
+			if(!$scope.storeId) return;
+			var ads = $scope.ads.filter(filterTrait);
+			if(!ads.length) return;
+
+			$scope.adRankings = [];
+			$scope.$apply();
+
+			ads.map(function(ad) {
+				var traits = [];
+				ad.traits.map(function(trait) {
+					traits.push({name : ad.name, trait : trait});
+				});
+	/*
+				var query = "poi := //0000000097/poi poi' := poi where poi.locationId = "+$scope.storeId+" & std::time::date(poi.timestamp) = \"2013-04-13\" potentialCustomers := { id : poi'.subsId} demo := //0000000097/demographics demo ~ potentialCustomers traits := {data : demo, id : potentialCustomers} where demo.id = potentialCustomers.id ad := new flatten("+JSON.stringify(traits)+") matchesByUser := solve 'id, 'name user := traits where traits.data.id = 'id ad ~ user r := {matches : ad.trait, id: user.id.id, name : 'name, count: count(ad.name where ad.name = 'name)} where ad.trait = user.data.trait distinct(r) evaluateAds := solve 'name, 'user { adStrength : count(matchesByUser.id where matchesByUser.id = 'user & matchesByUser.name = 'name)/ (matchesByUser.count where matchesByUser.name = 'name), id : 'user, name : 'name } distinct(evaluateAds)";
+	*/
+				var query = "ds := //0000000097/processed/traits/locId possibleMatches := count(ds.id) traits := ds where ds.locationId = "+$scope.storeId+" ad := new flatten("+JSON.stringify(traits)+") matchesByUser := solve 'id user := traits where traits.id = 'id ad ~ user r := {matches : ad.trait, id: user.id} where ad.trait = user.trait distinct(r) evaluateAds := solve 'user m' := matchesByUser where matchesByUser.id = 'user total := count(m') / "+traits.length +" { adStrength: total, id: 'user } r := solve 'strength x := evaluateAds where evaluateAds.adStrength = 'strength { adStrength : 'strength, matches : count(x.adStrength), name : \""+ad.name+"\" } r union new { matches : possibleMatches - sum(r.matches), adStrength : 0, name : \""+ad.name+"\" }";
+
+				console.log(query);
+
+				api.execute({ query : query },
+					function(data) {
+						$scope.adRankings = $scope.adRankings.concat(data.data);
+						$scope.adRankings.sort(function(a, b) {
+							return b.adStrength - a.adStrength;
+						});
+						var mod = 1 + projectSales($scope.adRankings, $scope.totalTraffic);
+						$scope.mod = mod;
+						$scope.projectedSales = $scope.totalSales * mod;
+						$scope.projectedConversionRate = $scope.conversionRate * mod;
+
+						$scope.$apply();
+					}
+				);
+
+			});
+		}
+
 		var timer;
 		$scope.$watch(
 			function() {
+				$scope.ads.map(function(ad) {
+					ad.traits = [ad.age, ad.education, ad.ethnicity, ad.gender, ad.income, ad.interest].filter(function(v) { return !!v; });
+				});
 				return JSON.stringify($scope.ads.filter(filterTrait));
 			},
 			function() {
-				var ads = $scope.ads.filter(filterTrait);
-				if(!ads.length) return;
 				clearTimeout(timer);
 				timer = setTimeout(function() {
-					console.log(JSON.stringify(ads));
-				}, 500);
+					leaderboard();
+				}, 1000);
 			}
 		);
 
@@ -415,33 +478,41 @@
 		});
 
 */
-		setTimeout(function(){
+		styleMap($scope, function(map){
 
-			var swBound = new google.maps.LatLng(41.45, -88.1);
-			var neBound = new google.maps.LatLng(42.15, -87.35);
-			var bounds = new google.maps.LatLngBounds(swBound, neBound);
-			var srcImage = ""// "./sample.png"
-		//	var overlay = new createMapOverlay(bounds, srcImage, $scope.map.instance);
-			
-			$scope.view = google.maps.MapTypeId.TERRAIN;
-			$scope.map.instance.mapTypeId = $scope.view;
+	  		renderMarkers(markers, map, null, 
+	  			function(item) {
+	  				return item.address;
+	  			},
+	  			function(item, marker, map) {
+	  				var id = item.id;
+		  			$scope.storeId = id;
+		  			$scope.storeAddress = item.address;
+		  			$scope.$apply();
+	  				api.execute({
+		  					query : "pos := //0000000097/processed/pos pos' := pos where pos.\"POI ID\" = "+id+" & pos.INVC_DT = \"4/13/2013\" poi := //0000000097/processed/poi poi' := poi where poi.locationId = "+id+" & std::time::date(poi.timestamp) = \"2013-04-13\" totalTraffic := count(poi'.locationId) conversions := count(pos' where pos'.ORDER_TYPE != \"RF\") totalSales := sum(pos'.\"Sum(ITEM_PRC_AMT)\" where pos'.ORDER_TYPE != \"RF\") averageSaleAmount := totalSales/conversions conversionRate := conversions / totalTraffic {conversionRate : conversionRate, transactions : conversions, totalSales : totalSales, averageSaleAmount : averageSaleAmount, totalTraffic : totalTraffic}"
+		  				},
+		  				function(data) {
+		  					var info = data.data[0];
+		  					if(!info) return;
+		  					for(var key in info)
+		  						$scope[key] = info[key];
+		  					$scope.$apply();
 
-			$scope.styles = [ { "featureType": "administrative", "stylers": [ { "visibility": "off" } ] },{ "featureType": "poi", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.local", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.arterial", "stylers": [ { "hue": "#ff0900" }, { "lightness": 49 } ] },{ "featureType": "road.highway", "stylers": [ { "hue": "#ff0900" }, { "lightness": 48 } ] },{ "featureType": "transit", "stylers": [ { "visibility": "off" } ] },{ "featureType": "water", "stylers": [ { "hue": "#0091ff" }, { "lightness": 49 } ] },{ } ];
-			$scope.styledMap = new google.maps.StyledMapType($scope.styles, {name: "Styled Map"});
-			$scope.map.instance.mapTypes.set('map_style', $scope.styledMap);
-	  		$scope.map.instance.setMapTypeId('map_style');
-	  		renderMarkers(markers, $scope.map.instance);
-		}, 2000);	
+
+		  					console.log(JSON.stringify(info));
+		  				});
+
+	  				leaderboard();
+	  			}	
+	  		);
+		});
+		
 
 /*
-		$scope.latitude = null;
-		$scope.longitude = null;
-		
-		$scope.zoom = 9;
-		
-		$scope.markerLat = null;
-		$scope.markerLng = null;
+"poi := //0000000097/poi poi' := poi where poi.locationId = "+id+" & std::time::date(poi.timestamp) = \"2013-04-13\" potentialCustomers := { id : poi'.subsId} demo := //0000000097/demographics demo ~ potentialCustomers traits := {data : demo, id : potentialCustomers} where demo.id = potentialCustomers.id ad := new flatten("+JSON.stringify(traits)+") matchesByUser := solve 'id, 'name user := traits where traits.data.id = 'id ad ~ user r := {matches : ad.trait, id: user.id, name : 'name, count: count(ad.name where ad.name = 'name)} where ad.trait = user.data.trait distinct(r) evaluateAds := solve 'name, 'user { adStrength : count(matchesByUser.id where matchesByUser.id = 'user & matchesByUser.name = 'name)/ (matchesByUser.count where matchesByUser.name = 'name), id : 'user, name : 'name } evaluateAds"
 */
+
 	});
 
 	
@@ -499,7 +570,7 @@
 						return;
 					}
 					$scope.render($scope.storeName, traits, $scope.map.instance);
-				}, 3000);
+				}, 1000);
 			};
 		})());
 
@@ -535,9 +606,9 @@
 		$scope.renderStores = function(name, type, gmap){
 			var query;
 			if(type){
-				 query = "sales := //0000000097/pos sales' := sales where sales.INVC_DT = \"4/13/2013\" & sales.ORDER_TYPE = \""+ type + "\" salesByType := solve 'id sales'' := sales' where sales'.\"POI ID\" = 'id { amount : sum(sales''.\"Sum(ITEM_PRC_AMT)\"), transactions : count(sales''.\"Sum(ITEM_PRC_AMT)\"), locationId : 'id } info := //0000000097/poiInfo info' := info where info.POI_GRP_NM = \"" +name + "\" salesByType ~ info' {amount : salesByType.amount, transactions : salesByType.transactions, id : salesByType.locationId, lat : info'.LATITUDE, lng : info'.LONGITUDE, name : info'.POI_NM } where salesByType.locationId = info'.POI_ID";
+				 query = "sales := //0000000097/processed/pos sales' := sales where sales.INVC_DT = \"4/13/2013\" & sales.ORDER_TYPE = \""+ type + "\" salesByType := solve 'id sales'' := sales' where sales'.\"POI ID\" = 'id { amount : sum(sales''.\"Sum(ITEM_PRC_AMT)\"), transactions : count(sales''.\"Sum(ITEM_PRC_AMT)\"), locationId : 'id } info := //0000000097/poiInfo info' := info where info.POI_GRP_NM = \"" +name + "\" salesByType ~ info' {amount : salesByType.amount, transactions : salesByType.transactions, id : salesByType.locationId, lat : info'.LATITUDE, lng : info'.LONGITUDE, name : info'.POI_NM } where salesByType.locationId = info'.POI_ID";
 			} else {
-				query = "sales := //0000000097/pos sales' := sales where sales.INVC_DT = \"4/13/2013\" salesByType := solve 'id sales'' := sales' where sales'.\"POI ID\" = 'id { amount : sum(sales''.\"Sum(ITEM_PRC_AMT)\"), transactions : count(sales''.\"Sum(ITEM_PRC_AMT)\"), locationId : 'id } info := //0000000097/poiInfo info' := info where info.POI_GRP_NM = \"" +name + "\" salesByType ~ info' {amount : salesByType.amount, transactions : salesByType.transactions, id : salesByType.locationId, lat : info'.LATITUDE, lng : info'.LONGITUDE, name : info'.POI_NM } where salesByType.locationId = info'.POI_ID";
+				query = "sales := //0000000097/processed/pos sales' := sales where sales.INVC_DT = \"4/13/2013\" salesByType := solve 'id sales'' := sales' where sales'.\"POI ID\" = 'id { amount : sum(sales''.\"Sum(ITEM_PRC_AMT)\"), transactions : count(sales''.\"Sum(ITEM_PRC_AMT)\"), locationId : 'id } info := //0000000097/poiInfo info' := info where info.POI_GRP_NM = \"" +name + "\" salesByType ~ info' {amount : salesByType.amount, transactions : salesByType.transactions, id : salesByType.locationId, lat : info'.LATITUDE, lng : info'.LONGITUDE, name : info'.POI_NM } where salesByType.locationId = info'.POI_ID";
 			}
 			api.execute({query: query},
   				function(data) { 
@@ -558,9 +629,9 @@
 
 		$scope.render = function(name, traits, gmap){
 
-			var where = traits.map(function(trait) { return 'demo.trait = "'+trait.replace(/["]/g, '\\"')+'"'; }).join(' | ');
+			var where = traits.map(function(trait) { return 'ds.trait = "'+trait.replace(/["]/g, '\\"')+'"'; }).join(' | ');
 
-			api.execute({query : "poi := //0000000097/poi poi' := poi where poi.name = \"" + name + "\" & std::time::date(poi.timestamp) = \"2013-04-13\" demo := //0000000097/demographics demo' := demo where " + where + " poi' ~ demo' joined := {poi : poi', demo : demo'} where demo'.id = poi'.subsId byTrait := solve 'id, 'trait joined' := joined where joined.poi.locationId = 'id & joined.demo.trait = 'trait { locationId : 'id, trait : 'trait, count : count(joined'.demo.trait), id :joined.poi.subsId } r := solve 'id, 'location results' := distinct(byTrait where byTrait.id = 'id & byTrait.locationId = 'location) { id : 'id, traitOccurences : count(results'.trait), data : results' } r where r.traitOccurences = "+ traits.length},
+			api.execute({query : "ds := //0000000097/processed/demographics joined := ds where "+ where + " byTrait := distinct(joined) r := solve 'id, 'location results' := distinct(byTrait where byTrait.id = 'id & byTrait.locationId = 'location) { locationId : 'location, traitOccurences : count(results'.trait) } r' := r where r.traitOccurences = " + traits.length +" solve 'locationId { locationId : 'locationId, weight : count(r'.locationId where r'.locationId = 'locationId) }"},
 				function(data) { 
 					var data = data.data;
 
@@ -571,9 +642,8 @@
   								map[loc.locationId] = loc;
   							});
   							data.map(function(item){
-  								item.lat = map[item.data.locationId].lat;
-  								item.lng = map[item.data.locationId].lng;
-  								item.weight = 1;
+  								item.lat = map[item.locationId].lat;
+  								item.lng = map[item.locationId].lng;
   							});
 
 							renderHeatMap(data, gmap);
@@ -588,28 +658,12 @@
 			lng: -87.65 // initial map center longitude
 		};
 
-		setTimeout(function(){
-
-			var swBound = new google.maps.LatLng(41.45, -88.1);
-			var neBound = new google.maps.LatLng(42.15, -87.35);
-			var bounds = new google.maps.LatLngBounds(swBound, neBound);
-			var srcImage = ""// "./sample.png"
-		//	var overlay = new createMapOverlay(bounds, srcImage, $scope.map.instance);
-			
-			$scope.view = google.maps.MapTypeId.TERRAIN;
-			$scope.map.instance.mapTypeId = $scope.view;
-
-			$scope.styles = [ { "featureType": "administrative", "stylers": [ { "visibility": "off" } ] },{ "featureType": "poi", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.local", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road.arterial", "stylers": [ { "hue": "#ff0900" }, { "lightness": 49 } ] },{ "featureType": "road.highway", "stylers": [ { "hue": "#ff0900" }, { "lightness": 48 } ] },{ "featureType": "transit", "stylers": [ { "visibility": "off" } ] },{ "featureType": "water", "stylers": [ { "hue": "#0091ff" }, { "lightness": 49 } ] },{ } ];
-			$scope.styledMap = new google.maps.StyledMapType($scope.styles, {name: "Styled Map"});
-			$scope.map.instance.mapTypes.set('map_style', $scope.styledMap);
-	  		$scope.map.instance.setMapTypeId('map_style');
-
-		}, 2000);	
+		styleMap($scope);
 
 		$scope.latitude = null;
 		$scope.longitude = null;
 		
-		$scope.zoom = 11;
+		$scope.zoom = 10;
 		
 		$scope.markerLat = null;
 		$scope.markerLng = null;
@@ -686,12 +740,14 @@
 				    thinbackedges : true,
 					filterpacing : 15,
 					"click" : function(dp){
-
 						$scope.siteName = dp.id;
 						$scope.$apply();
 					},
 					"ready" : function(){
 						angular.element("#chart").removeClass("spinner");
+					},
+					"label" : {
+						"datapointover" : "<span class='chart-number'>@count</span>"
 					}
 				}
 			});
@@ -716,7 +772,7 @@
 				"labelorientation" : "horizontal",
 				"label" : {
 					"datapoint" : "@device",
-					"datapointover" : "@ReportGrid.format(count/stats.tot * 100, \"P\")"
+					"datapointover" : "<span class='chart-number'>@ReportGrid.format(count/stats.tot * 100, \"P\")</span>"
 				}
 			}
 		});
@@ -728,7 +784,10 @@
 				"height" : 250,
 				"width" : 460,
 				"barpadding" : 8,
-				"horizontal" : true
+				"horizontal" : true,
+				"label" : {
+					"datapointover" : "<span class='chart-focus'>@app</span><span class='chart-number'>@count</span>",
+				}
 			}
 		});
 
@@ -741,7 +800,7 @@
 				"horizontal" : true,
 				"barpadding" : 10,
 				"label" : {
-					"datapointover" : "max : @maxSession, stdDev : @ReportGrid.format(stdDev), total : @totalTime"
+					"datapointover" : "Max<span class='chart-number'>@maxSession</span>StdDev<span class='chart-number'>@ReportGrid.format(stdDev)</span>Total<span class='chart-number'>@totalTime</span>"
 				}
 			}
 		});
@@ -756,7 +815,7 @@
 					return ReportGrid.symbol("circle" , dp.aveSession * 3)
 				},
 				"label" : {
-					"datapointover" : "@app - uses : @count, average session: @ReportGrid.format(aveSession), total usage : @ReportGrid.format(total)",
+					"datapointover" : "<span class='chart-focus'>@app</span>Uses<span class='chart-number'>@count</span>Average Session<span class='chart-number'>@ReportGrid.format(aveSession)</span>Total Usage<span class='chart-number'>@ReportGrid.format(total)</span>",
 					"axis" : function(axis){
 						if(axis === "count"){
 							return "Total Number of Times an App is Used"

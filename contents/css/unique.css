@@ -649,6 +649,68 @@ a.product-link-labcoat-account:hover {
     background: url("/images/logo-dark-labcoat.png") no-repeat center,  linear-gradient(to bottom,  #D17127 0%,#C53C22 100%); /* W3C */
 }
 
+/*ACCOUNT-MANAGE API KEYS*/
+#current-api-keys dl {
+    background-color: #000;
+    border: 1px solid #3c454d;
+    font-family: Courier,Monaco,Lucida Console,monospace;
+    font-size: 12px;
+    margin: 10px 0;
+    overflow: auto;
+    padding: 12px;
+    border-radius: 6px;
+    white-space: normal;
+}
+
+#current-api-keys dt {
+    color: #3FA9F5;
+    padding: 2px 0px;
+}
+
+#current-api-keys dd {
+    color: #666;
+    padding: 2px 0px;
+}
+
+#current-api-keys .delete-key {
+    background-color: #c13707;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    color: #000 !important;
+    text-decoration: none !important;
+    text-transform: uppercase;
+}
+
+#current-api-keys .delete-key:hover {
+    background-color: #d03905;
+}
+
+
+#current-api-keys .grants {
+    list-style-type: none;
+}
+
+#current-api-keys .grants li {
+    margin-left: 0px;
+    padding: 0px;
+}
+
+#current-api-keys .grants .permissions {
+    list-style-type: none;
+    height: 20px;
+}
+
+#current-api-keys .grants .permissions li {
+    display: block;
+    color: #d64327;
+    float: left;
+    padding-right: 20px;
+    font-size: 10pt;
+}
+
 /*TERMS OF SERVICE AND USE*/
 #terms-of-service #numbered li {
     list-style-type: none;

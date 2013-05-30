@@ -269,7 +269,138 @@ $(document).ready(function(){
                   $("#account-apikey").html(userApiKey);
                   $("#account-analyticsservice").html(userAnalyticsService);
                   $("#account-basepath").html(userBasePath);
-                  $("#account-id").html(userAccountID);  
+                  $("#account-id").html(userAccountID);
+                  
+                  var urlService = userAnalyticsService.substring(0, userAnalyticsService.length - 1);
+                  console.log(urlService);
+                  
+                  $.getScript("/js/precog.min.js", function(){
+                  
+                        var precogApi = new Precog.api({"apiKey": userApiKey, "analyticsService" : urlService});
+                            
+                        $("#form-path").val(userBasePath);
+                    
+                        var container = $("#current-api-keys");
+    
+                        precogApi.listApiKeys().then(function(data){
+                            
+                              for (var i = 0; i < data.length; i++) {
+                                    var dl = $("<dl></dl>").appendTo(container);
+                                    var obj = data[i];
+                                    var path = obj.grants[0].permissions[0].path;
+                                    $("<dt>" + obj.name + "</dt><dd>" + obj.description + "</dd><dd>" + obj.apiKey + "</dd><dd>" + path + "</dd><a class='delete-key' href='#'>Delete Key</a>").appendTo(dl);
+                                    var ulGrants = $("<ul class='grants'></ul>").appendTo($('<dd></dd>').appendTo(dl));
+                                    var grantsVar = obj.grants;
+                                    
+                                    for (var j = 0; j < grantsVar.length; j++) {
+                                        
+                                          var grantActual = grantsVar[j];
+                                          var ulPermissions = $("<li><ul class='permissions'></ul></li>").appendTo(ulGrants).find(".permissions");
+                                          var grantPermissions = grantsVar[j].permissions
+                                          
+                                          for (var k = 0; k < grantPermissions.length; k++) {
+                      
+                                                var permissionActual = grantPermissions[k];
+                                                var permissionAppend = permissionActual.accessType;
+                                                $("<li>" + permissionAppend + "</li>").appendTo(ulPermissions);
+                                          }
+                                    }
+                              }
+                              
+                              var containerEmpty = container.html();
+        
+                              if (containerEmpty == "") {
+                                  $("#current-api-keys").append("<dl><dd>No API Keys exist.</dd></dl>");
+                              }
+                              
+                        });
+                        
+                        $("#current-api-keys").on("click", "a", function(e){
+                            e.preventDefault();
+                            var killKey = $(this).parent().find("dd:nth-child(3)").html();
+                            
+                            function confirmDelete() {
+                                var doubleCheck = confirm("Are you sure you want to delete this API Key?");
+                                
+                                if (doubleCheck == true) {
+                                    precogApi.deleteApiKey(killKey);
+                                    location.reload();
+                                } else {
+                                }
+                            }
+                            confirmDelete();
+                        });
+                        
+                        $("#precog-create-apikey").submit(function(e){
+                            
+                            var formName = $("#form-name").val();
+                            var formDescription = $("#form-description").val();
+                            var formPath = $("#form-path").val();
+                            var accountID = userAccountID;
+                            
+                            if (formName.length < 1 || formDescription.length < 3 || formPath.length < 3) {
+                                $(".precog-account-form-full").append("<div id='form-error'><p class='error-font'>Please check entry fields. Each field must contain a value.</p></div>").find("#form-error").delay(2000).fadeOut(500);
+                            } else {
+                                
+                                var grantPermissions = new Array();
+                                    
+                                $('input:checked').each(function() {
+                                    grantType = $(this).attr('value');
+                                    
+                                    grantPermissions.push({ accessType: grantType, path: formPath, ownerAccountIds: [accountID]});
+                                });
+                                    
+                                if (grantPermissions.length < 1) {
+                                    $(".precog-account-form-full").append("<div id='form-error'><p class='error-font'>Please select at least one grant to be associated with this API Key</p></div>").find("#form-error").delay(2000).fadeOut(500);
+                                } else {
+                                
+                                    var grants = {
+                                        "name": formName,
+                                        "description": formDescription,
+                                        "grants": [{
+                                            "name": "Grant For-" + formName,
+                                            "description": "Grant For-" + formDescription,
+                                            "permissions" : grantPermissions
+                                        }
+                                        ]
+                                    }
+                                
+                                    precogApi.createApiKey(grants).then(function(data){
+                                          var dl = $("<dl></dl>").appendTo(container);
+                                          var obj = data;
+                                          var path = obj.grants[0].permissions[0].path;
+                                          $("<dt>" + obj.name + "</dt><dd>" + obj.description + "</dd><dd>" + obj.apiKey + "</dd><dd>" + path + "</dd><a class='delete-key' href='#'>Delete Key</a>").appendTo(dl);
+                                          var ulGrants = $("<ul class='grants'></ul>").appendTo($('<dd></dd>').appendTo(dl));
+                                          var grantsVar = obj.grants;
+                                          
+                                          for (var j = 0; j < grantsVar.length; j++) {
+                                              
+                                                var grantActual = grantsVar[j];
+                                                var ulPermissions = $("<li><ul class='permissions'></ul></li>").appendTo(ulGrants).find(".permissions");
+                                                var grantPermissions = grantsVar[j].permissions
+                                              
+                                                for (var k = 0; k < grantPermissions.length; k++) {
+                          
+                                                      var permissionActual = grantPermissions[k];
+                                                      var permissionAppend = permissionActual.accessType;
+                                                      $("<li>" + permissionAppend + "</li>").appendTo(ulPermissions);
+                                              }
+                                          }
+                                          
+                                          $("#current-api-keys .no-api-keys-exist").remove();
+                                    },function(data){
+                                        //UNABLE TO CREATE GRANT
+                                    });
+                                    
+                                }
+                            }
+                            
+                            e.preventDefault();
+                            return false;
+                        });
+                        
+                  });
+                  
             } else {
                   window.location = "/account/login/";
             }
