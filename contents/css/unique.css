@@ -688,6 +688,10 @@ a.product-link-labcoat-account:hover {
 }
 
 
+#current-api-keys .grants {
+    list-style-type: none;
+}
+
 #current-api-keys .grants .permissions {
     list-style-type: none;
     height: 20px;
