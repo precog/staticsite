@@ -687,6 +687,19 @@ a.product-link-labcoat-account:hover {
     background-color: #d03905;
 }
 
+
+#current-api-keys .grants .permissions {
+    list-style-type: none;
+    height: 20px;
+}
+
+#current-api-keys .grants .permissions li {
+    display: block;
+    color: #d64327;
+    float: left;
+    padding-right: 20px;
+}
+
 /*TERMS OF SERVICE AND USE*/
 #terms-of-service #numbered li {
     list-style-type: none;

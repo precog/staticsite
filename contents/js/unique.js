@@ -280,13 +280,33 @@ $(document).ready(function(){
                             
                         $("#form-path").val(userBasePath);
                     
+                        var container = $("#current-api-keys");
+    
                         precogApi.listApiKeys().then(function(data){
-                              for (var value in data) {
-                                    var obj = data[value];
-                                    var keys = "<dt>" + obj.name + "</dt><dd>" + obj.description + "</dd><dd>" + obj.apiKey + "</dd><a class='delete-key' href='#'>Delete Key</a>";
-                                
-                                    $("#current-api-keys dl").append(keys);
-                              }
+                            
+                                for (var i = 0; i < data.length; i++) {
+                                    var dl = $("<dl></dl>").appendTo(container);
+                                    var obj = data[i];
+                                    var path = obj.grants[0].permissions[0].path;
+                                    $("<dt>" + obj.name + "</dt><dd>" + obj.description + "</dd><dd>" + obj.apiKey + "</dd><dd>" + path + "</dd>").appendTo(dl);
+                                    var ulGrants = $("<ul class='grants'></ul>").appendTo($('<dd></dd>').appendTo(dl));
+                                    var a = $("<a class='delete-key' href='#'>Delete Key</a>").appendTo($('<dd></dd>').appendTo(dl));
+                                    var grantsVar = obj.grants;
+                                    
+                                    for (var j = 0; j < grantsVar.length; j++) {
+                                        
+                                        var grantActual = grantsVar[j];
+                                        var ulPermissions = $("<li><ul class='permissions'></ul></li>").appendTo(ulGrants).find(".permissions");
+                                        var grantPermissions = grantsVar[j].permissions
+                                        
+                                        for (var k = 0; k < grantPermissions.length; k++) {
+                    
+                                            var permissionActual = grantPermissions[k];
+                                            var permissionAppend = permissionActual.accessType;
+                                            $("<li>" + permissionAppend + "</li>").appendTo(ulPermissions);
+                                        }
+                                    }
+                                }
                         });
                         
                         $("#current-api-keys").on("click", "a", function(e){
