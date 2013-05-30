@@ -167,6 +167,16 @@ var winstonStream = {
 // Configure express
 var app = express();
 
+// Gracefull close
+var gracefullyClosing = false;
+app.use(function (req, res, next) {
+  if (!gracefullyClosing) {
+    return next();
+  }
+  res.setHeader("Connection", "close");
+  res.send(503, "Server is in the process of restarting");
+});
+
 // all environments
 app.set('domain', nconf.get('bind'));
 app.set('port', nconf.get('port'));
@@ -195,8 +205,16 @@ app.get('/nodejs/icontact/folderId', icontact.folderId);
 app.post('/nodejs/account/login', icontact.register);
 
 process.on('SIGTERM', function(){
-  winston.info('Express server terminating with SIGTERM');
-  process.exit(0);
+  gracefullyClosing = true;
+  winston.info('Received kill signal (SIGTERM), shutting down gracefully.');
+  httpServer.close(function() {
+    winston.info("Closed out remaining connections.");
+    return process.exit();
+  });
+  return setTimeout(function() {
+    winston.error("Could not close connections in time, forcefully shutting down");
+    return process.exit(1);
+  }, 5 * 1000);
 });
 
 process.on('SIGINT', function(){
@@ -208,7 +226,7 @@ process.on('uncaughtException', function(err) {
   if(err.errno === 'EADDRINUSE') {
    winston.error("Could not bind to port "+app.get('port'));
   } else {
-   winston.error(err);
+   winston.error("Unknown error: " + err);
   }
   process.exit(10);
 });
