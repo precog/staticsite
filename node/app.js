@@ -40,6 +40,10 @@ var options = {
     'alias': 'l',
     'describe': 'log file'
   },
+  'loglevel': {
+    'alias': 'L',
+    'describe': 'log level on log file (info/warn/error)'
+  },
   'debug': {
     'alias': 'd',
     'describe': 'debug mode',
@@ -116,13 +120,17 @@ if (argv.config) {
 
 nconf.defaults({
   'bind': '0.0.0.0',
-  'port': 3000
+  'port': 3000,
+  'loglevel': 'info'
 });
 
 /**
  * We log to a json file if one is provided by
  * the configuration (max 10MB, 30 files), and
  * we log to console if in debugging mode.
+ *
+ * Console logging always use the default log
+ * level.
  *
  * The log includes both application level log
  * and NCSA data.
@@ -139,6 +147,7 @@ if (nconf.get('debug')) {
 if (nconf.get('logfile')) {
   winston.add(winston.transports.File, { 
     filename: nconf.get('logfile'), 
+    level: nconf.get('loglevel'),
     maxsize: 10 * 1024 * 1024,
     maxFiles: 30,
     handleExceptions: true 
@@ -180,6 +189,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index); // For health checks
+app.get('/headers', routes.headers); // Dump headers
 app.get('/icontact/accountId', icontact.accountId);
 app.get('/icontact/folderId', icontact.folderId);
 app.post('/account/login', icontact.register);
