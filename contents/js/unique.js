@@ -359,8 +359,26 @@ $(document).ready(function(){
                                     }
                                 
                                     precogApi.createApiKey(grants).then(function(data){
-                                        var newKey = "<dt>" + data.name + "</dt><dd>" + data.description + "</dd><dd>" + data.apiKey + "</dd><a class='delete-key' href='#'>Delete Key</a>";
-                                        $("#current-api-keys dl").append(newKey)
+                                          var dl = $("<dl></dl>").appendTo(container);
+                                          var obj = data;
+                                          var path = obj.grants[0].permissions[0].path;
+                                          $("<dt>" + obj.name + "</dt><dd>" + obj.description + "</dd><dd>" + obj.apiKey + "</dd><dd>" + path + "</dd><a class='delete-key' href='#'>Delete Key</a>").appendTo(dl);
+                                          var ulGrants = $("<ul class='grants'></ul>").appendTo($('<dd></dd>').appendTo(dl));
+                                          var grantsVar = obj.grants;
+                                          
+                                          for (var j = 0; j < grantsVar.length; j++) {
+                                              
+                                                var grantActual = grantsVar[j];
+                                                var ulPermissions = $("<li><ul class='permissions'></ul></li>").appendTo(ulGrants).find(".permissions");
+                                                var grantPermissions = grantsVar[j].permissions
+                                              
+                                                for (var k = 0; k < grantPermissions.length; k++) {
+                          
+                                                      var permissionActual = grantPermissions[k];
+                                                      var permissionAppend = permissionActual.accessType;
+                                                      $("<li>" + permissionAppend + "</li>").appendTo(ulPermissions);
+                                              }
+                                          }
                                     },function(data){
                                         //UNABLE TO CREATE GRANT
                                     });
