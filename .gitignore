@@ -7,8 +7,13 @@
 
 # Artifacts left by fabric deployer
 build.tgz
+nodejs.tgz
 build/
 *.pyc
+
+# Artifacts left by node.js development
+nodejs/log.json
+nodejs/node_modules/
 
 contents/about/contact-us/.DS_Store
 

@@ -189,10 +189,10 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index); // For health checks
-app.get('/headers', routes.headers); // Dump headers
-app.get('/icontact/accountId', icontact.accountId);
-app.get('/icontact/folderId', icontact.folderId);
-app.post('/account/login', icontact.register);
+app.get('/nodejs/headers', routes.headers); // Dump headers
+app.get('/nodejs/icontact/accountId', icontact.accountId);
+app.get('/nodejs/icontact/folderId', icontact.folderId);
+app.post('/nodejs/account/login', icontact.register);
 
 process.on('SIGTERM', function(){
   winston.info('Express server terminating with SIGTERM');
@@ -210,7 +210,7 @@ process.on('uncaughtException', function(err) {
   } else {
    winston.error(err);
   }
-  process.exit(127);
+  process.exit(10);
 });
 
 http.createServer(app).listen(app.get('port'), app.get('domain'), function(){

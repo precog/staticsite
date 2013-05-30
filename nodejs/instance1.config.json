@@ -1,7 +1,7 @@
 {
   "bind": "127.0.0.1",
-  "port": 3001,
-  "logfile": "/var/log/nodejs/log.json",
+  "port": 29001,
+  "logfile": "/var/log/nodejs/instance1.log.json",
   "loglevel": "info",
   "debug": false
 }
