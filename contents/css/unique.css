@@ -673,9 +673,9 @@ a.product-link-labcoat-account:hover {
 
 #current-api-keys .delete-key {
     background-color: #c13707;
-    position: relative;
-    top: -50px;
-    left: 570px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
     padding: 6px 10px;
     border-radius: 6px;
     color: #000 !important;
@@ -690,6 +690,11 @@ a.product-link-labcoat-account:hover {
 
 #current-api-keys .grants {
     list-style-type: none;
+}
+
+#current-api-keys .grants li {
+    margin-left: 0px;
+    padding: 0px;
 }
 
 #current-api-keys .grants .permissions {
