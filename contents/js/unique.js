@@ -272,7 +272,6 @@ $(document).ready(function(){
                   $("#account-id").html(userAccountID);
                   
                   var urlService = userAnalyticsService.substring(0, userAnalyticsService.length - 1);
-                  console.log(urlService);
                   
                   $.getScript("/js/precog.min.js", function(){
                   
@@ -310,7 +309,7 @@ $(document).ready(function(){
                               var containerEmpty = container.html();
         
                               if (containerEmpty == "") {
-                                  $("#current-api-keys").append("<dl><dd>No API Keys exist.</dd></dl>");
+                                  $("#current-api-keys").append("<dl class='no-api-keys-exist'><dd>No API Keys exist.</dd></dl>");
                               }
                               
                         });
@@ -388,6 +387,7 @@ $(document).ready(function(){
                                           }
                                           
                                           $("#current-api-keys .no-api-keys-exist").remove();
+                                          
                                     },function(data){
                                         //UNABLE TO CREATE GRANT
                                     });
