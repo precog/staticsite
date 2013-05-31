@@ -47,7 +47,6 @@ function makePost(path, post_data, handler) {
             'Api-AppId': 'KDCT1QfMCjSa3nAXk4xE7KjIBzJwqSxi',
             'Api-Username': 'matthew@precog.com',
             'Api-Password': '4Contact',
-            'Content-Type': 'application/json',
             'Content-Length': post_data.length
         }
     };
@@ -66,7 +65,7 @@ function makePost(path, post_data, handler) {
     });
 
     req.on('error', function(e) {
-        winston.error(e);
+        winston.error(e,post_data);
     });
 
     req.write(post_data);
@@ -99,10 +98,6 @@ exports.folderId = function(req, res) {
 };
 
 exports.register = function(req, res) {
-    var contactData = {
-        email: req.body.email,
-    }; // TODO: Maybe just make contactData = req.body?
-
     getAccounts(function(account) {
         var accountId = account.accounts[0].accountId;
         getFolders(accountId, function(folder) {
