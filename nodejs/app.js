@@ -40,6 +40,10 @@ var options = {
     'alias': 'l',
     'describe': 'log file'
   },
+  'loglevel': {
+    'alias': 'L',
+    'describe': 'log level on log file (info/warn/error)'
+  },
   'debug': {
     'alias': 'd',
     'describe': 'debug mode',
@@ -116,13 +120,17 @@ if (argv.config) {
 
 nconf.defaults({
   'bind': '0.0.0.0',
-  'port': 3000
+  'port': 3000,
+  'loglevel': 'info'
 });
 
 /**
  * We log to a json file if one is provided by
  * the configuration (max 10MB, 30 files), and
  * we log to console if in debugging mode.
+ *
+ * Console logging always use the default log
+ * level.
  *
  * The log includes both application level log
  * and NCSA data.
@@ -139,6 +147,7 @@ if (nconf.get('debug')) {
 if (nconf.get('logfile')) {
   winston.add(winston.transports.File, { 
     filename: nconf.get('logfile'), 
+    level: nconf.get('loglevel'),
     maxsize: 10 * 1024 * 1024,
     maxFiles: 30,
     handleExceptions: true 
@@ -157,6 +166,16 @@ var winstonStream = {
 
 // Configure express
 var app = express();
+
+// Gracefull close
+var gracefullyClosing = false;
+app.use(function (req, res, next) {
+  if (!gracefullyClosing) {
+    return next();
+  }
+  res.setHeader("Connection", "close");
+  res.send(503, "Server is in the process of restarting");
+});
 
 // all environments
 app.set('domain', nconf.get('bind'));
@@ -180,13 +199,23 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index); // For health checks
-app.get('/icontact/accountId', icontact.accountId);
-app.get('/icontact/folderId', icontact.folderId);
-app.post('/account/login', icontact.register);
+app.get('/nodejs/headers', routes.headers); // Dump headers
+app.get('/nodejs/dump', routes.dump); // Dump headers, body and parameters
+app.get('/nodejs/icontact/accountId', icontact.accountId);
+app.get('/nodejs/icontact/folderId', icontact.folderId);
+app.post('/nodejs/account/login', icontact.register);
 
 process.on('SIGTERM', function(){
-  winston.info('Express server terminating with SIGTERM');
-  process.exit(0);
+  gracefullyClosing = true;
+  winston.info('Received kill signal (SIGTERM), shutting down gracefully.');
+  httpServer.close(function() {
+    winston.info("Closed out remaining connections.");
+    return process.exit();
+  });
+  return setTimeout(function() {
+    winston.error("Could not close connections in time, forcefully shutting down");
+    return process.exit(1);
+  }, 5 * 1000);
 });
 
 process.on('SIGINT', function(){
@@ -198,9 +227,9 @@ process.on('uncaughtException', function(err) {
   if(err.errno === 'EADDRINUSE') {
    winston.error("Could not bind to port "+app.get('port'));
   } else {
-   winston.error(err);
+   winston.error("Unknown error: " + err);
   }
-  process.exit(127);
+  process.exit(10);
 });
 
 http.createServer(app).listen(app.get('port'), app.get('domain'), function(){

@@ -19,6 +19,7 @@ env.optimize_images = True
 env.colors = True
 env.release = time.strftime('%Y%m%d%H%M%S')
 env.path = '/var/www/precogsite'
+env.nodejs = '/var/www/nodejs'
 
 @task(display=None)
 @hosts('localhost')
@@ -108,9 +109,11 @@ def tarball():
     """
         Generates tarball
     """
-    local('rm -f build.tgz')
+    local('rm -f build.tgz nodejs.tgz')
     with lcd('build'):
         local('tar czf ../build.tgz .', capture=False)
+    with lcd('nodejs'):
+        local('tar czf ../nodejs.tgz $(git ls-files)', capture=False)
 
 @task
 @hosts('localhost')
@@ -131,6 +134,7 @@ def deploy(n = 10):
         Deploys static site and garbage collect older deploys
     """
     upload_current_release()
+    install_requisites()
     create_redirects()
     make_symlinks()
     symlink_current_release()
@@ -153,6 +157,19 @@ def rollback():
         run('rm -fr %s' % previous)
         run('rm undeployed')
         sudo('service nginx reload')
+    with cd(env.nodejs):
+        for n in [1, 2]:
+            with settings(warn_only=True):
+                sudo('stop nodejs N=%s' % n)
+            run('mv instance%s/rollback rollback%s' % (n, n))
+            run('mv instance%s undeployed' % n)
+            run('mv rollback%s instance%s' % (n, n))
+            version = run('readlink instance%s' % n)
+            previous = run('readlink undeployed')
+            puts(green('>>> Rolled back nodejs %(n)s from %(previous)s to %(version)s' % { 'n': n, 'previous': previous, 'version': version }))
+            run('rm -fr %s' % previous)
+            run('rm undeployed')
+            sudo('start nodejs N=%s' % n)
 
 
 @task
@@ -163,13 +180,14 @@ def gc_deploys(n = 10):
         This will delete any directory which is older than the last n releases,
         preventing rollbacks from before that.
     """
-    with cd("%s/releases" % env.path):
-        files = run("ls -1t").splitlines()
-        older_files = files[n:]
-        if len(older_files) > 0:
-            puts(yellow("Removing older deploys: %s" % ", ".join(older_files)))
-        for file in older_files:
-            run("rm -fr %s" % file)
+    for path in [env.path, env.nodejs]:
+        with cd("%s/releases" % path):
+            files = run("ls -1t").splitlines()
+            older_files = files[n:]
+            if len(older_files) > 0:
+                puts(yellow("Removing older deploys: %s" % ", ".join(older_files)))
+            for file in older_files:
+                run("rm -fr %s" % file)
 
 
 def optimize_file(original_path, optimizable_extension):
@@ -249,13 +267,23 @@ def exec_exists(name):
         return local('which %s' % name, capture=True)
 
 def upload_current_release():
-    sudo('rm -f /tmp/build.tgz')
+    sudo('rm -f /tmp/build.tgz /tmp/nodejs.tgz')
     put('build.tgz', '/tmp/build.tgz')
+    put('nodejs.tgz', '/tmp/nodejs.tgz')
     with cd('%s/releases' % env.path):
         run('mkdir %(release)s' % env)
         with cd(env.release):
             run('tar xzf /tmp/build.tgz')
         sudo('chown -R ubuntu:www-data %(release)s' % env)
+    with cd('%s/releases' % env.nodejs):
+        run('mkdir %(release)s' % env)
+        with cd(env.release):
+            run('tar xzf /tmp/nodejs.tgz')
+        sudo('chown -R ubuntu:www-data %(release)s' % env)
+
+def install_requisites():
+    with cd('%(nodejs)s/releases/%(release)s' % env):
+        run('npm install')
 
 def symlink_current_release():
     puts(green('>>> updating current to point at %(path)s/releases/%(release)s' % env))
@@ -263,6 +291,18 @@ def symlink_current_release():
         with settings(warn_only=True):
             run('mv current releases/%(release)s/rollback' % env)
         run('ln -s releases/%(release)s current' % env)
+    with cd(env.nodejs):
+        with settings(warn_only=True):
+            sudo('stop nodejs N=1')
+            run('mv instance1 releases/%(release)s/rollback1' % env)
+        run('ln -s releases/%(release)s instance1' % env)
+        sudo('start nodejs N=1')
+
+        with settings(warn_only=True):
+            sudo('stop nodejs N=2')
+            run('mv instance2 releases/%(release)s/rollback2' % env)
+        run('ln -s releases/%(release)s instance2' % env)
+        sudo('start nodejs N=2')
 
 def make_symlinks():
     puts(green('>>> creating symlink to apidocs'))
