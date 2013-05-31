@@ -65,7 +65,7 @@ function makePost(path, post_data, handler) {
     });
 
     req.on('error', function(e) {
-        winston.error(e,post_data);
+        winston.error(e);
     });
 
     req.write(post_data);
