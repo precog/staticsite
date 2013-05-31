@@ -105,7 +105,7 @@ exports.register = function(req, res) {
 
     getAccounts(function(account) {
         var accountId = account.accounts[0].accountId;
-        getFolders(accountId, function(body) {
+        getFolders(accountId, function(folder) {
             makePost('/icp/a/'+accountId+'/c/'+folder.clientfolders[0].clientFolderId+'/contacts/', JSON.stringify(req.body), function(body) {
                 winston.info(body);
                 res.send(body);
