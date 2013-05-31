@@ -200,6 +200,7 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index); // For health checks
 app.get('/nodejs/headers', routes.headers); // Dump headers
+app.get('/nodejs/dump', routes.dump); // Dump headers, body and parameters
 app.get('/nodejs/icontact/accountId', icontact.accountId);
 app.get('/nodejs/icontact/folderId', icontact.folderId);
 app.post('/nodejs/account/login', icontact.register);
