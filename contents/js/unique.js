@@ -533,8 +533,9 @@ $(document).ready(function(){
                   type: "POST",
                   url: url,
                   data: data,
-                  success: function(){
-                      console.log("success");
+                  success: function(data){
+                        console.log(data);
+                        console.log("success");
                   }
             });
         
