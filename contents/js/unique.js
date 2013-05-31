@@ -524,4 +524,19 @@ $(document).ready(function(){
             $("#" + currentItem + "-code").show();
       });
       
+      //NEW FEATURE TESTING
+      $("#feature-testing").click(function(){
+            var data = JSON.parse('{"name":"matthew@precog.com"}');
+            var url = "https://www.precog.com/nodejs/icontact/register"
+        
+            $.ajax({
+                  type: "POST",
+                  url: url,
+                  data: data,
+                  success: function(){
+                      console.log("success");
+                  }
+            });
+        
+      });
 });
