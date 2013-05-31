@@ -526,12 +526,15 @@ $(document).ready(function(){
       
       //NEW FEATURE TESTING
       $("#feature-testing").click(function(){
-            var data = JSON.parse('{"name":"test45email@precog.com"}');
+            var data = ('{"name":"test45email@precog.com"}');
             var url = "https://web4.precog.com/nodejs/account/login"
+            
+            console.log(data);
         
             $.ajax({
                   type: "POST",
                   url: url,
+                  dataType: "json",
                   data: data,
                   success: function(data){
                         console.log(data);
