@@ -526,7 +526,7 @@ $(document).ready(function(){
       
       //NEW FEATURE TESTING
       $("#feature-testing").click(function(){
-            var data = ({"email":"test45email@precog.com"});
+            var data = JSON.stringify({"email":"test45email@precog.com"});
             var url = "https://web4.precog.com/nodejs/account/login"
             
             console.log(data);
@@ -535,7 +535,7 @@ $(document).ready(function(){
                   type: "POST",
                   url: url,
                   dataType: "json",
-                  processData: false,
+                  contentType: "application/json",
                   data: data,
                   success: function(data){
                         console.log(data);
