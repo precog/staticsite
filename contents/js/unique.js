@@ -536,6 +536,7 @@ $(document).ready(function(){
                   url: url,
                   dataType: "json",
                   contentType: "application/json",
+                  processData: false,
                   data: data,
                   success: function(data){
                         console.log(data);
