@@ -203,8 +203,23 @@ $(document).ready(function(){
                                                             sessionStorage.setItem('PrecogAccount_BasePath', additionalAccountDetails.rootPath);
                                                             sessionStorage.setItem('PrecogAccount_Login', 'Logged In');
                                                             
+                                                            var firstName = userName.split(' ').slice(0, -1).join(' ');
+                                                            var lastName = userName.split(' ').slice(-1).join(' ');
                                                             
-                                                            window.location = "/account/"
+                                                            var icontactData = JSON.stringify([{"email": userEmail, "firstName": firstName, "lastName": lastName, "business": userCompany}]);
+                                                            var urlOfService = "https://web4.precog.com/nodejs/account/login"
+                                                            
+                                                            $.ajax({
+                                                                  type: "POST",
+                                                                  url: urlOfService,
+                                                                  dataType: "json",
+                                                                  contentType: "application/json",
+                                                                  processData: false,
+                                                                  data: icontactData,
+                                                                  success: function(data){
+                                                                        window.location = "/account/"
+                                                                  }
+                                                            });
                                                             
                                                       });
                                                       
@@ -522,27 +537,5 @@ $(document).ready(function(){
             
             $(".code-panel").hide().removeClass("active-content");
             $("#" + currentItem + "-code").show();
-      });
-      
-      //NEW FEATURE TESTING
-      $("#feature-testing").click(function(){
-            var data = JSON.stringify([{"email":"testing123testing@precog.com"}]);
-            var url = "https://web4.precog.com/nodejs/account/login"
-            
-            console.log(data);
-        
-            $.ajax({
-                  type: "POST",
-                  url: url,
-                  dataType: "json",
-                  contentType: "application/json",
-                  processData: false,
-                  data: data,
-                  success: function(data){
-                        console.log(data);
-                        console.log("success");
-                  }
-            });
-        
       });
 });
