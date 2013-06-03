@@ -13,7 +13,7 @@ function makeRequest(method, path, handler) {
             'Api-Version': '2.0',
             'Api-AppId': 'KDCT1QfMCjSa3nAXk4xE7KjIBzJwqSxi',
             'Api-Username': 'matthew@precog.com',
-            'Api-Password': '4Contact'
+            'Api-Password': 'PrecogContacts'
         }
     };
 
