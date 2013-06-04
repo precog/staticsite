@@ -14,12 +14,12 @@ from shutil import copyfile
 
 # Configure user, private key, etc. for SFTP deployment
 env.user = 'ubuntu'
-env.hosts = ['web4.precog.com']
-env.optimize_images = True
-env.colors = True
-env.release = time.strftime('%Y%m%d%H%M%S')
-env.path = '/var/www/precogsite'
-env.nodejs = '/var/www/nodejs'
+env.hosts = ['web4.precog.com'] if not env.hosts else env.hosts
+env.optimize_images = True if not 'optimize_images' in env else env.optimize_images
+env.colors = True if not 'colors' in env else env.colors
+env.release = time.strftime('%Y%m%d%H%M%S') if not 'release' in env else env.release
+env.basepath = '/var/www/precogsite' if not 'basepath' in env else env.basepath
+env.nodejs = '/var/www/nodejs' if not 'nodejs' in env else env.nodejs
 
 @task(display=None)
 @hosts('localhost')
@@ -147,7 +147,7 @@ def rollback():
     """
         Rolls back currently deployed version to its predecessor
     """
-    with cd(env.path):
+    with cd(env.basepath):
         run('mv current/rollback rollback')
         run('mv current undeployed')
         run('mv rollback current')
@@ -180,8 +180,8 @@ def gc_deploys(n = 10):
         This will delete any directory which is older than the last n releases,
         preventing rollbacks from before that.
     """
-    for path in [env.path, env.nodejs]:
-        with cd("%s/releases" % path):
+    for deploypath in [env.basepath, env.nodejs]:
+        with cd("%s/releases" % deploypath):
             files = run("ls -1t").splitlines()
             older_files = files[n:]
             if len(older_files) > 0:
@@ -212,10 +212,10 @@ def get_optimizable_files(optimizable_extensions):
         if not base.startswith('build/external'):
             for file in files:
                 filebase, extension = get_file_base_and_extension(file)
-                path = os.path.join(base, filebase)
+                filepath = os.path.join(base, filebase)
 
                 if extension in extensions and filebase[-4:] != '.min':
-                    files_set.add((path, extension))
+                    files_set.add((filepath, extension))
 
     return files_set
 
@@ -270,7 +270,7 @@ def upload_current_release():
     sudo('rm -f /tmp/build.tgz /tmp/nodejs.tgz')
     put('build.tgz', '/tmp/build.tgz')
     put('nodejs.tgz', '/tmp/nodejs.tgz')
-    with cd('%s/releases' % env.path):
+    with cd('%s/releases' % env.basepath):
         run('mkdir %(release)s' % env)
         with cd(env.release):
             run('tar xzf /tmp/build.tgz')
@@ -286,8 +286,8 @@ def install_requisites():
         run('npm install')
 
 def symlink_current_release():
-    puts(green('>>> updating current to point at %(path)s/releases/%(release)s' % env))
-    with cd(env.path):
+    puts(green('>>> updating current to point at %(basepath)s/releases/%(release)s' % env))
+    with cd(env.basepath):
         with settings(warn_only=True):
             run('mv current releases/%(release)s/rollback' % env)
         run('ln -s releases/%(release)s current' % env)
@@ -306,12 +306,12 @@ def symlink_current_release():
 
 def make_symlinks():
     puts(green('>>> creating symlink to apidocs'))
-    with cd('%(path)s/releases/%(release)s' % env):
-        run('ln -s %s/shared/apidocs apidocs' % env.path)
+    with cd('%(basepath)s/releases/%(release)s' % env):
+        run('ln -s %s/shared/apidocs apidocs' % env.basepath)
 
 def create_redirects():
-    remote = '%(path)s/releases/%(release)s/redirects.conf' % env
-    remoteblog = '%(path)s/releases/%(release)s/blogredirects.conf' % env
+    remote = '%(basepath)s/releases/%(release)s/redirects.conf' % env
+    remoteblog = '%(basepath)s/releases/%(release)s/blogredirects.conf' % env
 
     if os.access("redirects.txt", os.R_OK):
         put("redirects.txt", remote)
