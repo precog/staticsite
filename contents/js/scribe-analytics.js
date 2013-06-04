@@ -1814,10 +1814,21 @@
           self.context.geo = position;
         });
   
-        // Track page view, but only after the DOM has loaded:
         Events.onready(function() {
-          // Track the initial pageview:
+          // Track page view, but only after the DOM has loaded:
           self.pageview();
+  
+          // Track all clicks to the document:
+          Events.onevent(document.body, 'click', true, function(e) {
+            var ancestors = DomUtil.getAncestors(e.target);
+  
+            // Do not track clicks on links, these are tracked separately!
+            if (!ArrayUtil.exists(ancestors, function(e) { return e.tagName === 'A';})) {
+              self.track('click', {
+                target: DomUtil.getNodeDescriptor(e.target)
+              });
+            }
+          });
         });
   
         // Track hash changes:
@@ -1832,18 +1843,6 @@
           self.track('jump', {
             target: data
           });
-        });
-  
-        // Track all clicks to the document:
-        Events.onevent(document.body, 'click', true, function(e) {
-          var ancestors = DomUtil.getAncestors(e.target);
-  
-          // Do not track clicks on links, these are tracked separately!
-          if (!ArrayUtil.exists(ancestors, function(e) { return e.tagName === 'A';})) {
-            self.track('click', {
-              target: DomUtil.getNodeDescriptor(e.target)
-            });
-          }
         });
   
         // Track all engagement:
