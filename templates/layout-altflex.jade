@@ -16,6 +16,10 @@ html(lang='en')
       script(src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js')
       script(type='text/javascript', src='/js/default.js')
       script(type='text/javascript', src='/js/unique.js')
+      script(type='text/javascript', src='/js/scribe-console.js')
+      script(type='text/javascript', src='/js/scribe-analytics.js')
+      script(type='text/javascript')
+        new Scribe(new ScribeConsoleTracker());
       script(type='text/javascript')
         var _gaq = _gaq || [];
           _gaq.push(['_setAccount', 'UA-33659709-1']);
