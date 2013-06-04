@@ -1545,7 +1545,7 @@
       var Events = {};
   
       Events.onready = function(f) {
-        if (document.body) f();
+        if (document.body != null) f();
         else setTimeout(function(){Events.onready(f);}, 10);
       };
   
