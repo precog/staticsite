@@ -12,61 +12,42 @@ template: page.jade
             
             <div id="SignUp">
             <table width="260" class="signupframe" border="0" cellspacing="0" cellpadding="5">
-                    <tr>
-                  <td valign="top" align="right">
-                    <p><span class="required">&#42;</span> Email</p>
-                  </td>
-                  <td align="left">
-                    <input type="text" name="fields_email">
-                  </td>
+                <tr>
+                    <td valign="top" align="right">
+                        <p><span class="required">&#42;</span> Email</p>
+                    </td>
+                    <td align="left">
+                        <input type="text" name="fields_email">
+                    </td>
                 </tr>
-                    <tr>
-                  <td valign="top" align="right"><p>First Name</p>
-                  </td>
-                  <td align="left">
-                    <input type="text" name="fields_fname">
-                  </td>
+                <tr>
+                    <td valign="top" align="right"><p>First Name</p>
+                    </td>
+                    <td align="left">
+                        <input type="text" name="fields_fname">
+                    </td>
                 </tr>
-                    <tr>
-                  <td valign="top" align="right"><p>Last Name</p>
-                  </td>
-                  <td align="left">
-                    <input type="text" name="fields_lname">
-                  </td>
+                <tr>
+                    <td valign="top" align="right"><p>Last Name</p>
+                    </td>
+                    <td align="left">
+                        <input type="text" name="fields_lname">
+                    </td>
                 </tr>
                 <input type="hidden" name="listid" value="1366">
                 <input type="hidden" name="specialid:1366" value="N0SQ">
-            
                 <input type="hidden" name="clientid" value="1348845">
                 <input type="hidden" name="formid" value="88">
                 <input type="hidden" name="reallistid" value="1">
                 <input type="hidden" name="doubleopt" value="0">
                 <tr>
-                  <td> </td>
-                  <td><p class="mini-text"><span class="required">&#42;</span> = Required Field</p></td>
+                    <td></td>
+                    <td><p class="mini-text"><span class="required">&#42;</span> = Required Field</p></td>
                 </tr>
                 </table>
                 <input class="red-background small-button" type="submit" name="Submit" value="Sign Up">
             </div>
         </form>
-        <script type="text/javascript">
-        
-        var icpForm88 = document.getElementById('icpsignup88');
-        
-        if (document.location.protocol === "https:")
-        
-                icpForm88.action = "https://app.icontact.com/icp/signup.php";
-        function verifyRequired88() {
-          if (icpForm88["fields_email"].value == "") {
-            icpForm88["fields_email"].focus();
-            alert("The Email field is required.");
-            return false;
-          }
-        
-        
-        return true;
-            }
-            </script>
     </div>
     <div class="three-columns">
         <h2>Contact Us</h2>

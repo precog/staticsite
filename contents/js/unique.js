@@ -207,7 +207,7 @@ $(document).ready(function(){
                                                             var lastName = userName.split(' ').slice(-1).join(' ');
                                                             
                                                             var icontactData = JSON.stringify([{"email": userEmail, "firstName": firstName, "lastName": lastName, "business": userCompany}]);
-                                                            var urlOfService = "https://web4.precog.com/nodejs/account/login"
+                                                            var urlOfService = "https://www.precog.com/nodejs/account/login"
                                                             
                                                             $.ajax({
                                                                   type: "POST",
@@ -538,25 +538,5 @@ $(document).ready(function(){
             $(".code-panel").hide().removeClass("active-content");
             $("#" + currentItem + "-code").show();
       });
-      
-      $("#feature-testing").click(function(){
-            var data = JSON.stringify({"email":"testing45email@precog.com"});
-            var url = "https://web4.precog.com/nodejs/account/login"
-            
-            console.log(data);
-        
-            $.ajax({
-                  type: "POST",
-                  url: url,
-                  dataType: "json",
-                  contentType: "application/json",
-                  processData: false,
-                  data: data,
-                  success: function(data){
-                        console.log(data);
-                        console.log("success");
-                  }
-            });
-        
-      });
+
 });
