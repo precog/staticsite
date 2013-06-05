@@ -120,27 +120,6 @@ template: page-flexible.jade
                             <input class="red-background small-button" type="submit" name="Submit" value="Contact">
                         </div>
                     </form>
-                    <script type="text/javascript">
-                    
-                    var icpForm133 = document.getElementById('icpsignup133');
-                    
-                    if (document.location.protocol === "https:")
-                    
-                            icpForm133.action = "https://app.icontact.com/icp/signup.php";
-                    function verifyRequired133() {
-                      if (icpForm133["fields_email"].value == "") {
-                        icpForm133["fields_email"].focus();
-                        alert("The Email field is required.");
-                        return false;
-                      }
-                      if (icpForm133["fields_comments"].value == "") {
-                        icpForm133["fields_comments"].focus();
-                        alert("The Comments field is required.");
-                        return false;
-                      }
-                    return true;
-                    }
-                    </script>
                 </div>
             </div>
         </div>
