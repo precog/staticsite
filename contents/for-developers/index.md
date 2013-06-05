@@ -624,6 +624,24 @@ client<span style='color:#d2cd86; '>.</span>UploadFile<span style='color:#d2cd86
                     <input class="red-background small-button" type="submit" name="Submit" value="Sign Up">
                     </div>
                 </form>
+            <script type="text/javascript">
+            
+            var icpForm88 = document.getElementById('icpsignup88');
+            
+            if (document.location.protocol === "https:")
+            
+                    icpForm88.action = "https://app.icontact.com/icp/signup.php";
+            function verifyRequired88() {
+              if (icpForm88["fields_email"].value == "") {
+                icpForm88["fields_email"].focus();
+                alert("The Email field is required.");
+                return false;
+              }
+            
+            
+            return true;
+                }
+                </script>
         </div>
         <div class="three-columns">
             <h2>Contact Us</h2>
