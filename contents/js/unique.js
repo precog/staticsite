@@ -496,8 +496,8 @@ $(document).ready(function(){
       //GET TITLES
       if (currentLocation == "/solutions/white-label-reporting/" || currentLocation == "/solutions/social-media-analytics/" || currentLocation == "/solutions/web-analytics/") {
             $("#section-body h2").each(function(){
-                  var link = $(this).attr("title");
-                  var titles = $(this).attr("title").replace('-', ' ');
+                  var titles = $(this).html();
+                  var link = $(this).html().replace(' ', '-');
                   
                   $(this).attr('id', link);
                   $("#body-links").append("<a href='#" + link + "'>" + titles + "</a>");
