@@ -77,6 +77,34 @@ template: page.jade
                     <input class="red-background small-button" type="submit" name="Submit" value="Download">
                 </div>
             </form>
+            <script type="text/javascript">
+            
+            var icpForm351 = document.getElementById('icpsignup351');
+            
+            if (document.location.protocol === "https:")
+            
+                    icpForm351.action = "https://app.icontact.com/icp/signup.php";
+            function verifyRequired351() {
+              if (icpForm351["fields_email"].value == "") {
+                icpForm351["fields_email"].focus();
+                alert("The Email field is required.");
+                return false;
+              }
+              if (icpForm351["fields_fname"].value == "") {
+                icpForm351["fields_fname"].focus();
+                alert("The First Name field is required.");
+                return false;
+              }
+              if (icpForm351["fields_lname"].value == "") {
+                icpForm351["fields_lname"].focus();
+                alert("The Last Name field is required.");
+                return false;
+              }
+            
+            
+            return true;
+            }
+            </script>
         </div>
     </div>
 </div>
