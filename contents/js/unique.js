@@ -496,8 +496,8 @@ $(document).ready(function(){
       //GET TITLES
       if (currentLocation == "/solutions/white-label-reporting/" || currentLocation == "/solutions/social-media-analytics/" || currentLocation == "/solutions/web-analytics/") {
             $("#section-body h2").each(function(){
-                  var link = $(this).attr("title");
-                  var titles = $(this).attr("title").replace('-', ' ');
+                  var titles = $(this).html();
+                  var link = $(this).html().replace(' ', '-');
                   
                   $(this).attr('id', link);
                   $("#body-links").append("<a href='#" + link + "'>" + titles + "</a>");
@@ -538,5 +538,18 @@ $(document).ready(function(){
             $(".code-panel").hide().removeClass("active-content");
             $("#" + currentItem + "-code").show();
       });
+            
+      var icpForm88 = document.getElementById('icpsignup88');
 
+      if (document.location.protocol === "https:")
+            icpForm88.action = "https://app.icontact.com/icp/signup.php";
+            function verifyRequired88() {
+                  if (icpForm88["fields_email"].value == "") {
+                        icpForm88["fields_email"].focus();
+                        alert("The Email field is required.");
+                        return false;
+                  }
+            return true;
+      }
+    
 });
