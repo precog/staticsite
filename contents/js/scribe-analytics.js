@@ -1119,17 +1119,17 @@
         cutoff = cutoff || 250;
   
         var lastInvoked = 0;
-        return function(e) {
+        return function() {
           var curTime = (new Date()).getTime();
           var delta = curTime - lastInvoked;
   
           if (delta > cutoff) {
             lastInvoked = curTime;
   
-            var result = f.apply(this, arguments);
-  
-            return result;
-          } return undefined;
+            return f.apply(this, arguments);
+          } else {
+            return undefined;
+          }
         };
       };
   
@@ -1477,7 +1477,7 @@
   
         var gmtOffset, timezone;
   
-        if (results.length >= 3) {
+        if (results && results.length >= 3) {
           gmtOffset = results[1];
           timezone  = results[2];
         }
@@ -1712,13 +1712,13 @@
             }
           });
   
-          // Intercept clicks on submit buttons:
+          // Intercept clicks on any buttons:
           Events.onevent(document.body, 'click', false, function(e) {
             var target = e.target;
-            var form = target.form;
-  
-            if (form && (target.type || '').toLowerCase() === 'submit') {
-              e.form = form;
+            var targetType = (target.type || '').toLowerCase();
+            
+            if (target.form && (targetType === 'submit' || targetType === 'button')) {
+              e.form = target.form;
               handle(e);
             }
           });
@@ -1871,7 +1871,15 @@
   
         // Track form submissions:
         Events.onsubmit(function(e) {
-          self.trackLater('formsubmit', {form: DomUtil.getFormData(e.form)});
+          if (e.form) {
+            if (!e.form.formId) {
+              e.form.formId = Util.genGuid();
+            }
+  
+            self.trackLater('formsubmit', {
+              form: Util.merge({formId: e.form.formId}, DomUtil.getFormData(e.form))
+            });
+          }
         });
   
         // Track form abandonments:
@@ -2042,8 +2050,6 @@
         });
   
         this._saveOutbox();
-  
-        return value;
       };
   
       /**
