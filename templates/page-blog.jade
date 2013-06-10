@@ -24,6 +24,8 @@ block content
               // a(href=article.url)= article.title
             h3
               mixin author(article.metadata.author)
+            h3
+              mixin date(article.metadata.date)
           section.content!= article.intro
           if article.hasMore
             p.read-more
