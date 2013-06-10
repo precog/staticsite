@@ -8,7 +8,7 @@ template: page-flexible.jade
         <a href="http://labcoat.precog.com" class="image-panel for-data-science-image">
         </a>
         <div class="text-panel">
-            <p class="medium">The Precog Social Insights&trade; solution allows organizations to do ad hoc analysis on any kind of social media data. Our unique solution works natively on the data and does not require any data manipulation. Precog allows you to go far beyond simple counts and activity metrics, and ask deep questions across social data and internal data.</p>
+            <p class="medium">Labcoat&trade; is a next-generation data science platform. In one unified, visual tool, analysts and data scientists can wrangle, refine, analyze, model, and visualize diverse types of data. Uncover insights, tell stories, and deploy analytical apps and data products faster and easier than you ever thought possible.</p>
         </div>
         <div class="clear-left">
         </div>
@@ -22,36 +22,40 @@ template: page-flexible.jade
         <div class="two-columns">
             <ul>
                 <li class="dark-background">
-                    <h3>Intelligence far beyond simple counts.</h3>
-                    <p>Understand customer sentiment toward high-level concepts. Graph trends in awareness and purchase intent. Learn what customers think of your company and products in comparison to the competition.</p>
+                    <h3>Next-generation data science platform.</h3>
+                    <p>Gone are the days of using completely separate tools for data wrangling, data integration, analytics, machine learning, and visualization. Labcoat lets you perform every step of data science in a single, unified tool.</p>
                 </li>
                 <li class="dark-background">
-                    <h3>Ad hoc analytics.</h3>
-                    <p>Perform ad hoc analytics that give you insights into your business, instead of relying on the one-size-fits-all canned reports common in other solutions.</p>
+                    <h3>Workflow-style environment.</h3>
+                    <p>Create, share, and publish *notebooks*, which allow you to break complex workflows down into individual, reproducible steps. Combine queries, visualizations, and documentation to create rich analytical workflows that reveal insights and tell stories.</p>
                 </li>
                 <li class="dark-background">
-                    <h3>Integrate with your own or third-party data.</h3>
-                    <p>Combine multiple internal data sources such as transactions with social data to give you a much more complete view of your customers, including seeing how social media correlates with conversions.</p>
+                    <h3>Native analytics on diverse data.</h3>
+                    <p>Unlike SQL or Hive, Labcoat's query interface allows you to directly manipulate and
+                    analyze multi-structured data like JSON. There's no transformation, no preprocessing,
+                    no normalization, and no data flattening.</p>
                 </li>
                 <li class="dark-background">
-                    <h3>Directly connect to social data sources.</h3>
-                    <p>Directly connect and retrieve filtered data from social data sources like Twitter, Facebook, blogs, and much more.</p>
+                    <h3>Time-saving enrichments.</h3>
+                    <p>Enrich data with powerful add-ons like sentiment analysis or geocoding. These productivity-boosting enrichments work on data with any structure, allowing you to spend less time preparing data, and more time uncovering insights.</p>
                 </li>
                 <li class="dark-background">
-                    <h3>Beautiful, intuitive reporting.</h3>
-                    <p>With stunning reports, ranging from virality and influence diagrams, to topic popularity charts, and competitive benchmarking stream graphs, Precog Social Insights&trade; is packed with visualizations that make insights pop out.</p>
+                    <h3>Beautiful, intuitive visualizations.</h3>
+                    <p>Tell your stories and make insights pop out with gorgeous data visualizations, which you can construct using a simple, point-and-click interface. Visualizations can be shared or embedded in notebooks as part of analytic workflows.</p>
                 </li>
                 <li class="dark-background">
-                    <h3>Customizable, interactive dashboards.</h3>
-                    <p>Precog Social Insights&trade; ships with common reports baked in, but analysts inside your company can create unlimited views of the data and share them with key internal or external stakeholders.</p>
+                    <h3>Build &amp; deploy analytical apps.</h3>
+                    <p>By embedding forms into your notebooks, you can publish interactive notebooks
+                    that operate on data supplied by users. With zero coding, you can deliver self-service analytical apps to even non-skilled audiences.</p>
                 </li>
                 <li class="dark-background">
-                    <h3>Secure, Enterprise-grade collaboration.</h3>
-                    <p>Security for analytics and reports can be controlled by IT, and Precog's fine-grained security mechanism allows different stakeholders to have different levels of access to the analytics.</p>
+                    <h3>Build &amp; deploy data products.</h3>
+                    <p>All of Labcoat's functionality is accessible programmatically by API, so any workflow or predictive model developed in Labcoat can be integrated into external applications and workflows. Build and deploy data products with unprecedented agility.</p>
                 </li>
                 <li class="dark-background">
-                    <h3>From zero to insight in a week.</h3>
-                    <p>With our premium deployment package, Precog will install Social Insights&trade;  into your company and train your employees in a single week. You don't have to wait weeks or months to get the actionable insight you need.</p>
+                    <h3>Connectors available to any data source.</h3>
+                    <p>In on-premises deployments, Labcoat can be deployed with connectors to external data sources like PostgreSQL, Hadoop, or MongoDB. These connectors let IT enforce security
+                    settings while giving analysts and data scientists access to the data they need.</p>
                 </li>
             </ul>
             <div class="clear-left"></div>
@@ -176,19 +180,19 @@ template: page-flexible.jade
                     <input class="red-background small-button" type="submit" name="Submit" value="Sign Up">
                 </div>
             </form>
-<script type="text/javascript">
-var icpForm88 = document.getElementById('icpsignup88');
-if (document.location.protocol === "https:")
-    icpForm88.action = "https://app.icontact.com/icp/signup.php";
-    function verifyRequired88() {
-        if (icpForm88["fields_email"].value == "") {
-        icpForm88["fields_email"].focus();
-        alert("The Email field is required.");
-        return false;
-    }
-return true;
-}
-</script>
+            <script type="text/javascript">
+                var icpForm88 = document.getElementById('icpsignup88');
+                if (document.location.protocol === "https:")
+                    icpForm88.action = "https://app.icontact.com/icp/signup.php";
+                    function verifyRequired88() {
+                        if (icpForm88["fields_email"].value == "") {
+                        icpForm88["fields_email"].focus();
+                        alert("The Email field is required.");
+                        return false;
+                    }
+                return true;
+                }
+            </script>
         </div>
         <div class="three-columns">
             <h2 title="contact">Contact Us</h2>
@@ -224,27 +228,27 @@ return true;
         <div class="pricing-panel" id="pricing-options-cloud">
             <ul class="titles">
                 <li></li>
-                <li>Developer</li>
+                <li>Entry</li>
                 <li>Small</li>
                 <li>Medium</li>
                 <li>Large</li>
                 <li>Enterprise</li>
             </ul>
             <ul class="cpu-cores">
-                <li>CPU CORES</li>
+                <li>USERS</li>
                 <li>1</li>
-                <li>4</li>
-                <li>8</li>
-                <li>16</li>
-                <li>&#62;32</li>
+                <li>2</li>
+                <li>10</li>
+                <li>25</li>
+                <li>&#62;50</li>
             </ul>
             <ul class="storage">
                 <li>SSD STORAGE</li>
-                <li>100 MB</li>
+                <li>10 MB</li>
+                <li>1 GB</li>
                 <li>10 GB</li>
                 <li>255 GB</li>
-                <li>500 GB</li>
-                <li>&#62;1 TB</li>
+                <li>&#62;1 T</li>
             </ul>
             <ul class="sla">
                 <li>SLA</li>
@@ -257,17 +261,17 @@ return true;
             <ul class="cost">
                 <li></li>
                 <li>Free!</li>
+                <li>$50<span>Month</span></li>
                 <li>$500<span>Month</span></li>
                 <li>$2750<span>Month</span></li>
-                <li>$5000<span>Month</span></li>
                 <li>Contact Us</li>
             </ul>
             <ul class="buy">
                 <li></li>
-                <li><a href="mailto:sales@precog.com" class="red-background small-full-button-tl">Contact Us</a></li>
-                <li><a href="mailto:sales@precog.com" class="red-background small-full-button-tl">Contact Us</a></li>
-                <li><a href="mailto:sales@precog.com" class="red-background small-full-button-tl">Contact Us</a></li>
-                <li><a href="mailto:sales@precog.com" class="red-background small-full-button-tl">Contact Us</a></li>
+                <li><a href="/account/login/" class="red-background small-full-button-tl">Get Started</a></li>
+                <li><a href="https://precog.recurly.com/subscribe/precog-tiny" class="red-background small-full-button-tl">Sign Up</a></li>
+                <li><a href="https://precog.recurly.com/subscribe/precog-medium" class="red-background small-full-button-tl">Sign Up</a></li>
+                <li><a href="https://precog.recurly.com/subscribe/precog-large" class="red-background small-full-button-tl">Sign Up</a></li>
                 <li><a href="mailto:sales@precog.com" class="red-background small-full-button-tl">Contact Us</a></li>
             </ul>
             <div class="clear-left"></div>
