@@ -565,6 +565,10 @@
     margin-bottom: 10px;
 }
 
+#section-body .blog-item header {
+    height: 80px !important;
+}
+
 #section-body .blog-item .author {
     font-size: 9pt !important;
     padding: 0px !important;
