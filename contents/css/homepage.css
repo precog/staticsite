@@ -347,9 +347,7 @@ header #header-logo {
 }
 
 #impression-menu .holder {
-    width: 100%;
-    min-width: 1050px;
-    max-width: 1250px;
+    width: 1050px;
 }
 
 #impression-menu a:first-child i {
@@ -368,7 +366,7 @@ header #header-logo {
     float: left;
     display: block;
     text-decoration: none;
-    width: 33.33%;
+    width: 350px;
     line-height: 90px;
     height: 120px;
     text-align: center;
@@ -379,6 +377,19 @@ header #header-logo {
     transition: 0.5s;
     -webkit-transition: 0.5s;
     text-shadow: 0px 2px #000;
+}
+
+#impression-menu a:nth-child(1) {
+    border-left: 1px solid #30373d;
+}
+
+#impression-menu a:nth-child(2) {
+    border-left: 1px solid #30373d;
+    border-right: 1px solid #30373d;
+}
+
+#impression-menu a:nth-child(3) {
+    border-right: 1px solid #30373d;
 }
 
 #impression-menu a:hover {
