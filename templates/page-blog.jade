@@ -24,6 +24,8 @@ block content
               // a(href=article.url)= article.title
             h3
               mixin author(article.metadata.author)
+            h3
+              span.date= moment(article.date).format('DD. MMMM YYYY')
           section.content!= article.intro
           if article.hasMore
             p.read-more
