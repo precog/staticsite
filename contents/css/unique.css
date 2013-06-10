@@ -567,11 +567,13 @@
 
 #section-body .blog-item .author {
     font-size: 9pt !important;
+    padding: 0px !important;
 }
 
 #section-body .blog-item .date {
     font-size: 9pt !important;
     color: #3fa9f5;
+    padding: 0px !important;
 }
 
 #section-body .blog-item header {
