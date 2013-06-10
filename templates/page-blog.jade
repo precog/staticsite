@@ -25,7 +25,7 @@ block content
             h3
               mixin author(article.metadata.author)
             h3
-              moment(article.date).format('DD. MMMM YYYY')
+              span= moment(article.date).format('DD. MMMM YYYY')
           section.content!= article.intro
           if article.hasMore
             p.read-more
