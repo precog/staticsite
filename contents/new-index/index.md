@@ -401,18 +401,12 @@ ReportGrid<span style='color:#d2cd86; '>.</span>streamGraph<span style='color:#d
                 <h2>Other Resources</h2>
                 <a href="/developers/">Developer Center</a>
                 <p>The Developer Center is the launchpad for building applications using Precog. You'll find API docs, client libraries, and more.</p>
-                
                 <a href="/developers/how-tos/common-analytics/">Common Analytics</a>
                 <p>This is a short guide that shows how to perform very common analytical queries using the Quirrel query language.</p>
-                
                 <a href="/developers/how-tos/embed-reporting/">Embed Reporting</a>
                 <p>If you're building a business application, then your customers probably want self-service reporting.</p>
-
                 <a href="/developers/how-tos/optimize-performance/">Optimize Performance</a>
                 <p>If you are deploying a production application that uses Precog, you may be interested in ways to optimize the runtime query performance.</p>
-                
-                <a href="/for-developers/mongodb/">Precog for MongoDB</a>
-                <p>Try an experimental version of precog running on your MongoDB database.</p>
             </div>
         </div>
         <div class="clear-left"></div>
@@ -544,25 +538,22 @@ client<span style='color:#d2cd86; '>.</span>UploadFile<span style='color:#d2cd86
     </div>
 </div>
 <div class="section-divider">
-    <h2>Pricing</h2>
+    <h2>Download</h2>
 </div>
 <div id="body-download">
     <div class="holder">
         <div class="three-columns">
-            <h3>Windows</h3>
             <img src="/images/graphic-download-windows.png" alt="windows">
             <p>This is the download for Precog for Windows. Click below to download everything you need to install your own version of precog.</p>
             <a href="#" class="blue-background medium-button" target="_blank">Download</a>
         </div>
         <div class="three-columns">
-            <h3>Mac</h3>
-            <img src="/images/graphic-download-mac.png" alt="mac">
+             <img src="/images/graphic-download-mac.png" alt="mac">
             <p>This is the download for Precog for Mac. Click below to download everything you need to install your own version of precog.</p>
             <a href="#" class="blue-background medium-button" target="_blank">Download</a>
         </div>
         <div class="three-columns-end">
-            <h3>Linux</h3>
-            <img src="/images/graphic-download-linux.png" alt="linux">
+             <img src="/images/graphic-download-linux.png" alt="linux">
             <p>This is the download for Precog for Linux. Click below to download everything you need to install your own version of precog.</p>
             <a href="#" class="blue-background medium-button" target="_blank">Download</a>
         </div>
