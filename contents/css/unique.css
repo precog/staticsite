@@ -997,3 +997,13 @@ a.product-link-labcoat-account:hover {
     position: absolute;
     display: none;   
 }
+
+/*DELETE #body-download*/
+#body-download .three-columns img {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    height: 60px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
