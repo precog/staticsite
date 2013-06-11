@@ -6,8 +6,23 @@ $(document).ready(function(){
       
       if (userLoggedIn) {
             $("#login-link").html("Log Out").attr("href", "#").addClass("log-out-link");
-            
             $("<li><a id='my-account-link' href='/account/'>Account</a></li>").prependTo("#header-mini-menu ul");
+
+            var userEmail = sessionStorage.getItem('PrecogAccount_Email');
+            var userName = sessionStorage.getItem('PrecogAccount_Name');
+            var userCompany = sessionStorage.getItem('PrecogAccount_Company');
+            var userAccountID = sessionStorage.getItem('PrecogAccount_ID');
+            var userApiKey = sessionStorage.getItem('PrecogAccount_ApiKey');
+            
+            var userDetails = {
+                  "Name": userName,
+                  "Company": userCompany,
+                  "Account ID": userAccountID,
+                  "API Key": userApiKey
+            }
+            
+            scribe.identify(userEmail, userDetails);
+            
       }
       
       $(".log-out-link").click(function(){
