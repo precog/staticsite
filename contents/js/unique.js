@@ -15,14 +15,27 @@ $(document).ready(function(){
             var userApiKey = sessionStorage.getItem('PrecogAccount_ApiKey');
             
             var userDetails = {
-                  "Name": userName,
-                  "Company": userCompany,
-                  "Account ID": userAccountID,
-                  "API Key": userApiKey
+                  "name": userName,
+                  "company": userCompany,
+                  "account_id": userAccountID
             }
             
-            Scribe.identify(userEmail, userDetails);
+            var scribe = new Scribe({tracker: function(info) {
+                  var path = info.path;
+                  var value = info.value;
+                
+                  if (typeof console !== 'undefined') {
+                        console.log(path);
+                        console.log(value);
+                
+                        info.success && setTimeout(info.success, 0);
+                  } else {
+                        info.failure && setTimeout(info.failure, 0);
+                  }
+                }     
+            });
             
+            scribe.identify(userEmail, userDetails);
       }
       
       $(".log-out-link").click(function(){
