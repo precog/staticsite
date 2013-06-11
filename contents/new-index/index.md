@@ -530,9 +530,11 @@ client<span style='color:#d2cd86; '>.</span>UploadFile<span style='color:#d2cd86
     <div class="holder">
         <div class="three-columns">
             <h2>Contact Us</h2>
+            <a href="mailto:contact@precog.com" class="red-background small-button">Contact Us</a>
         </div>
         <div class="three-columns">
             <h2>Developer Resources</h2>
+            <a href="/developers/" class="red-background small-button">Developers</a>
         </div>
         <div class="three-columns-end">
             
@@ -549,14 +551,20 @@ client<span style='color:#d2cd86; '>.</span>UploadFile<span style='color:#d2cd86
         <div class="three-columns">
             <h3>Windows</h3>
             <img src="/images/graphic-download-windows.png" alt="windows">
+            <p>This is the download for Precog for Windows. Click below to download everything you need to install your own version of precog.</p>
+            <a href="#" class="blue-background medium-button" target="_blank">Download</a>
         </div>
         <div class="three-columns">
             <h3>Mac</h3>
-            <img src="/images/graphic-download-mac.png" alt="windows">
+            <img src="/images/graphic-download-mac.png" alt="mac">
+            <p>This is the download for Precog for Mac. Click below to download everything you need to install your own version of precog.</p>
+            <a href="#" class="blue-background medium-button" target="_blank">Download</a>
         </div>
         <div class="three-columns-end">
             <h3>Linux</h3>
-            <img src="/images/graphic-download-linux.png" alt="windows">
+            <img src="/images/graphic-download-linux.png" alt="linux">
+            <p>This is the download for Precog for Linux. Click below to download everything you need to install your own version of precog.</p>
+            <a href="#" class="blue-background medium-button" target="_blank">Download</a>
         </div>
         <div class="clear-left"></div>
     </div>
