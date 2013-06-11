@@ -21,7 +21,7 @@ $(document).ready(function(){
                   "API Key": userApiKey
             }
             
-            scribe.identify(userEmail, userDetails);
+            Scribe.identify(userEmail, userDetails);
             
       }
       
