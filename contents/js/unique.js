@@ -566,18 +566,5 @@ $(document).ready(function(){
             $(".code-panel").hide().removeClass("active-content");
             $("#" + currentItem + "-code").show();
       });
-            
-      var icpForm88 = document.getElementById('icpsignup88');
-
-      if (document.location.protocol === "https:")
-            icpForm88.action = "https://app.icontact.com/icp/signup.php";
-            function verifyRequired88() {
-                  if (icpForm88["fields_email"].value == "") {
-                        icpForm88["fields_email"].focus();
-                        alert("The Email field is required.");
-                        return false;
-                  }
-            return true;
-      }
     
 });
