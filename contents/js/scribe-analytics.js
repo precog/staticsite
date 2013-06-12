@@ -1576,7 +1576,7 @@
             e.charCode  = (typeof e.which === "number") ? e.which : e.keyCode;
             e.timeStamp = e.timeStamp || (new Date()).getTime();
   
-            if (e.target.nodeType == 3) e.target = e.target.parentNode;
+            if (e.target && e.target.nodeType == 3) e.target = e.target.parentNode;
   
             return f(e);
           };
