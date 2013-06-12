@@ -32,13 +32,13 @@ Indeed, Scribe Analytics attempts to capture numerous aspects of user behavior, 
 
 In particular, all of the following behaviors are captured at the level of every single visitor:
 
-* Page views Ñ Every page view event is captured, together with information on the browser, referrer, platform, and much more.
-* Clicks Ñ Every click event will be captured, including information on the element that is clicked (id, title, data attributes, unique css selector). If a link is clicked, then then information on the link target will be captured, as well.
-* Engagements Ñ Every engagement with any HTML element in a document is captured, including information on the element (id, title, data attributes, unique css selector). Engagement is defined as a mouseover inside a certain time window (e.g. 1 and 20 seconds). Mouseovers outside the time window are not counted as engagements.
-* Jumps Ñ Every jump (defined as navigation inside a page which results in a change to the URL hash) is captured, including information on the element that was jumped to (id, title, data attributes, unique css selector).
-* Forms Ñ All form interaction, including form abandonment and form submission, is captured, including details on all form fields that are not marked as passwords and which have not turned off auto-complete (via the autocomplete property). Forms interaction inside iframes will not be captured.
-* Redirects Ñ Scribe will attempt to capture JavaScript redirects, but if the user is redirected to another site, and never returns, the redirect may not be captured.
-* Reloads Ñ All page reloads are captured. A reload occurs whenever the page is refreshed, either by the user or programmatically.
+* Page views &mdash; Every page view event is captured, together with information on the browser, referrer, platform, and much more.
+* Clicks &mdash; Every click event will be captured, including information on the element that is clicked (id, title, data attributes, unique css selector). If a link is clicked, then then information on the link target will be captured, as well.
+* Engagements &mdash; Every engagement with any HTML element in a document is captured, including information on the element (id, title, data attributes, unique css selector). Engagement is defined as a mouseover inside a certain time window (e.g. 1 and 20 seconds). Mouseovers outside the time window are not counted as engagements.
+* Jumps &mdash; Every jump (defined as navigation inside a page which results in a change to the URL hash) is captured, including information on the element that was jumped to (id, title, data attributes, unique css selector).
+* Forms &mdash; All form interaction, including form abandonment and form submission, is captured, including details on all form fields that are not marked as passwords and which have not turned off auto-complete (via the autocomplete property). Forms interaction inside iframes will not be captured.
+* Redirects &mdash; Scribe will attempt to capture JavaScript redirects, but if the user is redirected to another site, and never returns, the redirect may not be captured.
+* Reloads &mdash; All page reloads are captured. A reload occurs whenever the page is refreshed, either by the user or programmatically.
 
 This is just a start. As Scribe Analytics matures, it will capture even more detailed information (such as how much time your page spends in the background and in the foreground, how many tabs are open to your site at a time, and so forth), and even as I write this, cross-domain visitor tracking is in development (enabling you to see a complete picture of your users as they cross different online properties).
 
