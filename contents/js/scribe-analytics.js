@@ -1376,7 +1376,12 @@
           options.clientY = options.pointerY;
           var evt = document.createEventObject();
           oEvent = Util.merge(evt, options);
-          element.fireEvent('on' + eventName, oEvent);
+          try {
+            element.fireEvent('on' + eventName, oEvent);
+          } catch (error) {
+            // IE nonsense:
+            element.fireEvent('on' + eventName);
+          }
         }
         return element;
       };
