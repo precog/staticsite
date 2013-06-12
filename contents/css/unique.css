@@ -565,10 +565,6 @@
     margin-bottom: 10px;
 }
 
-#section-body .blog-item header {
-    height: 80px !important;
-}
-
 #section-body .blog-item .author {
     font-size: 9pt !important;
     padding: 0px !important;
@@ -581,11 +577,13 @@
 }
 
 #section-body .blog-item header {
+    height: auto !important;
     background-color: transparent !important;
     position: relative !important;
     min-width: 643px !important;
     border: none !important;
     margin-bottom: 10px !important;
+    z-index: 0 !important;
 }
 
 #section-body .blog-item p {
