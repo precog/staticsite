@@ -1986,7 +1986,7 @@
           // Specially modify redirect, formSubmit events to save the new URL,
           // because the URL is not known at the time of the event:
           if (ArrayUtil.contains(['redirect', 'formSubmit'], event)) {
-            message.value.target = Util.merge(message.value.target || {}, {url: Util.parseUrl(document.location)});
+            message.value.target = Util.jsonify(Util.merge(message.value.target || {}, {url: Util.parseUrl(document.location)}));
           }
   
           // If source and target urls are the same, change redirect events
