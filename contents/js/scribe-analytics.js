@@ -1910,6 +1910,9 @@
             var parsedUrl = Util.parseUrl(el.href);
             var value = {target: Util.merge({url: parsedUrl}, DomUtil.getNodeDescriptor(target))};
   
+            console.log(parsedUrl);
+            console.log(document.location);
+  
             if (Util.isSamePage(parsedUrl, document.location)) {
               // User is jumping around the same page. Track here in case the 
               // client prevents the default action and the hash doesn't change
