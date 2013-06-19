@@ -20,7 +20,7 @@ to write advanced Quirrel, please see the following resources:
   * [Quirrel Game](http://www2.precog.com/learn-quirrel-level-1)
   * [Quirrel Tutorial Videos](http://www.youtube.com/user/PrecogPlatform)
   * [Quirrel IRC Channel](irc://irc.freenode.net:6667/quirrel)
-  * [Support Forum](https://support.precog.com)
+  * [Support Forum](mailto:support@precog.com)
   * [support@precog.com](mailto:support@precog.com)
 
 All of these examples have been constructed so you can run them in the demo

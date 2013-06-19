@@ -15,5 +15,5 @@ Precog maintains a growing collection of how to guides which can help you solve 
 If you need help with something else, be sure to check out the following great resources:
 
   * [IRC Channel](irc://irc.freenode.net:6667/quirrel)
-  * [Support Forum](https://support.precog.com)
+  * [Support Forum](mailto:support@precog.com)
   * [support@precog.com](mailto:support@precog.com)
