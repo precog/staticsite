@@ -1,5 +1,4 @@
 ^/mongodb$ /for-developers/mongodb/
-^/account/login/$ /about/contact-us/
 ^/precog-on-mongodb$ /for-developers/mongodb/
 ^/editions/precog-for-mongodb$ /for-developers/mongodb/
 ^/postgresql$ /site/404/
