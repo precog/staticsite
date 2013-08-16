@@ -28,7 +28,7 @@ def production():
         Execute the other actions on production environment
     """
     puts(green('>>> Running on Production!'))
-    env.hosts = ['web1.precog.com', 'web2.precog.com']
+    env.hosts = ['web1.precog.com']
     puts(green('Servers: %s' % ", ".join(env.hosts)))
 
 
