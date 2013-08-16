@@ -14,7 +14,7 @@ from shutil import copyfile
 
 # Configure user, private key, etc. for SFTP deployment
 env.user = 'ubuntu'
-env.hosts = ['web4.precog.com'] if not env.hosts else env.hosts
+env.hosts = [] if not env.hosts else env.hosts
 env.optimize_images = True if not 'optimize_images' in env else env.optimize_images
 env.colors = True if not 'colors' in env else env.colors
 env.release = time.strftime('%Y%m%d%H%M%S') if not 'release' in env else env.release
