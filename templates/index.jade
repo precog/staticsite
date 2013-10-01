@@ -1,25 +1,50 @@
 extends layout
 
 block content
-  #body-impression
+  #main-background
     .holder
-      #impression-logo
-      h1 The Next Generation of Precog is Coming October 1st!
-      p As of October 1st, Precog is being open sourced!
-      p The product of 25 man-years of development, the Precog NoSQL Analytics Engine provides fast, powerful analytics across today's NoSQL data sources.
-      p In addition to the open source Community Edition, Enterprise editions will be available that bundle commercial support and maintenance, provided by leading software members of the Scala big data community.
-  #impression-menu
-    .holder
-      a(href='/for-businesses/')
-        | For Businesses
-        span Deeper insights across modern data sources, structured or unstructured
-      a(href='/for-developers/')
-        | For Developers
-        span Store and analyze JSON data natively, no transformations required
-      a(href='/for-data-scientists/')
-        | For Data Scientists
-        span Wrangle, refine, analyze, and predict, all in one unified visual tool
-      .clear-left
-  #copyrights
-    .holder
+        #precog-logo
+        #social-icons
+          a(href='https://twitter.com/Precog')
+            i.icon-twitter-sign
+          a(href='https://www.facebook.com/precogplatform')
+            i.icon-facebook-sign
+          a(href='http://www.linkedin.com/company/precog')
+            i.icon-linkedin-sign
+        #body-content
+          .two-columns
+            h1
+              | The world's most advanced analytics engine for NoSQL data is now 100% open source!
+            p Modern APIs and apps don't speak in flat, tabular data. They speak JSON.
+            p
+              | Precog is the analytics engine that natively handles JSON. It's easy for developers to integrate and comes with a high-level tool called Labcoat that lets data scientists and analysts deeply analyze their data.
+          .two-columns-end
+            h2 Fork from Github
+            p Precog is 100% open source. Download the code and built it to get started today!
+            a.red-background.button(href='http://github.com/precog/platform%5D') Github
+            h2 Read Documentation
+            a.red-background.button(href='http://www.precog.com/developers/getting-started/overview/') Dev Center
+          #precog-zombie
+            p brains
+            #zombie-arm
+          .clear
+          ul#main-bullets
+            li
+              h2 JSON Certified
+              p
+                | Precog can store any kind of JSON data, from primitive values, to records, to complex, large documents with lots of nested objects and arrays.
+            li
+              h2 No Schema
+              p
+                | Precog does not impose any schema on your data. Every value you store in Precog can be different from every other value.
+            li
+              h2 Developer-Friendly
+              p
+                | APIs for everything, including ingest, queries, and security (accounts and API keys); and client libraries for all common languages.
+            li
+              h2 Analyst-Friendly
+              p
+                | Build queries on your JSON data with Labcoat (a visual query builder). Do everything from data munging to analytics and machine learning.
+            .clear
+    footer
       p Copyright @ 2012-2013 ReportGrid, Inc. All Rights Reserved
