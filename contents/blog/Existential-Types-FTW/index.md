@@ -28,15 +28,14 @@ trait AuthComponent extends StorageComponent {
     retrieveUser(id) map { _.hash == hash } getOrElse false
 }
 </pre>
-<p>And so on, and so onÉ  This sort of thing ensures that you can never even get an instance of a component without ensuring that all of its dependencies are met.</p>
+<p>And so on, and so onï¿½  This sort of thing ensures that you can never even get an instance of a component without ensuring that all of its dependencies are met.</p>
 <p>There are a number of problems with this pattern though, problems which become apparent when you try to apply it on a large scale.  The very first thing we discovered is that we needed to abstract not only over implementation, but also type.  This leads us to a pattern much more like the following:</p>
 <pre>
   trait StorageCompopnent {
-  type User <: UserLike
+  type User &lt;: UserLike
 
   def storeUser(user: User)
   def retrieveUser(id: Int): Option[User]
-
 
   trait UserLike {
     def id: Int
@@ -63,7 +62,7 @@ trait ConfigComponent {
 }
 
 trait MySQLStorageComponent extends StorageComponent with ConfigComponent {
-  type Config <: MySQLConfig
+  type Config &lt;: MySQLConfig
 
   override def storeUser(user: User) { ... }
   override def retrieveUser(id: Int): Option[User] = ...
